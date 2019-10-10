@@ -3,7 +3,7 @@
 ''' </summary>
 Public Class Main
   Private datamng As DataManager
-  Private transformer As WordTransformer
+  Private WithEvents transformer As WordTransformer
   Private exporter As Exporter
   ''' <summary>
   ''' Initializes components
@@ -21,7 +21,10 @@ Public Class Main
   ''' <param name="e"></param>
   Private Sub CollectData(sender As Object, e As EventArgs) Handles gather.Click
     datamng = New DataManager
-    datamng.CollectData(TabPage1.Controls)
+    For Each tabpage As TabPage In TabControl1.Controls
+      datamng.CollectData(tabpage.Controls)
+    Next
+
     datamng.PrintData()
 
     transformer = New WordTransformer
@@ -38,6 +41,9 @@ Public Class Main
     exporter.Open("bjk.docx")
     exporter.LoadData(transformer.GetContent)
   End Sub
+  Private Sub FieldMissing(ByVal fieldname As String) Handles transformer.FieldMissing
+    'MsgBox("Hiányzó adat: " + fieldname)
+  End Sub
   ''' <summary>
   ''' Enables textbox associated to this control
   ''' </summary>
@@ -46,8 +52,10 @@ Public Class Main
   Private Sub AscitesCheck(sender As Object, e As EventArgs) Handles ascites.CheckedChanged
     If ascites.Checked = True Then
       asc_liter.Enabled = True
+      asc_l.Enabled = True
     Else
       asc_liter.Enabled = False
+      asc_l.Enabled = False
     End If
   End Sub
   ''' <summary>
@@ -58,12 +66,14 @@ Public Class Main
   Private Sub PacemakerCheck(sender As Object, e As EventArgs) Handles pacemaker.CheckedChanged
     If pacemaker.Checked = True Then
       pacemaker_serial.Enabled = True
+      pacemaker_id.Enabled = True
     Else
       pacemaker_serial.Enabled = False
+      pacemaker_id.Enabled = False
     End If
   End Sub
 
-  Private Sub NextTab(sender As Object, e As EventArgs) Handles Next1.Click
+  Private Sub NextTab(sender As Object, e As EventArgs) Handles Next1.Click, Button1.Click
 
     Dim btn As Button
     btn = TryCast(sender, Button)
@@ -71,4 +81,6 @@ Public Class Main
     TabControl1.SelectedIndex = btn.Parent.TabIndex + 1
 
   End Sub
+
+
 End Class
