@@ -22,6 +22,10 @@ Public Class WordTransformer
       Console.WriteLine(row.Key.ToString + " " + row.Value.ToString)
     Next
   End Sub
+  ''' <summary>
+  ''' Adds a new diagnose to the diagnoses
+  ''' </summary>
+  ''' <param name="diag"></param>
   Private Sub AddToDiag(ByVal diag As String)
     If content.ContainsKey("diag") Then
       content.Item("diag") += ", " + diag
@@ -37,9 +41,10 @@ Public Class WordTransformer
     content = New Dictionary(Of String, String)
     ApplyRulesGeneral(data)
     ApplyRulesBrain(data)
+    ApplyRulesHeart(data)
   End Sub
   ''' <summary>
-  ''' General parts
+  ''' Applies rules (general parts)
   ''' </summary>
   ''' <param name="data"></param>
   Private Sub ApplyRulesGeneral(data As Dictionary(Of String, String))
@@ -84,7 +89,7 @@ Public Class WordTransformer
       content.Add(key, "A ")
 
       If data.ContainsKey("decub_sacralis") Then
-        content.Item(key) += "keresztcsont teruleteben, "
+        content.Item(key) += "keresztcsont területében, "
         AddToDiag("Decubitus sacralis.")
       End If
 
@@ -107,7 +112,7 @@ Public Class WordTransformer
       If length > 2 Then
         content.Item(key) = content.Item(key).Remove(length - 2, 1)
       End If
-      content.Item(key) += data.Item(key).ToString + " cm nagysagu felfekveses fekely lathato."
+      content.Item(key) += data.Item(key).ToString + " cm nagyságú felfekvéses fekély látható. "
     End If
 
     '##########################################################################
@@ -196,6 +201,10 @@ Public Class WordTransformer
     End If
 
   End Sub
+  ''' <summary>
+  ''' Applies rules regarding the brain
+  ''' </summary>
+  ''' <param name="data"></param>
   Private Sub ApplyRulesBrain(data As Dictionary(Of String, String))
 
     Dim key As String
@@ -307,8 +316,70 @@ Public Class WordTransformer
       content.Add("agy_elvaltozas", "A " + lebeny + meret + elv + "figyelhető meg. ")
       AddToDiag(diag_elv + diag_lebeny)
 
-      End If
+    End If
+  End Sub
+  ''' <summary>
+  ''' Applies rules regarding the heart
+  ''' </summary>
+  ''' <param name="data"></param>
+  Private Sub ApplyRulesHeart(data As Dictionary(Of String, String))
+    Dim key As String
 
+    '##########################################################################
+    key = "sziv_allapot"
+
+    Dim jobb_kamra As String = ""
+    Dim bal_kamra As String = ""
+    Dim text As String = ""
+
+    If data.ContainsKey("jobb_kamra") Then
+      jobb_kamra = data.Item("jobb_kamra").ToString
+    Else
+      RaiseEvent FieldMissing("jobb kamra vastagság")
+      'Exit Sub
+    End If
+
+    If data.ContainsKey("bal_kamra") Then
+      bal_kamra = data.Item("bal_kamra").ToString
+    Else
+      RaiseEvent FieldMissing("bal kamra vastagság")
+      'Exit Sub
+    End If
+
+    If data.ContainsKey(key) Then
+
+      Select Case data.Item(key)
+        Case "konc"
+          text = "A szív megnagyobbodott. A körkörösen túltengett bal kamra fala "
+          text += bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
+          AddToDiag("Hypertrophia concentrica ventriculi sinistri cordis.")
+
+        Case "tagult"
+          text = "A szív megnagyobbodott. A tágult, túltengett bal kamra fala "
+          text += bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
+          AddToDiag("Hypertrophia dilatativa ventriculi sinsitri cordis.")
+
+        Case "cor_pulm"
+          text = "A bal kamra fala " + bal_kamra + " mm, a tágult, túltengett jobb kamra fala " + jobb_kamra + " mm vastag. "
+          AddToDiag("Cor pulmonale chronicum.")
+
+        Case "dcm"
+          text = "A szív kifejezetten megnagyobbodott. A bal kamra fala "
+          text += bal_kamra + " mm, a jobb kamra fala " + jobb_kamra
+          text += " mm vastag, a kamrák fala elvékonyodott, lumenük extrém mértékben tágult. "
+          AddToDiag("Cardiomyopathia dilatativa.")
+
+        Case "iszb"
+          text = "A bal kamra fala " + bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
+          content.Add("iszb", ", metszéslapján szürkésfehér rajzolat mutatkozik")
+          AddToDiag("Cardyomyopathia ischaemica chronica.")
+
+      End Select
+      content.Add("sziv_allapot", text)
+    Else
+      text = "A bal kamra fala " + bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
+      content.Add("sziv_allapot", text)
+    End If
 
   End Sub
 End Class
