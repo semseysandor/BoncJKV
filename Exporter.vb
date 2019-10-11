@@ -1,4 +1,5 @@
 ﻿Imports Microsoft.Office.Interop
+Imports System.IO.Path
 ''' <summary>
 ''' Exports content to Word document
 ''' </summary>
@@ -17,7 +18,7 @@ Public Class Exporter
 
     Dim path As String
 
-    path = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + file
+    path = Application.StartupPath + DirectorySeparatorChar + file
 
     WordDoc = Wordapp.Documents.Open(path.ToString)
     Wordapp.Visible = True
@@ -41,6 +42,13 @@ Public Class Exporter
       End Try
 
     Next
+
+  End Sub
+  Public Sub SaveAs(ByVal filename As String)
+
+    filename = Application.StartupPath + DirectorySeparatorChar + filename
+
+    WordDoc.SaveAs2(filename.ToString)
 
   End Sub
 End Class

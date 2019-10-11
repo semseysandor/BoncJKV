@@ -11,7 +11,7 @@ Public Class Main
   ''' <param name="sender"></param>
   ''' <param name="e"></param>
   Private Sub Loader(sender As Object, e As EventArgs) Handles MyBase.Load
-    datum.Text = Now.ToShortDateString
+    datum.Text = Now.ToString("yyyy-MM-dd")
     nev.Select()
   End Sub
   ''' <summary>
@@ -39,9 +39,11 @@ Public Class Main
   ''' <param name="sender"></param>
   ''' <param name="e"></param>
   Private Sub ExportWord(sender As Object, e As EventArgs) Handles export.Click
+
     exporter = New Exporter
     exporter.Open("bjk.docx")
     exporter.LoadData(transformer.GetContent)
+    exporter.SaveAs(nev.Text + "_" + datum.Text + "_bjk.docx")
   End Sub
   ''' <summary>
   ''' UI action when a required field is missing
@@ -84,7 +86,7 @@ Public Class Main
 
     TabControl1.SelectedIndex = 0
 
-    datum.Text = Now.ToShortDateString
+    datum.Text = Now.ToString("yyyy-MM-dd")
 
     nev.ResetText()
     nev.Select()
