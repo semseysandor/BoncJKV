@@ -44,6 +44,10 @@ Public Class Exporter
     Next
 
   End Sub
+  ''' <summary>
+  ''' Saves word doc as...
+  ''' </summary>
+  ''' <param name="filename"></param>
   Public Sub SaveAs(ByVal filename As String)
 
     filename = Application.StartupPath + DirectorySeparatorChar + filename
