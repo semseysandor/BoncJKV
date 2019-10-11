@@ -37,21 +37,21 @@ Public Class DataManager
       If TypeOf ctrl Is TextBox Then
 
         textbox = TryCast(ctrl, TextBox)
-        If textbox.Text <> "" Then
-          data.Add(ctrl.Tag.ToString, ctrl.Text)
+        If textbox.Text <> "" AndAlso textbox.Enabled Then
+          data.Add(textbox.Tag.ToString, textbox.Text)
         End If
 
       ElseIf TypeOf ctrl Is CheckBox Then
 
         chbox = TryCast(ctrl, CheckBox)
-        If chbox.Checked = True Then
+        If chbox.Checked AndAlso chbox.Enabled Then
           data.Add(chbox.Tag.ToString, "TRUE")
         End If
 
       ElseIf TypeOf ctrl Is RadioButton Then
 
         radio = TryCast(ctrl, RadioButton)
-        If radio.Checked = True Then
+        If radio.Checked AndAlso radio.Enabled Then
           data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
         End If
 

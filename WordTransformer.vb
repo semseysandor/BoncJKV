@@ -3,8 +3,10 @@
 ''' </summary>
 Public Class WordTransformer
   Private content As Dictionary(Of String, String)
+  Private Property AbortOnMissing As Boolean
   Public Event FieldMissing(ByVal fieldname As String)
-  Public Sub New()
+  Public Sub New(ByVal abort As Boolean)
+    AbortOnMissing = abort
   End Sub
   ''' <summary>
   ''' Returns exportable content
@@ -17,31 +19,39 @@ Public Class WordTransformer
   ''' Prints content to the console
   ''' </summary>
   Public Sub PrintContent()
+
     Console.WriteLine("Content DATA *******************************")
+
     For Each row As KeyValuePair(Of String, String) In content
       Console.WriteLine(row.Key.ToString + " " + row.Value.ToString)
     Next
+
   End Sub
   ''' <summary>
   ''' Adds a new diagnose to the diagnoses
   ''' </summary>
   ''' <param name="diag"></param>
   Private Sub AddToDiag(ByVal diag As String)
+
     If content.ContainsKey("diag") Then
       content.Item("diag") += ", " + diag
     Else
       content.Add("diag", diag)
     End If
+
   End Sub
   ''' <summary>
   ''' Applies business rules to transform data
   ''' </summary>
   ''' <param name="data"></param>
   Public Sub ApplyRules(data As Dictionary(Of String, String))
+
     content = New Dictionary(Of String, String)
+
     ApplyRulesGeneral(data)
     ApplyRulesBrain(data)
     ApplyRulesHeart(data)
+
   End Sub
   ''' <summary>
   ''' Applies rules (general parts)
@@ -53,34 +63,54 @@ Public Class WordTransformer
 
     '##########################################################################
     For Each key In {"hossz", "haj", "kor", "agy", "sziv", "tudo", "maj", "lep", "vese", "fog", "zsir"}
+
       If data.ContainsKey(key) Then
+
         content.Add(key, data.Item(key))
       Else
+
         RaiseEvent FieldMissing(key)
-        'Exit Sub
+        If AbortOnMissing Then
+          Exit Sub
+        End If
+
       End If
+
     Next
 
     '##########################################################################
     key = "nem"
     If data.ContainsKey(key) Then
+
       content.Add("nem_1", data.Item(key))
       content.Add("nem_2", data.Item(key))
+
     Else
+
       RaiseEvent FieldMissing(key)
-      'Exit Sub
+      If AbortOnMissing Then
+        Exit Sub
+      End If
+
     End If
 
     '##########################################################################
     key = "test"
     If data.ContainsKey(key) Then
+
       content.Add(key, data.Item(key))
+
       If data.Item(key) = "cachexiás" Then
         AddToDiag("Cachexia.")
       End If
+
     Else
+
       RaiseEvent FieldMissing(key)
-      'Exit Sub
+      If AbortOnMissing Then
+        Exit Sub
+      End If
+
     End If
 
     '##########################################################################
@@ -112,7 +142,9 @@ Public Class WordTransformer
       If length > 2 Then
         content.Item(key) = content.Item(key).Remove(length - 2, 1)
       End If
+
       content.Item(key) += data.Item(key).ToString + " cm nagyságú felfekvéses fekély látható. "
+
     End If
 
     '##########################################################################
@@ -146,6 +178,7 @@ Public Class WordTransformer
           AddToDiag("Status post amputationem cruris l. u.")
 
       End Select
+
     End If
 
     '##########################################################################
@@ -168,14 +201,21 @@ Public Class WordTransformer
     '##########################################################################
     key = "ascites"
     If data.ContainsKey(key) Then
+
       content.Add("ascites", "A hasüregben ")
+
       If data.ContainsKey("asc_liter") Then
+
         content.Item("ascites") += data.Item("asc_liter").ToString + " liter szalmasárga folyadék található. "
         AddToDiag("Ascites.")
       Else
+
         RaiseEvent FieldMissing("Ascites liter")
-        'Exit Sub
+        If AbortOnMissing Then
+          Exit Sub
+        End If
       End If
+
     End If
 
     '##########################################################################
@@ -189,15 +229,21 @@ Public Class WordTransformer
     '##########################################################################
     key = "pacemaker"
     If data.ContainsKey(key) Then
+
       content.Add("pacemaker_kul", "Bal oldalon infraclavicularisan pacemaker telep található. ")
       content.Add("pacemaker_nyaki", "A jobb szívfélben pacemaker elektróda azonosítható. ")
 
       If data.ContainsKey("pacemaker_serial") Then
         AddToDiag("Pacemaker. (" + data.Item("pacemaker_serial").ToString + ")")
       Else
+
         RaiseEvent FieldMissing("pacemaker sorozatszám")
-        'Exit Sub
+        If AbortOnMissing Then
+          Exit Sub
+        End If
+
       End If
+
     End If
 
   End Sub
@@ -223,9 +269,13 @@ Public Class WordTransformer
           content.Add("agy_2", "Az agytörzs és a kisagy eltérés nélkül.")
           AddToDiag("Oedema cerebri.")
       End Select
+
     Else
+
       RaiseEvent FieldMissing("agy állapota")
-      'Exit Sub
+      If AbortOnMissing Then
+        Exit Sub
+      End If
 
     End If
 
@@ -323,32 +373,43 @@ Public Class WordTransformer
   ''' </summary>
   ''' <param name="data"></param>
   Private Sub ApplyRulesHeart(data As Dictionary(Of String, String))
+
     Dim key As String
+    Dim text As String = ""
 
     '##########################################################################
     key = "sziv_allapot"
 
     Dim jobb_kamra As String = ""
-    Dim bal_kamra As String = ""
-    Dim text As String = ""
-
     If data.ContainsKey("jobb_kamra") Then
       jobb_kamra = data.Item("jobb_kamra").ToString
+
     Else
+
       RaiseEvent FieldMissing("jobb kamra vastagság")
-      'Exit Sub
+      If AbortOnMissing Then
+        Exit Sub
+      End If
+
     End If
 
+    Dim bal_kamra As String = ""
     If data.ContainsKey("bal_kamra") Then
       bal_kamra = data.Item("bal_kamra").ToString
+
     Else
+
       RaiseEvent FieldMissing("bal kamra vastagság")
-      'Exit Sub
+      If AbortOnMissing Then
+        Exit Sub
+      End If
+
     End If
 
     If data.ContainsKey(key) Then
 
       Select Case data.Item(key)
+
         Case "konc"
           text = "A szív megnagyobbodott. A körkörösen túltengett bal kamra fala "
           text += bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
@@ -375,10 +436,224 @@ Public Class WordTransformer
           AddToDiag("Cardyomyopathia ischaemica chronica.")
 
       End Select
+
       content.Add("sziv_allapot", text)
+
     Else
+
       text = "A bal kamra fala " + bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
       content.Add("sziv_allapot", text)
+
+    End If
+
+    '##########################################################################
+    key = "koszoru_kp"
+    If data.ContainsKey(key) Then
+      content.Add("koszoru_allapot", ", scleroticusak")
+    End If
+
+    '##########################################################################
+    key = "koszoru_sulyos"
+    If data.ContainsKey(key) Then
+
+      If content.ContainsKey("koszoru_allapot") Then
+        content.Item("koszoru_allapot") += ", súlyosan meszesek, lumenük szűkületet mutat"
+      Else
+        content.Add("koszoru_allapot", ", súlyosan meszesek, lumenük szűkületet mutat")
+      End If
+
+    End If
+
+    '##########################################################################
+    key = "koszoru_szuk"
+    If data.ContainsKey(key) Then
+      content.Add(key, "A ")
+
+      If data.ContainsKey("koszoru_jobbAC") Then
+        content.Item(key) += "jobb koszorúverőérben"
+      End If
+
+      If data.ContainsKey("koszoru_lad") Then
+
+        If Not content.Item(key).EndsWith(" ") Then
+          content.Item(key) += ", "
+        End If
+
+        content.Item(key) += "bal koszorúverőér elülső leszálló ágában"
+
+      End If
+
+      If data.ContainsKey("koszoru_cx") Then
+
+        If Not content.Item(key).EndsWith(" ") Then
+          content.Item(key) += ", "
+        End If
+
+        content.Item(key) += "bal koszorúverőér körbefutó ágában"
+
+      End If
+
+      content.Item(key) += " " + data.Item(key).ToString + " %-os lumenszűkület figyelhető meg. "
+
+    End If
+
+    '##########################################################################
+    key = "stent"
+    If data.ContainsKey(key) Then
+
+      text = ""
+
+      content.Add(key, "A ")
+
+      If data.ContainsKey("stent_jobbAC") Then
+        content.Item(key) += "jobb koszorúverőérben"
+        text += "arteriae coronariae dextri cordis"
+      End If
+
+      If data.ContainsKey("stent_lad") Then
+
+        If Not content.Item(key).EndsWith(" ") Then
+          content.Item(key) += ", "
+          text += ", "
+        End If
+
+        content.Item(key) += "bal koszorúverőér elülső leszálló ágában"
+        text += "rami interventricularis anterioris arteriae coronariae sinistri cordis"
+
+      End If
+
+      If data.ContainsKey("stent_cx") Then
+
+        If Not content.Item(key).EndsWith(" ") Then
+          content.Item(key) += ", "
+          text += ", "
+        End If
+
+        content.Item(key) += "bal koszorúverőér körbefutó ágában"
+        text += "rami circumflexi arteriae coronariae sinistri cordis"
+
+      End If
+
+      Select Case data.Item(key)
+
+        Case "stent"
+          content.Item(key) += " stent implantatum található. "
+          AddToDiag("Implantatum (stent) " + text + ".")
+        Case "thrombus"
+          content.Item(key) += " friss vérrögös elzáródás figyelhető meg. "
+          AddToDiag("Thrombus recens " + text + ".")
+
+      End Select
+
+    End If
+
+    '##########################################################################
+    key = "infarktus"
+    If data.ContainsKey(key) Then
+
+      text = ""
+
+      content.Add(key, "A ")
+
+      If data.ContainsKey("inf_elulso") Then
+        content.Item(key) += "bal kamra elülső falában"
+        text += "parietis anterioris ventriculi sinsitri cordis"
+      End If
+
+      If data.ContainsKey("inf_hatso") Then
+        If Not content.Item(key).EndsWith(" ") Then
+          content.Item(key) += ", "
+          text += ", "
+        End If
+
+        content.Item(key) += "bal kamra hátulsó falában"
+        text += "parietis posterioris ventriculi sinsitri cordis"
+
+      End If
+
+      If data.ContainsKey("inf_septalis") Then
+
+        If Not content.Item(key).EndsWith(" ") Then
+          content.Item(key) += ", "
+          text += ", "
+        End If
+
+        content.Item(key) += "bal kamra sövényi falában"
+        text += "parietis septalis ventriculi sinsitri cordis"
+
+      End If
+
+      If data.ContainsKey("inf_oldal") Then
+
+        If Not content.Item(key).EndsWith(" ") Then
+          content.Item(key) += ", "
+          text += ", "
+        End If
+
+        content.Item(key) += "bal kamra oldalsó falában"
+        text += "parietis lateralis ventriculi sinsitri cordis"
+
+      End If
+
+      If data.ContainsKey("inf_meret") Then
+        content.Item(key) += data.Item("inf_meret").ToString + " mm nagyságú "
+
+      Else
+
+        RaiseEvent FieldMissing("infarktus méret")
+        If AbortOnMissing Then
+          Exit Sub
+        End If
+
+      End If
+
+      Select Case data.Item(key)
+
+        Case "inf_regi"
+          content.Item(key) += "szürkésfehér színű régi szívizomelhalás figyelhető meg. "
+          AddToDiag("Infarctus obsoletus " + text + ".")
+
+        Case "inf_friss"
+          content.Item(key) += "agyagsárga színű, helyenként vörhenyes szegéllyel bíró, heveny szívizomelhalás figyelhető meg. "
+          AddToDiag("Infarctus recens " + text + ".")
+
+      End Select
+
+    End If
+
+    '##########################################################################
+    key = "bill_sten"
+    If data.ContainsKey(key) Then
+      content.Add(key, "z aortabillentyű meszes szűkületet mutat, egyebekben a")
+      AddToDiag("Stenosis calcificans ostii aortae.")
+    End If
+
+    '##########################################################################
+    key = "bill_mitralis"
+    If data.ContainsKey(key) Then
+      content.Add(key, " mitralis billentyű anulusa kifejezetten meszese, egyebekben a")
+      AddToDiag("Calcificatio ostii atrioventricularis sinistri cordis.")
+    End If
+
+    '##########################################################################
+    key = "bill_haemo"
+    If data.ContainsKey(key) Then
+
+      If data.ContainsKey("haemo_g") Then
+
+        content.Add(key, "A szívburokban ")
+        content.Item(key) += data.Item("haemo_g").ToString + " g részben alvadt vér található. "
+        AddToDiag("Haemopericardium.")
+
+      Else
+
+        RaiseEvent FieldMissing("alvadt vér mennyiség")
+        If AbortOnMissing Then
+          Exit Sub
+        End If
+
+      End If
+
     End If
 
   End Sub
