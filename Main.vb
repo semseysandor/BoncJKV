@@ -66,7 +66,7 @@ Public Class Main
   Private Sub ExportWord(sender As Object, e As EventArgs) Handles export.Click
 
     Dim datamng = New DataManager
-    Dim transformer = New WordTransformer(False)
+    transformer = New WordTransformer(False)
     Dim exporter = New WordExporter
 
     datamng.CollectData(TabControl1.Controls)
