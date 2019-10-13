@@ -37,15 +37,24 @@ Public Class WordExporter
   ''' <param name="data">Data to save</param>
   Public Sub LoadData(ByRef data As Dictionary(Of String, String))
 
-    Dim cc As Word.ContentControls
+    Dim allcc As Word.ContentControls
+    Dim cc As Word.ContentControl
 
     Try
-      For Each row As KeyValuePair(Of String, String) In data
 
-        cc = WordDoc.SelectContentControlsByTag(row.Key)
+      allcc = WordDoc.ContentControls
 
-        cc(1).Range.Text = row.Value
+      For Each cc In allcc
+
+        If data.ContainsKey(cc.Tag) Then
+          cc.Range.Text = data.Item(cc.Tag)
+          cc.Appearance = Word.WdContentControlAppearance.wdContentControlHidden
+        Else
+          cc.Delete()
+        End If
+
       Next
+
     Catch ex As Exception
       MsgBox(ex.Message)
     End Try
