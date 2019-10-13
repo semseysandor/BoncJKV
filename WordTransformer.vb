@@ -3,7 +3,15 @@
 ''' </summary>
 Public Class WordTransformer
   Private content As Dictionary(Of String, String)
+  ''' <summary>
+  ''' Whether to abort transformation if a required field is missing
+  ''' </summary>
+  ''' <returns></returns>
   Private Property AbortOnMissing As Boolean
+  ''' <summary>
+  ''' Event occurs when a field is missing
+  ''' </summary>
+  ''' <param name="fieldname"></param>
   Public Event FieldMissing(ByVal fieldname As String)
   Public Sub New(ByVal abort As Boolean)
     AbortOnMissing = abort
@@ -11,7 +19,7 @@ Public Class WordTransformer
   ''' <summary>
   ''' Returns exportable content
   ''' </summary>
-  ''' <returns></returns>
+  ''' <returns>exportable content</returns>
   Public Function GetContent() As Dictionary(Of String, String)
     Return content
   End Function
@@ -30,7 +38,7 @@ Public Class WordTransformer
   ''' <summary>
   ''' Adds a new diagnose to the diagnoses
   ''' </summary>
-  ''' <param name="diag"></param>
+  ''' <param name="diag">Diagnose to add</param>
   Private Sub AddToDiag(ByVal diag As String)
 
     If content.ContainsKey("diag") Then
@@ -43,7 +51,7 @@ Public Class WordTransformer
   ''' <summary>
   ''' Applies business rules to transform data
   ''' </summary>
-  ''' <param name="data"></param>
+  ''' <param name="data">Data form UI</param>
   Public Sub ApplyRules(data As Dictionary(Of String, String))
 
     content = New Dictionary(Of String, String)
@@ -56,7 +64,7 @@ Public Class WordTransformer
   ''' <summary>
   ''' Applies rules (general parts)
   ''' </summary>
-  ''' <param name="data"></param>
+  ''' <param name="data">Data form UI</param>
   Private Sub ApplyRulesGeneral(data As Dictionary(Of String, String))
 
     Dim key As String
@@ -250,7 +258,7 @@ Public Class WordTransformer
   ''' <summary>
   ''' Applies rules regarding the brain
   ''' </summary>
-  ''' <param name="data"></param>
+  ''' <param name="data">Data form UI</param>
   Private Sub ApplyRulesBrain(data As Dictionary(Of String, String))
 
     Dim key As String
@@ -371,7 +379,7 @@ Public Class WordTransformer
   ''' <summary>
   ''' Applies rules regarding the heart
   ''' </summary>
-  ''' <param name="data"></param>
+  ''' <param name="data">Data form UI</param>
   Private Sub ApplyRulesHeart(data As Dictionary(Of String, String))
 
     Dim key As String

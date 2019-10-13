@@ -2,35 +2,60 @@
 ''' Main UI form
 ''' </summary>
 Public Class Main
-  Private datamng As DataManager
   Private WithEvents transformer As WordTransformer
-  Private exporter As Exporter
   ''' <summary>
   ''' Initializes form
   ''' </summary>
   ''' <param name="sender"></param>
   ''' <param name="e"></param>
-  Private Sub Loader(sender As Object, e As EventArgs) Handles MyBase.Load
+  Private Sub InitUI(sender As Object, e As EventArgs) Handles MyBase.Load
     datum.Text = Now.ToString("yyyy-MM-dd")
     nev.Select()
   End Sub
   ''' <summary>
-  ''' Collects data from UI
+  ''' Save data to disk
   ''' </summary>
   ''' <param name="sender"></param>
   ''' <param name="e"></param>
-  Private Sub CollectData(sender As Object, e As EventArgs) Handles gather.Click
+  Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles saveBtn.Click
 
-    datamng = New DataManager
-    For Each tabpage As TabPage In TabControl1.Controls
-      datamng.CollectData(tabpage.Controls)
+    Dim datamng = New DataManager
+    Dim xmlexp As XMLExporter = New XMLExporter
+
+    datamng.CollectData(TabControl1.Controls)
+
+    xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
+
+  End Sub
+  ''' <summary>
+  ''' Opens load dialog
+  ''' </summary>
+  ''' <param name="sender"></param>
+  ''' <param name="e"></param>
+  Private Sub Loading(sender As Object, e As EventArgs) Handles loadButton.Click
+
+    Dim xml As XMLExporter = New XMLExporter()
+
+    LoadForm.Show()
+
+    For Each row As KeyValuePair(Of String, String) In xml.LoadPatients
+      LoadForm.saved.Items.Add(row.Value + " " + row.Key)
     Next
 
-    datamng.PrintData()
+  End Sub
+  ''' <summary>
+  ''' Loads data from disk
+  ''' </summary>
+  ''' <param name="name">Patient name</param>
+  ''' <param name="datte">Patient date</param>
+  Public Sub LoadDataUI(ByVal name As String, ByVal datte As String)
 
-    transformer = New WordTransformer(False)
-    transformer.ApplyRules(datamng.GetData)
-    transformer.PrintContent()
+    Dim datamng As DataManager = New DataManager
+    Dim xml As XMLExporter = New XMLExporter
+
+    nev.Text = name
+    datum.Text = datte
+    datamng.LoadData(TabControl1.Controls, xml.LoadPatientData(name, datte))
 
   End Sub
   ''' <summary>
@@ -40,16 +65,26 @@ Public Class Main
   ''' <param name="e"></param>
   Private Sub ExportWord(sender As Object, e As EventArgs) Handles export.Click
 
-    exporter = New Exporter
+    Dim datamng = New DataManager
+    Dim transformer = New WordTransformer(False)
+    Dim exporter = New WordExporter
+
+    datamng.CollectData(TabControl1.Controls)
+
+    transformer.ApplyRules(datamng.GetData)
+
     exporter.Open("bjk.docx")
     exporter.LoadData(transformer.GetContent)
     exporter.SaveAs(nev.Text + "_" + datum.Text + "_bjk.docx")
+
   End Sub
+
   ''' <summary>
   ''' UI action when a required field is missing
   ''' </summary>
-  ''' <param name="fieldname"></param>
+  ''' <param name="fieldname">Missing field name</param>
   Private Sub FieldMissing(ByVal fieldname As String) Handles transformer.FieldMissing
+    Console.WriteLine(fieldname)
     'MsgBox("Hiányzó adat: " + fieldname)
   End Sub
   ''' <summary>
@@ -95,27 +130,25 @@ Public Class Main
   ''' <summary>
   ''' Reset controls in a collection recursively
   ''' </summary>
-  ''' <param name="ctrcoll"></param>
+  ''' <param name="ctrcoll">Reset controls in collection</param>
   Private Sub ResetControls(ctrcoll As Control.ControlCollection)
 
     For Each ctrl As Control In ctrcoll
 
-      If TypeOf ctrl Is TextBox Then
-        TryCast(ctrl, TextBox).Text = ""
+      Select Case ctrl.GetType
+        Case GetType(TextBox)
+          TryCast(ctrl, TextBox).ResetText()
 
-      ElseIf TypeOf ctrl Is CheckBox Then
-        TryCast(ctrl, CheckBox).Checked = False
+        Case GetType(CheckBox)
+          TryCast(ctrl, CheckBox).Checked = False
 
-      ElseIf TypeOf ctrl Is RadioButton Then
-        TryCast(ctrl, RadioButton).Checked = False
+        Case GetType(RadioButton)
+          TryCast(ctrl, RadioButton).Checked = False
 
-      ElseIf TypeOf ctrl Is GroupBox Then
-        ResetControls(ctrl.Controls)
+        Case GetType(GroupBox), GetType(TabPage)
+          ResetControls(ctrl.Controls)
 
-      ElseIf TypeOf ctrl Is TabPage Then
-        ResetControls(ctrl.Controls)
-
-      End If
+      End Select
 
     Next
   End Sub
@@ -153,7 +186,6 @@ Public Class Main
   ''' <param name="sender"></param>
   ''' <param name="e"></param>
   Private Sub EnableKoszoru(sender As Object, e As EventArgs) Handles koszoru_szuk.TextChanged
-
     If koszoru_szuk.Text <> "" Then
 
       koszoru_jobbAC.Enabled = True
@@ -167,7 +199,6 @@ Public Class Main
       koszoru_cx.Enabled = False
 
     End If
-
   End Sub
   ''' <summary>
   ''' Enables checkbox associated to this control
@@ -231,4 +262,6 @@ Public Class Main
     End If
 
   End Sub
+
+
 End Class

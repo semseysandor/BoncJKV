@@ -9,7 +9,7 @@ Public Class DataManager
   ''' <summary>
   ''' Returns data
   ''' </summary>
-  ''' <returns></returns>
+  ''' <returns>data</returns>
   Public Function GetData() As Dictionary(Of String, String)
     Return data
   End Function
@@ -25,42 +25,90 @@ Public Class DataManager
   ''' <summary>
   ''' Collects data from UI and puts in the dictionary
   ''' </summary>
-  ''' <param name="coll"></param>
-  Public Sub CollectData(ByRef coll As Control.ControlCollection)
+  ''' <param name="root">Control collection to scan</param>
+  Public Sub CollectData(ByRef root As Control.ControlCollection)
 
     Dim textbox As TextBox
     Dim chbox As CheckBox
     Dim radio As RadioButton
 
-    For Each ctrl As Control In coll
+    For Each ctrl As Control In root
 
-      If TypeOf ctrl Is TextBox Then
+      Select Case ctrl.GetType
 
-        textbox = TryCast(ctrl, TextBox)
-        If textbox.Text <> "" AndAlso textbox.Enabled Then
-          data.Add(textbox.Tag.ToString, textbox.Text)
-        End If
+        Case GetType(TextBox)
 
-      ElseIf TypeOf ctrl Is CheckBox Then
+          textbox = TryCast(ctrl, TextBox)
+          If textbox.Text <> "" AndAlso textbox.Enabled Then
+            data.Add(textbox.Tag.ToString, textbox.Text)
+          End If
 
-        chbox = TryCast(ctrl, CheckBox)
-        If chbox.Checked AndAlso chbox.Enabled Then
-          data.Add(chbox.Tag.ToString, "TRUE")
-        End If
+        Case GetType(CheckBox)
 
-      ElseIf TypeOf ctrl Is RadioButton Then
+          chbox = TryCast(ctrl, CheckBox)
+          If chbox.Checked AndAlso chbox.Enabled Then
+            data.Add(chbox.Tag.ToString, "TRUE")
+          End If
 
-        radio = TryCast(ctrl, RadioButton)
-        If radio.Checked AndAlso radio.Enabled Then
-          data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
-        End If
+        Case GetType(RadioButton)
 
-      ElseIf TypeOf ctrl Is GroupBox Then
+          radio = TryCast(ctrl, RadioButton)
+          If radio.Checked AndAlso radio.Enabled Then
+            data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
+          End If
 
-        CollectData(ctrl.Controls)
+        Case GetType(GroupBox), GetType(TabPage)
+          CollectData(ctrl.Controls)
 
-      End If
+      End Select
 
     Next
+  End Sub
+  ''' <summary>
+  ''' Loads data to the UI
+  ''' </summary>
+  ''' <param name="root">Control collection to load data to</param>
+  ''' <param name="load">Actual data</param>
+  Public Sub LoadData(ByRef root As Control.ControlCollection, ByRef load As Dictionary(Of String, String))
+
+    Dim textbox As TextBox
+    Dim chbox As CheckBox
+    Dim radio As RadioButton
+
+    For Each ctrl As Control In root
+
+      Select Case ctrl.GetType
+
+        Case GetType(TextBox)
+
+          textbox = TryCast(ctrl, TextBox)
+          If load.ContainsKey(textbox.Tag.ToString) Then
+            textbox.Text = load.Item(textbox.Tag.ToString)
+          End If
+
+        Case GetType(CheckBox)
+
+          chbox = TryCast(ctrl, CheckBox)
+          If load.ContainsKey(chbox.Tag.ToString) Then
+            chbox.Checked = True
+            chbox.Enabled = True
+          End If
+
+        Case GetType(RadioButton)
+
+          radio = TryCast(ctrl, RadioButton)
+          If load.ContainsKey(radio.Parent.Tag.ToString) Then
+            radio.Checked = True
+            radio.Enabled = True
+          End If
+
+        Case GetType(GroupBox), GetType(TabPage)
+
+          LoadData(ctrl.Controls, load)
+
+      End Select
+
+    Next
+
   End Sub
 End Class

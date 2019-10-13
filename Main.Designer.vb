@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
   Inherits System.Windows.Forms.Form
 
   'Form overrides dispose to clean up the component list.
-  <System.Diagnostics.DebuggerNonUserCode()> _
+  <System.Diagnostics.DebuggerNonUserCode()>
   Protected Overrides Sub Dispose(ByVal disposing As Boolean)
     Try
       If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class Main
   'NOTE: The following procedure is required by the Windows Form Designer
   'It can be modified using the Windows Form Designer.  
   'Do not modify it using the code editor.
-  <System.Diagnostics.DebuggerStepThrough()> _
+  <System.Diagnostics.DebuggerStepThrough()>
   Private Sub InitializeComponent()
+    Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
     Me.TabControl1 = New System.Windows.Forms.TabControl()
     Me.TabPage1 = New System.Windows.Forms.TabPage()
     Me.GroupBox14 = New System.Windows.Forms.GroupBox()
@@ -118,11 +119,15 @@ Partial Class Main
     Me.RadioButton21 = New System.Windows.Forms.RadioButton()
     Me.RadioButton22 = New System.Windows.Forms.RadioButton()
     Me.TabPage3 = New System.Windows.Forms.TabPage()
+    Me.Next3 = New System.Windows.Forms.Button()
     Me.GroupBox20 = New System.Windows.Forms.GroupBox()
+    Me.Label20 = New System.Windows.Forms.Label()
+    Me.haemo_g = New System.Windows.Forms.TextBox()
     Me.bill_haemo = New System.Windows.Forms.CheckBox()
     Me.CheckBox12 = New System.Windows.Forms.CheckBox()
     Me.CheckBox13 = New System.Windows.Forms.CheckBox()
     Me.GroupBox19 = New System.Windows.Forms.GroupBox()
+    Me.Button1 = New System.Windows.Forms.Button()
     Me.Label19 = New System.Windows.Forms.Label()
     Me.inf_meret = New System.Windows.Forms.TextBox()
     Me.inf_oldal = New System.Windows.Forms.CheckBox()
@@ -132,6 +137,7 @@ Partial Class Main
     Me.inf_hatso = New System.Windows.Forms.CheckBox()
     Me.inf_septalis = New System.Windows.Forms.CheckBox()
     Me.GroupBox18 = New System.Windows.Forms.GroupBox()
+    Me.Button7 = New System.Windows.Forms.Button()
     Me.thrombus = New System.Windows.Forms.RadioButton()
     Me.stent = New System.Windows.Forms.RadioButton()
     Me.stent_jobbAC = New System.Windows.Forms.CheckBox()
@@ -160,18 +166,14 @@ Partial Class Main
     Me.RadioButton28 = New System.Windows.Forms.RadioButton()
     Me.RadioButton29 = New System.Windows.Forms.RadioButton()
     Me.TabPage4 = New System.Windows.Forms.TabPage()
-    Me.gather = New System.Windows.Forms.Button()
+    Me.saveBtn = New System.Windows.Forms.Button()
     Me.export = New System.Windows.Forms.Button()
     Me.reset = New System.Windows.Forms.Button()
-    Me.haemo_g = New System.Windows.Forms.TextBox()
-    Me.Label20 = New System.Windows.Forms.Label()
-    Me.Button1 = New System.Windows.Forms.Button()
-    Me.Button7 = New System.Windows.Forms.Button()
-    Me.Next3 = New System.Windows.Forms.Button()
     Me.Label21 = New System.Windows.Forms.Label()
     Me.nev = New System.Windows.Forms.TextBox()
     Me.datum = New System.Windows.Forms.TextBox()
     Me.Label22 = New System.Windows.Forms.Label()
+    Me.loadButton = New System.Windows.Forms.Button()
     Me.TabControl1.SuspendLayout()
     Me.TabPage1.SuspendLayout()
     Me.GroupBox14.SuspendLayout()
@@ -1290,6 +1292,15 @@ Partial Class Main
     Me.TabPage3.Text = "Szív"
     Me.TabPage3.UseVisualStyleBackColor = True
     '
+    'Next3
+    '
+    Me.Next3.Location = New System.Drawing.Point(498, 468)
+    Me.Next3.Name = "Next3"
+    Me.Next3.Size = New System.Drawing.Size(88, 45)
+    Me.Next3.TabIndex = 29
+    Me.Next3.Text = "Következő"
+    Me.Next3.UseVisualStyleBackColor = True
+    '
     'GroupBox20
     '
     Me.GroupBox20.Controls.Add(Me.Label20)
@@ -1304,6 +1315,24 @@ Partial Class Main
     Me.GroupBox20.TabStop = False
     Me.GroupBox20.Tag = ""
     Me.GroupBox20.Text = "Billentyűk"
+    '
+    'Label20
+    '
+    Me.Label20.AutoSize = True
+    Me.Label20.Location = New System.Drawing.Point(107, 107)
+    Me.Label20.Name = "Label20"
+    Me.Label20.Size = New System.Drawing.Size(16, 17)
+    Me.Label20.TabIndex = 10
+    Me.Label20.Text = "g"
+    '
+    'haemo_g
+    '
+    Me.haemo_g.Enabled = False
+    Me.haemo_g.Location = New System.Drawing.Point(49, 102)
+    Me.haemo_g.Name = "haemo_g"
+    Me.haemo_g.Size = New System.Drawing.Size(52, 22)
+    Me.haemo_g.TabIndex = 28
+    Me.haemo_g.Tag = "haemo_g"
     '
     'bill_haemo
     '
@@ -1356,6 +1385,16 @@ Partial Class Main
     Me.GroupBox19.TabStop = False
     Me.GroupBox19.Tag = "infarktus"
     Me.GroupBox19.Text = "Infarktus"
+    '
+    'Button1
+    '
+    Me.Button1.Location = New System.Drawing.Point(191, 16)
+    Me.Button1.Name = "Button1"
+    Me.Button1.Size = New System.Drawing.Size(29, 31)
+    Me.Button1.TabIndex = 15
+    Me.Button1.TabStop = False
+    Me.Button1.Text = "X"
+    Me.Button1.UseVisualStyleBackColor = True
     '
     'Label19
     '
@@ -1461,6 +1500,16 @@ Partial Class Main
     Me.GroupBox18.TabIndex = 3
     Me.GroupBox18.TabStop = False
     Me.GroupBox18.Tag = "stent"
+    '
+    'Button7
+    '
+    Me.Button7.Location = New System.Drawing.Point(119, 17)
+    Me.Button7.Name = "Button7"
+    Me.Button7.Size = New System.Drawing.Size(29, 31)
+    Me.Button7.TabIndex = 16
+    Me.Button7.TabStop = False
+    Me.Button7.Text = "X"
+    Me.Button7.UseVisualStyleBackColor = True
     '
     'thrombus
     '
@@ -1777,19 +1826,19 @@ Partial Class Main
     Me.TabPage4.Text = "Tüdő"
     Me.TabPage4.UseVisualStyleBackColor = True
     '
-    'gather
+    'saveBtn
     '
-    Me.gather.Location = New System.Drawing.Point(129, 12)
-    Me.gather.Name = "gather"
-    Me.gather.Size = New System.Drawing.Size(97, 37)
-    Me.gather.TabIndex = 1
-    Me.gather.TabStop = False
-    Me.gather.Text = "Mentés"
-    Me.gather.UseVisualStyleBackColor = True
+    Me.saveBtn.Location = New System.Drawing.Point(129, 12)
+    Me.saveBtn.Name = "saveBtn"
+    Me.saveBtn.Size = New System.Drawing.Size(97, 37)
+    Me.saveBtn.TabIndex = 1
+    Me.saveBtn.TabStop = False
+    Me.saveBtn.Text = "Mentés"
+    Me.saveBtn.UseVisualStyleBackColor = True
     '
     'export
     '
-    Me.export.Location = New System.Drawing.Point(232, 12)
+    Me.export.Location = New System.Drawing.Point(336, 12)
     Me.export.Name = "export"
     Me.export.Size = New System.Drawing.Size(97, 37)
     Me.export.TabIndex = 2
@@ -1806,53 +1855,6 @@ Partial Class Main
     Me.reset.TabStop = False
     Me.reset.Text = "Új"
     Me.reset.UseVisualStyleBackColor = True
-    '
-    'haemo_g
-    '
-    Me.haemo_g.Enabled = False
-    Me.haemo_g.Location = New System.Drawing.Point(49, 102)
-    Me.haemo_g.Name = "haemo_g"
-    Me.haemo_g.Size = New System.Drawing.Size(52, 22)
-    Me.haemo_g.TabIndex = 28
-    Me.haemo_g.Tag = "haemo_g"
-    '
-    'Label20
-    '
-    Me.Label20.AutoSize = True
-    Me.Label20.Location = New System.Drawing.Point(107, 107)
-    Me.Label20.Name = "Label20"
-    Me.Label20.Size = New System.Drawing.Size(16, 17)
-    Me.Label20.TabIndex = 10
-    Me.Label20.Text = "g"
-    '
-    'Button1
-    '
-    Me.Button1.Location = New System.Drawing.Point(191, 16)
-    Me.Button1.Name = "Button1"
-    Me.Button1.Size = New System.Drawing.Size(29, 31)
-    Me.Button1.TabIndex = 15
-    Me.Button1.TabStop = False
-    Me.Button1.Text = "X"
-    Me.Button1.UseVisualStyleBackColor = True
-    '
-    'Button7
-    '
-    Me.Button7.Location = New System.Drawing.Point(119, 17)
-    Me.Button7.Name = "Button7"
-    Me.Button7.Size = New System.Drawing.Size(29, 31)
-    Me.Button7.TabIndex = 16
-    Me.Button7.TabStop = False
-    Me.Button7.Text = "X"
-    Me.Button7.UseVisualStyleBackColor = True
-    '
-    'Next3
-    '
-    Me.Next3.Location = New System.Drawing.Point(498, 468)
-    Me.Next3.Name = "Next3"
-    Me.Next3.Size = New System.Drawing.Size(88, 45)
-    Me.Next3.TabIndex = 29
-    Me.Next3.Text = "Következő"
-    Me.Next3.UseVisualStyleBackColor = True
     '
     'Label21
     '
@@ -1890,19 +1892,31 @@ Partial Class Main
     Me.Label22.TabIndex = 6
     Me.Label22.Text = "Dátum"
     '
+    'loadButton
+    '
+    Me.loadButton.Location = New System.Drawing.Point(232, 12)
+    Me.loadButton.Name = "loadButton"
+    Me.loadButton.Size = New System.Drawing.Size(97, 37)
+    Me.loadButton.TabIndex = 8
+    Me.loadButton.TabStop = False
+    Me.loadButton.Text = "Betöltés"
+    Me.loadButton.UseVisualStyleBackColor = True
+    '
     'Main
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.ClientSize = New System.Drawing.Size(628, 696)
+    Me.Controls.Add(Me.loadButton)
     Me.Controls.Add(Me.datum)
     Me.Controls.Add(Me.Label22)
     Me.Controls.Add(Me.nev)
     Me.Controls.Add(Me.Label21)
     Me.Controls.Add(Me.reset)
     Me.Controls.Add(Me.export)
-    Me.Controls.Add(Me.gather)
+    Me.Controls.Add(Me.saveBtn)
     Me.Controls.Add(Me.TabControl1)
+    Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
     Me.Name = "Main"
     Me.Text = "BoncJKV"
     Me.TabControl1.ResumeLayout(False)
@@ -2018,7 +2032,7 @@ Partial Class Main
   Friend WithEvents pacemaker_serial As TextBox
   Friend WithEvents pacemaker As CheckBox
   Friend WithEvents CheckBox8 As CheckBox
-  Friend WithEvents gather As Button
+  Friend WithEvents saveBtn As Button
   Friend WithEvents GroupBox8 As GroupBox
   Friend WithEvents RadioButton21 As RadioButton
   Friend WithEvents RadioButton22 As RadioButton
@@ -2106,4 +2120,5 @@ Partial Class Main
   Friend WithEvents nev As TextBox
   Friend WithEvents datum As TextBox
   Friend WithEvents Label22 As Label
+  Friend WithEvents loadButton As Button
 End Class
