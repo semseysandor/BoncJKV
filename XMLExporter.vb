@@ -73,6 +73,8 @@ Public Class XMLExporter
     root.Add(patient)
     root.Save(Application.StartupPath + IO.Path.DirectorySeparatorChar + "saves.xml")
 
+    MsgBox("Sikeresen mentve")
+
   End Sub
   ''' <summary>
   ''' Load stored patients names and date
