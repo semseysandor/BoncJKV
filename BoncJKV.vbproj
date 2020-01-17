@@ -81,7 +81,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -111,12 +111,14 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="DataManager.vb" />
+    <Compile Include="ErrorHandling.vb" />
     <Compile Include="LoadForm.Designer.vb">
       <DependentUpon>LoadForm.vb</DependentUpon>
     </Compile>
     <Compile Include="LoadForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI.vb" />
     <Compile Include="WordExporter.vb" />
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
