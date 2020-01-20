@@ -55,7 +55,7 @@ Public Class WordTransformer
       ErrorHandling.General(ex)
     End Try
   End Sub
-  Private Function CheckProperty(ByVal key As String, ByRef data As Dictionary(Of String, String)) As Boolean
+  Private Function CheckRequired(ByVal key As String, ByRef data As Dictionary(Of String, String)) As Boolean
     If Not data.ContainsKey(key) Then
       RaiseEvent FieldMissing(key)
       Return False
@@ -67,7 +67,7 @@ Public Class WordTransformer
   ''' Applies business rules to transform data
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Public Sub ApplyRules(data As Dictionary(Of String, String))
+  Public Sub ApplyRules(ByRef data As Dictionary(Of String, String))
     content = New Dictionary(Of String, String)
 
     ApplyRulesGeneral(data)
@@ -78,54 +78,36 @@ Public Class WordTransformer
   ''' Applies rules (general parts)
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Private Sub ApplyRulesGeneral(data As Dictionary(Of String, String))
+  Private Sub ApplyRulesGeneral(ByRef data As Dictionary(Of String, String))
     Dim key As String
     Try
-      '##########################################################################
+      '########################################################################
       For Each key In {"hossz", "haj", "kor", "agy", "sziv", "tudo", "maj", "lep", "vese", "fog", "zsir"}
-        If Not CheckProperty(key, data) Then
-          If AbortOnMissing Then
-            Exit Sub
-          End If
-        End If
-        content.Add(key, data.Item(key))
-      Next
-      '##########################################################################
-      key = "nem"
-      If Not data.ContainsKey(key) Then
-
-        content.Add("nem_1", data.Item(key))
-        content.Add("nem_2", data.Item(key))
-
-      Else
-
-        RaiseEvent FieldMissing(key)
-        If AbortOnMissing Then
+        If CheckRequired(key, data) Then
+          content.Add(key, data.Item(key))
+        ElseIf AbortOnMissing Then
           Exit Sub
         End If
-
+      Next
+      '########################################################################
+      key = "nem"
+      If CheckRequired(key, data) Then
+        content.Add("nem_1", data.Item(key))
+        content.Add("nem_2", data.Item(key))
+      ElseIf AbortOnMissing Then
+        Exit Sub
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "test"
-      If data.ContainsKey(key) Then
-
+      If CheckRequired(key, data) Then
         content.Add(key, data.Item(key))
-
         If data.Item(key) = "cachexiás" Then
           AddToDiag("Cachexia.")
         End If
-
-      Else
-
-        RaiseEvent FieldMissing(key)
-        If AbortOnMissing Then
-          Exit Sub
-        End If
-
+      ElseIf AbortOnMissing Then
+        Exit Sub
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "decub"
       If data.ContainsKey(key) Then
         content.Add(key, "A ")
@@ -134,74 +116,58 @@ Public Class WordTransformer
           content.Item(key) += "keresztcsont területében, "
           AddToDiag("Decubitus sacralis.")
         End If
-
         If data.ContainsKey("decub_sarkak") Then
           content.Item(key) += "sarkakon, "
           AddToDiag("Decubitus calcanei l. u.")
         End If
-
         If data.ContainsKey("decub_jobb_sarok") Then
           content.Item(key) += "jobb sarkon, "
           AddToDiag("Decubitus calcanei dextri.")
         End If
-
         If data.ContainsKey("decub_bal_sarok") Then
           content.Item(key) += "bal sarkon, "
           AddToDiag("Decubitus calcanei sinistri.")
         End If
 
-        Dim length As Integer = content.Item(key).Length
+        Dim length = content.Item(key).Length
         If length > 2 Then
           content.Item(key) = content.Item(key).Remove(length - 2, 1)
         End If
 
         content.Item(key) += data.Item(key).ToString + " cm nagyságú felfekvéses fekély látható. "
-
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "amputacio"
       If data.ContainsKey(key) Then
-
         Select Case data.Item(key)
-
           Case "jobb_comb"
             content.Add(key, "jobb alsó végtag combszintben amputálva, egyebekben a ")
             AddToDiag("Status post amputationem femoris dextri.")
-
           Case "bal_comb"
             content.Add(key, "bal alsó végtag combszintben amputálva, egyebekben a ")
             AddToDiag("Status post amputationem femoris sinistri.")
-
           Case "combok"
             content.Add(key, "alsó végtagok combszintben amputálva, egyebekben a ")
             AddToDiag("Status post amputationem femoris l. u.")
-
           Case "jobb_labszar"
             content.Add(key, "jobb alsó végtag lábszárszintben amputálva, egyebekben a ")
             AddToDiag("Status post amputationem cruris dextri.")
-
           Case "bal_labszar"
             content.Add(key, "bal alsó végtag lábszárszintben amputálva, egyebekben a ")
             AddToDiag("Status post amputationem crusis sinistri.")
-
           Case "labszarak"
             content.Add(key, "alsó végtagok lábszárszintben amputálva, egyebekben a ")
             AddToDiag("Status post amputationem cruris l. u.")
-
         End Select
-
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "asu_kp"
       If data.ContainsKey(key) Then
         content.Add("asu_kp_nyaki", "Az aorta mellkasi szakasza kp. tág, belfelszínén több lencsényi sárgásfehér plaque látható. ")
         content.Add("asu_kp_has", "Az aorta hasi szakasza kp. tág, belfelszínén több, forintosnyi sárgásfehér plaque látható. ")
         AddToDiag("Arteriosclerosis universalis mediocris gradus.")
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "asu_sulyos"
       If data.ContainsKey(key) Then
         content.Add("asu_sulyos_nyaki_1", "carotis-villák scleroticusak, egyebekben a ")
@@ -209,54 +175,36 @@ Public Class WordTransformer
         content.Add("asu_sulyos_has", "Az aorta hasi szakasza kp. tág, belfelszínén több, forintosnyi sárgásfehér meszek tapintatú plaque látható. ")
         AddToDiag("Arteriosclerosis universalis maioris gradus praecipue aortae et arteriarum coronariarum cordis.")
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "ascites"
       If data.ContainsKey(key) Then
-
         content.Add("ascites", "A hasüregben ")
-
-        If data.ContainsKey("asc_liter") Then
-
+        If CheckRequired("asc_liter", data) Then
           content.Item("ascites") += data.Item("asc_liter").ToString + " liter szalmasárga folyadék található. "
           AddToDiag("Ascites.")
-        Else
-
-          RaiseEvent FieldMissing("Ascites liter")
-          If AbortOnMissing Then
-            Exit Sub
-          End If
+        ElseIf AbortOnMissing Then
+          Exit Sub
         End If
-
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "icterus"
       If data.ContainsKey(key) Then
         content.Add("icterus_1", "sárgás árnyalatú, ")
         content.Add("icterus_2", "sárgás árnyalatúak, ")
         AddToDiag("Icterus universalis.")
       End If
-
-      '##########################################################################
+      '########################################################################
       key = "pacemaker"
       If data.ContainsKey(key) Then
-
         content.Add("pacemaker_kul", "Bal oldalon infraclavicularisan pacemaker telep található. ")
         content.Add("pacemaker_nyaki", "A jobb szívfélben pacemaker elektróda azonosítható. ")
-
-        If data.ContainsKey("pacemaker_serial") Then
+        If CheckRequired("pacemaker_serial", data) Then
           AddToDiag("Pacemaker. (" + data.Item("pacemaker_serial").ToString + ")")
-        Else
-
-          RaiseEvent FieldMissing("pacemaker sorozatszám")
-          If AbortOnMissing Then
-            Exit Sub
-          End If
-
+        ElseIf AbortOnMissing Then
+          Exit Sub
         End If
-
       End If
+      '########################################################################
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try

@@ -160,7 +160,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bjk.docx">
+    <None Include="bjk.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="My Project\Application.myapp">
@@ -226,7 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Project files\boncjkv.ico" />
-    <Content Include="Resources\saves.xml">
+    <Content Include="saves.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
