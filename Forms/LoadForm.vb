@@ -24,7 +24,6 @@ Public Class LoadForm
       If Not IsNothing(saved.SelectedItem) Then
         Main.LoadDataUI(saved.SelectedItem.ToString.Substring(11), saved.SelectedItem.ToString.Substring(0, 10))
       End If
-
       Close()
     Catch ex As Exception
       ErrorHandling.General(ex)

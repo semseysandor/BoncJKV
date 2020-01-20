@@ -31,7 +31,8 @@ Public Class Main
     ui.SetNameDate(name, datte)
 
     Dim datamng = New DataManager
-    datamng.LoadData(dataInput.Controls, (New XMLExporter).LoadPatientData(name, datte))
+    Dim xmlexporter = New XMLExporter
+    datamng.LoadData(dataInput.Controls, xmlexporter.LoadPatientData(name, datte))
   End Sub
   ''' <summary>
   ''' Exports data
