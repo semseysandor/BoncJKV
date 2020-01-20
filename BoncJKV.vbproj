@@ -69,7 +69,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>boncjkv.ico</ApplicationIcon>
+    <ApplicationIcon>Project files\boncjkv.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>BC2962DE9D2CD16CBF210EC86BB4B2ACC9E284A7</ManifestCertificateThumbprint>
@@ -109,21 +109,21 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="DataManager.vb" />
-    <Compile Include="ErrorHandling.vb" />
-    <Compile Include="LoadForm.Designer.vb">
+    <Compile Include="Project files\ApplicationEvents.vb" />
+    <Compile Include="Source\DataManager.vb" />
+    <Compile Include="Source\ErrorHandling.vb" />
+    <Compile Include="Forms\LoadForm.Designer.vb">
       <DependentUpon>LoadForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="LoadForm.vb">
+    <Compile Include="Forms\LoadForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI.vb" />
-    <Compile Include="WordExporter.vb" />
-    <Compile Include="Main.vb">
+    <Compile Include="Source\UI.vb" />
+    <Compile Include="Source\WordExporter.vb" />
+    <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.vb">
+    <Compile Include="Forms\Main.Designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -142,14 +142,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="WordTransformer.vb" />
-    <Compile Include="XMLExporter.vb" />
+    <Compile Include="Source\WordTransformer.vb" />
+    <Compile Include="Source\XMLExporter.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LoadForm.resx">
+    <EmbeddedResource Include="Forms\LoadForm.resx">
       <DependentUpon>LoadForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -160,7 +160,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bjk.docx">
+    <None Include="Resources\bjk.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="My Project\Application.myapp">
@@ -172,7 +172,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="Project files\App.config" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="ACTIVEXLib">
@@ -225,8 +225,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="boncjkv.ico" />
-    <Content Include="saves.xml">
+    <Content Include="Project files\boncjkv.ico" />
+    <Content Include="Resources\saves.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
