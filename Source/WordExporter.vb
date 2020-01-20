@@ -52,7 +52,7 @@ Public Class WordExporter
           cc.Range.Text = data.Item(cc.Tag)
           cc.Appearance = Word.WdContentControlAppearance.wdContentControlHidden
         Else
-          cc.Delete()
+          cc.Delete(True)
         End If
 
       Next

@@ -71,7 +71,7 @@ Public Class Main
   ''' <summary>
   ''' Reset a radio button set
   ''' </summary>
-  Private Sub ResetRadio(sender As Object, e As EventArgs) Handles Button2.Click, Button6.Click, Button5.Click, Button4.Click, Button3.Click, Button7.Click, Button1.Click
+  Private Sub ResetRadio(sender As Object, e As EventArgs) Handles Button6.Click, Button3.Click, Button7.Click
     ui.ResetRadio(New Collection From {TryCast(sender, Button).Parent.Controls})
   End Sub
   ''' <summary>
@@ -99,7 +99,7 @@ Public Class Main
   ''' Enables checkbox associated to this control
   ''' </summary>
   Private Sub EnableKoszoru(sender As Object, e As EventArgs) Handles koszoru_szuk.TextChanged
-    ui.EnableAssociatedControls(sender, New Collection From {koszoru_jobbAC, koszoru_lad, koszoru_cx})
+    'ui.EnableAssociatedControls(sender, New Collection From {koszoru_jobbAC, koszoru_lad, koszoru_cx})
   End Sub
   ''' <summary>
   ''' Enables controls associated to this control
@@ -110,8 +110,8 @@ Public Class Main
   ''' <summary>
   ''' Enables controls associated to this control
   ''' </summary>
-  Private Sub EnableInf(sender As Object, e As EventArgs) Handles inf_regi.CheckedChanged, inf_friss.CheckedChanged
-    ui.EnableAssociatedControls(sender, New Collection From {inf_meret, inf_elulso, inf_hatso, inf_septalis, inf_oldal})
+  Private Sub EnableInf(sender As Object, e As EventArgs)
+    ' ui.EnableAssociatedControls(sender, New Collection From {inf_meret, inf_elulso, inf_hatso, inf_septalis, inf_oldal})
   End Sub
   ''' <summary>
   ''' Enables controls associated to this control

@@ -10,7 +10,7 @@ Public Class UI
   ''' <summary>
   ''' Constructor
   ''' </summary>
-  ''' <param name="main"></param>
+  ''' <param name="main">Main form</param>
   Public Sub New(ByRef main As Main)
     Me.main = main
   End Sub
@@ -34,7 +34,7 @@ Public Class UI
   ''' <summary>
   ''' Reset controls in a collection recursively
   ''' </summary>
-  ''' <param name="ctrcoll">Reset controls in collection</param>
+  ''' <param name="ctrcoll">Reset controls in this collection</param>
   Private Sub ResetControls(ctrcoll As Control.ControlCollection)
     Try
       For Each ctrl As Control In ctrcoll

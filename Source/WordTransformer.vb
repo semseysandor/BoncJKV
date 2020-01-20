@@ -63,6 +63,39 @@ Public Class WordTransformer
       Return True
     End If
   End Function
+  Private Function BrainLocationBuilder(
+      ByRef data As Dictionary(Of String, String),
+      ByVal meret As String,
+      ByVal oldal As String,
+      ByVal lebeny As String,
+      ByVal diagnosis As String) As String
+    Dim diag_oldal = ""
+    Dim helyzet = ""
+    Select Case oldal
+      Case "jobb "
+        diag_oldal = " hemispherii dextri"
+      Case "bal "
+        diag_oldal = " hemispherii sinistri"
+    End Select
+
+    Select Case lebeny
+      Case "frontalis", "parietalis", "temporalis", "occipitalis"
+        helyzet = oldal + lebeny + " lebenyben "
+        diagnosis += "lobi " + lebeny + diag_oldal + " cerebri."
+      Case "kisagy"
+        helyzet = "kisagyi féltekében "
+        diagnosis += "cerebelli."
+
+        If data.ContainsKey("agy_beek") Then
+          content.Item("agy_2") = "Az agytörzs vizenyős, a kisagyi tonsillák körülárkoltak egyebekben eltérés nélkül."
+        Else
+          content.Item("agy_2") = "Az agytörzs és a kisagy egyebekben eltérés nélkül."
+        End If
+    End Select
+    AddToDiag(diagnosis)
+    helyzet += meret
+    Return helyzet
+  End Function
   ''' <summary>
   ''' Applies business rules to transform data
   ''' </summary>
@@ -214,409 +247,389 @@ Public Class WordTransformer
   ''' </summary>
   ''' <param name="data">Data form UI</param>
   Private Sub ApplyRulesBrain(data As Dictionary(Of String, String))
-
     Dim key As String
+    Dim elvaltozas = ""
+    Dim oldal As String
+    Dim lebeny As String = ""
+    Dim meret As String = ""
+    Dim darab As String
+    Try
+      '########################################################################
+      key = "agy_allapot"
+      If CheckRequired(key, data) Then
+        Select Case data.Item(key)
+          Case "normal"
+            content.Add("agy_1", "Az agy tészta tapintatú, a tekervények és a barázdák kp. nagyságúak. ")
+            content.Add("agy_2", "Az agytörzs és a kisagy eltérés nélkül.")
+          Case "oedema"
+            content.Add("agy_1", "A vizenyős agy tészta tapintatú, a tekervények kiszélesedtek, a barázdák sekélyek. ")
+            content.Add("agy_2", "Az agytörzs és a kisagy eltérés nélkül.")
+            AddToDiag("Oedema cerebri.")
+        End Select
 
-    '##########################################################################
-    key = "agy_allapot"
-    If data.ContainsKey(key) Then
-
-      Select Case data.Item(key)
-
-        Case "normal"
-          content.Add("agy_1", "Az agy tészta tapintatú, a tekervények és a barázdák kp. nagyságúak. ")
-          content.Add("agy_2", "Az agytörzs és a kisagy eltérés nélkül.")
-        Case "oedema"
-          content.Add("agy_1", "A vizenyős agy tészta tapintatú, a tekervények kiszélesedtek, a barázdák sekélyek. ")
-          content.Add("agy_2", "Az agytörzs és a kisagy eltérés nélkül.")
-          AddToDiag("Oedema cerebri.")
-      End Select
-
-    Else
-
-      RaiseEvent FieldMissing("agy állapota")
-      If AbortOnMissing Then
+        content.Add(key, data.Item(key))
+      ElseIf AbortOnMissing Then
         Exit Sub
       End If
-
-    End If
-
-    '##########################################################################
-    key = "agy_beek"
-    If data.ContainsKey(key) Then
-      content.Item("agy_2") = "Az agytörzs vizenyős, a kisagyi tonsillák körülárkoltak."
-      AddToDiag("Oedema trunci cerebri et herniatio tonsillarum cerebelli.")
-    End If
-
-    '##########################################################################
-    key = "sat_lac"
-    If data.ContainsKey(key) Then
-      content.Add("agy_sat_lac", "A basalis magvakban és a fehérállományban több gócban 1-2mm nagyságú üregek találhatók. ")
-      AddToDiag("Staus lacunaris cerebri.")
-    End If
-
-    '##########################################################################
-    key = "agy_elvaltozas"
-    If data.ContainsKey(key) Then
-
-      Dim diag_elv As String = ""
-      Dim elv As String = ""
-      Dim oldal As String = ""
-      Dim diag_oldal As String = ""
-      Dim lebeny As String = ""
-      Dim diag_lebeny As String = ""
-      Dim meret As String = ""
-
-      Select Case data.Item(key)
-
-        Case "verzes"
-          elv = "agyállományi vérzés "
-          diag_elv = "Apoplexia "
-
-        Case "lagyulas"
-          elv = "lágyulás "
-          diag_elv = "Emollitio "
-
-        Case "attet"
-          elv = "daganatáttét "
-          diag_elv = "Metastasis "
-
-      End Select
-
-      If data.ContainsKey("agy_oldal") Then
-
-        Select Case data.Item("agy_oldal")
-
-          Case "jobb"
-            oldal = "jobb "
-            diag_oldal = " hemispherii dextri"
-
-          Case "bal"
-            oldal = "bal "
-            diag_oldal = " hemispherii sinistri"
-
-        End Select
-
+      '########################################################################
+      key = "agy_beek"
+      If data.ContainsKey(key) Then
+        content.Item("agy_2") = "Az agytörzs vizenyős, a kisagyi tonsillák körülárkoltak."
+        AddToDiag("Oedema trunci cerebri et herniatio tonsillarum cerebelli.")
       End If
-
-      If data.ContainsKey("agy_lebeny") Then
-
-        Select Case data.Item("agy_lebeny")
-
-          Case "frontalis", "parietalis", "temporalis", "occipitalis"
-            lebeny = oldal + data.Item("agy_lebeny") + " lebenyben "
-            diag_lebeny = "lobi " + data.Item("agy_lebeny") + diag_oldal + " cerebri."
-
-          Case "kisagy"
-            lebeny = "kisagyi féltekében "
-            diag_lebeny = "cerebelli."
-
-            If data.ContainsKey("agy_beek") Then
-              content.Item("agy_2") = "Az agytörzs vizenyős, a kisagyi tonsillák körülárkoltak egyebekben eltérés nélkül."
-            Else
-              content.Item("agy_2") = "Az agytörzs és a kisagy egyebekben eltérés nélkül."
-            End If
-
-        End Select
-
+      '########################################################################
+      key = "agy_stat_lac"
+      If data.ContainsKey(key) Then
+        content.Add("agy_stat_lac", "A basalis magvakban és a fehérállományban több gócban 1-2 mm nagyságú üregek találhatóak. ")
+        AddToDiag("Status lacunaris cerebri.")
       End If
+      '########################################################################
+      key = "agy_lagyulas"
+      If data.ContainsKey(key) Then
+        If data.ContainsKey("agy_lagyulas_oldal") Then
+          oldal = data.Item("agy_lagyulas_oldal") + " "
+        Else
+          oldal = ""
+        End If
 
-      If data.ContainsKey("agy_elv_meret") Then
-        meret = data.Item("agy_elv_meret") + " cm kiterjedésű "
+        If CheckRequired("agy_lagyulas_lebeny", data) Then
+          lebeny = data.Item("agy_lagyulas_lebeny")
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+
+        If CheckRequired("agy_lagyulas_meret", data) Then
+          meret = data.Item("agy_lagyulas_meret") + " cm kiterjedésű "
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+        lebeny = BrainLocationBuilder(data, meret, oldal, lebeny, "Emollitio ")
+        elvaltozas = "A " + lebeny + "lágyulás"
       End If
+      '########################################################################
+      key = "agy_verzes"
+      If data.ContainsKey(key) Then
+        If data.ContainsKey("agy_verzes_oldal") Then
+          oldal = data.Item("agy_verzes_oldal") + " "
+        Else
+          oldal = ""
+        End If
 
-      content.Add("agy_elvaltozas", "A " + lebeny + meret + elv + "figyelhető meg. ")
-      AddToDiag(diag_elv + diag_lebeny)
+        If CheckRequired("agy_verzes_lebeny", data) Then
+          lebeny = data.Item("agy_verzes_lebeny")
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
 
-    End If
+        If CheckRequired("agy_verzes_meret", data) Then
+          meret = data.Item("agy_verzes_meret") + " cm kiterjedésű "
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+
+        lebeny = BrainLocationBuilder(data, meret, oldal, lebeny, "Apoplexia ")
+
+        If elvaltozas <> "" Then
+          elvaltozas += ", a " + lebeny + "agyállományi vérzés"
+        Else
+          elvaltozas = "A " + lebeny + "agyállományi vérzés"
+        End If
+      End If
+      '########################################################################
+      key = "agy_attet"
+      If data.ContainsKey(key) Then
+        If CheckRequired("agy_attet_meret", data) Then
+          meret = data.Item("agy_attet_meret") + " cm kiterjedésű "
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+
+        If CheckRequired("agy_attet_darab", data) Then
+          darab = data.Item("agy_attet_darab")
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+
+        If data.ContainsKey("agy_attet_oldal") Then
+          oldal = data.Item("agy_attet_oldal") + " "
+        Else
+          oldal = ""
+        End If
+
+        If data.ContainsKey("agy_attet_front") Then
+          lebeny = "frontalis"
+          lebeny = BrainLocationBuilder(data, meret, oldal, lebeny, "Metastasis ")
+          If elvaltozas <> "" Then
+            elvaltozas += ", a " + lebeny + " daganatáttét"
+          Else
+            elvaltozas = "A " + lebeny + " daganatáttét"
+          End If
+        End If
+        If data.ContainsKey("agy_attet_parietalis") Then
+          lebeny = "parietalis"
+          lebeny = BrainLocationBuilder(data, meret, oldal, lebeny, "Metastasis ")
+          If elvaltozas <> "" Then
+            elvaltozas += ", a " + lebeny + "daganatáttét"
+          Else
+            elvaltozas = "A " + lebeny + "daganatáttét"
+          End If
+        End If
+        If data.ContainsKey("agy_attet_temp") Then
+          lebeny = "temporalis"
+          lebeny = BrainLocationBuilder(data, meret, oldal, lebeny, "Metastasis ")
+          If elvaltozas <> "" Then
+            elvaltozas += ", a " + lebeny + "daganatáttét"
+          Else
+            elvaltozas = "A " + lebeny + "daganatáttét"
+          End If
+        End If
+        If data.ContainsKey("agy_attet_occ") Then
+          lebeny = "occipitalis"
+          lebeny = BrainLocationBuilder(data, meret, oldal, lebeny, "Metastasis ")
+          If elvaltozas <> "" Then
+            elvaltozas += ", a " + lebeny + "daganatáttét"
+          Else
+            elvaltozas = "A " + lebeny + "daganatáttét"
+          End If
+        End If
+        If data.ContainsKey("agy_attet_kisagy") Then
+          lebeny = "kisagy"
+          lebeny = BrainLocationBuilder(data, meret, oldal, lebeny, "Metastasis ")
+          If elvaltozas <> "" Then
+            elvaltozas += ", a " + lebeny + "daganatáttét"
+          Else
+            elvaltozas = "A " + lebeny + "daganatáttét"
+          End If
+        End If
+      End If
+      If elvaltozas <> "" Then
+        content.Add("agy_elvaltozas", elvaltozas + " figyelhető meg. ")
+      End If
+    Catch ex As Exception
+      ErrorHandling.General(ex)
+    End Try
   End Sub
   ''' <summary>
   ''' Applies rules regarding the heart
   ''' </summary>
   ''' <param name="data">Data form UI</param>
   Private Sub ApplyRulesHeart(data As Dictionary(Of String, String))
-
     Dim key As String
-    Dim text As String = ""
-
-    '##########################################################################
-    key = "sziv_allapot"
-
-    Dim jobb_kamra As String = ""
-    If data.ContainsKey("jobb_kamra") Then
-      jobb_kamra = data.Item("jobb_kamra").ToString
-
-    Else
-
-      RaiseEvent FieldMissing("jobb kamra vastagság")
-      If AbortOnMissing Then
+    Dim text As String
+    Try
+      '########################################################################
+      key = "sziv_bal_kamra"
+      If CheckRequired(key, data) AndAlso AbortOnMissing Then
         Exit Sub
       End If
 
-    End If
-
-    Dim bal_kamra As String = ""
-    If data.ContainsKey("bal_kamra") Then
-      bal_kamra = data.Item("bal_kamra").ToString
-
-    Else
-
-      RaiseEvent FieldMissing("bal kamra vastagság")
-      If AbortOnMissing Then
+      key = "sziv_jobb_kamra"
+      If CheckRequired(key, data) AndAlso AbortOnMissing Then
         Exit Sub
       End If
 
-    End If
-
-    If data.ContainsKey(key) Then
-
-      Select Case data.Item(key)
-
-        Case "konc"
-          text = "A szív megnagyobbodott. A körkörösen túltengett bal kamra fala "
-          text += bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
-          AddToDiag("Hypertrophia concentrica ventriculi sinistri cordis.")
-
-        Case "tagult"
-          text = "A szív megnagyobbodott. A tágult, túltengett bal kamra fala "
-          text += bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
-          AddToDiag("Hypertrophia dilatativa ventriculi sinsitri cordis.")
-
-        Case "cor_pulm"
-          text = "A bal kamra fala " + bal_kamra + " mm, a tágult, túltengett jobb kamra fala " + jobb_kamra + " mm vastag. "
-          AddToDiag("Cor pulmonale chronicum.")
-
-        Case "dcm"
-          text = "A szív kifejezetten megnagyobbodott. A bal kamra fala "
-          text += bal_kamra + " mm, a jobb kamra fala " + jobb_kamra
-          text += " mm vastag, a kamrák fala elvékonyodott, lumenük extrém mértékben tágult. "
-          AddToDiag("Cardiomyopathia dilatativa.")
-
-        Case "iszb"
-          text = "A bal kamra fala " + bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
-          content.Add("iszb", ", metszéslapján szürkésfehér rajzolat mutatkozik")
-          AddToDiag("Cardyomyopathia ischaemica chronica.")
-
-      End Select
-
-      content.Add("sziv_allapot", text)
-
-    Else
-
-      text = "A bal kamra fala " + bal_kamra + " mm, a jobb kamra fala " + jobb_kamra + " mm vastag. "
-      content.Add("sziv_allapot", text)
-
-    End If
-
-    '##########################################################################
-    key = "koszoru_kp"
-    If data.ContainsKey(key) Then
-      content.Add("koszoru_allapot", ", scleroticusak")
-    End If
-
-    '##########################################################################
-    key = "koszoru_sulyos"
-    If data.ContainsKey(key) Then
-
-      If content.ContainsKey("koszoru_allapot") Then
-        content.Item("koszoru_allapot") += ", súlyosan meszesek, lumenük szűkületet mutat"
+      key = "sziv_allapot"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "konc"
+            text = "A körkörösen túltengett bal kamra fala " + data.Item("sziv_bal_kamra") + " mm, "
+            AddToDiag("Hypertrophia concentrica ventriculi sinistri cordis.")
+          Case "tagult"
+            text = "A tágult, túltengett bal kamra fala " + data.Item("sziv_bal_kamra") + " mm, "
+            AddToDiag("Hypertrophia dilatativa ventriculi sinsitri cordis.")
+        End Select
+        content.Add("sziv_allapot_1", "A szív megnagyobbodott. ")
       Else
-        content.Add("koszoru_allapot", ", súlyosan meszesek, lumenük szűkületet mutat")
+        text = "A bal kamra fala " + data.Item("sziv_bal_kamra") + " mm, "
       End If
 
-    End If
-
-    '##########################################################################
-    key = "koszoru_szuk"
-    If data.ContainsKey(key) Then
-      content.Add(key, "A ")
-
-      If data.ContainsKey("koszoru_jobbAC") Then
-        content.Item(key) += "jobb koszorúverőérben"
-      End If
-
-      If data.ContainsKey("koszoru_lad") Then
-
-        If Not content.Item(key).EndsWith(" ") Then
-          content.Item(key) += ", "
-        End If
-
-        content.Item(key) += "bal koszorúverőér elülső leszálló ágában"
-
-      End If
-
-      If data.ContainsKey("koszoru_cx") Then
-
-        If Not content.Item(key).EndsWith(" ") Then
-          content.Item(key) += ", "
-        End If
-
-        content.Item(key) += "bal koszorúverőér körbefutó ágában"
-
-      End If
-
-      content.Item(key) += " " + data.Item(key).ToString + " %-os lumenszűkület figyelhető meg. "
-
-    End If
-
-    '##########################################################################
-    key = "stent"
-    If data.ContainsKey(key) Then
-
-      text = ""
-
-      content.Add(key, "A ")
-
-      If data.ContainsKey("stent_jobbAC") Then
-        content.Item(key) += "jobb koszorúverőérben"
-        text += "arteriae coronariae dextri cordis"
-      End If
-
-      If data.ContainsKey("stent_lad") Then
-
-        If Not content.Item(key).EndsWith(" ") Then
-          content.Item(key) += ", "
-          text += ", "
-        End If
-
-        content.Item(key) += "bal koszorúverőér elülső leszálló ágában"
-        text += "rami interventricularis anterioris arteriae coronariae sinistri cordis"
-
-      End If
-
-      If data.ContainsKey("stent_cx") Then
-
-        If Not content.Item(key).EndsWith(" ") Then
-          content.Item(key) += ", "
-          text += ", "
-        End If
-
-        content.Item(key) += "bal koszorúverőér körbefutó ágában"
-        text += "rami circumflexi arteriae coronariae sinistri cordis"
-
-      End If
-
-      Select Case data.Item(key)
-
-        Case "stent"
-          content.Item(key) += " stent implantatum található. "
-          AddToDiag("Implantatum (stent) " + text + ".")
-        Case "thrombus"
-          content.Item(key) += " friss vérrögös elzáródás figyelhető meg. "
-          AddToDiag("Thrombus recens " + text + ".")
-
-      End Select
-
-    End If
-
-    '##########################################################################
-    key = "infarktus"
-    If data.ContainsKey(key) Then
-
-      text = ""
-
-      content.Add(key, "A ")
-
-      If data.ContainsKey("inf_elulso") Then
-        content.Item(key) += "bal kamra elülső falában"
-        text += "parietis anterioris ventriculi sinsitri cordis"
-      End If
-
-      If data.ContainsKey("inf_hatso") Then
-        If Not content.Item(key).EndsWith(" ") Then
-          content.Item(key) += ", "
-          text += ", "
-        End If
-
-        content.Item(key) += "bal kamra hátulsó falában"
-        text += "parietis posterioris ventriculi sinsitri cordis"
-
-      End If
-
-      If data.ContainsKey("inf_septalis") Then
-
-        If Not content.Item(key).EndsWith(" ") Then
-          content.Item(key) += ", "
-          text += ", "
-        End If
-
-        content.Item(key) += "bal kamra sövényi falában"
-        text += "parietis septalis ventriculi sinsitri cordis"
-
-      End If
-
-      If data.ContainsKey("inf_oldal") Then
-
-        If Not content.Item(key).EndsWith(" ") Then
-          content.Item(key) += ", "
-          text += ", "
-        End If
-
-        content.Item(key) += "bal kamra oldalsó falában"
-        text += "parietis lateralis ventriculi sinsitri cordis"
-
-      End If
-
-      If data.ContainsKey("inf_meret") Then
-        content.Item(key) += data.Item("inf_meret").ToString + " mm nagyságú "
-
+      key = "sziv_cor_pulm"
+      If data.ContainsKey(key) Then
+        text = "a tágult, túltengett jobb kamra fala " + data.Item("sziv_jobb_kamra") + " mm vastag"
+        AddToDiag("Cor pulmonale chronicum.")
       Else
+        text = "a jobb kamra fala " + data.Item("sziv_jobb_kamra") + " mm vastag"
+      End If
 
-        RaiseEvent FieldMissing("infarktus méret")
-        If AbortOnMissing Then
+      key = "sziv_dcm"
+      If data.ContainsKey(key) Then
+        text += ", a kamrák fala elvékonyodott, lumenük extrém mértékben tágult. "
+        AddToDiag("Cardiomyopathia dilatativa.")
+        If content.ContainsKey("sziv_allapot_1") Then
+          content.Item("sziv_allapot_1") = "A szív kifejezetten megnagyobbodott."
+        Else
+          content.Add("sziv_allapot_1", "A szív kifejezetten megnagyobbodott. ")
+        End If
+      Else
+        text += ". "
+      End If
+
+      key = "sziv_iszb"
+      If data.ContainsKey(key) Then
+        content.Add("iszb", ", metszéslapján szürkésfehér rajzolat mutatkozik")
+        AddToDiag("Cardyomyopathia ischaemica chronica.")
+      End If
+
+      content.Add("sziv_allapot_2", text)
+      text = ""
+      '########################################################################
+      key = "sziv_erek"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "kp"
+            content.Add("koszoru_allapot", ", scleroticusak")
+          Case "sulyos"
+            content.Add("koszoru_allapot", ", súlyosan meszesek, lumenük szűkületet mutat")
+        End Select
+      End If
+      '########################################################################
+      key = "sziv_szukulet"
+      If data.ContainsKey(key) Then
+        If CheckRequired("sziv_szuk", data) Then
+          text = data.Item(key)
+        ElseIf AbortOnMissing Then
           Exit Sub
         End If
 
+        Select Case data.Item(key)
+          Case "jobb"
+            content.Add("koszoru_szuk", "A jobb koszorúverőérben " + text + " %-os lumenszűkület figyelhető meg. ")
+          Case "lad"
+            content.Add("koszoru_szuk", "A bal koszorúverőér elülső leszálló ágában " + text + " %-os lumenszűkület figyelhető meg. ")
+          Case "cx"
+            content.Add("koszoru_szuk", "A bal koszorúverőér körbefutó ágában " + text + " %-os lumenszűkület figyelhető meg. ")
+        End Select
+        text = ""
       End If
+      '########################################################################
+      key = "sziv_stent"
+      If data.ContainsKey(key) Then
+        content.Add("stent", "A ")
+        text = "Implantatum (stent) "
+        If data.ContainsKey("sziv_stent_jobb") Then
+          content.Item("stent") += "jobb koszorúverőérben"
+          text += "arteriae coronariae dextri cordis"
+        End If
 
-      Select Case data.Item(key)
+        If data.ContainsKey("sziv_stent_lad") Then
+          If Not content.Item("stent").EndsWith(" ") Then
+            content.Item("stent") += ", "
+            text += ", "
+          End If
+          content.Item("stent") += "bal koszorúverőér elülső leszálló ágában"
+          text += "rami interventricularis anterioris arteriae coronariae sinistri cordis"
+        End If
 
-        Case "inf_regi"
-          content.Item(key) += "szürkésfehér színű régi szívizomelhalás figyelhető meg. "
-          AddToDiag("Infarctus obsoletus " + text + ".")
-
-        Case "inf_friss"
-          content.Item(key) += "agyagsárga színű, helyenként vörhenyes szegéllyel bíró, heveny szívizomelhalás figyelhető meg. "
-          AddToDiag("Infarctus recens " + text + ".")
-
-      End Select
-
-    End If
-
-    '##########################################################################
-    key = "bill_sten"
-    If data.ContainsKey(key) Then
-      content.Add(key, "z aortabillentyű meszes szűkületet mutat, egyebekben a")
-      AddToDiag("Stenosis calcificans ostii aortae.")
-    End If
-
-    '##########################################################################
-    key = "bill_mitralis"
-    If data.ContainsKey(key) Then
-      content.Add(key, " mitralis billentyű anulusa kifejezetten meszese, egyebekben a")
-      AddToDiag("Calcificatio ostii atrioventricularis sinistri cordis.")
-    End If
-
-    '##########################################################################
-    key = "bill_haemo"
-    If data.ContainsKey(key) Then
-
-      If data.ContainsKey("haemo_g") Then
-
-        content.Add(key, "A szívburokban ")
-        content.Item(key) += data.Item("haemo_g").ToString + " g részben alvadt vér található. "
-        AddToDiag("Haemopericardium.")
-
-      Else
-
-        RaiseEvent FieldMissing("alvadt vér mennyiség")
-        If AbortOnMissing Then
+        If data.ContainsKey("sziv_stent_cx") Then
+          If Not content.Item("stent").EndsWith(" ") Then
+            content.Item("stent") += ", "
+            text += ", "
+          End If
+          content.Item("stent") += "bal koszorúverőér körbefutó ágában"
+          text += "rami circumflexi arteriae coronariae sinistri cordis"
+        End If
+        content.Item("stent") += " stent implantatum található. "
+        AddToDiag(text + ".")
+        text = ""
+      End If
+      '########################################################################
+      key = "sziv_thrombus"
+      If data.ContainsKey(key) Then
+        If CheckRequired("sziv_thrombus_poz", data) AndAlso AbortOnMissing Then
+          Exit Sub
+        End If
+        Select Case data.Item(key)
+          Case "jobb"
+            content.Add("thrombus", "A jobb koszorúverőérben friss vérrögös elzáródás figyelhető meg. ")
+            AddToDiag("Thrombus recens arteriae coronariae dextri cordis.")
+          Case "lad"
+            content.Add("thrombus", "A bal koszorúverőér elülső leszálló ágában friss vérrögös elzáródás figyelhető meg. ")
+            AddToDiag("Thrombus recens rami interventricularis anterioris arteriae coronariae sinistri cordis.")
+          Case "cx"
+            content.Add("thrombus", "A bal koszorúverőér körbefutó ágában friss vérrögös elzáródás figyelhető meg. ")
+            AddToDiag("Thrombus recens rami circumflexi arteriae coronariae sinistri cordis.")
+        End Select
+      End If
+      '########################################################################
+      key = "sziv_inf_regi"
+      If data.ContainsKey(key) Then
+        If CheckRequired("sziv_inf_regi_meret", data) AndAlso AbortOnMissing Then
+          Exit Sub
+        End If
+        If CheckRequired("sziv_inf_regi_poz", data) AndAlso AbortOnMissing Then
           Exit Sub
         End If
 
+        Select Case data.Item("sziv_inf_regi_poz")
+          Case "elulso"
+            content.Add("inf_regi", "A bal kamra elülső falában ")
+            AddToDiag("Infarctus obsoletus parietis anterioris ventriculi sinsitri cordis.")
+          Case "hatso"
+            content.Add("inf_regi", "A bal kamra hátulsó falában ")
+            AddToDiag("Infarctus obsoletus parietis posterioris ventriculi sinsitri cordis.")
+          Case "septalis"
+            content.Add("inf_regi", "A bal kamra sövényi falában ")
+            AddToDiag("Infarctus obsoletus parietis septalis ventriculi sinsitri cordis.")
+          Case "oldalso"
+            content.Add("inf_regi", "A bal kamra oldalsó falában ")
+            AddToDiag("Infarctus obsoletus parietis lateralis ventriculi sinsitri cordis.")
+        End Select
+
+        content.Item("inf_regi") += data.Item("sziv_inf_regi_meret") + " mm nagyságú "
+        content.Item("inf_regi") += "szürkésfehér színű régi szívizomelhalás figyelhető meg. "
       End If
+      '########################################################################
+      key = "sziv_inf_uj"
+      If data.ContainsKey(key) Then
+        If CheckRequired("sziv_inf_uj_meret", data) AndAlso AbortOnMissing Then
+          Exit Sub
+        End If
+        If CheckRequired("sziv_inf_uj_poz", data) AndAlso AbortOnMissing Then
+          Exit Sub
+        End If
 
-    End If
+        Select Case data.Item("sziv_inf_uj_poz")
+          Case "elulso"
+            content.Add("inf_uj", "A bal kamra elülső falában ")
+            AddToDiag("Infarctus recens parietis anterioris ventriculi sinsitri cordis.")
+          Case "hatso"
+            content.Add("inf_uj", "A bal kamra hátulsó falában ")
+            AddToDiag("Infarctus recens parietis posterioris ventriculi sinsitri cordis.")
+          Case "septalis"
+            content.Add("inf_uj", "A bal kamra sövényi falában ")
+            AddToDiag("Infarctus recens parietis septalis ventriculi sinsitri cordis.")
+          Case "oldalso"
+            content.Add("inf_uj", "A bal kamra oldalsó falában ")
+            AddToDiag("Infarctus recens parietis lateralis ventriculi sinsitri cordis.")
+        End Select
 
+        content.Item("inf_uj") += data.Item("sziv_inf_uj_meret") + " mm nagyságú "
+        content.Item("inf_uj") += "agyagsárga színű, helyenként vörhenyes szegéllyel bíró, heveny szívizomelhalás figyelhető meg. "
+      End If
+      '########################################################################
+      key = "sziv_stenosis"
+      If data.ContainsKey(key) Then
+        content.Add(key, "z aortabillentyű meszes szűkületet mutat, egyebekben a")
+        AddToDiag("Stenosis calcificans ostii aortae.")
+      End If
+      '########################################################################
+      key = "sziv_mitralis"
+      If data.ContainsKey(key) Then
+        content.Add(key, " mitralis billentyű anulusa kifejezetten meszes, egyebekben a")
+        AddToDiag("Calcificatio ostii atrioventricularis sinistri cordis.")
+      End If
+      '########################################################################
+      key = "sziv_haemo"
+      If data.ContainsKey(key) Then
+        If CheckRequired("sziv_haemo_g", data) Then
+          content.Add(key, "A szívburokban " + data.Item("haemo_g") + " g részben alvadt vér található. ")
+          AddToDiag("Haemopericardium.")
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+      End If
+    Catch ex As Exception
+      ErrorHandling.General(ex)
+    End Try
   End Sub
 End Class
