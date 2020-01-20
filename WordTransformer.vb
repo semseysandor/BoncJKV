@@ -83,7 +83,7 @@ Public Class WordTransformer
     Try
       '##########################################################################
       For Each key In {"hossz", "haj", "kor", "agy", "sziv", "tudo", "maj", "lep", "vese", "fog", "zsir"}
-        If Not CheckProperty(data, key) Then
+        If Not CheckProperty(key, data) Then
           If AbortOnMissing Then
             Exit Sub
           End If
