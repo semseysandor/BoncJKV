@@ -72,7 +72,7 @@ Public Class Main
   ''' <summary>
   ''' Reset a radio button set
   ''' </summary>
-  Private Sub ResetRadio(sender As Object, e As EventArgs) Handles Button6.Click, Button7.Click
+  Private Sub ResetRadio(sender As Object, e As EventArgs) Handles Button7.Click
     ui.ResetRadio(New Collection From {TryCast(sender, Button).Parent.Controls})
   End Sub
   ''' <summary>

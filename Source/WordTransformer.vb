@@ -105,6 +105,7 @@ Public Class WordTransformer
     ApplyRulesBrain(data)
     ApplyRulesHeart(data)
     ApplyRulesLungs(data)
+    ApplyRulesStomach(data)
   End Sub
   ''' <summary>
   ''' Applies rules (general parts)
@@ -958,6 +959,201 @@ Public Class WordTransformer
         End Select
         content.Item("tudo_hydro") += data.Item("tudo_hydro_liter") + " liter szalmasárga folyadék látható. "
       End If
+    Catch ex As Exception
+      ErrorHandling.General(ex)
+    End Try
+  End Sub
+  ''' <summary>
+  ''' Applies rules regarding the stomach
+  ''' </summary>
+  ''' <param name="data">Data form UI</param>
+  Private Sub ApplyRulesStomach(data As Dictionary(Of String, String))
+    Dim key As String
+    Dim text As String
+    Dim flag As Boolean
+    Try
+      '########################################################################
+      key = "has_lep"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "verbo"
+            content.Add("lep", "A vérbő, vörhenyes lép megtartott szerkezetű. ")
+            AddToDiag("Hyperaemia passiva lienis.")
+          Case "puhult"
+            content.Add("lep", "A vérbő, vörhenyes lép állománya ellágyult, metszlapjáról nagy mennyiségű kaparék nyerhető. ")
+            AddToDiag("Splenitis septica acuta.")
+          Case "nagy"
+            content.Add("lep", "A vérbő, vörhenyes lép megnagyobbodott, állománya megtartott szerkezetű. ")
+            AddToDiag("Splenomegalia.")
+        End Select
+      End If
+      '########################################################################
+      key = "has_maj"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "verbo"
+            content.Add("maj", "A máj vörhenyesbarna színű, állománya eltérés nélkül. ")
+          Case "enyhe"
+            content.Add("maj", "A máj vörhenyesbarna színű, állománya metszéslapon sárgásan zsírfényű. ")
+            AddToDiag("Steatosis minoris gradus hepatis.")
+          Case "zsir"
+            content.Add("maj", "A máj megnagyobbodott, szélei lekerekítettek, állománya zsírosan átalakult. ")
+            AddToDiag("Steatosis hepatis.")
+          Case "szerecsen"
+            content.Add("maj", "A vörhenyesbarna, vérbő máj metszlapon szerecsendió-rajzolatot mutat. ")
+            AddToDiag("Hepar moschatum.")
+          Case "cirr"
+            content.Add("maj", "A máj zsugorodott, állománya apró göbös kötőszövetes átalakulást mutat. ")
+            AddToDiag("Cirrhosis hepatis.")
+        End Select
+      End If
+      '########################################################################
+      key = "has_maj_attet"
+      If data.ContainsKey(key) Then
+        If CheckRequired("has_maj_attet_meret", data) And AbortOnMissing Then
+          Exit Sub
+        End If
+        If CheckRequired("has_maj_attet_db", data) And AbortOnMissing Then
+          Exit Sub
+        End If
+        content.Add("maj_attet", "A máj állományában ")
+        Select Case data.Item("has_maj_attet_db")
+          Case "egy"
+            content.Item("maj_attet") += "egy"
+            AddToDiag("Metastasis hepatis.")
+          Case "tobb"
+            content.Item("maj_attet") += "több"
+            AddToDiag("Metastases multiplex hepatis.")
+        End Select
+        content.Item("maj_attet") += " db " + data.Item("has_maj_attet_meret")
+        content.Item("maj_attet") += " mm legnagyobb kiterjedésű, szürkésfehér színű, környezetétől élesen elhatárolódó daganatáttét azonosítható. "
+        AddToDiag("Cirrhosis hepatis.")
+      End If
+      '########################################################################
+      key = "has_hasnyal"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "ep"
+            content.Add("hasnyal", "A hasnyálmirigy mirigyes, megtartott szerkezetű. ")
+          Case "chronic"
+            content.Add("hasnyal", "A hasnyálmirigy kiszélesedett, mirigyes állománya kifejezett. ")
+            AddToDiag("Pancreatitis chronica.")
+          Case "acut"
+            content.Add("hasnyal", "A hasnyálmirigy állománya kiszélesedett, kiterjedten barnás-vörhenyes elszíneződést mutat," +
+                          "nekrotikus, környezete vizenyős, a környező zsírszövetben sárgásfehér, ún. szappanképződés figyelhető meg. ")
+            AddToDiag("Pancreatitis acuta.")
+        End Select
+      End If
+      '########################################################################
+      key = "has_epe"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "megtartott"
+            content.Add("epe", "Az epehólyag fala megtartott szerkezetű")
+            If data.ContainsKey("has_epeko") Then
+              If CheckRequired("has_epeko_meret", data) AndAlso AbortOnMissing Then
+                Exit Sub
+              End If
+              If CheckRequired("has_epeko_db", data) AndAlso AbortOnMissing Then
+                Exit Sub
+              End If
+              content.Item("epe") += ", lumenében " + data.Item("has_epeko_db") + " db, "
+              content.Item("epe") += data.Item("has_epeko_meret") + " mm legnagyobb átmérőjű epekő azonosítható"
+              AddToDiag("Cholecystolithiasis.")
+            End If
+            content.Item("epe") += ". "
+          Case "eltavol"
+            content.Add("epe", "Az epehólyagot korábban eltávolították. ")
+            AddToDiag("Status post cholecystectomiam.")
+        End Select
+      End If
+      '########################################################################
+      key = "has_gyomor"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "ep"
+            content.Add("gyomor", "A gyomor fala, nyálkahártyája eltérés nélkül, redőzete megtartott. ")
+          Case "erosio"
+            content.Add("gyomor", "A gyomor nyálkahártyáján erosiók láthatók. ")
+            AddToDiag("Erosiones ventriculi.")
+          Case "fekely"
+            content.Add("gyomor", "A gyomorban a ")
+            If CheckRequired("has_gyomor_fekely_meret", data) AndAlso AbortOnMissing Then
+              Exit Sub
+            End If
+            If CheckRequired("has_gyomor_fekely_gorb", data) AndAlso AbortOnMissing Then
+              Exit Sub
+            End If
+            Select Case data.Item("has_gyomor_fekely_gorb")
+              Case "kis"
+                content.Item("gyomor") += "kisgörbület"
+              Case "nagy"
+                content.Item("gyomor") += "nagygörbület"
+            End Select
+            content.Item("gyomor") += " területén " + data.Item("has_gyomor_fekely_meret") + " mm legnagyobb átmérőjű fekély figyelhető meg. "
+            AddToDiag("Ulcus ventriculi.")
+        End Select
+      End If
+      '########################################################################
+      key = "has_gyomor_tumor"
+      If data.ContainsKey(key) Then
+        content.Add("gyomor_tumor", "A gyomorban a ")
+        If CheckRequired("has_gyomor_tumor_meret", data) AndAlso AbortOnMissing Then
+          Exit Sub
+        End If
+        If CheckRequired("has_gyomor_tumor_gorb", data) AndAlso AbortOnMissing Then
+          Exit Sub
+        End If
+        Select Case data.Item("has_gyomor_tumor_gorb")
+          Case "kis"
+            content.Item("gyomor_tumor") += "kisgörbület"
+          Case "nagy"
+            content.Item("gyomor_tumor") += "nagygörbület"
+        End Select
+        content.Item("gyomor_tumor") += " területén " + data.Item("has_gyomor_tumor_meret") +
+          " mm nagyságú szürkésfehér idegenszövet-szaporulat figyelhető meg.   "
+        AddToDiag("Neoplasma malignum ventriculi.")
+      End If
+      '########################################################################
+      key = "has_nyombel"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "ep"
+            content.Add("nyombel", "A nyombél eltérés nélkül. ")
+          Case "fekely"
+            content.Add("nyombel", "A nyombél nyálkahártyáján ")
+            If CheckRequired("has_nyombel_meret", data) AndAlso AbortOnMissing Then
+              Exit Sub
+            End If
+            content.Item("nyombel") += data.Item("has_nyombel_meret") + " mm legnagyobb átmérőjű fekély figyelhető meg. "
+            AddToDiag("Ulcus duodeni.")
+        End Select
+      End If
+      '########################################################################
+      key = "has_ileum"
+      If data.ContainsKey(key) Then
+        If CheckRequired("has_ileum_meret", data) AndAlso AbortOnMissing Then
+          Exit Sub
+        End If
+        content.Add("ileum", "Az ileum nyálkahártyája ")
+        content.Item("ileum") += data.Item("has_ileum_meret") + " cm-es szakaszon vizenyős, felszínén sárgásfehér felrakódás mutatkozik. "
+        AddToDiag("Ileitis pseudomembranacea.")
+      End If
+      '########################################################################
+      key = "has_bel"
+      If data.ContainsKey(key) Then
+        content.Add("bel", "A vékonybelek között több területen heges kitapadások azonosíthatóak. ")
+        AddToDiag("Adhaesinones intestini tenuis.")
+      End If
+
+
+
+
+
+
+
+
+
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
