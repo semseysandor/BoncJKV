@@ -104,6 +104,7 @@ Public Class WordTransformer
     ApplyRulesGeneral(data)
     ApplyRulesBrain(data)
     ApplyRulesHeart(data)
+    ApplyRulesLungs(data)
   End Sub
   ''' <summary>
   ''' Applies rules (general parts)
@@ -409,6 +410,7 @@ Public Class WordTransformer
   Private Sub ApplyRulesHeart(data As Dictionary(Of String, String))
     Dim key As String
     Dim text As String
+    Dim flag As Boolean
     Try
       '########################################################################
       key = "sziv_bal_kamra"
@@ -426,10 +428,10 @@ Public Class WordTransformer
       If data.ContainsKey(key) Then
         Select Case data.Item(key)
           Case "konc"
-            text = "körkörösen túltengett "
+            text += "körkörösen túltengett "
             AddToDiag("Hypertrophia concentrica ventriculi sinistri cordis.")
           Case "tagult"
-            text = "tágult, túltengett "
+            text += "tágult, túltengett "
             AddToDiag("Hypertrophia dilatativa ventriculi sinsitri cordis.")
         End Select
         content.Add("sziv_allapot_1", "A szív megnagyobbodott. ")
@@ -438,7 +440,7 @@ Public Class WordTransformer
 
       key = "sziv_cor_pulm"
       If data.ContainsKey(key) Then
-        text = "tágult, túltengett "
+        text += "tágult, túltengett "
         AddToDiag("Cor pulmonale chronicum.")
       End If
       text += "jobb kamra fala " + data.Item("sziv_jobb_kamra") + " mm vastag"
@@ -448,14 +450,13 @@ Public Class WordTransformer
         text += ", a kamrák fala elvékonyodott, lumenük extrém mértékben tágult"
         AddToDiag("Cardiomyopathia dilatativa.")
         If content.ContainsKey("sziv_allapot_1") Then
-          content.Item("sziv_allapot_1") = "A szív kifejezetten megnagyobbodott."
+          content.Item("sziv_allapot_1") = "A szív kifejezetten megnagyobbodott. "
         Else
           content.Add("sziv_allapot_1", "A szív kifejezetten megnagyobbodott. ")
         End If
       End If
       text += ". "
       content.Add("sziv_allapot_2", text)
-      text = ""
       '########################################################################
       key = "sziv_iszb"
       If data.ContainsKey(key) Then
@@ -494,32 +495,35 @@ Public Class WordTransformer
       If data.ContainsKey(key) Then
         content.Add("stent", "A ")
         text = "Implantatum (stent) "
+        flag = False
 
         If data.ContainsKey("sziv_stent_jobb") Then
           content.Item("stent") += "jobb koszorúverőérben"
           text += "arteriae coronariae dextri cordis"
+          flag = True
         End If
 
         If data.ContainsKey("sziv_stent_lad") Then
-          If Not content.Item("stent").EndsWith(" ") Then
+          If flag Then
             content.Item("stent") += ", "
-            text += ", "
+            text += " et "
           End If
           content.Item("stent") += "bal koszorúverőér elülső leszálló ágában"
           text += "rami interventricularis anterioris arteriae coronariae sinistri cordis"
+          flag = True
         End If
 
         If data.ContainsKey("sziv_stent_cx") Then
-          If Not content.Item("stent").EndsWith(" ") Then
+          If flag Then
             content.Item("stent") += ", "
-            text += ", "
+            text += " et "
           End If
           content.Item("stent") += "bal koszorúverőér körbefutó ágában"
           text += "rami circumflexi arteriae coronariae sinistri cordis"
+          flag = True
         End If
         content.Item("stent") += " stent implantatum található. "
         AddToDiag(text + ".")
-        text = ""
       End If
       '########################################################################
       key = "sziv_thrombus"
@@ -616,6 +620,343 @@ Public Class WordTransformer
         ElseIf AbortOnMissing Then
           Exit Sub
         End If
+      End If
+      '########################################################################
+      key = "sziv_cabg"
+      If data.ContainsKey(key) Then
+        content.Add("sziv_cabg_kul", "a sternum felett régi hegvonal látható, a szegycsontban fémkapcsok figyelhetők meg, ")
+        content.Add("sziv_cabg_nyaki_1", ", a szívburok lapszerint latapadva")
+        content.Add("sziv_cabg_nyaki_2", "A koszorú-verőerekhez az aortából kiinduló bypass graftok csatlakoznak varratokkal, a graftok arterializálódtak, helyenkét szűkültek. ")
+        AddToDiag("Status post CABG.")
+      End If
+    Catch ex As Exception
+      ErrorHandling.General(ex)
+    End Try
+  End Sub
+  ''' <summary>
+  ''' Applies rules regarding the lungs
+  ''' </summary>
+  ''' <param name="data">Data form UI</param>
+  Private Sub ApplyRulesLungs(data As Dictionary(Of String, String))
+    Dim key As String
+    Dim text As String
+    Dim flag As Boolean
+    Try
+      '########################################################################
+      key = "tudo_anthra"
+      If data.ContainsKey(key) Then
+        content.Add("tudo_anthra", "A mellhártyákon szürkésfekete hálózatos rajzolat látható. ")
+        AddToDiag("Anthracosis pulmonum.")
+      End If
+      '########################################################################
+      key = "tudo_emphy"
+      If data.ContainsKey(key) Then
+        content.Add("tudo_emphy", "tágult ")
+        AddToDiag("Emphysema pulmonum.")
+      End If
+      '########################################################################
+      key = "tudo_oedema"
+      If data.ContainsKey(key) Then
+        content.Add("tudo_oedema", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek, metszlapjukról nyomásra habos szilvalészerű folyadék ürül")
+        AddToDiag("Oedema pulmonum.")
+      End If
+      '########################################################################
+      key = "tudo_mindharom"
+      If data.ContainsKey(key) Then
+        If Not content.ContainsKey("tudo_anthra") Then
+          content.Add("tudo_anthra", "A mellhártyákon szürkésfekete hálózatos rajzolat látható. ")
+        End If
+        If Not content.ContainsKey("tudo_emphy") Then
+          content.Add("tudo_anthra", "tágult ")
+        End If
+        If Not content.ContainsKey("tudo_oedema") Then
+          content.Add("tudo_anthra", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek, metszlapjukról nyomásra habos szilvalészerű folyadék ürül")
+        End If
+        AddToDiag("Anthracosis, emphysema et oedema pulmonum.")
+      End If
+      '########################################################################
+      key = "tudo_bronch"
+      If data.ContainsKey(key) Then
+        Select Case data.Item(key)
+          Case "chronic"
+            content.Add("tudo_bronch_chron", "kifejezett")
+            AddToDiag("Bronchitis chronica.")
+          Case "acut"
+            content.Add("tudo_bronch_acut", "purulens váladékot tartalmazó ")
+            AddToDiag("Bronchitis chronica cum exacerbatinoe acuta.")
+        End Select
+      Else
+        content.Add("tudo_bronch_chron", "enyhe")
+      End If
+      '########################################################################
+      key = "tudo_pneu"
+      If data.ContainsKey(key) Then
+
+        If data.ContainsKey("tudo_pneu_mko") Then
+          content.Add("tudo_pneu", "Mindkét tüdő alsó lebenye")
+          text = "Bronchopenumonia loborum inferiorum pulmonum"
+          flag = True
+        Else
+          content.Add("tudo_pneu", "A ")
+          text = "Bronchopenumonia"
+          flag = False
+        End If
+
+        If data.ContainsKey("tudo_pneu_j_a") Then
+          If flag Then
+            content.Item("tudo_pneu") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_pneu") += "jobb tüdő alsó lebenye"
+          text += "lobi inferioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_j_k") Then
+          If flag Then
+            content.Item("tudo_pneu") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_pneu") += "jobb tüdő középső lebenye"
+          text += "lobi medii pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_j_f") Then
+          If flag Then
+            content.Item("tudo_pneu") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_pneu") += "jobb tüdő felső lebenye"
+          text += "lobi superioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_b_a") Then
+          If flag Then
+            content.Item("tudo_pneu") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_pneu") += "bal tüdő alsó lebenye"
+          text += "lobi inferioris pulmonis sinistri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_b_f") Then
+          If flag Then
+            content.Item("tudo_pneu") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_pneu") += "bal tüdő felső lebenye"
+          text += "lobi suprioris pulmonis sinistri"
+          flag = True
+        End If
+        content.Item("tudo_pneu") += " légtelen, tömött tapintatú, metszéslapján gennycsapok préselhetők. "
+        AddToDiag(text + ".")
+      End If
+      '########################################################################
+      key = "tudo_tumor"
+      If data.ContainsKey(key) Then
+        If data.ContainsKey("tudo_tumor_m") Then
+          content.Add("tudo_tumor", "Az összes lebenyben")
+          text = "Neoplasma malignum loborum omnium pulmonum"
+          flag = True
+        Else
+          content.Add("tudo_tumor", "A ")
+          text = "Neoplasma malignum"
+          flag = False
+        End If
+
+        If data.ContainsKey("tudo_tumor_j_a") Then
+          If flag Then
+            content.Item("tudo_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_tumor") += "jobb alsó lebenyben"
+          text += "lobi inferioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_tumor_j_k") Then
+          If flag Then
+            content.Item("tudo_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_tumor") += "jobb középső lebenyben"
+          text += "lobi medii pulmonis dextri. "
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_tumor_j_f") Then
+          If flag Then
+            content.Item("tudo_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_tumor") += "jobb felső lebenyben"
+          text += "lobi superioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_tumor_b_a") Then
+          If flag Then
+            content.Item("tudo_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_tumor") += "bal alsó lebenyben"
+          text += "lobi inferioris pulmonis sinistri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_tumor_b_f") Then
+          If flag Then
+            content.Item("tudo_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_tumor") += "bal felső lebenyben"
+          text += "lobi superioris pulmonis sinistri"
+          flag = True
+        End If
+
+        If CheckRequired("tudo_tumor_meret", data) Then
+          text += "szürkésfehér színű " + data.Item("tudo_tumor_meret") + " mm legnagyobb átmérőjű idegenszövet-szaporulat látható. "
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+        AddToDiag(text + ".")
+      End If
+      '########################################################################
+      key = "tudo_attet"
+      If data.ContainsKey(key) Then
+        If data.ContainsKey("tudo_attet_m") Then
+          content.Add("tudo_attet", "Az összes lebenyben")
+          text = "Metastasis loborum omnium pulmonum"
+          flag = True
+        Else
+          content.Add("tudo_attet", "A ")
+          text = "Metastasis"
+          flag = False
+        End If
+
+        If data.ContainsKey("tudo_attet_j_a") Then
+          If flag Then
+            content.Item("tudo_attet") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_attet") += "jobb alsó lebenyben"
+          text += "lobi inferioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_attet_j_k") Then
+          If flag Then
+            content.Item("tudo_attet") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_attet") += "jobb középső lebenyben"
+          text += "lobi medii pulmonis dextri. "
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_attet_j_f") Then
+          If flag Then
+            content.Item("tudo_attet") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_attet") += "jobb felső lebenyben"
+          text += "lobi superioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_attet_b_a") Then
+          If flag Then
+            content.Item("tudo_attet") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_attet") += "bal alsó lebenyben"
+          text += "lobi inferioris pulmonis sinistri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_attet_b_f") Then
+          If flag Then
+            content.Item("tudo_attet") += ", "
+            text += " et "
+          End If
+          content.Item("tudo_attet") += "bal felső lebenyben"
+          text += "lobi superioris pulmonis sinistri"
+          flag = True
+        End If
+
+        If CheckRequired("tudo_attet_meret", data) Then
+          text += "szürkésfehér színű " + data.Item("tudo_attet_meret") + " mm legnagyobb átmérőjű daganatáttét látható. "
+        ElseIf AbortOnMissing Then
+          Exit Sub
+        End If
+        AddToDiag(text + ".")
+      End If
+      '########################################################################
+      key = "tudo_embolia"
+      If data.ContainsKey(key) Then
+
+        If data.ContainsKey("tudo_embolia_lovag") Then
+          content.Add("tudo_emb_lovag_1", ", oszlásában vérrögös elzáródás láható")
+          content.Add("tudo_emb_lovag_2", ", egyebekben")
+          AddToDiag("Thromboembolus bifurcationis trunci pulmonalis.")
+        End If
+
+        If data.ContainsKey("tudo_embolia_ket") Then
+          content.Add("tudo_emb_ket", ", oszlása után a tüdőverőerek mindkét főágában masszív vérrögös elzáródás látható")
+          If Not content.ContainsKey("tudo_emb_lovag_2") Then
+            content.Add("tudo_emb_lovag_2", ", egyebekben")
+          End If
+          AddToDiag("Thromboembolus ramorum principalum arteriarum pulmonalum.")
+        End If
+
+        If data.ContainsKey("tudo_embolia_elso") Then
+          If data.ContainsKey("tudo_embolia_b") Then
+            content.Add("tudo_emb_elso_b", "bal arteria pulmonalis elsőrendű ágában vérrögös elzáródás látható, egyebekben ")
+            AddToDiag("Thromboembolus rami principalis arteriae pulmonalis sinistri.")
+          End If
+          If data.ContainsKey("tudo_embolia_j") Then
+            content.Add("tudo_emb_elso_j", "jobb arteria pulmonalis elsőrendű ágában vérrögös elzáródás látható, egyebekben ")
+            AddToDiag("Thromboembolus rami principalis arteriae pulmonalis dextri.")
+          End If
+        End If
+
+        If data.ContainsKey("tudo_embolia_tobb") Then
+          If data.ContainsKey("tudo_embolia_b") Then
+            AddToDiag("Thromboembolus rami ordinis II-III. arteriae pulmonalis sinistri.")
+          End If
+          If data.ContainsKey("tudo_embolia_j") Then
+            AddToDiag("Thromboembolus rami ordinis II-III. arteriae pulmonalis dextri.")
+          End If
+          content.Add("tudo_emb_tobb", "a másod-, és harmadrendű ágaiban vérrögös elzáródás látható, egyebekben ")
+        End If
+      End If
+      '########################################################################
+      key = "tudo_hydro"
+      If data.ContainsKey(key) Then
+        If CheckRequired("tudo_hydro_liter", data) And AbortOnMissing Then
+          Exit Sub
+        End If
+        If CheckRequired("tudo_hydro_poz", data) And AbortOnMissing Then
+          Exit Sub
+        End If
+
+        content.Add("tudo_hydro", "A mellüregben ")
+
+        Select Case data.Item("tudo_hydro_poz")
+          Case "bal"
+            content.Item("tudo_hydro") += "bal oldalt "
+            AddToDiag("Hydrothorax l. s.")
+          Case "jobb"
+            content.Item("tudo_hydro") += "jobb oldalt "
+            AddToDiag("Hydrothorax l. d.")
+          Case "mko"
+            content.Item("tudo_hydro") += "mindkét oldalt "
+            AddToDiag("Hydrothorax l. u.")
+        End Select
+        content.Item("tudo_hydro") += data.Item("tudo_hydro_liter") + " liter szalmasárga folyadék látható. "
       End If
     Catch ex As Exception
       ErrorHandling.General(ex)

@@ -68,7 +68,6 @@ Partial Class Main
 		Me.TextBox7 = New System.Windows.Forms.TextBox()
 		Me.TextBox6 = New System.Windows.Forms.TextBox()
 		Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-		Me.Button3 = New System.Windows.Forms.Button()
 		Me.RadioButton20 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton19 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton18 = New System.Windows.Forms.RadioButton()
@@ -145,6 +144,7 @@ Partial Class Main
 		Me.TabPage3 = New System.Windows.Forms.TabPage()
 		Me.Next3 = New System.Windows.Forms.Button()
 		Me.GroupBox20 = New System.Windows.Forms.GroupBox()
+		Me.CheckBox27 = New System.Windows.Forms.CheckBox()
 		Me.Label20 = New System.Windows.Forms.Label()
 		Me.haemo_g = New System.Windows.Forms.TextBox()
 		Me.bill_haemo = New System.Windows.Forms.CheckBox()
@@ -206,6 +206,53 @@ Partial Class Main
 		Me.TextBox12 = New System.Windows.Forms.TextBox()
 		Me.RadioButton29 = New System.Windows.Forms.RadioButton()
 		Me.TabPage4 = New System.Windows.Forms.TabPage()
+		Me.GroupBox37 = New System.Windows.Forms.GroupBox()
+		Me.CheckBox28 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox63 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox32 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox33 = New System.Windows.Forms.CheckBox()
+		Me.Button1 = New System.Windows.Forms.Button()
+		Me.GroupBox36 = New System.Windows.Forms.GroupBox()
+		Me.RadioButton63 = New System.Windows.Forms.RadioButton()
+		Me.RadioButton62 = New System.Windows.Forms.RadioButton()
+		Me.RadioButton61 = New System.Windows.Forms.RadioButton()
+		Me.Label26 = New System.Windows.Forms.Label()
+		Me.TextBox16 = New System.Windows.Forms.TextBox()
+		Me.CheckBox62 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox35 = New System.Windows.Forms.GroupBox()
+		Me.CheckBox55 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox56 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox57 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox58 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox59 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox60 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox61 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox34 = New System.Windows.Forms.GroupBox()
+		Me.CheckBox48 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox49 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox50 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox51 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox52 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox53 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox54 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox33 = New System.Windows.Forms.GroupBox()
+		Me.CheckBox41 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox42 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox43 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox44 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox46 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox47 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox32 = New System.Windows.Forms.GroupBox()
+		Me.CheckBox40 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox39 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox38 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox37 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox36 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox35 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox34 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox31 = New System.Windows.Forms.GroupBox()
+		Me.RadioButton60 = New System.Windows.Forms.RadioButton()
+		Me.RadioButton59 = New System.Windows.Forms.RadioButton()
 		Me.saveBtn = New System.Windows.Forms.Button()
 		Me.export = New System.Windows.Forms.Button()
 		Me.reset = New System.Windows.Forms.Button()
@@ -214,6 +261,11 @@ Partial Class Main
 		Me.datum = New System.Windows.Forms.TextBox()
 		Me.Label22 = New System.Windows.Forms.Label()
 		Me.loadButton = New System.Windows.Forms.Button()
+		Me.TextBox17 = New System.Windows.Forms.TextBox()
+		Me.Label27 = New System.Windows.Forms.Label()
+		Me.Label28 = New System.Windows.Forms.Label()
+		Me.TextBox19 = New System.Windows.Forms.TextBox()
+		Me.CheckBox45 = New System.Windows.Forms.CheckBox()
 		Me.dataInput.SuspendLayout()
 		Me.TabPage1.SuspendLayout()
 		Me.GroupBox14.SuspendLayout()
@@ -249,6 +301,14 @@ Partial Class Main
 		Me.GroupBox27.SuspendLayout()
 		Me.GroupBox17.SuspendLayout()
 		Me.GroupBox15.SuspendLayout()
+		Me.TabPage4.SuspendLayout()
+		Me.GroupBox37.SuspendLayout()
+		Me.GroupBox36.SuspendLayout()
+		Me.GroupBox35.SuspendLayout()
+		Me.GroupBox34.SuspendLayout()
+		Me.GroupBox33.SuspendLayout()
+		Me.GroupBox32.SuspendLayout()
+		Me.GroupBox31.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'dataInput
@@ -418,10 +478,10 @@ Partial Class Main
 		Me.CheckBox5.Location = New System.Drawing.Point(4, 17)
 		Me.CheckBox5.Margin = New System.Windows.Forms.Padding(2)
 		Me.CheckBox5.Name = "CheckBox5"
-		Me.CheckBox5.Size = New System.Drawing.Size(65, 17)
+		Me.CheckBox5.Size = New System.Drawing.Size(64, 17)
 		Me.CheckBox5.TabIndex = 1
 		Me.CheckBox5.Tag = "asu_kp"
-		Me.CheckBox5.Text = "ASU KP"
+		Me.CheckBox5.Text = "ASU Kp"
 		Me.CheckBox5.UseVisualStyleBackColor = True
 		'
 		'CheckBox6
@@ -430,10 +490,10 @@ Partial Class Main
 		Me.CheckBox6.Location = New System.Drawing.Point(4, 39)
 		Me.CheckBox6.Margin = New System.Windows.Forms.Padding(2)
 		Me.CheckBox6.Name = "CheckBox6"
-		Me.CheckBox6.Size = New System.Drawing.Size(94, 17)
+		Me.CheckBox6.Size = New System.Drawing.Size(82, 17)
 		Me.CheckBox6.TabIndex = 2
 		Me.CheckBox6.Tag = "asu_sulyos"
-		Me.CheckBox6.Text = "ASU SULYOS"
+		Me.CheckBox6.Text = "ASU Súlyos"
 		Me.CheckBox6.UseVisualStyleBackColor = True
 		'
 		'ascites
@@ -442,10 +502,10 @@ Partial Class Main
 		Me.ascites.Location = New System.Drawing.Point(4, 61)
 		Me.ascites.Margin = New System.Windows.Forms.Padding(2)
 		Me.ascites.Name = "ascites"
-		Me.ascites.Size = New System.Drawing.Size(71, 17)
+		Me.ascites.Size = New System.Drawing.Size(60, 17)
 		Me.ascites.TabIndex = 3
 		Me.ascites.Tag = "ascites"
-		Me.ascites.Text = "ASCITES"
+		Me.ascites.Text = "Ascites"
 		Me.ascites.UseVisualStyleBackColor = True
 		'
 		'asc_liter
@@ -475,10 +535,10 @@ Partial Class Main
 		Me.CheckBox8.Location = New System.Drawing.Point(4, 104)
 		Me.CheckBox8.Margin = New System.Windows.Forms.Padding(2)
 		Me.CheckBox8.Name = "CheckBox8"
-		Me.CheckBox8.Size = New System.Drawing.Size(73, 17)
+		Me.CheckBox8.Size = New System.Drawing.Size(58, 17)
 		Me.CheckBox8.TabIndex = 5
 		Me.CheckBox8.Tag = "icterus"
-		Me.CheckBox8.Text = "ICTERUS"
+		Me.CheckBox8.Text = "Icterus"
 		Me.CheckBox8.UseVisualStyleBackColor = True
 		'
 		'GroupBox11
@@ -760,7 +820,6 @@ Partial Class Main
 		'
 		'GroupBox7
 		'
-		Me.GroupBox7.Controls.Add(Me.Button3)
 		Me.GroupBox7.Controls.Add(Me.RadioButton20)
 		Me.GroupBox7.Controls.Add(Me.RadioButton19)
 		Me.GroupBox7.Controls.Add(Me.RadioButton18)
@@ -776,17 +835,6 @@ Partial Class Main
 		Me.GroupBox7.TabStop = False
 		Me.GroupBox7.Tag = "amputacio"
 		Me.GroupBox7.Text = "Amputácio"
-		'
-		'Button3
-		'
-		Me.Button3.Location = New System.Drawing.Point(222, 9)
-		Me.Button3.Margin = New System.Windows.Forms.Padding(2)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(22, 25)
-		Me.Button3.TabIndex = 15
-		Me.Button3.TabStop = False
-		Me.Button3.Text = "X"
-		Me.Button3.UseVisualStyleBackColor = True
 		'
 		'RadioButton20
 		'
@@ -1744,6 +1792,7 @@ Partial Class Main
 		'
 		'GroupBox20
 		'
+		Me.GroupBox20.Controls.Add(Me.CheckBox27)
 		Me.GroupBox20.Controls.Add(Me.Label20)
 		Me.GroupBox20.Controls.Add(Me.haemo_g)
 		Me.GroupBox20.Controls.Add(Me.bill_haemo)
@@ -1758,6 +1807,18 @@ Partial Class Main
 		Me.GroupBox20.TabStop = False
 		Me.GroupBox20.Tag = ""
 		Me.GroupBox20.Text = "Billentyűk"
+		'
+		'CheckBox27
+		'
+		Me.CheckBox27.AutoSize = True
+		Me.CheckBox27.Location = New System.Drawing.Point(141, 38)
+		Me.CheckBox27.Margin = New System.Windows.Forms.Padding(2)
+		Me.CheckBox27.Name = "CheckBox27"
+		Me.CheckBox27.Size = New System.Drawing.Size(55, 17)
+		Me.CheckBox27.TabIndex = 29
+		Me.CheckBox27.Tag = "sziv_cabg"
+		Me.CheckBox27.Text = "CABG"
+		Me.CheckBox27.UseVisualStyleBackColor = True
 		'
 		'Label20
 		'
@@ -2494,6 +2555,14 @@ Partial Class Main
 		'
 		'TabPage4
 		'
+		Me.TabPage4.Controls.Add(Me.GroupBox37)
+		Me.TabPage4.Controls.Add(Me.Button1)
+		Me.TabPage4.Controls.Add(Me.GroupBox36)
+		Me.TabPage4.Controls.Add(Me.GroupBox35)
+		Me.TabPage4.Controls.Add(Me.GroupBox34)
+		Me.TabPage4.Controls.Add(Me.GroupBox33)
+		Me.TabPage4.Controls.Add(Me.GroupBox32)
+		Me.TabPage4.Controls.Add(Me.GroupBox31)
 		Me.TabPage4.Location = New System.Drawing.Point(4, 22)
 		Me.TabPage4.Margin = New System.Windows.Forms.Padding(2)
 		Me.TabPage4.Name = "TabPage4"
@@ -2502,6 +2571,550 @@ Partial Class Main
 		Me.TabPage4.TabIndex = 3
 		Me.TabPage4.Text = "Tüdő"
 		Me.TabPage4.UseVisualStyleBackColor = True
+		'
+		'GroupBox37
+		'
+		Me.GroupBox37.Controls.Add(Me.CheckBox28)
+		Me.GroupBox37.Controls.Add(Me.CheckBox63)
+		Me.GroupBox37.Controls.Add(Me.CheckBox32)
+		Me.GroupBox37.Controls.Add(Me.CheckBox33)
+		Me.GroupBox37.Location = New System.Drawing.Point(23, 6)
+		Me.GroupBox37.Name = "GroupBox37"
+		Me.GroupBox37.Size = New System.Drawing.Size(368, 48)
+		Me.GroupBox37.TabIndex = 31
+		Me.GroupBox37.TabStop = False
+		'
+		'CheckBox28
+		'
+		Me.CheckBox28.AutoSize = True
+		Me.CheckBox28.Location = New System.Drawing.Point(6, 19)
+		Me.CheckBox28.Name = "CheckBox28"
+		Me.CheckBox28.Size = New System.Drawing.Size(81, 17)
+		Me.CheckBox28.TabIndex = 0
+		Me.CheckBox28.Tag = "tudo_anthra"
+		Me.CheckBox28.Text = "Anthracosis"
+		Me.CheckBox28.UseVisualStyleBackColor = True
+		'
+		'CheckBox63
+		'
+		Me.CheckBox63.AutoSize = True
+		Me.CheckBox63.Location = New System.Drawing.Point(254, 19)
+		Me.CheckBox63.Name = "CheckBox63"
+		Me.CheckBox63.Size = New System.Drawing.Size(78, 17)
+		Me.CheckBox63.TabIndex = 5
+		Me.CheckBox63.Tag = "tudo_mindharom"
+		Me.CheckBox63.Text = "Mindhárom"
+		Me.CheckBox63.UseVisualStyleBackColor = True
+		'
+		'CheckBox32
+		'
+		Me.CheckBox32.AutoSize = True
+		Me.CheckBox32.Location = New System.Drawing.Point(93, 19)
+		Me.CheckBox32.Name = "CheckBox32"
+		Me.CheckBox32.Size = New System.Drawing.Size(83, 17)
+		Me.CheckBox32.TabIndex = 1
+		Me.CheckBox32.Tag = "tudo_emphy"
+		Me.CheckBox32.Text = "Emphysema"
+		Me.CheckBox32.UseVisualStyleBackColor = True
+		'
+		'CheckBox33
+		'
+		Me.CheckBox33.AutoSize = True
+		Me.CheckBox33.Location = New System.Drawing.Point(182, 19)
+		Me.CheckBox33.Name = "CheckBox33"
+		Me.CheckBox33.Size = New System.Drawing.Size(66, 17)
+		Me.CheckBox33.TabIndex = 2
+		Me.CheckBox33.Tag = "tudo_oedema"
+		Me.CheckBox33.Text = "Oedema"
+		Me.CheckBox33.UseVisualStyleBackColor = True
+		'
+		'Button1
+		'
+		Me.Button1.Location = New System.Drawing.Point(433, 450)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+		Me.Button1.Name = "Button1"
+		Me.Button1.Size = New System.Drawing.Size(66, 37)
+		Me.Button1.TabIndex = 30
+		Me.Button1.Text = "Következő"
+		Me.Button1.UseVisualStyleBackColor = True
+		'
+		'GroupBox36
+		'
+		Me.GroupBox36.Controls.Add(Me.RadioButton63)
+		Me.GroupBox36.Controls.Add(Me.RadioButton62)
+		Me.GroupBox36.Controls.Add(Me.RadioButton61)
+		Me.GroupBox36.Controls.Add(Me.Label26)
+		Me.GroupBox36.Controls.Add(Me.TextBox16)
+		Me.GroupBox36.Controls.Add(Me.CheckBox62)
+		Me.GroupBox36.Location = New System.Drawing.Point(25, 408)
+		Me.GroupBox36.Name = "GroupBox36"
+		Me.GroupBox36.Size = New System.Drawing.Size(310, 72)
+		Me.GroupBox36.TabIndex = 9
+		Me.GroupBox36.TabStop = False
+		Me.GroupBox36.Tag = "tudo_hydro_poz"
+		'
+		'RadioButton63
+		'
+		Me.RadioButton63.AutoSize = True
+		Me.RadioButton63.Location = New System.Drawing.Point(209, 49)
+		Me.RadioButton63.Name = "RadioButton63"
+		Me.RadioButton63.Size = New System.Drawing.Size(90, 17)
+		Me.RadioButton63.TabIndex = 24
+		Me.RadioButton63.TabStop = True
+		Me.RadioButton63.Tag = "mko"
+		Me.RadioButton63.Text = "Mindkét oldali"
+		Me.RadioButton63.UseVisualStyleBackColor = True
+		'
+		'RadioButton62
+		'
+		Me.RadioButton62.AutoSize = True
+		Me.RadioButton62.Location = New System.Drawing.Point(106, 49)
+		Me.RadioButton62.Name = "RadioButton62"
+		Me.RadioButton62.Size = New System.Drawing.Size(48, 17)
+		Me.RadioButton62.TabIndex = 23
+		Me.RadioButton62.TabStop = True
+		Me.RadioButton62.Tag = "jobb"
+		Me.RadioButton62.Text = "Jobb"
+		Me.RadioButton62.UseVisualStyleBackColor = True
+		'
+		'RadioButton61
+		'
+		Me.RadioButton61.AutoSize = True
+		Me.RadioButton61.Location = New System.Drawing.Point(4, 49)
+		Me.RadioButton61.Name = "RadioButton61"
+		Me.RadioButton61.Size = New System.Drawing.Size(40, 17)
+		Me.RadioButton61.TabIndex = 22
+		Me.RadioButton61.TabStop = True
+		Me.RadioButton61.Tag = "bal"
+		Me.RadioButton61.Text = "Bal"
+		Me.RadioButton61.UseVisualStyleBackColor = True
+		'
+		'Label26
+		'
+		Me.Label26.AutoSize = True
+		Me.Label26.Enabled = False
+		Me.Label26.Location = New System.Drawing.Point(167, 25)
+		Me.Label26.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+		Me.Label26.Name = "Label26"
+		Me.Label26.Size = New System.Drawing.Size(23, 13)
+		Me.Label26.TabIndex = 21
+		Me.Label26.Text = "liter"
+		'
+		'TextBox16
+		'
+		Me.TextBox16.Location = New System.Drawing.Point(122, 19)
+		Me.TextBox16.Name = "TextBox16"
+		Me.TextBox16.Size = New System.Drawing.Size(39, 20)
+		Me.TextBox16.TabIndex = 1
+		Me.TextBox16.Tag = "tudo_hydro_liter"
+		'
+		'CheckBox62
+		'
+		Me.CheckBox62.AutoSize = True
+		Me.CheckBox62.Location = New System.Drawing.Point(10, 19)
+		Me.CheckBox62.Name = "CheckBox62"
+		Me.CheckBox62.Size = New System.Drawing.Size(83, 17)
+		Me.CheckBox62.TabIndex = 0
+		Me.CheckBox62.Tag = "tudo_hydro"
+		Me.CheckBox62.Text = "Hydrothorax"
+		Me.CheckBox62.UseVisualStyleBackColor = True
+		'
+		'GroupBox35
+		'
+		Me.GroupBox35.Controls.Add(Me.CheckBox55)
+		Me.GroupBox35.Controls.Add(Me.CheckBox56)
+		Me.GroupBox35.Controls.Add(Me.CheckBox57)
+		Me.GroupBox35.Controls.Add(Me.CheckBox58)
+		Me.GroupBox35.Controls.Add(Me.CheckBox59)
+		Me.GroupBox35.Controls.Add(Me.CheckBox60)
+		Me.GroupBox35.Controls.Add(Me.CheckBox61)
+		Me.GroupBox35.Location = New System.Drawing.Point(225, 265)
+		Me.GroupBox35.Name = "GroupBox35"
+		Me.GroupBox35.Size = New System.Drawing.Size(202, 133)
+		Me.GroupBox35.TabIndex = 8
+		Me.GroupBox35.TabStop = False
+		'
+		'CheckBox55
+		'
+		Me.CheckBox55.AutoSize = True
+		Me.CheckBox55.Location = New System.Drawing.Point(99, 94)
+		Me.CheckBox55.Name = "CheckBox55"
+		Me.CheckBox55.Size = New System.Drawing.Size(90, 17)
+		Me.CheckBox55.TabIndex = 6
+		Me.CheckBox55.Tag = "tudo_embolia_tobb"
+		Me.CheckBox55.Text = "Többedrendű"
+		Me.CheckBox55.UseVisualStyleBackColor = True
+		'
+		'CheckBox56
+		'
+		Me.CheckBox56.AutoSize = True
+		Me.CheckBox56.Location = New System.Drawing.Point(6, 94)
+		Me.CheckBox56.Name = "CheckBox56"
+		Me.CheckBox56.Size = New System.Drawing.Size(73, 17)
+		Me.CheckBox56.TabIndex = 5
+		Me.CheckBox56.Tag = "tudo_embolia_elso"
+		Me.CheckBox56.Text = "Elsőrendű"
+		Me.CheckBox56.UseVisualStyleBackColor = True
+		'
+		'CheckBox57
+		'
+		Me.CheckBox57.AutoSize = True
+		Me.CheckBox57.Location = New System.Drawing.Point(99, 71)
+		Me.CheckBox57.Name = "CheckBox57"
+		Me.CheckBox57.Size = New System.Drawing.Size(49, 17)
+		Me.CheckBox57.TabIndex = 4
+		Me.CheckBox57.Tag = "tudo_embolia_j"
+		Me.CheckBox57.Text = "Jobb"
+		Me.CheckBox57.UseVisualStyleBackColor = True
+		'
+		'CheckBox58
+		'
+		Me.CheckBox58.AutoSize = True
+		Me.CheckBox58.Location = New System.Drawing.Point(94, 48)
+		Me.CheckBox58.Name = "CheckBox58"
+		Me.CheckBox58.Size = New System.Drawing.Size(108, 17)
+		Me.CheckBox58.TabIndex = 3
+		Me.CheckBox58.Tag = "tudo_embolia_ket"
+		Me.CheckBox58.Text = "Masszív kétoldali"
+		Me.CheckBox58.UseVisualStyleBackColor = True
+		'
+		'CheckBox59
+		'
+		Me.CheckBox59.AutoSize = True
+		Me.CheckBox59.Location = New System.Drawing.Point(9, 71)
+		Me.CheckBox59.Name = "CheckBox59"
+		Me.CheckBox59.Size = New System.Drawing.Size(41, 17)
+		Me.CheckBox59.TabIndex = 2
+		Me.CheckBox59.Tag = "tudo_embolia_b"
+		Me.CheckBox59.Text = "Bal"
+		Me.CheckBox59.UseVisualStyleBackColor = True
+		'
+		'CheckBox60
+		'
+		Me.CheckBox60.AutoSize = True
+		Me.CheckBox60.Location = New System.Drawing.Point(6, 48)
+		Me.CheckBox60.Name = "CheckBox60"
+		Me.CheckBox60.Size = New System.Drawing.Size(64, 17)
+		Me.CheckBox60.TabIndex = 1
+		Me.CheckBox60.Tag = "tudo_embolia_lovag"
+		Me.CheckBox60.Text = "Lovagló"
+		Me.CheckBox60.UseVisualStyleBackColor = True
+		'
+		'CheckBox61
+		'
+		Me.CheckBox61.AutoSize = True
+		Me.CheckBox61.Location = New System.Drawing.Point(6, 19)
+		Me.CheckBox61.Name = "CheckBox61"
+		Me.CheckBox61.Size = New System.Drawing.Size(87, 17)
+		Me.CheckBox61.TabIndex = 0
+		Me.CheckBox61.Tag = "tudo_embolia"
+		Me.CheckBox61.Text = "Tüdőembólia"
+		Me.CheckBox61.UseVisualStyleBackColor = True
+		'
+		'GroupBox34
+		'
+		Me.GroupBox34.Controls.Add(Me.Label27)
+		Me.GroupBox34.Controls.Add(Me.TextBox17)
+		Me.GroupBox34.Controls.Add(Me.CheckBox48)
+		Me.GroupBox34.Controls.Add(Me.CheckBox49)
+		Me.GroupBox34.Controls.Add(Me.CheckBox50)
+		Me.GroupBox34.Controls.Add(Me.CheckBox51)
+		Me.GroupBox34.Controls.Add(Me.CheckBox52)
+		Me.GroupBox34.Controls.Add(Me.CheckBox53)
+		Me.GroupBox34.Controls.Add(Me.CheckBox54)
+		Me.GroupBox34.Location = New System.Drawing.Point(17, 265)
+		Me.GroupBox34.Name = "GroupBox34"
+		Me.GroupBox34.Size = New System.Drawing.Size(202, 133)
+		Me.GroupBox34.TabIndex = 7
+		Me.GroupBox34.TabStop = False
+		'
+		'CheckBox48
+		'
+		Me.CheckBox48.AutoSize = True
+		Me.CheckBox48.Location = New System.Drawing.Point(99, 94)
+		Me.CheckBox48.Name = "CheckBox48"
+		Me.CheckBox48.Size = New System.Drawing.Size(71, 17)
+		Me.CheckBox48.TabIndex = 6
+		Me.CheckBox48.Tag = "tudo_attet_j_a"
+		Me.CheckBox48.Text = "Jobb alsó"
+		Me.CheckBox48.UseVisualStyleBackColor = True
+		'
+		'CheckBox49
+		'
+		Me.CheckBox49.AutoSize = True
+		Me.CheckBox49.Location = New System.Drawing.Point(6, 94)
+		Me.CheckBox49.Name = "CheckBox49"
+		Me.CheckBox49.Size = New System.Drawing.Size(63, 17)
+		Me.CheckBox49.TabIndex = 5
+		Me.CheckBox49.Tag = "tudo_attet_b_a"
+		Me.CheckBox49.Text = "Bal alsó"
+		Me.CheckBox49.UseVisualStyleBackColor = True
+		'
+		'CheckBox50
+		'
+		Me.CheckBox50.AutoSize = True
+		Me.CheckBox50.Location = New System.Drawing.Point(99, 48)
+		Me.CheckBox50.Name = "CheckBox50"
+		Me.CheckBox50.Size = New System.Drawing.Size(74, 17)
+		Me.CheckBox50.TabIndex = 4
+		Me.CheckBox50.Tag = "tudo_attet_j_f"
+		Me.CheckBox50.Text = "Jobb felső"
+		Me.CheckBox50.UseVisualStyleBackColor = True
+		'
+		'CheckBox51
+		'
+		Me.CheckBox51.AutoSize = True
+		Me.CheckBox51.Location = New System.Drawing.Point(99, 71)
+		Me.CheckBox51.Name = "CheckBox51"
+		Me.CheckBox51.Size = New System.Drawing.Size(92, 17)
+		Me.CheckBox51.TabIndex = 3
+		Me.CheckBox51.Tag = "tudo_attet_j_k"
+		Me.CheckBox51.Text = "Jobb középső"
+		Me.CheckBox51.UseVisualStyleBackColor = True
+		'
+		'CheckBox52
+		'
+		Me.CheckBox52.AutoSize = True
+		Me.CheckBox52.Location = New System.Drawing.Point(6, 48)
+		Me.CheckBox52.Name = "CheckBox52"
+		Me.CheckBox52.Size = New System.Drawing.Size(95, 17)
+		Me.CheckBox52.TabIndex = 2
+		Me.CheckBox52.Tag = "tudo_attet_m"
+		Me.CheckBox52.Text = "Minden lebeny"
+		Me.CheckBox52.UseVisualStyleBackColor = True
+		'
+		'CheckBox53
+		'
+		Me.CheckBox53.AutoSize = True
+		Me.CheckBox53.Location = New System.Drawing.Point(6, 71)
+		Me.CheckBox53.Name = "CheckBox53"
+		Me.CheckBox53.Size = New System.Drawing.Size(66, 17)
+		Me.CheckBox53.TabIndex = 1
+		Me.CheckBox53.Tag = "tudo_attet_b_f"
+		Me.CheckBox53.Text = "Bal felső"
+		Me.CheckBox53.UseVisualStyleBackColor = True
+		'
+		'CheckBox54
+		'
+		Me.CheckBox54.AutoSize = True
+		Me.CheckBox54.Location = New System.Drawing.Point(6, 19)
+		Me.CheckBox54.Name = "CheckBox54"
+		Me.CheckBox54.Size = New System.Drawing.Size(48, 17)
+		Me.CheckBox54.TabIndex = 0
+		Me.CheckBox54.Tag = "tudo_attet"
+		Me.CheckBox54.Text = "Áttét"
+		Me.CheckBox54.UseVisualStyleBackColor = True
+		'
+		'GroupBox33
+		'
+		Me.GroupBox33.Controls.Add(Me.CheckBox45)
+		Me.GroupBox33.Controls.Add(Me.Label28)
+		Me.GroupBox33.Controls.Add(Me.TextBox19)
+		Me.GroupBox33.Controls.Add(Me.CheckBox41)
+		Me.GroupBox33.Controls.Add(Me.CheckBox42)
+		Me.GroupBox33.Controls.Add(Me.CheckBox43)
+		Me.GroupBox33.Controls.Add(Me.CheckBox44)
+		Me.GroupBox33.Controls.Add(Me.CheckBox46)
+		Me.GroupBox33.Controls.Add(Me.CheckBox47)
+		Me.GroupBox33.Location = New System.Drawing.Point(225, 126)
+		Me.GroupBox33.Name = "GroupBox33"
+		Me.GroupBox33.Size = New System.Drawing.Size(202, 133)
+		Me.GroupBox33.TabIndex = 5
+		Me.GroupBox33.TabStop = False
+		'
+		'CheckBox41
+		'
+		Me.CheckBox41.AutoSize = True
+		Me.CheckBox41.Location = New System.Drawing.Point(104, 94)
+		Me.CheckBox41.Name = "CheckBox41"
+		Me.CheckBox41.Size = New System.Drawing.Size(71, 17)
+		Me.CheckBox41.TabIndex = 6
+		Me.CheckBox41.Tag = "tudo_tumor_j_a"
+		Me.CheckBox41.Text = "Jobb alsó"
+		Me.CheckBox41.UseVisualStyleBackColor = True
+		'
+		'CheckBox42
+		'
+		Me.CheckBox42.AutoSize = True
+		Me.CheckBox42.Location = New System.Drawing.Point(6, 94)
+		Me.CheckBox42.Name = "CheckBox42"
+		Me.CheckBox42.Size = New System.Drawing.Size(63, 17)
+		Me.CheckBox42.TabIndex = 5
+		Me.CheckBox42.Tag = "tudo_tumor_b_a"
+		Me.CheckBox42.Text = "Bal alsó"
+		Me.CheckBox42.UseVisualStyleBackColor = True
+		'
+		'CheckBox43
+		'
+		Me.CheckBox43.AutoSize = True
+		Me.CheckBox43.Location = New System.Drawing.Point(107, 48)
+		Me.CheckBox43.Name = "CheckBox43"
+		Me.CheckBox43.Size = New System.Drawing.Size(74, 17)
+		Me.CheckBox43.TabIndex = 4
+		Me.CheckBox43.Tag = "tudo_tumor_j_f"
+		Me.CheckBox43.Text = "Jobb felső"
+		Me.CheckBox43.UseVisualStyleBackColor = True
+		'
+		'CheckBox44
+		'
+		Me.CheckBox44.AutoSize = True
+		Me.CheckBox44.Location = New System.Drawing.Point(104, 71)
+		Me.CheckBox44.Name = "CheckBox44"
+		Me.CheckBox44.Size = New System.Drawing.Size(92, 17)
+		Me.CheckBox44.TabIndex = 3
+		Me.CheckBox44.Tag = "tudo_tumor_j_k"
+		Me.CheckBox44.Text = "Jobb középső"
+		Me.CheckBox44.UseVisualStyleBackColor = True
+		'
+		'CheckBox46
+		'
+		Me.CheckBox46.AutoSize = True
+		Me.CheckBox46.Location = New System.Drawing.Point(6, 71)
+		Me.CheckBox46.Name = "CheckBox46"
+		Me.CheckBox46.Size = New System.Drawing.Size(66, 17)
+		Me.CheckBox46.TabIndex = 1
+		Me.CheckBox46.Tag = "tudo_tumor_b_f"
+		Me.CheckBox46.Text = "Bal felső"
+		Me.CheckBox46.UseVisualStyleBackColor = True
+		'
+		'CheckBox47
+		'
+		Me.CheckBox47.AutoSize = True
+		Me.CheckBox47.Location = New System.Drawing.Point(6, 19)
+		Me.CheckBox47.Name = "CheckBox47"
+		Me.CheckBox47.Size = New System.Drawing.Size(56, 17)
+		Me.CheckBox47.TabIndex = 0
+		Me.CheckBox47.Tag = "tudo_tumor"
+		Me.CheckBox47.Text = "Tumor"
+		Me.CheckBox47.UseVisualStyleBackColor = True
+		'
+		'GroupBox32
+		'
+		Me.GroupBox32.Controls.Add(Me.CheckBox40)
+		Me.GroupBox32.Controls.Add(Me.CheckBox39)
+		Me.GroupBox32.Controls.Add(Me.CheckBox38)
+		Me.GroupBox32.Controls.Add(Me.CheckBox37)
+		Me.GroupBox32.Controls.Add(Me.CheckBox36)
+		Me.GroupBox32.Controls.Add(Me.CheckBox35)
+		Me.GroupBox32.Controls.Add(Me.CheckBox34)
+		Me.GroupBox32.Location = New System.Drawing.Point(17, 126)
+		Me.GroupBox32.Name = "GroupBox32"
+		Me.GroupBox32.Size = New System.Drawing.Size(202, 133)
+		Me.GroupBox32.TabIndex = 4
+		Me.GroupBox32.TabStop = False
+		'
+		'CheckBox40
+		'
+		Me.CheckBox40.AutoSize = True
+		Me.CheckBox40.Location = New System.Drawing.Point(99, 94)
+		Me.CheckBox40.Name = "CheckBox40"
+		Me.CheckBox40.Size = New System.Drawing.Size(71, 17)
+		Me.CheckBox40.TabIndex = 6
+		Me.CheckBox40.Tag = "tudo_pneu_j_a"
+		Me.CheckBox40.Text = "Jobb alsó"
+		Me.CheckBox40.UseVisualStyleBackColor = True
+		'
+		'CheckBox39
+		'
+		Me.CheckBox39.AutoSize = True
+		Me.CheckBox39.Location = New System.Drawing.Point(6, 94)
+		Me.CheckBox39.Name = "CheckBox39"
+		Me.CheckBox39.Size = New System.Drawing.Size(63, 17)
+		Me.CheckBox39.TabIndex = 5
+		Me.CheckBox39.Tag = "tudo_pneu_b_a"
+		Me.CheckBox39.Text = "Bal alsó"
+		Me.CheckBox39.UseVisualStyleBackColor = True
+		'
+		'CheckBox38
+		'
+		Me.CheckBox38.AutoSize = True
+		Me.CheckBox38.Location = New System.Drawing.Point(6, 48)
+		Me.CheckBox38.Name = "CheckBox38"
+		Me.CheckBox38.Size = New System.Drawing.Size(86, 17)
+		Me.CheckBox38.TabIndex = 4
+		Me.CheckBox38.Tag = "tudo_pneu_mko"
+		Me.CheckBox38.Text = "Mindkét alsó"
+		Me.CheckBox38.UseVisualStyleBackColor = True
+		'
+		'CheckBox37
+		'
+		Me.CheckBox37.AutoSize = True
+		Me.CheckBox37.Location = New System.Drawing.Point(99, 71)
+		Me.CheckBox37.Name = "CheckBox37"
+		Me.CheckBox37.Size = New System.Drawing.Size(92, 17)
+		Me.CheckBox37.TabIndex = 3
+		Me.CheckBox37.Tag = "tudo_pneu_j_k"
+		Me.CheckBox37.Text = "Jobb középső"
+		Me.CheckBox37.UseVisualStyleBackColor = True
+		'
+		'CheckBox36
+		'
+		Me.CheckBox36.AutoSize = True
+		Me.CheckBox36.Location = New System.Drawing.Point(99, 48)
+		Me.CheckBox36.Name = "CheckBox36"
+		Me.CheckBox36.Size = New System.Drawing.Size(74, 17)
+		Me.CheckBox36.TabIndex = 2
+		Me.CheckBox36.Tag = "tudo_pneu_j_f"
+		Me.CheckBox36.Text = "Jobb felső"
+		Me.CheckBox36.UseVisualStyleBackColor = True
+		'
+		'CheckBox35
+		'
+		Me.CheckBox35.AutoSize = True
+		Me.CheckBox35.Location = New System.Drawing.Point(6, 71)
+		Me.CheckBox35.Name = "CheckBox35"
+		Me.CheckBox35.Size = New System.Drawing.Size(66, 17)
+		Me.CheckBox35.TabIndex = 1
+		Me.CheckBox35.Tag = "tudo_pneu_b_f"
+		Me.CheckBox35.Text = "Bal felső"
+		Me.CheckBox35.UseVisualStyleBackColor = True
+		'
+		'CheckBox34
+		'
+		Me.CheckBox34.AutoSize = True
+		Me.CheckBox34.Location = New System.Drawing.Point(6, 19)
+		Me.CheckBox34.Name = "CheckBox34"
+		Me.CheckBox34.Size = New System.Drawing.Size(79, 17)
+		Me.CheckBox34.TabIndex = 0
+		Me.CheckBox34.Tag = "tudo_pneu"
+		Me.CheckBox34.Text = "Pneumonia"
+		Me.CheckBox34.UseVisualStyleBackColor = True
+		'
+		'GroupBox31
+		'
+		Me.GroupBox31.Controls.Add(Me.RadioButton60)
+		Me.GroupBox31.Controls.Add(Me.RadioButton59)
+		Me.GroupBox31.Location = New System.Drawing.Point(17, 57)
+		Me.GroupBox31.Name = "GroupBox31"
+		Me.GroupBox31.Size = New System.Drawing.Size(223, 44)
+		Me.GroupBox31.TabIndex = 3
+		Me.GroupBox31.TabStop = False
+		Me.GroupBox31.Tag = "tudo_bronch"
+		Me.GroupBox31.Text = "Bronchitis"
+		'
+		'RadioButton60
+		'
+		Me.RadioButton60.AutoSize = True
+		Me.RadioButton60.Location = New System.Drawing.Point(105, 19)
+		Me.RadioButton60.Name = "RadioButton60"
+		Me.RadioButton60.Size = New System.Drawing.Size(89, 17)
+		Me.RadioButton60.TabIndex = 4
+		Me.RadioButton60.TabStop = True
+		Me.RadioButton60.Tag = "acut"
+		Me.RadioButton60.Text = "Acut Exacerb"
+		Me.RadioButton60.UseVisualStyleBackColor = True
+		'
+		'RadioButton59
+		'
+		Me.RadioButton59.AutoSize = True
+		Me.RadioButton59.Location = New System.Drawing.Point(6, 19)
+		Me.RadioButton59.Name = "RadioButton59"
+		Me.RadioButton59.Size = New System.Drawing.Size(67, 17)
+		Me.RadioButton59.TabIndex = 3
+		Me.RadioButton59.TabStop = True
+		Me.RadioButton59.Tag = "chronic"
+		Me.RadioButton59.Text = "Chronica"
+		Me.RadioButton59.UseVisualStyleBackColor = True
 		'
 		'saveBtn
 		'
@@ -2587,6 +3200,53 @@ Partial Class Main
 		Me.loadButton.Text = "Betöltés"
 		Me.loadButton.UseVisualStyleBackColor = True
 		'
+		'TextBox17
+		'
+		Me.TextBox17.Location = New System.Drawing.Point(96, 16)
+		Me.TextBox17.Name = "TextBox17"
+		Me.TextBox17.Size = New System.Drawing.Size(39, 20)
+		Me.TextBox17.TabIndex = 7
+		Me.TextBox17.Tag = "tudo_attet_meret"
+		'
+		'Label27
+		'
+		Me.Label27.AutoSize = True
+		Me.Label27.Location = New System.Drawing.Point(140, 23)
+		Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+		Me.Label27.Name = "Label27"
+		Me.Label27.Size = New System.Drawing.Size(23, 13)
+		Me.Label27.TabIndex = 8
+		Me.Label27.Text = "mm"
+		'
+		'Label28
+		'
+		Me.Label28.AutoSize = True
+		Me.Label28.Location = New System.Drawing.Point(115, 24)
+		Me.Label28.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+		Me.Label28.Name = "Label28"
+		Me.Label28.Size = New System.Drawing.Size(23, 13)
+		Me.Label28.TabIndex = 10
+		Me.Label28.Text = "mm"
+		'
+		'TextBox19
+		'
+		Me.TextBox19.Location = New System.Drawing.Point(71, 17)
+		Me.TextBox19.Name = "TextBox19"
+		Me.TextBox19.Size = New System.Drawing.Size(39, 20)
+		Me.TextBox19.TabIndex = 9
+		Me.TextBox19.Tag = "tudo_tumor_meret"
+		'
+		'CheckBox45
+		'
+		Me.CheckBox45.AutoSize = True
+		Me.CheckBox45.Location = New System.Drawing.Point(6, 48)
+		Me.CheckBox45.Name = "CheckBox45"
+		Me.CheckBox45.Size = New System.Drawing.Size(95, 17)
+		Me.CheckBox45.TabIndex = 11
+		Me.CheckBox45.Tag = "tudo_tumor_m"
+		Me.CheckBox45.Text = "Minden lebeny"
+		Me.CheckBox45.UseVisualStyleBackColor = True
+		'
 		'Main
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2671,6 +3331,21 @@ Partial Class Main
 		Me.GroupBox17.PerformLayout()
 		Me.GroupBox15.ResumeLayout(False)
 		Me.GroupBox15.PerformLayout()
+		Me.TabPage4.ResumeLayout(False)
+		Me.GroupBox37.ResumeLayout(False)
+		Me.GroupBox37.PerformLayout()
+		Me.GroupBox36.ResumeLayout(False)
+		Me.GroupBox36.PerformLayout()
+		Me.GroupBox35.ResumeLayout(False)
+		Me.GroupBox35.PerformLayout()
+		Me.GroupBox34.ResumeLayout(False)
+		Me.GroupBox34.PerformLayout()
+		Me.GroupBox33.ResumeLayout(False)
+		Me.GroupBox33.PerformLayout()
+		Me.GroupBox32.ResumeLayout(False)
+		Me.GroupBox32.PerformLayout()
+		Me.GroupBox31.ResumeLayout(False)
+		Me.GroupBox31.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -2775,7 +3450,6 @@ Partial Class Main
 	Friend WithEvents Label12 As Label
 	Friend WithEvents TextBox12 As TextBox
 	Friend WithEvents RadioButton29 As RadioButton
-	Friend WithEvents Button3 As Button
 	Friend WithEvents Button6 As Button
 	Friend WithEvents reset As Button
 	Friend WithEvents GroupBox18 As GroupBox
@@ -2867,4 +3541,57 @@ Partial Class Main
 	Friend WithEvents CheckBox24 As CheckBox
 	Friend WithEvents CheckBox23 As CheckBox
 	Friend WithEvents CheckBox22 As CheckBox
+	Friend WithEvents CheckBox27 As CheckBox
+	Friend WithEvents GroupBox37 As GroupBox
+	Friend WithEvents CheckBox28 As CheckBox
+	Friend WithEvents CheckBox63 As CheckBox
+	Friend WithEvents CheckBox32 As CheckBox
+	Friend WithEvents CheckBox33 As CheckBox
+	Friend WithEvents Button1 As Button
+	Friend WithEvents GroupBox36 As GroupBox
+	Friend WithEvents RadioButton63 As RadioButton
+	Friend WithEvents RadioButton62 As RadioButton
+	Friend WithEvents RadioButton61 As RadioButton
+	Friend WithEvents Label26 As Label
+	Friend WithEvents TextBox16 As TextBox
+	Friend WithEvents CheckBox62 As CheckBox
+	Friend WithEvents GroupBox35 As GroupBox
+	Friend WithEvents CheckBox55 As CheckBox
+	Friend WithEvents CheckBox56 As CheckBox
+	Friend WithEvents CheckBox57 As CheckBox
+	Friend WithEvents CheckBox58 As CheckBox
+	Friend WithEvents CheckBox59 As CheckBox
+	Friend WithEvents CheckBox60 As CheckBox
+	Friend WithEvents CheckBox61 As CheckBox
+	Friend WithEvents GroupBox34 As GroupBox
+	Friend WithEvents CheckBox48 As CheckBox
+	Friend WithEvents CheckBox49 As CheckBox
+	Friend WithEvents CheckBox50 As CheckBox
+	Friend WithEvents CheckBox51 As CheckBox
+	Friend WithEvents CheckBox52 As CheckBox
+	Friend WithEvents CheckBox53 As CheckBox
+	Friend WithEvents CheckBox54 As CheckBox
+	Friend WithEvents GroupBox33 As GroupBox
+	Friend WithEvents CheckBox41 As CheckBox
+	Friend WithEvents CheckBox42 As CheckBox
+	Friend WithEvents CheckBox43 As CheckBox
+	Friend WithEvents CheckBox44 As CheckBox
+	Friend WithEvents CheckBox46 As CheckBox
+	Friend WithEvents CheckBox47 As CheckBox
+	Friend WithEvents GroupBox32 As GroupBox
+	Friend WithEvents CheckBox40 As CheckBox
+	Friend WithEvents CheckBox39 As CheckBox
+	Friend WithEvents CheckBox38 As CheckBox
+	Friend WithEvents CheckBox37 As CheckBox
+	Friend WithEvents CheckBox36 As CheckBox
+	Friend WithEvents CheckBox35 As CheckBox
+	Friend WithEvents CheckBox34 As CheckBox
+	Friend WithEvents GroupBox31 As GroupBox
+	Friend WithEvents RadioButton60 As RadioButton
+	Friend WithEvents RadioButton59 As RadioButton
+	Friend WithEvents Label27 As Label
+	Friend WithEvents TextBox17 As TextBox
+	Friend WithEvents Label28 As Label
+	Friend WithEvents TextBox19 As TextBox
+	Friend WithEvents CheckBox45 As CheckBox
 End Class
