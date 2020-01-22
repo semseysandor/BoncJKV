@@ -98,20 +98,32 @@ Public Class WordTransformer
   ''' Applies business rules to transform data
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Public Sub ApplyRules(ByRef data As Dictionary(Of String, String))
+  Public Function ApplyRules(ByRef data As Dictionary(Of String, String)) As Boolean
     content = New Dictionary(Of String, String)
 
-    ApplyRulesGeneral(data)
-    ApplyRulesBrain(data)
-    ApplyRulesHeart(data)
-    ApplyRulesLungs(data)
-    ApplyRulesStomach(data)
-  End Sub
+    If Not ApplyRulesGeneral(data) Then
+      Return False
+    End If
+    If Not ApplyRulesBrain(data) Then
+      Return False
+    End If
+    If Not ApplyRulesHeart(data) Then
+      Return False
+    End If
+    If Not ApplyRulesLungs(data) Then
+      Return False
+    End If
+    If Not ApplyRulesStomach(data) Then
+      Return False
+    End If
+
+    Return True
+  End Function
   ''' <summary>
   ''' Applies rules (general parts)
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Private Sub ApplyRulesGeneral(ByRef data As Dictionary(Of String, String))
+  Private Function ApplyRulesGeneral(ByRef data As Dictionary(Of String, String)) As Boolean
     Dim key As String
     Try
       '########################################################################
@@ -119,7 +131,7 @@ Public Class WordTransformer
         If CheckRequired(key, data) Then
           content.Add(key, data.Item(key))
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
       Next
       '########################################################################
@@ -128,7 +140,7 @@ Public Class WordTransformer
         content.Add("nem_1", data.Item(key))
         content.Add("nem_2", data.Item(key))
       ElseIf AbortOnMissing Then
-        Exit Sub
+        Return False
       End If
       '########################################################################
       key = "test"
@@ -138,7 +150,7 @@ Public Class WordTransformer
           AddToDiag("Cachexia.")
         End If
       ElseIf AbortOnMissing Then
-        Exit Sub
+        Return False
       End If
       '########################################################################
       key = "decub"
@@ -216,7 +228,7 @@ Public Class WordTransformer
           content.Item("ascites") += data.Item("asc_liter") + " liter szalmasárga folyadék található. "
           AddToDiag("Ascites.")
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
       End If
       '########################################################################
@@ -232,7 +244,7 @@ Public Class WordTransformer
         If CheckRequired("pacemaker_serial", data) Then
           AddToDiag("Pacemaker. (" + data.Item("pacemaker_serial") + ")")
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
         content.Add("pacemaker_kul", "Bal oldalon infraclavicularisan pacemaker telep található. ")
         content.Add("pacemaker_nyaki", "A jobb szívfélben pacemaker elektróda azonosítható. ")
@@ -241,12 +253,13 @@ Public Class WordTransformer
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
-  End Sub
+    Return True
+  End Function
   ''' <summary>
   ''' Applies rules regarding the brain
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Private Sub ApplyRulesBrain(data As Dictionary(Of String, String))
+  Private Function ApplyRulesBrain(data As Dictionary(Of String, String)) As Boolean
     Dim key As String
     Dim text = ""
     Dim elvaltozas As Dictionary(Of String, String)
@@ -266,7 +279,7 @@ Public Class WordTransformer
         End Select
         content.Add("agy_2", "Az agytörzs és a kisagy eltérés nélkül.")
       ElseIf AbortOnMissing Then
-        Exit Sub
+        Return False
       End If
       '########################################################################
       key = "agy_beek"
@@ -288,11 +301,11 @@ Public Class WordTransformer
         Else
           oldal = ""
         End If
-        If CheckRequired("agy_lagyulas_lebeny", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("agy_lagyulas_lebeny", data) AndAlso AbortOnMissing Then
+          Return False
         End If
-        If CheckRequired("agy_lagyulas_meret", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("agy_lagyulas_meret", data) AndAlso AbortOnMissing Then
+          Return False
         End If
 
         elvaltozas = BrainLocationBuilder(data.Item("agy_lagyulas_meret"), oldal, data.Item("agy_lagyulas_lebeny"))
@@ -307,11 +320,11 @@ Public Class WordTransformer
         Else
           oldal = ""
         End If
-        If CheckRequired("agy_verzes_lebeny", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("agy_verzes_lebeny", data) AndAlso AbortOnMissing Then
+          Return False
         End If
-        If CheckRequired("agy_verzes_meret", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("agy_verzes_meret", data) AndAlso AbortOnMissing Then
+          Return False
         End If
 
         elvaltozas = BrainLocationBuilder(data.Item("agy_verzes_meret"), oldal, data.Item("agy_verzes_lebeny"))
@@ -333,12 +346,12 @@ Public Class WordTransformer
         If CheckRequired("agy_attet_darab", data) Then
           darab = data.Item("agy_attet_darab")
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
         If CheckRequired("agy_attet_meret", data) Then
           meret = data.Item("agy_attet_meret")
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
 
         If data.ContainsKey("agy_attet_front") Then
@@ -403,28 +416,27 @@ Public Class WordTransformer
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
-  End Sub
+    Return True
+  End Function
   ''' <summary>
   ''' Applies rules regarding the heart
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Private Sub ApplyRulesHeart(data As Dictionary(Of String, String))
+  Private Function ApplyRulesHeart(data As Dictionary(Of String, String)) As Boolean
     Dim key As String
     Dim text As String
     Dim flag As Boolean
     Try
       '########################################################################
-      key = "sziv_bal_kamra"
-      If CheckRequired(key, data) AndAlso AbortOnMissing Then
-        Exit Sub
-      End If
-
-      key = "sziv_jobb_kamra"
-      If CheckRequired(key, data) AndAlso AbortOnMissing Then
-        Exit Sub
-      End If
-
       key = "sziv_allapot"
+      If Not CheckRequired("sziv_bal_kamra", data) AndAlso AbortOnMissing Then
+        Return False
+      End If
+
+      If Not CheckRequired("sziv_jobb_kamra", data) AndAlso AbortOnMissing Then
+        Return False
+      End If
+
       text = "A "
       If data.ContainsKey(key) Then
         Select Case data.Item(key)
@@ -477,8 +489,8 @@ Public Class WordTransformer
       '########################################################################
       key = "sziv_szukulet"
       If data.ContainsKey(key) Then
-        If CheckRequired("sziv_szuk_percent", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("sziv_szuk_percent", data) AndAlso AbortOnMissing Then
+          Return False
         End If
 
         Select Case data.Item(key)
@@ -529,8 +541,8 @@ Public Class WordTransformer
       '########################################################################
       key = "sziv_thrombus"
       If data.ContainsKey(key) Then
-        If CheckRequired("sziv_thrombus_poz", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("sziv_thrombus_poz", data) AndAlso AbortOnMissing Then
+          Return False
         End If
         Select Case data.Item("sziv_thrombus_poz")
           Case "jobb"
@@ -547,11 +559,11 @@ Public Class WordTransformer
       '########################################################################
       key = "sziv_inf_regi"
       If data.ContainsKey(key) Then
-        If CheckRequired("sziv_inf_regi_meret", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("sziv_inf_regi_meret", data) AndAlso AbortOnMissing Then
+          Return False
         End If
-        If CheckRequired("sziv_inf_regi_poz", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("sziv_inf_regi_poz", data) AndAlso AbortOnMissing Then
+          Return False
         End If
 
         content.Add("inf_regi", "A bal kamra ")
@@ -575,11 +587,11 @@ Public Class WordTransformer
       '########################################################################
       key = "sziv_inf_uj"
       If data.ContainsKey(key) Then
-        If CheckRequired("sziv_inf_uj_meret", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("sziv_inf_uj_meret", data) AndAlso AbortOnMissing Then
+          Return False
         End If
-        If CheckRequired("sziv_inf_uj_poz", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("sziv_inf_uj_poz", data) AndAlso AbortOnMissing Then
+          Return False
         End If
 
         content.Add("inf_uj", "A bal kamra")
@@ -619,7 +631,7 @@ Public Class WordTransformer
           content.Add(key, "A szívburokban " + data.Item("haemo_g") + " g részben alvadt vér található. ")
           AddToDiag("Haemopericardium.")
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
       End If
       '########################################################################
@@ -633,12 +645,13 @@ Public Class WordTransformer
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
-  End Sub
+    Return True
+  End Function
   ''' <summary>
   ''' Applies rules regarding the lungs
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Private Sub ApplyRulesLungs(data As Dictionary(Of String, String))
+  Private Function ApplyRulesLungs(data As Dictionary(Of String, String)) As Boolean
     Dim key As String
     Dim text As String
     Dim flag As Boolean
@@ -821,7 +834,7 @@ Public Class WordTransformer
         If CheckRequired("tudo_tumor_meret", data) Then
           text += "szürkésfehér színű " + data.Item("tudo_tumor_meret") + " mm legnagyobb átmérőjű idegenszövet-szaporulat látható. "
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
         AddToDiag(text + ".")
       End If
@@ -891,7 +904,7 @@ Public Class WordTransformer
         If CheckRequired("tudo_attet_meret", data) Then
           text += "szürkésfehér színű " + data.Item("tudo_attet_meret") + " mm legnagyobb átmérőjű daganatáttét látható. "
         ElseIf AbortOnMissing Then
-          Exit Sub
+          Return False
         End If
         AddToDiag(text + ".")
       End If
@@ -937,11 +950,11 @@ Public Class WordTransformer
       '########################################################################
       key = "tudo_hydro"
       If data.ContainsKey(key) Then
-        If CheckRequired("tudo_hydro_liter", data) And AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("tudo_hydro_liter", data) And AbortOnMissing Then
+          Return False
         End If
-        If CheckRequired("tudo_hydro_poz", data) And AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("tudo_hydro_poz", data) And AbortOnMissing Then
+          Return False
         End If
 
         content.Add("tudo_hydro", "A mellüregben ")
@@ -962,12 +975,13 @@ Public Class WordTransformer
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
-  End Sub
+    Return True
+  End Function
   ''' <summary>
   ''' Applies rules regarding the stomach
   ''' </summary>
   ''' <param name="data">Data form UI</param>
-  Private Sub ApplyRulesStomach(data As Dictionary(Of String, String))
+  Private Function ApplyRulesStomach(data As Dictionary(Of String, String)) As Boolean
     Dim key As String
     Dim text As String
     Dim flag As Boolean
@@ -1010,11 +1024,11 @@ Public Class WordTransformer
       '########################################################################
       key = "has_maj_attet"
       If data.ContainsKey(key) Then
-        If CheckRequired("has_maj_attet_meret", data) And AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("has_maj_attet_meret", data) And AbortOnMissing Then
+          Return False
         End If
-        If CheckRequired("has_maj_attet_db", data) And AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("has_maj_attet_db", data) And AbortOnMissing Then
+          Return False
         End If
         content.Add("maj_attet", "A máj állományában ")
         Select Case data.Item("has_maj_attet_db")
@@ -1051,11 +1065,11 @@ Public Class WordTransformer
           Case "megtartott"
             content.Add("epe", "Az epehólyag fala megtartott szerkezetű")
             If data.ContainsKey("has_epeko") Then
-              If CheckRequired("has_epeko_meret", data) AndAlso AbortOnMissing Then
-                Exit Sub
+              If Not CheckRequired("has_epeko_meret", data) AndAlso AbortOnMissing Then
+                Return False
               End If
-              If CheckRequired("has_epeko_db", data) AndAlso AbortOnMissing Then
-                Exit Sub
+              If Not CheckRequired("has_epeko_db", data) AndAlso AbortOnMissing Then
+                Return False
               End If
               content.Item("epe") += ", lumenében " + data.Item("has_epeko_db") + " db, "
               content.Item("epe") += data.Item("has_epeko_meret") + " mm legnagyobb átmérőjű epekő azonosítható"
@@ -1078,11 +1092,11 @@ Public Class WordTransformer
             AddToDiag("Erosiones ventriculi.")
           Case "fekely"
             content.Add("gyomor", "A gyomorban a ")
-            If CheckRequired("has_gyomor_fekely_meret", data) AndAlso AbortOnMissing Then
-              Exit Sub
+            If Not CheckRequired("has_gyomor_fekely_meret", data) AndAlso AbortOnMissing Then
+              Return False
             End If
-            If CheckRequired("has_gyomor_fekely_gorb", data) AndAlso AbortOnMissing Then
-              Exit Sub
+            If Not CheckRequired("has_gyomor_fekely_gorb", data) AndAlso AbortOnMissing Then
+              Return False
             End If
             Select Case data.Item("has_gyomor_fekely_gorb")
               Case "kis"
@@ -1098,11 +1112,11 @@ Public Class WordTransformer
       key = "has_gyomor_tumor"
       If data.ContainsKey(key) Then
         content.Add("gyomor_tumor", "A gyomorban a ")
-        If CheckRequired("has_gyomor_tumor_meret", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("has_gyomor_tumor_meret", data) AndAlso AbortOnMissing Then
+          Return False
         End If
-        If CheckRequired("has_gyomor_tumor_gorb", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("has_gyomor_tumor_gorb", data) AndAlso AbortOnMissing Then
+          Return False
         End If
         Select Case data.Item("has_gyomor_tumor_gorb")
           Case "kis"
@@ -1122,8 +1136,8 @@ Public Class WordTransformer
             content.Add("nyombel", "A nyombél eltérés nélkül. ")
           Case "fekely"
             content.Add("nyombel", "A nyombél nyálkahártyáján ")
-            If CheckRequired("has_nyombel_meret", data) AndAlso AbortOnMissing Then
-              Exit Sub
+            If Not CheckRequired("has_nyombel_meret", data) AndAlso AbortOnMissing Then
+              Return False
             End If
             content.Item("nyombel") += data.Item("has_nyombel_meret") + " mm legnagyobb átmérőjű fekély figyelhető meg. "
             AddToDiag("Ulcus duodeni.")
@@ -1132,8 +1146,8 @@ Public Class WordTransformer
       '########################################################################
       key = "has_ileum"
       If data.ContainsKey(key) Then
-        If CheckRequired("has_ileum_meret", data) AndAlso AbortOnMissing Then
-          Exit Sub
+        If Not CheckRequired("has_ileum_meret", data) AndAlso AbortOnMissing Then
+          Return False
         End If
         content.Add("ileum", "Az ileum nyálkahártyája ")
         content.Item("ileum") += data.Item("has_ileum_meret") + " cm-es szakaszon vizenyős, felszínén sárgásfehér felrakódás mutatkozik. "
@@ -1145,17 +1159,103 @@ Public Class WordTransformer
         content.Add("bel", "A vékonybelek között több területen heges kitapadások azonosíthatóak. ")
         AddToDiag("Adhaesinones intestini tenuis.")
       End If
+      '########################################################################
+      key = "has_vastagbel_divert"
+      If data.ContainsKey(key) Then
+        content.Add("vastagbel_divert", "A szigmabélben több területen a nyálkahártya zsákszerű kitüremkedése látható. ")
+        AddToDiag("Divetriculosis sigmatos.")
+      End If
+      '########################################################################
+      key = "has_vastagbel_col_is"
+      If data.ContainsKey(key) Then
+        content.Add("vastagbel_ischaem", "A vastagbél nyálkahártyája diffúzan vörhenyesbarna elszíneződést mutat. ")
+        AddToDiag("Colitis ischaemica.")
+      End If
+      '########################################################################
+      key = "has_vastagbel_col_alh"
+      If data.ContainsKey(key) Then
+        content.Add("vastagbel_alhartya", "A vastagbél nyálkahártyája diffúzan vizenyős, felszínén sárgásfehér felrakódás mutatkozik. ")
+        AddToDiag("Colitis pseudomembranacea.")
+      End If
+      '########################################################################
+      key = "has_vastagbel_tumor"
+      If data.ContainsKey(key) Then
+        content.Add("vastagbel_tumor", "A ")
+        text = "Neoplasma malignum "
+        flag = False
 
+        If data.ContainsKey("has_vastagbel_tumor_le") Then
+          content.Item("vastagbel_tumor") += "leszálló vastagbél"
+          text += "colontos descendentis"
+          flag = True
+        End If
 
+        If data.ContainsKey("has_vastagbel_tumor_fel") Then
+          If flag Then
+            content.Item("vastagbel_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("vastagbel_tumor") += "felszálló vastagbél"
+          text += "colontos ascendentis"
+          flag = True
+        End If
 
+        If data.ContainsKey("has_vastagbel_tumor_sigma") Then
+          If flag Then
+            content.Item("vastagbel_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("vastagbel_tumor") += "szigmabél"
+          text += "sigmatos"
+          flag = True
+        End If
 
+        If data.ContainsKey("has_vastagbel_tumor_harant") Then
+          If flag Then
+            content.Item("vastagbel_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("vastagbel_tumor") += "haránt vastagbél"
+          text += "colontos transversi"
+          flag = True
+        End If
 
+        If data.ContainsKey("has_vastagbel_tumor_coec") Then
+          If flag Then
+            content.Item("vastagbel_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("vastagbel_tumor") += "vakbél"
+          text += "coeci"
+          flag = True
+        End If
 
+        If data.ContainsKey("has_vastagbel_tumor_vegbel") Then
+          If flag Then
+            content.Item("vastagbel_tumor") += ", "
+            text += " et "
+          End If
+          content.Item("vastagbel_tumor") += "végbél"
+          text += "recti"
+          flag = True
+        End If
 
+        If CheckRequired("has_vastagbel_tumor_meret", data) Then
+          content.Item("vastagbel_tumor") += " területén " + data.Item("has_vastagbel_tumor_meret") + " cm-es szakaszon a nyálkahártyából kiinduló, "
+        ElseIf AbortOnMissing Then
+          Return False
+        End If
 
+        If data.ContainsKey("has_vastagbel_tumor_szukito") Then
+          content.Item("vastagbel_tumor") += "a lumen jelentős szűkületét okozó, "
+        End If
 
+        content.Item("vastagbel_tumor") += "szürkésfehér színű, idegenszövet-szaporulat azonosítható. "
+        AddToDiag(text + ".")
+      End If
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
-  End Sub
+    Return True
+  End Function
 End Class
