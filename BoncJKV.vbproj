@@ -118,6 +118,7 @@
     <Compile Include="Forms\LoadForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Source\Logger.vb" />
     <Compile Include="Source\UI.vb" />
     <Compile Include="Source\WordExporter.vb" />
     <Compile Include="Forms\Main.vb">

@@ -4243,7 +4243,7 @@ Partial Class Main
 		Me.Label37.Name = "Label37"
 		Me.Label37.Size = New System.Drawing.Size(28, 13)
 		Me.Label37.TabIndex = 11
-		Me.Label37.Text = "v0.5"
+		Me.Label37.Text = "v0.6"
 		'
 		'Button3
 		'

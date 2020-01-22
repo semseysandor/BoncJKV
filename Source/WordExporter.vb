@@ -5,6 +5,10 @@ Imports System.IO.Path
 ''' </summary>
 Public Class WordExporter
   ''' <summary>
+  ''' Component Name
+  ''' </summary>
+  Public Const ComponentName = "Word Exporter"
+  ''' <summary>
   ''' Word application
   ''' </summary>
   Private Wordapp As Word.Application
@@ -21,9 +25,13 @@ Public Class WordExporter
   ''' Constructor
   ''' </summary>
   Public Sub New()
-    Wordapp = New Word.Application
-    WordDoc = New Word.Document
-    Path = Application.StartupPath + DirectorySeparatorChar
+    Try
+      Wordapp = New Word.Application
+      WordDoc = New Word.Document
+      Path = Application.StartupPath + DirectorySeparatorChar
+    Catch ex As Exception
+      ErrorHandling.General(ex, ComponentName)
+    End Try
   End Sub
   ''' <summary>
   ''' Opens a word document in current directory
@@ -34,7 +42,7 @@ Public Class WordExporter
       WordDoc = Wordapp.Documents.Open(Path + filename)
       Wordapp.Visible = True
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -57,7 +65,7 @@ Public Class WordExporter
 
       Next
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -74,7 +82,7 @@ Public Class WordExporter
       filename = directory + DirectorySeparatorChar + filename
       WordDoc.SaveAs2(filename.ToString)
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
 End Class

@@ -3,6 +3,10 @@
 ''' </summary>
 Public Class DataManager
   ''' <summary>
+  ''' Component Name
+  ''' </summary>
+  Public Const ComponentName = "DataManager"
+  ''' <summary>
   ''' Inspection data
   ''' </summary>
   Private data As Dictionary(Of String, String)
@@ -38,37 +42,28 @@ Public Class DataManager
     Dim radio As RadioButton
     Try
       For Each ctrl As Control In root
-
         Select Case ctrl.GetType
-
           Case GetType(TextBox)
-
             textbox = TryCast(ctrl, TextBox)
             If textbox.Text <> "" AndAlso textbox.Enabled Then
               data.Add(textbox.Tag.ToString, textbox.Text)
             End If
-
           Case GetType(CheckBox)
-
             chbox = TryCast(ctrl, CheckBox)
             If chbox.Checked AndAlso chbox.Enabled Then
               data.Add(chbox.Tag.ToString, "TRUE")
             End If
-
           Case GetType(RadioButton)
-
             radio = TryCast(ctrl, RadioButton)
             If radio.Checked AndAlso radio.Enabled Then
               data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
             End If
-
           Case GetType(GroupBox), GetType(TabPage)
             CollectData(ctrl.Controls)
-
         End Select
       Next
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -105,7 +100,7 @@ Public Class DataManager
         End Select
       Next
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
 End Class

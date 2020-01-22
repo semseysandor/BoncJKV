@@ -4,6 +4,10 @@
 ''' </summary>
 Public Class WordTransformer
   ''' <summary>
+  ''' Component Name
+  ''' </summary>
+  Public Const ComponentName = "Transformer"
+  ''' <summary>
   ''' Content ready to export
   ''' </summary>
   Private content As Dictionary(Of String, String)
@@ -52,7 +56,7 @@ Public Class WordTransformer
         content.Add("diag", diag)
       End If
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -249,11 +253,11 @@ Public Class WordTransformer
         content.Add("pacemaker_kul", "Bal oldalon infraclavicularisan pacemaker telep található. ")
         content.Add("pacemaker_nyaki", "A jobb szívfélben pacemaker elektróda azonosítható. ")
       End If
-      '########################################################################
+      Return True
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
-    Return True
+    Return False
   End Function
   ''' <summary>
   ''' Applies rules regarding the brain
@@ -413,10 +417,11 @@ Public Class WordTransformer
           content.Item("agy_2") = "Az agytörzs és a kisagy egyebekben eltérés nélkül."
         End If
       End If
+      Return True
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
-    Return True
+    Return False
   End Function
   ''' <summary>
   ''' Applies rules regarding the heart
@@ -642,10 +647,11 @@ Public Class WordTransformer
         content.Add("sziv_cabg_nyaki_2", "A koszorú-verőerekhez az aortából kiinduló bypass graftok csatlakoznak varratokkal, a graftok arterializálódtak, helyenkét szűkültek. ")
         AddToDiag("Status post CABG.")
       End If
+      Return True
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
-    Return True
+    Return False
   End Function
   ''' <summary>
   ''' Applies rules regarding the lungs
@@ -972,10 +978,11 @@ Public Class WordTransformer
         End Select
         content.Item("tudo_hydro") += data.Item("tudo_hydro_liter") + " liter szalmasárga folyadék látható. "
       End If
+      Return True
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
-    Return True
+    Return False
   End Function
   ''' <summary>
   ''' Applies rules regarding the stomach
@@ -1253,9 +1260,10 @@ Public Class WordTransformer
         content.Item("vastagbel_tumor") += "szürkésfehér színű, idegenszövet-szaporulat azonosítható. "
         AddToDiag(text + ".")
       End If
+      Return True
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
-    Return True
+    Return False
   End Function
 End Class

@@ -3,6 +3,10 @@
 ''' </summary>
 Public Class Main
   ''' <summary>
+  ''' Application Name
+  ''' </summary>
+  Public Const AppName = "BoncJKV"
+  ''' <summary>
   ''' Transformer object
   ''' </summary>
   Private WithEvents transformer As WordTransformer
@@ -32,14 +36,14 @@ Public Class Main
 
     Dim datamng = New DataManager
     Dim xmlexporter = New XMLExporter
-    datamng.LoadData(dataInput.Controls, xmlexporter.LoadPatientData(name, datte))
+    datamng.LoadData(dataInput.Controls, xmlexporter.LoadData(name, datte))
   End Sub
   ''' <summary>
   ''' Exports data
   ''' </summary>
   Private Sub ExportWord(sender As Object, e As EventArgs) Handles export.Click
     Dim datamng = New DataManager
-    transformer = New WordTransformer(True)
+    transformer = New WordTransformer(False)
     Dim exporter = New WordExporter
 
     datamng.CollectData(dataInput.Controls)
@@ -82,8 +86,7 @@ Public Class Main
   ''' </summary>
   ''' <param name="fieldname">Missing field name</param>
   Private Sub FieldMissing(ByVal fieldname As String) Handles transformer.FieldMissing
-    'Console.WriteLine(fieldname)
-    MsgBox("Hiányzó adat: " + fieldname)
+    UI.Warning("Hiányzó adat: " + vbNewLine + vbNewLine + fieldname, AppName)
   End Sub
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' Enabling Controls '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ''' <summary>

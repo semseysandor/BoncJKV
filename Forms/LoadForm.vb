@@ -3,6 +3,10 @@
 ''' </summary>
 Public Class LoadForm
   ''' <summary>
+  ''' Component Name
+  ''' </summary>
+  Public Const ComponentName = "Betöltés"
+  ''' <summary>
   ''' Initializes form
   ''' </summary>
   Private Sub Init(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -13,7 +17,7 @@ Public Class LoadForm
         saved.Items.Add(row.Value + " " + row.Key)
       Next
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -26,7 +30,7 @@ Public Class LoadForm
       End If
       Close()
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
 End Class

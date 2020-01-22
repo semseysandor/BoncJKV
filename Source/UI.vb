@@ -3,6 +3,10 @@
 ''' </summary>
 Public Class UI
   ''' <summary>
+  ''' Component Name
+  ''' </summary>
+  Public Const ComponentName = "UI"
+  ''' <summary>
   ''' Main form
   ''' </summary>
   ''' <returns></returns>
@@ -28,7 +32,7 @@ Public Class UI
       main.nev.ResetText()
       main.nev.Select()
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -53,7 +57,7 @@ Public Class UI
         End Select
       Next
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -85,7 +89,7 @@ Public Class UI
         TryCast(ctrl, Control).Enabled = enable
       Next
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -100,7 +104,7 @@ Public Class UI
         End If
       Next
     Catch ex As Exception
-      ErrorHandling.General(ex)
+      ErrorHandling.General(ex, ComponentName)
     End Try
   End Sub
   ''' <summary>
@@ -118,4 +122,28 @@ Public Class UI
     main.nev.Text = name
     main.datum.Text = datte
   End Sub
+  ''' <summary>
+  ''' Displays a question box
+  ''' </summary>
+  ''' <param name="message">Message to display</param>
+  ''' <returns>Button pressed by user</returns>
+  Public Shared Function Question(ByVal message As String, ByVal title As String) As DialogResult
+    Return MessageBox.Show(message, title, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+  End Function
+  ''' <summary>
+  ''' Displays a warning box
+  ''' </summary>
+  ''' <param name="message">Message to display</param>
+  ''' <returns>Button pressed by user</returns>
+  Public Shared Function Warning(ByVal message As String, ByVal title As String) As DialogResult
+    Return MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+  End Function
+  ''' <summary>
+  ''' Displays an error box
+  ''' </summary>
+  ''' <param name="message">Message to display</param>
+  ''' <returns>Button pressed by user</returns>
+  Public Shared Function ErrorBox(ByVal message As String, ByVal title As String) As DialogResult
+    Return MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error)
+  End Function
 End Class
