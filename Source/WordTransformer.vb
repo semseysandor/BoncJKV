@@ -123,6 +123,9 @@ Public Class WordTransformer
     If Not ApplyRulesKidney(data) Then
       Return False
     End If
+    If Not ApplyRulesDeath(data) Then
+      Return False
+    End If
 
     Return True
   End Function
@@ -1481,6 +1484,166 @@ Public Class WordTransformer
         content.Item(key) += " here állományában jól körülírt, " + data.Item("here_tumor_meret")
         content.Item(key) += " mm nagyságú, szürkésfehér színű, helyenként barnás-vörhenyes idegenszövet-szaporulat azonosítható. "
       End If
+      Return True
+    Catch ex As Exception
+      ErrorHandling.General(ex, ComponentName)
+    End Try
+    Return False
+  End Function
+  ''' <summary>
+  ''' Applies rules regarding the death
+  ''' </summary>
+  ''' <param name="data">Data form UI</param>
+  Private Function ApplyRulesDeath(data As Dictionary(Of String, String)) As Boolean
+    Dim key As String
+    Dim text = ""
+    Dim flag = False
+    Try
+      '########################################################################
+      key = "halal"
+      If CheckRequired(key, data) Then
+        content.Add(key, "")
+        Select Case data.Item(key)
+          Case "asu_iszb_sze"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként az aortát és a szívkoszorú verőereket "
+            content.Item(key) += "kifejezett mértékben érintő, súlyos, általános érelmeszesedést állapítottunk meg. "
+            content.Item(key) += "A halál okaként az arteria coronariák súlyos szűkülete és a szívizom idült ischaemiás "
+            content.Item(key) += "elfajulása következtében kialakult szívelégtelenséget jelöltük meg"
+          Case "asu_regi_sze"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként az aortát és a szívkoszorú verőereket "
+            content.Item(key) += "kifejezett mértékben érintő, súlyos, általános érelmeszesedést állapítottunk meg. "
+            content.Item(key) += "A bal kamrában régi szívizomelhalást figyelhettünk meg. A halál okaként az arteria "
+            content.Item(key) += "coronariák súlyos szűkülete és a szívizom idült ischaemiás elfajulása következtében "
+            content.Item(key) += "kialakult szívelégtelenséget jelöltük meg"
+          Case "asu_heveny"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként az aortát és a szívkoszorú verőereket "
+            content.Item(key) += "kifejezett mértékben érintő, súlyos, általános érelmeszesedést állapítottunk meg. "
+            content.Item(key) += "A nagyfokú arteria coronaria sclerosis és szűkület heveny első fali/hátsó fali "
+            content.Item(key) += "szívizomelhalást eredményezett, melyet a halál okaként jelöltünk meg"
+          Case "asu_heveny_tamp"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként az aortát és a szívkoszorú verőereket "
+            content.Item(key) += "kifejezett mértékben érintő, súlyos, általános érelmeszesedést állapítottunk meg. "
+            content.Item(key) += "A nagyfokú arteria coronaria sclerosis és szűkület heveny első fali/hátsó fali "
+            content.Item(key) += "szívizomelhalást eredményezett, itt a szabad rupturált, következményes heveny "
+            content.Item(key) += "szívburki vérgyülemet okozva. A halál okaként a szívtamponádot jelöltük meg"
+          Case "copd"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként idült obstruktív tüdőbetegséget "
+            content.Item(key) += "állapítottunk meg, illetve következményes idült tüdőeredetű szívbetegséget figyelhettünk "
+            content.Item(key) += "meg, melyet a tágult túltengett jobb szívfél és a belszervi pangás morfológiailag alátámasztott. "
+            content.Item(key) += "A halál okaként a szívelégtelenséget jelöltük meg"
+          Case "emphy"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként súlyos tüdőtágulatot állapítottunk meg, "
+            content.Item(key) += "illetve következményes idült tüdőeredetű szívbetegséget figyelhettünk meg, melyet a "
+            content.Item(key) += "tágult túltengett jobb szívfél és a belszervi pangás morfológiailag alátámasztott. "
+            content.Item(key) += "A halál okaként a szívelégtelenséget jelöltük meg"
+          Case "ht_hszb_sze"
+            content.Item(key) += "anamnézisében magas vérnyomás betegség szerepel. A patológiai vizsgálata során magas "
+            content.Item(key) += "vérnyomásos szívtúltengést állapítottunk meg, melyet a körkörösen/tágult súlyosan "
+            content.Item(key) += "túltengett bal kamra morfológiailag alátámasztott. A halál okaként a szívelégtelenséget jelöltük meg"
+          Case "htszb_sze"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként magas vérnyomásos szívtúltengést "
+            content.Item(key) += "állapítottunk meg, melyet a körkörösen/tágult, súlyosan túltengett bal kamra "
+            content.Item(key) += "morfológiailag alátámasztott. A halál okaként a szívelégtelenséget jelöltük meg."
+          Case "asu_tudo"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként az aortát és a szívkoszorú verőereket "
+            content.Item(key) += "kifejezett mértékben érintő, súlyos, általános érelmeszesedést állapítottunk meg. "
+            content.Item(key) += "A halál közvetlen oka a pulmonalis főtörzs oszlásának lumenét teljesen elzáró, "
+            content.Item(key) += "ún. lovagló thromboembolia / a tüdőverőerek elsőrendű ágainak masszív vérrögös elzáródása volt. "
+            content.Item(key) += "Az embolia feltételezhetően bal/jobb alsóvégtagi mélyvénás rögösödésből származott. "
+          Case "htszb_tudo"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként hypertensiv szívbetegséget állapítottunk meg. "
+            content.Item(key) += "A halál közvetlen oka a pulmonalis főtörzs oszlásának lumenét teljesen elzáró, "
+            content.Item(key) += "ún. lovagló thromboembolia / a tüdőverőerek elsőrendű ágainak masszív vérrögös elzáródása volt. "
+            content.Item(key) += "Az embolia feltételezhetően bal/jobb alsóvégtagi mélyvénás rögösödésből származott."
+          Case "ht_apo"
+            content.Item(key) += "patológiai vizsgálata során alapbetegségként a bal/jobb agyféltekét/a kisagyat érintő "
+            content.Item(key) += "roncsoló agyvérzést állapítottunk meg, szövődményként agyi nyomásfokozódás és a nyúltvelői "
+            content.Item(key) += "légzési-keringési rendszer nyomás alá kerülése miatt következményes cardiorespiratoricus "
+            content.Item(key) += "elégtelenség kialakulásával, melyek a halál közvetlen okaként megjelölt szívmegálláshoz vezettek."
+          Case "etil"
+            content.Item(key) += ""
+        End Select
+      ElseIf AbortOnMissing Then
+        Return False
+      End If
+      '########################################################################
+      key = "kis_asu"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += "az általános érelmeszesedés"
+        flag = True
+      End If
+      '########################################################################
+      key = "kis_ht"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += "a klinikailag jelzett magas vérnyomás betegség"
+        flag = True
+      End If
+      '########################################################################
+      key = "kis_htszb"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += "a magas vérnyomásos szívtúltengés"
+        flag = True
+      End If
+      '########################################################################
+      key = "kis_vese"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += ""
+        flag = True
+      End If
+      '########################################################################
+      key = "kis_copd"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += "az idült obstruktív tüdőbetegség"
+        flag = True
+      End If
+      '########################################################################
+      key = "kis_emphy"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += "a tüdőtágulat"
+        flag = True
+      End If
+      '########################################################################
+      key = "kis_diab"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += "az anamnézisben szereplő cukorbetegség"
+        flag = True
+      End If
+      '########################################################################
+      key = "kis_etil"
+      If data.ContainsKey(key) Then
+        If flag Then
+          text += ", "
+        End If
+        text += ""
+        flag = True
+      End If
+
+      If flag Then
+        content.Add("kisero", "Kísérő betegségként ")
+        content.Item("kisero") += text + " emelendő ki."
+      End If
+      Return True
     Catch ex As Exception
       ErrorHandling.General(ex, ComponentName)
     End Try
