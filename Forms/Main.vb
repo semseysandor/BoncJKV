@@ -242,4 +242,58 @@ Public Class Main
     ui.EnableAssociatedControls(sender, New Collection From {bel_tumor_cm, bel_tumor_coec, bel_tumor_fel, bel_tumor_harant,
                                 bel_tumor_le, bel_tumor_meret, bel_tumor_sig, bel_tumor_szuk, bel_tumor_vegbel})
   End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnableVeseTumor(sender As Object, e As EventArgs) Handles vese_tumor.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {vese_tumor_b, vese_tumor_grp, vese_tumor_j, vese_tumor_meret, vese_tumor_mm})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnableVeseko(sender As Object, e As EventArgs) Handles veseko.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {veseko_b, veseko_grp, veseko_j, veseko_meret, veseko_mm})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnablePyelo(sender As Object, e As EventArgs) Handles pyelo.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {pyelo_b, pyelo_grp, pyelo_j, pyelo_mko})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnableHolyagTumor(sender As Object, e As EventArgs) Handles holyag_tumor.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {holyag_tumor_meret, holyag_tumor_mm})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnablePete(sender As Object, e As EventArgs) Handles pete.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {pete_b, pete_j, pete_meret, pete_mm})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnableMyoma(sender As Object, e As EventArgs) Handles meh_myoma.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {meh_myoma_darab, meh_myoma_db, meh_myoma_meret, meh_myoma_mm})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnableEM(sender As Object, e As EventArgs) Handles meh_em.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {meh_em_meret, meh_em_mm})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnableMehTumor(sender As Object, e As EventArgs) Handles meh_tumor.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {meh_tumor_meret, meh_tumor_mm})
+  End Sub
+  ''' <summary>
+  ''' Enables controls associated to this control
+  ''' </summary>
+  Private Sub EnableHereTumor(sender As Object, e As EventArgs) Handles here_tumor.CheckedChanged
+    ui.EnableAssociatedControls(sender, New Collection From {here_tumor_b, here_tumor_j, here_tumor_meret, here_tumor_mm})
+  End Sub
 End Class

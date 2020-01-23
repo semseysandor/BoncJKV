@@ -22,38 +22,22 @@ Public Class Logger
 	Public Const MSG_INTERNAL As Integer = 0
 	Public Const MSG_INFO As Integer = 1
 	Public Const MSG_ERROR As Integer = 2
+
 	''' <summary>
 	''' Actual logging level
 	''' </summary>
-	Private Property logLevel As Integer
+	Public Shared Property loglevel As Integer
 	''' <summary>
 	''' Log file path
 	''' </summary>
 	Private Shared Property logFile As String
 	Public Sub New(ByVal loglevel As Integer)
-		Me.logLevel = loglevel
 		Try
 			logFile = GetCurrentDirectory() + DirectorySeparatorChar
 			logFile += "log.txt"
 		Catch ex As Exception
 			ErrorHandling.General(ex, ComponentName)
 		End Try
-	End Sub
-	''' <summary>
-	''' Gets log level
-	''' </summary>
-	''' <returns>int	LogLevel</returns>
-	Public Function GetlogLevel() As Integer
-		Return logLevel
-	End Function
-	''' <summary>
-	''' Sets log level
-	''' </summary>
-	''' <param name="logLevel">logging level</param>
-	Public Sub SetlogLevel(logLevel As Integer)
-		If Me.logLevel <> logLevel Then
-			Me.logLevel = logLevel
-		End If
 	End Sub
 	''' <summary>
 	''' Returns the message level string
@@ -78,7 +62,7 @@ Public Class Logger
 	''' <param name="msgLevel">Message Level</param>
 	''' <param name="message">Message to log</param>
 	Private Sub Log(ByVal msgLevel As Integer, ByVal message As String)
-		If msgLevel >= Me.logLevel Then
+		If msgLevel >= loglevel Then
 			Try
 				message = "[" + MessageLevel(msgLevel) + "] (" + DateTime.Now.ToString + ")" + vbTab + message + vbCr
 				FileSystem.WriteAllText(logFile, message, True)

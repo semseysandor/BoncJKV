@@ -258,11 +258,13 @@ Partial Class Main
 		Me.RadioButton60 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton59 = New System.Windows.Forms.RadioButton()
 		Me.TabPage5 = New System.Windows.Forms.TabPage()
+		Me.Button3 = New System.Windows.Forms.Button()
 		Me.GroupBox47 = New System.Windows.Forms.GroupBox()
 		Me.bel_tumor_cm = New System.Windows.Forms.Label()
 		Me.bel_tumor_meret = New System.Windows.Forms.TextBox()
 		Me.bel_tumor_le = New System.Windows.Forms.CheckBox()
 		Me.bel_tumor_szuk = New System.Windows.Forms.CheckBox()
+		Me.bel_tumor = New System.Windows.Forms.CheckBox()
 		Me.bel_tumor_fel = New System.Windows.Forms.CheckBox()
 		Me.bel_tumor_harant = New System.Windows.Forms.CheckBox()
 		Me.bel_tumor_vegbel = New System.Windows.Forms.CheckBox()
@@ -271,7 +273,6 @@ Partial Class Main
 		Me.CheckBox77 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox76 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox75 = New System.Windows.Forms.CheckBox()
-		Me.bel_tumor = New System.Windows.Forms.CheckBox()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.GroupBox46 = New System.Windows.Forms.GroupBox()
 		Me.ileum_cm = New System.Windows.Forms.Label()
@@ -326,6 +327,62 @@ Partial Class Main
 		Me.RadioButton66 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton65 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton64 = New System.Windows.Forms.RadioButton()
+		Me.TabPage6 = New System.Windows.Forms.TabPage()
+		Me.GroupBox49 = New System.Windows.Forms.GroupBox()
+		Me.GroupBox50 = New System.Windows.Forms.GroupBox()
+		Me.here_tumor = New System.Windows.Forms.CheckBox()
+		Me.here_tumor_j = New System.Windows.Forms.RadioButton()
+		Me.here_tumor_b = New System.Windows.Forms.RadioButton()
+		Me.here_tumor_mm = New System.Windows.Forms.Label()
+		Me.here_tumor_meret = New System.Windows.Forms.TextBox()
+		Me.CheckBox21 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox20 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox48 = New System.Windows.Forms.GroupBox()
+		Me.meh_tumor = New System.Windows.Forms.CheckBox()
+		Me.meh_tumor_mm = New System.Windows.Forms.Label()
+		Me.meh_tumor_meret = New System.Windows.Forms.TextBox()
+		Me.meh_em_mm = New System.Windows.Forms.Label()
+		Me.meh_em_meret = New System.Windows.Forms.TextBox()
+		Me.meh_em = New System.Windows.Forms.CheckBox()
+		Me.meh_myoma_mm = New System.Windows.Forms.Label()
+		Me.meh_myoma_meret = New System.Windows.Forms.TextBox()
+		Me.meh_myoma_db = New System.Windows.Forms.Label()
+		Me.meh_myoma_darab = New System.Windows.Forms.TextBox()
+		Me.meh_myoma = New System.Windows.Forms.CheckBox()
+		Me.CheckBox15 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox54 = New System.Windows.Forms.GroupBox()
+		Me.pete = New System.Windows.Forms.CheckBox()
+		Me.pete_j = New System.Windows.Forms.RadioButton()
+		Me.pete_b = New System.Windows.Forms.RadioButton()
+		Me.pete_mm = New System.Windows.Forms.Label()
+		Me.pete_meret = New System.Windows.Forms.TextBox()
+		Me.GroupBox44 = New System.Windows.Forms.GroupBox()
+		Me.holyag_tumor_mm = New System.Windows.Forms.Label()
+		Me.holyag_tumor_meret = New System.Windows.Forms.TextBox()
+		Me.holyag_tumor = New System.Windows.Forms.CheckBox()
+		Me.CheckBox11 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox10 = New System.Windows.Forms.CheckBox()
+		Me.GroupBox43 = New System.Windows.Forms.GroupBox()
+		Me.veseko = New System.Windows.Forms.CheckBox()
+		Me.pyelo = New System.Windows.Forms.CheckBox()
+		Me.vese_tumor = New System.Windows.Forms.CheckBox()
+		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+		Me.RadioButton24 = New System.Windows.Forms.RadioButton()
+		Me.RadioButton23 = New System.Windows.Forms.RadioButton()
+		Me.veseko_grp = New System.Windows.Forms.GroupBox()
+		Me.veseko_mm = New System.Windows.Forms.Label()
+		Me.veseko_j = New System.Windows.Forms.RadioButton()
+		Me.veseko_b = New System.Windows.Forms.RadioButton()
+		Me.veseko_meret = New System.Windows.Forms.TextBox()
+		Me.pyelo_grp = New System.Windows.Forms.GroupBox()
+		Me.pyelo_mko = New System.Windows.Forms.RadioButton()
+		Me.pyelo_j = New System.Windows.Forms.RadioButton()
+		Me.pyelo_b = New System.Windows.Forms.RadioButton()
+		Me.vese_tumor_grp = New System.Windows.Forms.GroupBox()
+		Me.vese_tumor_mm = New System.Windows.Forms.Label()
+		Me.vese_tumor_j = New System.Windows.Forms.RadioButton()
+		Me.vese_tumor_b = New System.Windows.Forms.RadioButton()
+		Me.vese_tumor_meret = New System.Windows.Forms.TextBox()
 		Me.saveBtn = New System.Windows.Forms.Button()
 		Me.export = New System.Windows.Forms.Button()
 		Me.reset = New System.Windows.Forms.Button()
@@ -336,7 +393,6 @@ Partial Class Main
 		Me.loadButton = New System.Windows.Forms.Button()
 		Me.Label38 = New System.Windows.Forms.Label()
 		Me.Label37 = New System.Windows.Forms.Label()
-		Me.Button3 = New System.Windows.Forms.Button()
 		Me.dataInput.SuspendLayout()
 		Me.TabPage1.SuspendLayout()
 		Me.GroupBox14.SuspendLayout()
@@ -392,6 +448,16 @@ Partial Class Main
 		Me.GroupBox39.SuspendLayout()
 		Me.maj_attet_group.SuspendLayout()
 		Me.GroupBox38.SuspendLayout()
+		Me.TabPage6.SuspendLayout()
+		Me.GroupBox49.SuspendLayout()
+		Me.GroupBox50.SuspendLayout()
+		Me.GroupBox48.SuspendLayout()
+		Me.GroupBox54.SuspendLayout()
+		Me.GroupBox44.SuspendLayout()
+		Me.GroupBox43.SuspendLayout()
+		Me.veseko_grp.SuspendLayout()
+		Me.pyelo_grp.SuspendLayout()
+		Me.vese_tumor_grp.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'dataInput
@@ -401,6 +467,7 @@ Partial Class Main
 		Me.dataInput.Controls.Add(Me.TabPage3)
 		Me.dataInput.Controls.Add(Me.TabPage4)
 		Me.dataInput.Controls.Add(Me.TabPage5)
+		Me.dataInput.Controls.Add(Me.TabPage6)
 		Me.dataInput.Location = New System.Drawing.Point(14, 93)
 		Me.dataInput.Margin = New System.Windows.Forms.Padding(2)
 		Me.dataInput.Name = "dataInput"
@@ -3337,6 +3404,16 @@ Partial Class Main
 		Me.TabPage5.Text = "Hasüreg"
 		Me.TabPage5.UseVisualStyleBackColor = True
 		'
+		'Button3
+		'
+		Me.Button3.Location = New System.Drawing.Point(432, 6)
+		Me.Button3.Margin = New System.Windows.Forms.Padding(2)
+		Me.Button3.Name = "Button3"
+		Me.Button3.Size = New System.Drawing.Size(66, 37)
+		Me.Button3.TabIndex = 33
+		Me.Button3.Text = "Törlés"
+		Me.Button3.UseVisualStyleBackColor = True
+		'
 		'GroupBox47
 		'
 		Me.GroupBox47.Controls.Add(Me.bel_tumor_cm)
@@ -3401,6 +3478,17 @@ Partial Class Main
 		Me.bel_tumor_szuk.Tag = "has_vastagbel_tumor_szukito"
 		Me.bel_tumor_szuk.Text = "Szűkítő"
 		Me.bel_tumor_szuk.UseVisualStyleBackColor = True
+		'
+		'bel_tumor
+		'
+		Me.bel_tumor.AutoSize = True
+		Me.bel_tumor.Location = New System.Drawing.Point(3, 18)
+		Me.bel_tumor.Name = "bel_tumor"
+		Me.bel_tumor.Size = New System.Drawing.Size(56, 17)
+		Me.bel_tumor.TabIndex = 0
+		Me.bel_tumor.Tag = "has_vastagbel_tumor"
+		Me.bel_tumor.Text = "Tumor"
+		Me.bel_tumor.UseVisualStyleBackColor = True
 		'
 		'bel_tumor_fel
 		'
@@ -3494,17 +3582,6 @@ Partial Class Main
 		Me.CheckBox75.Tag = "has_vastagbel_divert"
 		Me.CheckBox75.Text = "Diverticulomok"
 		Me.CheckBox75.UseVisualStyleBackColor = True
-		'
-		'bel_tumor
-		'
-		Me.bel_tumor.AutoSize = True
-		Me.bel_tumor.Location = New System.Drawing.Point(3, 18)
-		Me.bel_tumor.Name = "bel_tumor"
-		Me.bel_tumor.Size = New System.Drawing.Size(56, 17)
-		Me.bel_tumor.TabIndex = 0
-		Me.bel_tumor.Tag = "has_vastagbel_tumor"
-		Me.bel_tumor.Text = "Tumor"
-		Me.bel_tumor.UseVisualStyleBackColor = True
 		'
 		'Button2
 		'
@@ -4143,6 +4220,658 @@ Partial Class Main
 		Me.RadioButton64.Text = "Vérbő"
 		Me.RadioButton64.UseVisualStyleBackColor = True
 		'
+		'TabPage6
+		'
+		Me.TabPage6.Controls.Add(Me.GroupBox49)
+		Me.TabPage6.Controls.Add(Me.GroupBox48)
+		Me.TabPage6.Controls.Add(Me.GroupBox44)
+		Me.TabPage6.Controls.Add(Me.GroupBox43)
+		Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+		Me.TabPage6.Name = "TabPage6"
+		Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+		Me.TabPage6.Size = New System.Drawing.Size(503, 495)
+		Me.TabPage6.TabIndex = 5
+		Me.TabPage6.Text = "Kismedence"
+		Me.TabPage6.UseVisualStyleBackColor = True
+		'
+		'GroupBox49
+		'
+		Me.GroupBox49.Controls.Add(Me.GroupBox50)
+		Me.GroupBox49.Controls.Add(Me.CheckBox21)
+		Me.GroupBox49.Controls.Add(Me.CheckBox20)
+		Me.GroupBox49.Location = New System.Drawing.Point(31, 394)
+		Me.GroupBox49.Name = "GroupBox49"
+		Me.GroupBox49.Size = New System.Drawing.Size(407, 84)
+		Me.GroupBox49.TabIndex = 3
+		Me.GroupBox49.TabStop = False
+		'
+		'GroupBox50
+		'
+		Me.GroupBox50.Controls.Add(Me.here_tumor)
+		Me.GroupBox50.Controls.Add(Me.here_tumor_j)
+		Me.GroupBox50.Controls.Add(Me.here_tumor_b)
+		Me.GroupBox50.Controls.Add(Me.here_tumor_mm)
+		Me.GroupBox50.Controls.Add(Me.here_tumor_meret)
+		Me.GroupBox50.Location = New System.Drawing.Point(158, 11)
+		Me.GroupBox50.Name = "GroupBox50"
+		Me.GroupBox50.Size = New System.Drawing.Size(212, 63)
+		Me.GroupBox50.TabIndex = 4
+		Me.GroupBox50.TabStop = False
+		Me.GroupBox50.Tag = "here_tumor_poz"
+		'
+		'here_tumor
+		'
+		Me.here_tumor.AutoSize = True
+		Me.here_tumor.Location = New System.Drawing.Point(7, 14)
+		Me.here_tumor.Name = "here_tumor"
+		Me.here_tumor.Size = New System.Drawing.Size(78, 17)
+		Me.here_tumor.TabIndex = 0
+		Me.here_tumor.Tag = "here_tumor"
+		Me.here_tumor.Text = "Here tumor"
+		Me.here_tumor.UseVisualStyleBackColor = True
+		'
+		'here_tumor_j
+		'
+		Me.here_tumor_j.AutoSize = True
+		Me.here_tumor_j.Enabled = False
+		Me.here_tumor_j.Location = New System.Drawing.Point(130, 38)
+		Me.here_tumor_j.Name = "here_tumor_j"
+		Me.here_tumor_j.Size = New System.Drawing.Size(48, 17)
+		Me.here_tumor_j.TabIndex = 15
+		Me.here_tumor_j.TabStop = True
+		Me.here_tumor_j.Tag = "jobb"
+		Me.here_tumor_j.Text = "Jobb"
+		Me.here_tumor_j.UseVisualStyleBackColor = True
+		'
+		'here_tumor_b
+		'
+		Me.here_tumor_b.AutoSize = True
+		Me.here_tumor_b.Enabled = False
+		Me.here_tumor_b.Location = New System.Drawing.Point(86, 37)
+		Me.here_tumor_b.Name = "here_tumor_b"
+		Me.here_tumor_b.Size = New System.Drawing.Size(40, 17)
+		Me.here_tumor_b.TabIndex = 14
+		Me.here_tumor_b.TabStop = True
+		Me.here_tumor_b.Tag = "bal"
+		Me.here_tumor_b.Text = "Bal"
+		Me.here_tumor_b.UseVisualStyleBackColor = True
+		'
+		'here_tumor_mm
+		'
+		Me.here_tumor_mm.AutoSize = True
+		Me.here_tumor_mm.Enabled = False
+		Me.here_tumor_mm.Location = New System.Drawing.Point(55, 40)
+		Me.here_tumor_mm.Name = "here_tumor_mm"
+		Me.here_tumor_mm.Size = New System.Drawing.Size(23, 13)
+		Me.here_tumor_mm.TabIndex = 13
+		Me.here_tumor_mm.Text = "mm"
+		'
+		'here_tumor_meret
+		'
+		Me.here_tumor_meret.Enabled = False
+		Me.here_tumor_meret.Location = New System.Drawing.Point(6, 37)
+		Me.here_tumor_meret.Name = "here_tumor_meret"
+		Me.here_tumor_meret.Size = New System.Drawing.Size(43, 20)
+		Me.here_tumor_meret.TabIndex = 12
+		Me.here_tumor_meret.Tag = "here_tumor_meret"
+		'
+		'CheckBox21
+		'
+		Me.CheckBox21.AutoSize = True
+		Me.CheckBox21.Location = New System.Drawing.Point(0, 41)
+		Me.CheckBox21.Name = "CheckBox21"
+		Me.CheckBox21.Size = New System.Drawing.Size(108, 17)
+		Me.CheckBox21.TabIndex = 1
+		Me.CheckBox21.Tag = "scrotum"
+		Me.CheckBox21.Text = "Scrotum Oedema"
+		Me.CheckBox21.UseVisualStyleBackColor = True
+		'
+		'CheckBox20
+		'
+		Me.CheckBox20.AutoSize = True
+		Me.CheckBox20.Location = New System.Drawing.Point(6, 11)
+		Me.CheckBox20.Name = "CheckBox20"
+		Me.CheckBox20.Size = New System.Drawing.Size(123, 17)
+		Me.CheckBox20.TabIndex = 0
+		Me.CheckBox20.Tag = "prostata"
+		Me.CheckBox20.Text = "Prostata Hyperplasia"
+		Me.CheckBox20.UseVisualStyleBackColor = True
+		'
+		'GroupBox48
+		'
+		Me.GroupBox48.Controls.Add(Me.meh_tumor)
+		Me.GroupBox48.Controls.Add(Me.meh_tumor_mm)
+		Me.GroupBox48.Controls.Add(Me.meh_tumor_meret)
+		Me.GroupBox48.Controls.Add(Me.meh_em_mm)
+		Me.GroupBox48.Controls.Add(Me.meh_em_meret)
+		Me.GroupBox48.Controls.Add(Me.meh_em)
+		Me.GroupBox48.Controls.Add(Me.meh_myoma_mm)
+		Me.GroupBox48.Controls.Add(Me.meh_myoma_meret)
+		Me.GroupBox48.Controls.Add(Me.meh_myoma_db)
+		Me.GroupBox48.Controls.Add(Me.meh_myoma_darab)
+		Me.GroupBox48.Controls.Add(Me.meh_myoma)
+		Me.GroupBox48.Controls.Add(Me.CheckBox15)
+		Me.GroupBox48.Controls.Add(Me.GroupBox54)
+		Me.GroupBox48.Location = New System.Drawing.Point(6, 224)
+		Me.GroupBox48.Name = "GroupBox48"
+		Me.GroupBox48.Size = New System.Drawing.Size(395, 164)
+		Me.GroupBox48.TabIndex = 2
+		Me.GroupBox48.TabStop = False
+		Me.GroupBox48.Text = "Méh"
+		'
+		'meh_tumor
+		'
+		Me.meh_tumor.AutoSize = True
+		Me.meh_tumor.Location = New System.Drawing.Point(147, 93)
+		Me.meh_tumor.Name = "meh_tumor"
+		Me.meh_tumor.Size = New System.Drawing.Size(56, 17)
+		Me.meh_tumor.TabIndex = 21
+		Me.meh_tumor.Tag = "meh_tumor"
+		Me.meh_tumor.Text = "Tumor"
+		Me.meh_tumor.UseVisualStyleBackColor = True
+		'
+		'meh_tumor_mm
+		'
+		Me.meh_tumor_mm.AutoSize = True
+		Me.meh_tumor_mm.Enabled = False
+		Me.meh_tumor_mm.Location = New System.Drawing.Point(266, 100)
+		Me.meh_tumor_mm.Name = "meh_tumor_mm"
+		Me.meh_tumor_mm.Size = New System.Drawing.Size(23, 13)
+		Me.meh_tumor_mm.TabIndex = 20
+		Me.meh_tumor_mm.Text = "mm"
+		'
+		'meh_tumor_meret
+		'
+		Me.meh_tumor_meret.Enabled = False
+		Me.meh_tumor_meret.Location = New System.Drawing.Point(213, 93)
+		Me.meh_tumor_meret.Name = "meh_tumor_meret"
+		Me.meh_tumor_meret.Size = New System.Drawing.Size(43, 20)
+		Me.meh_tumor_meret.TabIndex = 19
+		Me.meh_tumor_meret.Tag = "meh_tumor_meret"
+		'
+		'meh_em_mm
+		'
+		Me.meh_em_mm.AutoSize = True
+		Me.meh_em_mm.Enabled = False
+		Me.meh_em_mm.Location = New System.Drawing.Point(266, 54)
+		Me.meh_em_mm.Name = "meh_em_mm"
+		Me.meh_em_mm.Size = New System.Drawing.Size(23, 13)
+		Me.meh_em_mm.TabIndex = 18
+		Me.meh_em_mm.Text = "mm"
+		'
+		'meh_em_meret
+		'
+		Me.meh_em_meret.Enabled = False
+		Me.meh_em_meret.Location = New System.Drawing.Point(213, 53)
+		Me.meh_em_meret.Name = "meh_em_meret"
+		Me.meh_em_meret.Size = New System.Drawing.Size(43, 20)
+		Me.meh_em_meret.TabIndex = 17
+		Me.meh_em_meret.Tag = "meh_em_meret"
+		'
+		'meh_em
+		'
+		Me.meh_em.AutoSize = True
+		Me.meh_em.Location = New System.Drawing.Point(147, 53)
+		Me.meh_em.Name = "meh_em"
+		Me.meh_em.Size = New System.Drawing.Size(71, 17)
+		Me.meh_em.TabIndex = 16
+		Me.meh_em.Tag = "meh_em"
+		Me.meh_em.Text = "EM Polyp"
+		Me.meh_em.UseVisualStyleBackColor = True
+		'
+		'meh_myoma_mm
+		'
+		Me.meh_myoma_mm.AutoSize = True
+		Me.meh_myoma_mm.Enabled = False
+		Me.meh_myoma_mm.Location = New System.Drawing.Point(336, 21)
+		Me.meh_myoma_mm.Name = "meh_myoma_mm"
+		Me.meh_myoma_mm.Size = New System.Drawing.Size(23, 13)
+		Me.meh_myoma_mm.TabIndex = 15
+		Me.meh_myoma_mm.Text = "mm"
+		'
+		'meh_myoma_meret
+		'
+		Me.meh_myoma_meret.Enabled = False
+		Me.meh_myoma_meret.Location = New System.Drawing.Point(287, 18)
+		Me.meh_myoma_meret.Name = "meh_myoma_meret"
+		Me.meh_myoma_meret.Size = New System.Drawing.Size(43, 20)
+		Me.meh_myoma_meret.TabIndex = 14
+		Me.meh_myoma_meret.Tag = "meh_myoma_meret"
+		'
+		'meh_myoma_db
+		'
+		Me.meh_myoma_db.AutoSize = True
+		Me.meh_myoma_db.Enabled = False
+		Me.meh_myoma_db.Location = New System.Drawing.Point(262, 21)
+		Me.meh_myoma_db.Name = "meh_myoma_db"
+		Me.meh_myoma_db.Size = New System.Drawing.Size(19, 13)
+		Me.meh_myoma_db.TabIndex = 13
+		Me.meh_myoma_db.Text = "db"
+		'
+		'meh_myoma_darab
+		'
+		Me.meh_myoma_darab.Enabled = False
+		Me.meh_myoma_darab.Location = New System.Drawing.Point(213, 17)
+		Me.meh_myoma_darab.Name = "meh_myoma_darab"
+		Me.meh_myoma_darab.Size = New System.Drawing.Size(43, 20)
+		Me.meh_myoma_darab.TabIndex = 12
+		Me.meh_myoma_darab.Tag = "meh_myoma_darab"
+		'
+		'meh_myoma
+		'
+		Me.meh_myoma.AutoSize = True
+		Me.meh_myoma.Location = New System.Drawing.Point(147, 20)
+		Me.meh_myoma.Name = "meh_myoma"
+		Me.meh_myoma.Size = New System.Drawing.Size(60, 17)
+		Me.meh_myoma.TabIndex = 2
+		Me.meh_myoma.Tag = "meh_myoma"
+		Me.meh_myoma.Text = "Myoma"
+		Me.meh_myoma.UseVisualStyleBackColor = True
+		'
+		'CheckBox15
+		'
+		Me.CheckBox15.AutoSize = True
+		Me.CheckBox15.Location = New System.Drawing.Point(13, 20)
+		Me.CheckBox15.Name = "CheckBox15"
+		Me.CheckBox15.Size = New System.Drawing.Size(45, 17)
+		Me.CheckBox15.TabIndex = 1
+		Me.CheckBox15.Tag = "meh_iud"
+		Me.CheckBox15.Text = "IUD"
+		Me.CheckBox15.UseVisualStyleBackColor = True
+		'
+		'GroupBox54
+		'
+		Me.GroupBox54.Controls.Add(Me.pete)
+		Me.GroupBox54.Controls.Add(Me.pete_j)
+		Me.GroupBox54.Controls.Add(Me.pete_b)
+		Me.GroupBox54.Controls.Add(Me.pete_mm)
+		Me.GroupBox54.Controls.Add(Me.pete_meret)
+		Me.GroupBox54.Location = New System.Drawing.Point(6, 43)
+		Me.GroupBox54.Name = "GroupBox54"
+		Me.GroupBox54.Size = New System.Drawing.Size(119, 105)
+		Me.GroupBox54.TabIndex = 0
+		Me.GroupBox54.TabStop = False
+		Me.GroupBox54.Tag = "meh_cysta_poz"
+		'
+		'pete
+		'
+		Me.pete.AutoSize = True
+		Me.pete.Location = New System.Drawing.Point(6, 10)
+		Me.pete.Name = "pete"
+		Me.pete.Size = New System.Drawing.Size(107, 17)
+		Me.pete.TabIndex = 22
+		Me.pete.Tag = "meh_cysta"
+		Me.pete.Text = "Petefészek cysta"
+		Me.pete.UseVisualStyleBackColor = True
+		'
+		'pete_j
+		'
+		Me.pete_j.AutoSize = True
+		Me.pete_j.Enabled = False
+		Me.pete_j.Location = New System.Drawing.Point(6, 82)
+		Me.pete_j.Name = "pete_j"
+		Me.pete_j.Size = New System.Drawing.Size(48, 17)
+		Me.pete_j.TabIndex = 15
+		Me.pete_j.TabStop = True
+		Me.pete_j.Tag = "jobb"
+		Me.pete_j.Text = "Jobb"
+		Me.pete_j.UseVisualStyleBackColor = True
+		'
+		'pete_b
+		'
+		Me.pete_b.AutoSize = True
+		Me.pete_b.Enabled = False
+		Me.pete_b.Location = New System.Drawing.Point(6, 59)
+		Me.pete_b.Name = "pete_b"
+		Me.pete_b.Size = New System.Drawing.Size(40, 17)
+		Me.pete_b.TabIndex = 14
+		Me.pete_b.TabStop = True
+		Me.pete_b.Tag = "bal"
+		Me.pete_b.Text = "Bal"
+		Me.pete_b.UseVisualStyleBackColor = True
+		'
+		'pete_mm
+		'
+		Me.pete_mm.AutoSize = True
+		Me.pete_mm.Enabled = False
+		Me.pete_mm.Location = New System.Drawing.Point(57, 40)
+		Me.pete_mm.Name = "pete_mm"
+		Me.pete_mm.Size = New System.Drawing.Size(23, 13)
+		Me.pete_mm.TabIndex = 13
+		Me.pete_mm.Text = "mm"
+		'
+		'pete_meret
+		'
+		Me.pete_meret.Enabled = False
+		Me.pete_meret.Location = New System.Drawing.Point(7, 33)
+		Me.pete_meret.Name = "pete_meret"
+		Me.pete_meret.Size = New System.Drawing.Size(43, 20)
+		Me.pete_meret.TabIndex = 12
+		Me.pete_meret.Tag = "meh_cysta_meret"
+		'
+		'GroupBox44
+		'
+		Me.GroupBox44.Controls.Add(Me.holyag_tumor_mm)
+		Me.GroupBox44.Controls.Add(Me.holyag_tumor_meret)
+		Me.GroupBox44.Controls.Add(Me.holyag_tumor)
+		Me.GroupBox44.Controls.Add(Me.CheckBox11)
+		Me.GroupBox44.Controls.Add(Me.CheckBox10)
+		Me.GroupBox44.Location = New System.Drawing.Point(6, 173)
+		Me.GroupBox44.Name = "GroupBox44"
+		Me.GroupBox44.Size = New System.Drawing.Size(336, 45)
+		Me.GroupBox44.TabIndex = 1
+		Me.GroupBox44.TabStop = False
+		Me.GroupBox44.Text = "Hólyag"
+		'
+		'holyag_tumor_mm
+		'
+		Me.holyag_tumor_mm.AutoSize = True
+		Me.holyag_tumor_mm.Enabled = False
+		Me.holyag_tumor_mm.Location = New System.Drawing.Point(275, 20)
+		Me.holyag_tumor_mm.Name = "holyag_tumor_mm"
+		Me.holyag_tumor_mm.Size = New System.Drawing.Size(23, 13)
+		Me.holyag_tumor_mm.TabIndex = 13
+		Me.holyag_tumor_mm.Text = "mm"
+		'
+		'holyag_tumor_meret
+		'
+		Me.holyag_tumor_meret.Enabled = False
+		Me.holyag_tumor_meret.Location = New System.Drawing.Point(225, 16)
+		Me.holyag_tumor_meret.Name = "holyag_tumor_meret"
+		Me.holyag_tumor_meret.Size = New System.Drawing.Size(43, 20)
+		Me.holyag_tumor_meret.TabIndex = 12
+		Me.holyag_tumor_meret.Tag = "holyag_tumor_meret"
+		'
+		'holyag_tumor
+		'
+		Me.holyag_tumor.AutoSize = True
+		Me.holyag_tumor.Location = New System.Drawing.Point(169, 19)
+		Me.holyag_tumor.Name = "holyag_tumor"
+		Me.holyag_tumor.Size = New System.Drawing.Size(56, 17)
+		Me.holyag_tumor.TabIndex = 2
+		Me.holyag_tumor.Tag = "holyag_tumor"
+		Me.holyag_tumor.Text = "Tumor"
+		Me.holyag_tumor.UseVisualStyleBackColor = True
+		'
+		'CheckBox11
+		'
+		Me.CheckBox11.AutoSize = True
+		Me.CheckBox11.Location = New System.Drawing.Point(84, 19)
+		Me.CheckBox11.Name = "CheckBox11"
+		Me.CheckBox11.Size = New System.Drawing.Size(72, 17)
+		Me.CheckBox11.TabIndex = 1
+		Me.CheckBox11.Tag = "holyag_gyull"
+		Me.CheckBox11.Text = "Gyulladás"
+		Me.CheckBox11.UseVisualStyleBackColor = True
+		'
+		'CheckBox10
+		'
+		Me.CheckBox10.AutoSize = True
+		Me.CheckBox10.Location = New System.Drawing.Point(16, 19)
+		Me.CheckBox10.Name = "CheckBox10"
+		Me.CheckBox10.Size = New System.Drawing.Size(60, 17)
+		Me.CheckBox10.TabIndex = 0
+		Me.CheckBox10.Tag = "holyag_kateter"
+		Me.CheckBox10.Text = "Katéter"
+		Me.CheckBox10.UseVisualStyleBackColor = True
+		'
+		'GroupBox43
+		'
+		Me.GroupBox43.Controls.Add(Me.veseko)
+		Me.GroupBox43.Controls.Add(Me.pyelo)
+		Me.GroupBox43.Controls.Add(Me.vese_tumor)
+		Me.GroupBox43.Controls.Add(Me.CheckBox1)
+		Me.GroupBox43.Controls.Add(Me.RadioButton24)
+		Me.GroupBox43.Controls.Add(Me.RadioButton23)
+		Me.GroupBox43.Controls.Add(Me.veseko_grp)
+		Me.GroupBox43.Controls.Add(Me.pyelo_grp)
+		Me.GroupBox43.Controls.Add(Me.vese_tumor_grp)
+		Me.GroupBox43.Location = New System.Drawing.Point(6, 6)
+		Me.GroupBox43.Name = "GroupBox43"
+		Me.GroupBox43.Size = New System.Drawing.Size(432, 161)
+		Me.GroupBox43.TabIndex = 0
+		Me.GroupBox43.TabStop = False
+		Me.GroupBox43.Tag = "vese"
+		Me.GroupBox43.Text = "Vese"
+		'
+		'veseko
+		'
+		Me.veseko.AutoSize = True
+		Me.veseko.Location = New System.Drawing.Point(115, 76)
+		Me.veseko.Name = "veseko"
+		Me.veseko.Size = New System.Drawing.Size(62, 17)
+		Me.veseko.TabIndex = 8
+		Me.veseko.Tag = "veseko"
+		Me.veseko.Text = "Vesekő"
+		Me.veseko.UseVisualStyleBackColor = True
+		'
+		'pyelo
+		'
+		Me.pyelo.AutoSize = True
+		Me.pyelo.Location = New System.Drawing.Point(66, 128)
+		Me.pyelo.Name = "pyelo"
+		Me.pyelo.Size = New System.Drawing.Size(105, 17)
+		Me.pyelo.TabIndex = 7
+		Me.pyelo.Tag = "vese_pyelo"
+		Me.pyelo.Text = "Hev. Pyeloneph."
+		Me.pyelo.UseVisualStyleBackColor = True
+		'
+		'vese_tumor
+		'
+		Me.vese_tumor.AutoSize = True
+		Me.vese_tumor.Location = New System.Drawing.Point(115, 20)
+		Me.vese_tumor.Name = "vese_tumor"
+		Me.vese_tumor.Size = New System.Drawing.Size(56, 17)
+		Me.vese_tumor.TabIndex = 6
+		Me.vese_tumor.Tag = "vese_tumor"
+		Me.vese_tumor.Text = "Tumor"
+		Me.vese_tumor.UseVisualStyleBackColor = True
+		'
+		'CheckBox1
+		'
+		Me.CheckBox1.AutoSize = True
+		Me.CheckBox1.Location = New System.Drawing.Point(6, 62)
+		Me.CheckBox1.Name = "CheckBox1"
+		Me.CheckBox1.Size = New System.Drawing.Size(91, 17)
+		Me.CheckBox1.TabIndex = 5
+		Me.CheckBox1.Tag = "vese_behuz"
+		Me.CheckBox1.Text = "Behúzódások"
+		Me.CheckBox1.UseVisualStyleBackColor = True
+		'
+		'RadioButton24
+		'
+		Me.RadioButton24.AutoSize = True
+		Me.RadioButton24.Location = New System.Drawing.Point(6, 39)
+		Me.RadioButton24.Name = "RadioButton24"
+		Me.RadioButton24.Size = New System.Drawing.Size(73, 17)
+		Me.RadioButton24.TabIndex = 4
+		Me.RadioButton24.TabStop = True
+		Me.RadioButton24.Tag = "szemcses"
+		Me.RadioButton24.Text = "Szemcsés"
+		Me.RadioButton24.UseVisualStyleBackColor = True
+		'
+		'RadioButton23
+		'
+		Me.RadioButton23.AutoSize = True
+		Me.RadioButton23.Location = New System.Drawing.Point(8, 19)
+		Me.RadioButton23.Name = "RadioButton23"
+		Me.RadioButton23.Size = New System.Drawing.Size(48, 17)
+		Me.RadioButton23.TabIndex = 3
+		Me.RadioButton23.TabStop = True
+		Me.RadioButton23.Tag = "sima"
+		Me.RadioButton23.Text = "Sima"
+		Me.RadioButton23.UseVisualStyleBackColor = True
+		'
+		'veseko_grp
+		'
+		Me.veseko_grp.Controls.Add(Me.veseko_mm)
+		Me.veseko_grp.Controls.Add(Me.veseko_j)
+		Me.veseko_grp.Controls.Add(Me.veseko_b)
+		Me.veseko_grp.Controls.Add(Me.veseko_meret)
+		Me.veseko_grp.Enabled = False
+		Me.veseko_grp.Location = New System.Drawing.Point(177, 62)
+		Me.veseko_grp.Name = "veseko_grp"
+		Me.veseko_grp.Size = New System.Drawing.Size(197, 44)
+		Me.veseko_grp.TabIndex = 2
+		Me.veseko_grp.TabStop = False
+		Me.veseko_grp.Tag = "veseko_poz"
+		'
+		'veseko_mm
+		'
+		Me.veseko_mm.AutoSize = True
+		Me.veseko_mm.Enabled = False
+		Me.veseko_mm.Location = New System.Drawing.Point(50, 18)
+		Me.veseko_mm.Name = "veseko_mm"
+		Me.veseko_mm.Size = New System.Drawing.Size(23, 13)
+		Me.veseko_mm.TabIndex = 11
+		Me.veseko_mm.Text = "mm"
+		'
+		'veseko_j
+		'
+		Me.veseko_j.AutoSize = True
+		Me.veseko_j.Enabled = False
+		Me.veseko_j.Location = New System.Drawing.Point(122, 15)
+		Me.veseko_j.Name = "veseko_j"
+		Me.veseko_j.Size = New System.Drawing.Size(48, 17)
+		Me.veseko_j.TabIndex = 2
+		Me.veseko_j.TabStop = True
+		Me.veseko_j.Tag = "jobb"
+		Me.veseko_j.Text = "Jobb"
+		Me.veseko_j.UseVisualStyleBackColor = True
+		'
+		'veseko_b
+		'
+		Me.veseko_b.AutoSize = True
+		Me.veseko_b.Enabled = False
+		Me.veseko_b.Location = New System.Drawing.Point(76, 16)
+		Me.veseko_b.Name = "veseko_b"
+		Me.veseko_b.Size = New System.Drawing.Size(40, 17)
+		Me.veseko_b.TabIndex = 1
+		Me.veseko_b.TabStop = True
+		Me.veseko_b.Tag = "bal"
+		Me.veseko_b.Text = "Bal"
+		Me.veseko_b.UseVisualStyleBackColor = True
+		'
+		'veseko_meret
+		'
+		Me.veseko_meret.Enabled = False
+		Me.veseko_meret.Location = New System.Drawing.Point(6, 15)
+		Me.veseko_meret.Name = "veseko_meret"
+		Me.veseko_meret.Size = New System.Drawing.Size(43, 20)
+		Me.veseko_meret.TabIndex = 0
+		Me.veseko_meret.Tag = "veseko_meret"
+		'
+		'pyelo_grp
+		'
+		Me.pyelo_grp.Controls.Add(Me.pyelo_mko)
+		Me.pyelo_grp.Controls.Add(Me.pyelo_j)
+		Me.pyelo_grp.Controls.Add(Me.pyelo_b)
+		Me.pyelo_grp.Enabled = False
+		Me.pyelo_grp.Location = New System.Drawing.Point(177, 116)
+		Me.pyelo_grp.Name = "pyelo_grp"
+		Me.pyelo_grp.Size = New System.Drawing.Size(180, 39)
+		Me.pyelo_grp.TabIndex = 1
+		Me.pyelo_grp.TabStop = False
+		Me.pyelo_grp.Tag = "vese_pyelo_poz"
+		'
+		'pyelo_mko
+		'
+		Me.pyelo_mko.AutoSize = True
+		Me.pyelo_mko.Enabled = False
+		Me.pyelo_mko.Location = New System.Drawing.Point(121, 12)
+		Me.pyelo_mko.Name = "pyelo_mko"
+		Me.pyelo_mko.Size = New System.Drawing.Size(46, 17)
+		Me.pyelo_mko.TabIndex = 2
+		Me.pyelo_mko.TabStop = True
+		Me.pyelo_mko.Tag = "mko"
+		Me.pyelo_mko.Text = "Mko"
+		Me.pyelo_mko.UseVisualStyleBackColor = True
+		'
+		'pyelo_j
+		'
+		Me.pyelo_j.AutoSize = True
+		Me.pyelo_j.Enabled = False
+		Me.pyelo_j.Location = New System.Drawing.Point(64, 12)
+		Me.pyelo_j.Name = "pyelo_j"
+		Me.pyelo_j.Size = New System.Drawing.Size(48, 17)
+		Me.pyelo_j.TabIndex = 1
+		Me.pyelo_j.TabStop = True
+		Me.pyelo_j.Tag = "jobb"
+		Me.pyelo_j.Text = "Jobb"
+		Me.pyelo_j.UseVisualStyleBackColor = True
+		'
+		'pyelo_b
+		'
+		Me.pyelo_b.AutoSize = True
+		Me.pyelo_b.Enabled = False
+		Me.pyelo_b.Location = New System.Drawing.Point(6, 12)
+		Me.pyelo_b.Name = "pyelo_b"
+		Me.pyelo_b.Size = New System.Drawing.Size(40, 17)
+		Me.pyelo_b.TabIndex = 0
+		Me.pyelo_b.TabStop = True
+		Me.pyelo_b.Tag = "bal"
+		Me.pyelo_b.Text = "Bal"
+		Me.pyelo_b.UseVisualStyleBackColor = True
+		'
+		'vese_tumor_grp
+		'
+		Me.vese_tumor_grp.Controls.Add(Me.vese_tumor_mm)
+		Me.vese_tumor_grp.Controls.Add(Me.vese_tumor_j)
+		Me.vese_tumor_grp.Controls.Add(Me.vese_tumor_b)
+		Me.vese_tumor_grp.Controls.Add(Me.vese_tumor_meret)
+		Me.vese_tumor_grp.Enabled = False
+		Me.vese_tumor_grp.Location = New System.Drawing.Point(177, 9)
+		Me.vese_tumor_grp.Name = "vese_tumor_grp"
+		Me.vese_tumor_grp.Size = New System.Drawing.Size(184, 47)
+		Me.vese_tumor_grp.TabIndex = 0
+		Me.vese_tumor_grp.TabStop = False
+		Me.vese_tumor_grp.Tag = "vese_tumor_poz"
+		'
+		'vese_tumor_mm
+		'
+		Me.vese_tumor_mm.AutoSize = True
+		Me.vese_tumor_mm.Enabled = False
+		Me.vese_tumor_mm.Location = New System.Drawing.Point(50, 19)
+		Me.vese_tumor_mm.Name = "vese_tumor_mm"
+		Me.vese_tumor_mm.Size = New System.Drawing.Size(23, 13)
+		Me.vese_tumor_mm.TabIndex = 10
+		Me.vese_tumor_mm.Text = "mm"
+		'
+		'vese_tumor_j
+		'
+		Me.vese_tumor_j.AutoSize = True
+		Me.vese_tumor_j.Enabled = False
+		Me.vese_tumor_j.Location = New System.Drawing.Point(132, 17)
+		Me.vese_tumor_j.Name = "vese_tumor_j"
+		Me.vese_tumor_j.Size = New System.Drawing.Size(48, 17)
+		Me.vese_tumor_j.TabIndex = 2
+		Me.vese_tumor_j.TabStop = True
+		Me.vese_tumor_j.Tag = "jobb"
+		Me.vese_tumor_j.Text = "Jobb"
+		Me.vese_tumor_j.UseVisualStyleBackColor = True
+		'
+		'vese_tumor_b
+		'
+		Me.vese_tumor_b.AutoSize = True
+		Me.vese_tumor_b.Enabled = False
+		Me.vese_tumor_b.Location = New System.Drawing.Point(85, 19)
+		Me.vese_tumor_b.Name = "vese_tumor_b"
+		Me.vese_tumor_b.Size = New System.Drawing.Size(40, 17)
+		Me.vese_tumor_b.TabIndex = 1
+		Me.vese_tumor_b.TabStop = True
+		Me.vese_tumor_b.Tag = "bal"
+		Me.vese_tumor_b.Text = "Bal"
+		Me.vese_tumor_b.UseVisualStyleBackColor = True
+		'
+		'vese_tumor_meret
+		'
+		Me.vese_tumor_meret.Enabled = False
+		Me.vese_tumor_meret.Location = New System.Drawing.Point(6, 15)
+		Me.vese_tumor_meret.Name = "vese_tumor_meret"
+		Me.vese_tumor_meret.Size = New System.Drawing.Size(35, 20)
+		Me.vese_tumor_meret.TabIndex = 0
+		Me.vese_tumor_meret.Tag = "vese_tumor_meret"
+		'
 		'saveBtn
 		'
 		Me.saveBtn.Location = New System.Drawing.Point(97, 10)
@@ -4244,16 +4973,6 @@ Partial Class Main
 		Me.Label37.Size = New System.Drawing.Size(28, 13)
 		Me.Label37.TabIndex = 11
 		Me.Label37.Text = "v0.6"
-		'
-		'Button3
-		'
-		Me.Button3.Location = New System.Drawing.Point(432, 6)
-		Me.Button3.Margin = New System.Windows.Forms.Padding(2)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(66, 37)
-		Me.Button3.TabIndex = 33
-		Me.Button3.Text = "Törlés"
-		Me.Button3.UseVisualStyleBackColor = True
 		'
 		'Main
 		'
@@ -4379,6 +5098,25 @@ Partial Class Main
 		Me.maj_attet_group.PerformLayout()
 		Me.GroupBox38.ResumeLayout(False)
 		Me.GroupBox38.PerformLayout()
+		Me.TabPage6.ResumeLayout(False)
+		Me.GroupBox49.ResumeLayout(False)
+		Me.GroupBox49.PerformLayout()
+		Me.GroupBox50.ResumeLayout(False)
+		Me.GroupBox50.PerformLayout()
+		Me.GroupBox48.ResumeLayout(False)
+		Me.GroupBox48.PerformLayout()
+		Me.GroupBox54.ResumeLayout(False)
+		Me.GroupBox54.PerformLayout()
+		Me.GroupBox44.ResumeLayout(False)
+		Me.GroupBox44.PerformLayout()
+		Me.GroupBox43.ResumeLayout(False)
+		Me.GroupBox43.PerformLayout()
+		Me.veseko_grp.ResumeLayout(False)
+		Me.veseko_grp.PerformLayout()
+		Me.pyelo_grp.ResumeLayout(False)
+		Me.pyelo_grp.PerformLayout()
+		Me.vese_tumor_grp.ResumeLayout(False)
+		Me.vese_tumor_grp.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -4698,4 +5436,60 @@ Partial Class Main
 	Friend WithEvents Label38 As Label
 	Friend WithEvents Label37 As Label
 	Friend WithEvents Button3 As Button
+	Friend WithEvents TabPage6 As TabPage
+	Friend WithEvents GroupBox49 As GroupBox
+	Friend WithEvents here_tumor As CheckBox
+	Friend WithEvents GroupBox50 As GroupBox
+	Friend WithEvents here_tumor_j As RadioButton
+	Friend WithEvents here_tumor_b As RadioButton
+	Friend WithEvents here_tumor_mm As Label
+	Friend WithEvents here_tumor_meret As TextBox
+	Friend WithEvents CheckBox21 As CheckBox
+	Friend WithEvents CheckBox20 As CheckBox
+	Friend WithEvents GroupBox48 As GroupBox
+	Friend WithEvents pete As CheckBox
+	Friend WithEvents meh_tumor As CheckBox
+	Friend WithEvents meh_tumor_mm As Label
+	Friend WithEvents meh_tumor_meret As TextBox
+	Friend WithEvents meh_em_mm As Label
+	Friend WithEvents meh_em_meret As TextBox
+	Friend WithEvents meh_em As CheckBox
+	Friend WithEvents meh_myoma_mm As Label
+	Friend WithEvents meh_myoma_meret As TextBox
+	Friend WithEvents meh_myoma_db As Label
+	Friend WithEvents meh_myoma_darab As TextBox
+	Friend WithEvents meh_myoma As CheckBox
+	Friend WithEvents CheckBox15 As CheckBox
+	Friend WithEvents GroupBox54 As GroupBox
+	Friend WithEvents pete_j As RadioButton
+	Friend WithEvents pete_b As RadioButton
+	Friend WithEvents pete_mm As Label
+	Friend WithEvents pete_meret As TextBox
+	Friend WithEvents GroupBox44 As GroupBox
+	Friend WithEvents holyag_tumor_mm As Label
+	Friend WithEvents holyag_tumor_meret As TextBox
+	Friend WithEvents holyag_tumor As CheckBox
+	Friend WithEvents CheckBox11 As CheckBox
+	Friend WithEvents CheckBox10 As CheckBox
+	Friend WithEvents GroupBox43 As GroupBox
+	Friend WithEvents veseko As CheckBox
+	Friend WithEvents pyelo As CheckBox
+	Friend WithEvents vese_tumor As CheckBox
+	Friend WithEvents CheckBox1 As CheckBox
+	Friend WithEvents RadioButton24 As RadioButton
+	Friend WithEvents RadioButton23 As RadioButton
+	Friend WithEvents veseko_grp As GroupBox
+	Friend WithEvents veseko_mm As Label
+	Friend WithEvents veseko_j As RadioButton
+	Friend WithEvents veseko_b As RadioButton
+	Friend WithEvents veseko_meret As TextBox
+	Friend WithEvents pyelo_grp As GroupBox
+	Friend WithEvents pyelo_mko As RadioButton
+	Friend WithEvents pyelo_j As RadioButton
+	Friend WithEvents pyelo_b As RadioButton
+	Friend WithEvents vese_tumor_grp As GroupBox
+	Friend WithEvents vese_tumor_mm As Label
+	Friend WithEvents vese_tumor_j As RadioButton
+	Friend WithEvents vese_tumor_b As RadioButton
+	Friend WithEvents vese_tumor_meret As TextBox
 End Class

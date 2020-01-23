@@ -120,6 +120,9 @@ Public Class WordTransformer
     If Not ApplyRulesStomach(data) Then
       Return False
     End If
+    If Not ApplyRulesKidney(data) Then
+      Return False
+    End If
 
     Return True
   End Function
@@ -1261,6 +1264,223 @@ Public Class WordTransformer
         AddToDiag(text + ".")
       End If
       Return True
+    Catch ex As Exception
+      ErrorHandling.General(ex, ComponentName)
+    End Try
+    Return False
+  End Function
+  ''' <summary>
+  ''' Applies rules regarding the kidney
+  ''' </summary>
+  ''' <param name="data">Data form UI</param>
+  Private Function ApplyRulesKidney(data As Dictionary(Of String, String)) As Boolean
+    Dim key As String
+    Try
+      '########################################################################
+      key = "vese"
+      If CheckRequired(key, data) Then
+        Select Case data.Item(key)
+          Case "sima"
+            content.Add("vese", ", felszínük sima")
+          Case "szemcses"
+            content.Add("vese", ", felszínükön finom szemcsézettség ")
+            If data.ContainsKey("vese_behuz") Then
+              content.Item("vese") += "és számos behúzódás "
+              AddToDiag("Nephritis interstitialis chronica l. u.")
+            End If
+            content.Item("vese") += "látható"
+            AddToDiag("Nephrosclerosis arteriolosclerotica renum.")
+        End Select
+      ElseIf AbortOnMissing Then
+        Return False
+      End If
+      '########################################################################
+      key = "vese_tumor"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("vese_tumor_poz", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+        If Not CheckRequired("vese_tumor_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "A ")
+        Select Case data.Item("vese_tumor_poz")
+          Case "bal"
+            content.Item(key) += "bal"
+            AddToDiag("Neoplasma malignum renis sinistri.")
+          Case "jobb"
+            content.Item(key) += "jobb"
+            AddToDiag("Neoplasma malignum renis dextri.")
+        End Select
+        content.Item(key) += " vese állományában " + data.Item("vese_tumor_meret") + " mm nagyságú, "
+        content.Item(key) += "kénsárga, helyenként vörhenyes idegenszövet-szaporulat azonosítható. "
+      End If
+      '########################################################################
+      key = "veseko"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("veseko_poz", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+        If Not CheckRequired("veseko_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "A ")
+        Select Case data.Item("veseko_poz")
+          Case "bal"
+            content.Item(key) += "bal"
+            AddToDiag("Nephrolithiasis sinistri.")
+          Case "jobb"
+            content.Item(key) += "jobb"
+            AddToDiag("Nephrolithiasis dextri.")
+        End Select
+        content.Item(key) += " vesemedence területén " + data.Item("veseko_meret")
+        content.Item(key) += " mm legnagyobb kiterjedésű vesekő azonosítható. "
+      End If
+      '########################################################################
+      key = "vese_pyelo"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("vese_pyelo_poz", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "")
+        Select Case data.Item("vese_pyelo_poz")
+          Case "bal"
+            content.Item(key) += "A bal"
+            AddToDiag("Pyelonephritis acuta purulenta sinistri.")
+          Case "jobb"
+            content.Item(key) += "A jobb"
+            AddToDiag("Pyelonephritis acuta purulenta dextri.")
+          Case "mko"
+            content.Item(key) += "Mindkét"
+            AddToDiag("Pyelonephritis acuta purulenta l.u.")
+        End Select
+        content.Item(key) += " vesemedencében purulens váladék azonosítható, a vesék felszínén kicsiny abscessusok láthatók. "
+      End If
+      '########################################################################
+      key = "holyag_kateter"
+      If data.ContainsKey(key) Then
+        content.Add("kateter", "A húgyhólyagban katéter található. ")
+      End If
+      '########################################################################
+      key = "holyag_gyull"
+      If data.ContainsKey(key) Then
+        content.Add(key, "A húgyhólyag nyálkahártyája diffúzan vörhenyes, lumenében opálos vizelet azonosítható. ")
+        AddToDiag("Urocytitis acuta.")
+      End If
+      '########################################################################
+      key = "holyag_tumor"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("holyag_tumor_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+        content.Add(key, "A húgyhólyag lumenében ")
+        content.Item(key) += data.Item("holyag_tumor_meret") + " mm legnagyobb kiterjedésű, szürkésfehér-vörhenyes idegenszövet-szaporulat azonosítható. "
+        AddToDiag("Neoplasma malignum vesicae urinariae.")
+      End If
+      '########################################################################
+      If Not data.ContainsKey("holyag_gyull") AndAlso Not data.ContainsKey("holyag_tumor") Then
+        content.Add("holyag", "és a húgyhólyag ")
+      End If
+      '########################################################################
+      key = "meh_iud"
+      If data.ContainsKey(key) Then
+        content.Add("iud", "A méh üregében fogamzásgátló eszköz azonosítható. ")
+      End If
+      '########################################################################
+      key = "meh_myoma"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("meh_myoma_darab", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+        If Not CheckRequired("meh_myoma_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "A méh izmos falában ")
+        content.Item(key) += data.Item("meh_myoma_darab") + " darab, " + data.Item("meh_myoma_meret")
+        content.Item(key) += " mm nagyságú, szürkésfehér színű, örvényes szerkezetű, myomagöbnek imponáló képlet mutatkozik. "
+        AddToDiag("Myomata uteri.")
+      End If
+      '########################################################################
+      key = "meh_em"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("meh_em_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "A méh üregében ")
+        content.Item(key) += data.Item("meh_em_meret") + " mm nagyságú polypoid képlet azonosítható. "
+        AddToDiag("Polypus endometrialis uteri.")
+      End If
+      '########################################################################
+      key = "meh_tumor"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("meh_tumor_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "A méh üregében a myometriumot is infiltráló szürkésfehér, helyenként vörhenyesbarna idegenszövet-szaporulat azonosítható. ")
+        AddToDiag("Neoplasma malignum uteri.")
+      End If
+      '########################################################################
+      key = "meh_cysta"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("meh_cysta_poz", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+        If Not CheckRequired("meh_cysta_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "A ")
+        Select Case data.Item("meh_cysta_poz")
+          Case "bal"
+            content.Item(key) += "bal"
+            AddToDiag("Cysta ovarii sinistri.")
+          Case "jobb"
+            content.Item(key) += "jobb"
+            AddToDiag("Cysta ovarii dextri.")
+        End Select
+        content.Item(key) += " petefészek állományában " + data.Item("meh_cysta_meret")
+        content.Item(key) += " mm nagyságú, hártyás falú, víztiszta bennékű ciszta mutatkozik. "
+      End If
+      '########################################################################
+      key = "prostata"
+      If data.ContainsKey(key) Then
+        content.Add(key, "A húgyhólyag lumene tágult, izomzata vaskos, a prostata megnagyobbodott, állománya göbös, körülírt kóros nem azonosítható. ")
+        AddToDiag("Hyperplasia nodosa prostatae.")
+      End If
+      '########################################################################
+      key = "scrotum"
+      If data.ContainsKey(key) Then
+        content.Add(key, "A scrotum megvastagodott, vizenyős. ")
+        AddToDiag("Hydrokele testis.")
+      End If
+      '########################################################################
+      key = "here_tumor"
+      If data.ContainsKey(key) Then
+        If Not CheckRequired("here_tumor_poz", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+        If Not CheckRequired("here_tumor_meret", data) AndAlso AbortOnMissing Then
+          Return False
+        End If
+
+        content.Add(key, "A ")
+        Select Case data.Item("here_tumor_poz")
+          Case "bal"
+            content.Item(key) += "bal"
+            AddToDiag("Neoplasma malignum testis sinistri.")
+          Case "jobb"
+            content.Item(key) += "jobb"
+            AddToDiag("Neoplasma malignum testis dextri.")
+        End Select
+        content.Item(key) += " here állományában jól körülírt, " + data.Item("here_tumor_meret")
+        content.Item(key) += " mm nagyságú, szürkésfehér színű, helyenként barnás-vörhenyes idegenszövet-szaporulat azonosítható. "
+      End If
     Catch ex As Exception
       ErrorHandling.General(ex, ComponentName)
     End Try

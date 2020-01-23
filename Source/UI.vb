@@ -9,8 +9,7 @@ Public Class UI
   ''' <summary>
   ''' Main form
   ''' </summary>
-  ''' <returns></returns>
-  Private Property main As Main
+  Private main As Main
   ''' <summary>
   ''' Constructor
   ''' </summary>
