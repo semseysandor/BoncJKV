@@ -3,21 +3,10 @@
 ''' </summary>
 Public Class UI
   ''' <summary>
-  ''' Main form
-  ''' </summary>
-  Private main As Main
-  ''' <summary>
-  ''' Constructor
-  ''' </summary>
-  ''' <param name="main">Main form</param>
-  Public Sub New(ByRef main As Main)
-    Me.main = main
-  End Sub
-  ''' <summary>
   ''' Resets screen
   ''' </summary>
   Public Sub ResetScreen()
-    ResetControls(main.dataInput.Controls)
+    ResetControls(Main.dataInput.Controls)
 
     ComponentManager.Main.dataInput.SelectedIndex = 0
 
@@ -92,7 +81,7 @@ Public Class UI
   ''' Switch to the next tab
   ''' </summary>
   Public Sub NextTab(sender As Object)
-    main.dataInput.SelectedIndex = TryCast(sender, Button).Parent.TabIndex + 1
+    ComponentManager.Main.dataInput.SelectedIndex = TryCast(sender, Button).Parent.TabIndex + 1
   End Sub
   ''' <summary>
   ''' Sets name and date on the main form
@@ -100,8 +89,8 @@ Public Class UI
   ''' <param name="name">Name of patient</param>
   ''' <param name="datte">Date of inspection</param>
   Public Sub SetNameDate(ByVal name As String, ByVal datte As String)
-    main.nev.Text = name
-    main.datum.Text = datte
+    ComponentManager.Main.nev.Text = name
+    ComponentManager.Main.datum.Text = datte
   End Sub
   ''' <summary>
   ''' Displays a question box

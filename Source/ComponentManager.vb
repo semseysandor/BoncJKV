@@ -13,4 +13,9 @@ Public Class ComponentManager
 	''' </summary>
 	''' <returns></returns>
 	Public Shared Property Main As Main
+	''' <summary>
+	''' UI worker
+	''' </summary>
+	''' <returns></returns>
+	Public Shared Property UI As UI
 End Class
