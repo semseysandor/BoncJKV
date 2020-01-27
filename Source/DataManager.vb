@@ -3,10 +3,6 @@
 ''' </summary>
 Public Class DataManager
   ''' <summary>
-  ''' Component Name
-  ''' </summary>
-  Public Const ComponentName = "DataManager"
-  ''' <summary>
   ''' Inspection data
   ''' </summary>
   Private data As Dictionary(Of String, String)
@@ -40,31 +36,28 @@ Public Class DataManager
     Dim textbox As TextBox
     Dim chbox As CheckBox
     Dim radio As RadioButton
-    Try
-      For Each ctrl As Control In root
-        Select Case ctrl.GetType
-          Case GetType(TextBox)
-            textbox = TryCast(ctrl, TextBox)
-            If textbox.Text <> "" AndAlso textbox.Enabled Then
-              data.Add(textbox.Tag.ToString, textbox.Text)
-            End If
-          Case GetType(CheckBox)
-            chbox = TryCast(ctrl, CheckBox)
-            If chbox.Checked AndAlso chbox.Enabled Then
-              data.Add(chbox.Tag.ToString, "TRUE")
-            End If
-          Case GetType(RadioButton)
-            radio = TryCast(ctrl, RadioButton)
-            If radio.Checked AndAlso radio.Enabled Then
-              data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
-            End If
-          Case GetType(GroupBox), GetType(TabPage)
-            CollectData(ctrl.Controls)
-        End Select
-      Next
-    Catch ex As Exception
-      ErrorHandling.General(ex, ComponentName)
-    End Try
+
+    For Each ctrl As Control In root
+      Select Case ctrl.GetType
+        Case GetType(TextBox)
+          textbox = TryCast(ctrl, TextBox)
+          If textbox.Enabled AndAlso textbox.Text <> String.Empty Then
+            data.Add(textbox.Tag.ToString, textbox.Text)
+          End If
+        Case GetType(CheckBox)
+          chbox = TryCast(ctrl, CheckBox)
+          If chbox.Enabled AndAlso chbox.Checked Then
+            data.Add(chbox.Tag.ToString, "TRUE")
+          End If
+        Case GetType(RadioButton)
+          radio = TryCast(ctrl, RadioButton)
+          If radio.Enabled AndAlso radio.Checked Then
+            data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
+          End If
+        Case GetType(GroupBox), GetType(TabPage)
+          CollectData(ctrl.Controls)
+      End Select
+    Next
   End Sub
   ''' <summary>
   ''' Loads data to the UI
@@ -75,32 +68,29 @@ Public Class DataManager
     Dim textbox As TextBox
     Dim chbox As CheckBox
     Dim radio As RadioButton
-    Try
-      For Each ctrl As Control In root
-        Select Case ctrl.GetType
-          Case GetType(TextBox)
-            textbox = TryCast(ctrl, TextBox)
-            If load.ContainsKey(textbox.Tag.ToString) Then
-              textbox.Text = load.Item(textbox.Tag.ToString)
-            End If
-          Case GetType(CheckBox)
-            chbox = TryCast(ctrl, CheckBox)
-            If load.ContainsKey(chbox.Tag.ToString) Then
-              chbox.Checked = True
-              chbox.Enabled = True
-            End If
-          Case GetType(RadioButton)
-            radio = TryCast(ctrl, RadioButton)
-            If load.ContainsKey(radio.Parent.Tag.ToString) Then
-              radio.Checked = True
-              radio.Enabled = True
-            End If
-          Case GetType(GroupBox), GetType(TabPage)
-            LoadData(ctrl.Controls, load)
-        End Select
-      Next
-    Catch ex As Exception
-      ErrorHandling.General(ex, ComponentName)
-    End Try
+
+    For Each ctrl As Control In root
+      Select Case ctrl.GetType
+        Case GetType(TextBox)
+          textbox = TryCast(ctrl, TextBox)
+          If load.ContainsKey(textbox.Tag.ToString) Then
+            textbox.Text = load.Item(textbox.Tag.ToString)
+          End If
+        Case GetType(CheckBox)
+          chbox = TryCast(ctrl, CheckBox)
+          If load.ContainsKey(chbox.Tag.ToString) Then
+            chbox.Checked = True
+            chbox.Enabled = True
+          End If
+        Case GetType(RadioButton)
+          radio = TryCast(ctrl, RadioButton)
+          If load.ContainsKey(radio.Parent.Tag.ToString) Then
+            radio.Checked = True
+            radio.Enabled = True
+          End If
+        Case GetType(GroupBox), GetType(TabPage)
+          LoadData(ctrl.Controls, load)
+      End Select
+    Next
   End Sub
 End Class

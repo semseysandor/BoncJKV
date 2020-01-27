@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports BoncJKV.Logger
+''' <summary>
 ''' Main UI form
 ''' </summary>
 Public Class Main
@@ -14,16 +15,21 @@ Public Class Main
   ''' UI worker
   ''' </summary>
   Private ui As UI = New UI(Me)
+  Private path As String = Application.StartupPath + IO.Path.DirectorySeparatorChar
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' Main features '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ''' <summary>
   ''' Save data to disk
   ''' </summary>
   Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles saveBtn.Click
-    Dim datamng = New DataManager
-    Dim xmlexp = New XMLExporter
+    Try
+      Dim datamng = New DataManager
+      Dim xmlexp = New XMLExporter(path + "saves.xml")
 
-    datamng.CollectData(dataInput.Controls)
-    xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
+      datamng.CollectData(dataInput.Controls)
+      xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
+    Catch ex As Exception
+      ErrorHandling.General(ex, AppName)
+    End Try
   End Sub
   ''' <summary>
   ''' Loads data from disk
@@ -31,43 +37,61 @@ Public Class Main
   ''' <param name="name">Patient name to load</param>
   ''' <param name="datte">Date of inspection</param>
   Friend Sub LoadDataUI(ByVal name As String, ByVal datte As String)
-    ui.ResetScreen()
-    ui.SetNameDate(name, datte)
+    Try
+      ui.ResetScreen()
+      ui.SetNameDate(name, datte)
 
-    Dim datamng = New DataManager
-    Dim xmlexporter = New XMLExporter
-    datamng.LoadData(dataInput.Controls, xmlexporter.LoadData(name, datte))
+      Dim datamng = New DataManager
+      Dim xmlexporter = New XMLExporter
+      datamng.LoadData(dataInput.Controls, xmlexporter.LoadData(name, datte))
+    Catch ex As Exception
+      ErrorHandling.General(ex, AppName)
+    End Try
   End Sub
   ''' <summary>
   ''' Exports data
   ''' </summary>
   Private Sub ExportWord(sender As Object, e As EventArgs) Handles export.Click
-    Dim datamng = New DataManager
-    transformer = New WordTransformer(False)
-    Dim exporter = New WordExporter
+    Try
+      Dim datamng = New DataManager
+      transformer = New WordTransformer(False)
+      Dim exporter = New WordExporter
 
-    datamng.CollectData(dataInput.Controls)
+      datamng.CollectData(dataInput.Controls)
 
-    If Not transformer.ApplyRules(datamng.GetData) Then
-      Exit Sub
-    End If
+      If Not transformer.ApplyRules(datamng.GetData) Then
+        Exit Sub
+      End If
 
-    exporter.Open("bjk.docx")
-    exporter.LoadData(transformer.GetContent)
-    exporter.SaveAs(nev.Text + "_" + datum.Text + "_bjk.docx")
+      exporter.Open("bjk.docx")
+      exporter.LoadData(transformer.GetContent)
+      exporter.SaveAs(nev.Text + "_" + datum.Text + "_bjk.docx")
+    Catch ex As Exception
+      ErrorHandling.General(ex, AppName)
+    End Try
   End Sub
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' UI actions ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ''' <summary>
   ''' Initializes form
   ''' </summary>
   Friend Sub InitUI(sender As Object, e As EventArgs) Handles MyBase.Load, reset.Click
-    ui.ResetScreen()
+    Try
+      ComponentManager.Main = Me
+      ComponentManager.Logger = New FileLogger
+      ui.ResetScreen()
+    Catch ex As Exception
+      ErrorHandling.General(ex, AppName)
+    End Try
   End Sub
   ''' <summary>
   ''' Opens load dialog
   ''' </summary>
   Private Sub Loading(sender As Object, e As EventArgs) Handles loadButton.Click
-    LoadForm.Show()
+    Try
+      LoadForm.Show()
+    Catch ex As Exception
+      ErrorHandling.General(ex, AppName)
+    End Try
   End Sub
   ''' <summary>
   ''' Switch to the next tab
@@ -294,6 +318,28 @@ Public Class Main
   ''' Enables controls associated to this control
   ''' </summary>
   Private Sub EnableHereTumor(sender As Object, e As EventArgs) Handles here_tumor.CheckedChanged
+    Console.WriteLine(sender.Equals(here_tumor))
+    If sender.Equals(here_tumor) Then
+
+    ElseIf sender.Equals(epeko) Then
+
+    End If
     ui.EnableAssociatedControls(sender, New Collection From {here_tumor_b, here_tumor_j, here_tumor_meret, here_tumor_mm})
+  End Sub
+
+  Private Sub test(sender As Object, e As EventArgs) Handles Button4.Click
+
+    ComponentManager.Logger.Debug("monkey")
+    FileLogger.LogFile = IO.Directory.GetCurrentDirectory + IO.Path.DirectorySeparatorChar + "log.txt"
+    Try
+      FileLogger.Singleton.Debug("kutya")
+      Dim mang = New DataManager
+      mang.CollectData(TabPage1.Controls)
+      FileLogger.Singleton.Debug("majom")
+    Catch ex As Exception
+      MsgBox("main catch" + ex.Message)
+      FileLogger.Singleton.Warning("main catch" + ex.Message)
+    End Try
+    FileLogger.Singleton.Debug("jani")
   End Sub
 End Class

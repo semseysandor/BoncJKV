@@ -3,10 +3,6 @@
 ''' </summary>
 Public Class UI
   ''' <summary>
-  ''' Component Name
-  ''' </summary>
-  Public Const ComponentName = "UI"
-  ''' <summary>
   ''' Main form
   ''' </summary>
   Private main As Main
@@ -21,43 +17,36 @@ Public Class UI
   ''' Resets screen
   ''' </summary>
   Public Sub ResetScreen()
-    Try
-      ResetControls(main.dataInput.Controls)
+    ResetControls(main.dataInput.Controls)
 
-      main.dataInput.SelectedIndex = 0
+    ComponentManager.Main.dataInput.SelectedIndex = 0
 
-      main.datum.Text = Now.ToString("yyyy-MM-dd")
+    ComponentManager.Main.datum.Text = Now.ToString("yyyy-MM-dd")
 
-      main.nev.ResetText()
-      main.nev.Select()
-    Catch ex As Exception
-      ErrorHandling.General(ex, ComponentName)
-    End Try
+    ComponentManager.Main.nev.ResetText()
+    ComponentManager.Main.nev.Select()
+    ComponentManager.Main.nev.Select()
   End Sub
   ''' <summary>
   ''' Reset controls in a collection recursively
   ''' </summary>
   ''' <param name="ctrcoll">Reset controls in this collection</param>
   Private Sub ResetControls(ctrcoll As Control.ControlCollection)
-    Try
-      For Each ctrl As Control In ctrcoll
-        Select Case ctrl.GetType
-          Case GetType(TextBox)
-            TryCast(ctrl, TextBox).ResetText()
+    For Each ctrl As Control In ctrcoll
+      Select Case ctrl.GetType
+        Case GetType(TextBox)
+          TryCast(ctrl, TextBox).ResetText()
 
-          Case GetType(CheckBox)
-            TryCast(ctrl, CheckBox).Checked = False
+        Case GetType(CheckBox)
+          TryCast(ctrl, CheckBox).Checked = False
 
-          Case GetType(RadioButton)
-            TryCast(ctrl, RadioButton).Checked = False
+        Case GetType(RadioButton)
+          TryCast(ctrl, RadioButton).Checked = False
 
-          Case GetType(GroupBox), GetType(TabPage)
-            ResetControls(ctrl.Controls)
-        End Select
-      Next
-    Catch ex As Exception
-      ErrorHandling.General(ex, ComponentName)
-    End Try
+        Case GetType(GroupBox), GetType(TabPage)
+          ResetControls(ctrl.Controls)
+      End Select
+    Next
   End Sub
   ''' <summary>
   ''' Enables associated controls
@@ -66,45 +55,38 @@ Public Class UI
   ''' <param name="assocCtrl">Associated controls</param>
   Public Sub EnableAssociatedControls(ByRef mainCtrl As Object, ByRef assocCtrl As Collection)
     Dim enable As Boolean = False
-    Try
-      Select Case mainCtrl.GetType
-        Case GetType(CheckBox)
-          If TryCast(mainCtrl, CheckBox).Checked Then
-            enable = True
-          End If
 
-        Case GetType(RadioButton)
-          If TryCast(mainCtrl, RadioButton).Checked Then
-            enable = True
-          End If
+    Select Case mainCtrl.GetType
+      Case GetType(CheckBox)
+        If TryCast(mainCtrl, CheckBox).Checked Then
+          enable = True
+        End If
 
-        Case GetType(TextBox)
-          If TryCast(mainCtrl, TextBox).Text <> String.Empty Then
-            enable = True
-          End If
-      End Select
+      Case GetType(RadioButton)
+        If TryCast(mainCtrl, RadioButton).Checked Then
+          enable = True
+        End If
 
-      For Each ctrl In assocCtrl
-        TryCast(ctrl, Control).Enabled = enable
-      Next
-    Catch ex As Exception
-      ErrorHandling.General(ex, ComponentName)
-    End Try
+      Case GetType(TextBox)
+        If TryCast(mainCtrl, TextBox).Text <> String.Empty Then
+          enable = True
+        End If
+    End Select
+
+    For Each ctrl In assocCtrl
+      TryCast(ctrl, Control).Enabled = enable
+    Next
   End Sub
   ''' <summary>
   ''' Resets a group of radio controls
   ''' </summary>
   ''' <param name="controls">Group of controls</param>
   Public Sub ResetRadio(ByRef controls As Collection)
-    Try
-      For Each ctrl As Control In controls
-        If TypeOf ctrl Is RadioButton Then
-          TryCast(ctrl, RadioButton).Checked = False
-        End If
-      Next
-    Catch ex As Exception
-      ErrorHandling.General(ex, ComponentName)
-    End Try
+    For Each ctrl As Control In controls
+      If TypeOf ctrl Is RadioButton Then
+        TryCast(ctrl, RadioButton).Checked = False
+      End If
+    Next
   End Sub
   ''' <summary>
   ''' Switch to the next tab

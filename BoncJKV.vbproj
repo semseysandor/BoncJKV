@@ -110,21 +110,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Project files\ApplicationEvents.vb" />
+    <Compile Include="Source\ComponentManager.vb" />
     <Compile Include="Source\DataManager.vb" />
     <Compile Include="Source\ErrorHandling.vb" />
-    <Compile Include="Forms\LoadForm.Designer.vb">
+    <Compile Include="Source\Forms\LoadForm.Designer.vb">
       <DependentUpon>LoadForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoadForm.vb">
+    <Compile Include="Source\Forms\LoadForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Logger.vb" />
+    <Compile Include="Source\Logger\ILogger.vb" />
+    <Compile Include="Source\Logger\FileLogger.vb" />
+    <Compile Include="Source\Logger\Logger.vb" />
+    <Compile Include="Source\Logger\LogLevels.vb" />
     <Compile Include="Source\UI.vb" />
     <Compile Include="Source\WordExporter.vb" />
-    <Compile Include="Forms\Main.vb">
+    <Compile Include="Source\Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main.Designer.vb">
+    <Compile Include="Source\Forms\Main.Designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -147,10 +151,10 @@
     <Compile Include="Source\XMLExporter.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\LoadForm.resx">
+    <EmbeddedResource Include="Source\Forms\LoadForm.resx">
       <DependentUpon>LoadForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main.resx">
+    <EmbeddedResource Include="Source\Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

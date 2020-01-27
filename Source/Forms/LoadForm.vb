@@ -12,7 +12,6 @@ Public Class LoadForm
   Private Sub Init(sender As Object, e As EventArgs) Handles MyBase.Load
     Try
       saved.Items.Clear()
-
       For Each row As KeyValuePair(Of String, String) In New XMLExporter().LoadPatients
         saved.Items.Add(row.Value + " " + row.Key)
       Next
