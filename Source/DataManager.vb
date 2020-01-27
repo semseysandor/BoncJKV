@@ -5,26 +5,26 @@ Public Class DataManager
   ''' <summary>
   ''' Inspection data
   ''' </summary>
-  Private data As Dictionary(Of String, String)
+  Private Data As Dictionary(Of String, String)
   ''' <summary>
   ''' Constructor
   ''' </summary>
   Public Sub New()
-    data = New Dictionary(Of String, String)
+    Data = New Dictionary(Of String, String)
   End Sub
   ''' <summary>
   ''' Returns data
   ''' </summary>
   ''' <returns>data</returns>
   Public Function GetData() As Dictionary(Of String, String)
-    Return data
+    Return Data
   End Function
   ''' <summary>
   ''' Prints data to the console
   ''' </summary>
   Public Sub PrintData()
     Console.WriteLine("UI DATA *******************************")
-    For Each row As KeyValuePair(Of String, String) In data
+    For Each row As KeyValuePair(Of String, String) In Data
       Console.WriteLine(row.Key.ToString + vbTab + row.Value.ToString)
     Next
   End Sub
@@ -42,17 +42,17 @@ Public Class DataManager
         Case GetType(TextBox)
           textbox = TryCast(ctrl, TextBox)
           If textbox.Enabled AndAlso textbox.Text <> String.Empty Then
-            data.Add(textbox.Tag.ToString, textbox.Text)
+            Data.Add(textbox.Tag.ToString, textbox.Text)
           End If
         Case GetType(CheckBox)
           chbox = TryCast(ctrl, CheckBox)
           If chbox.Enabled AndAlso chbox.Checked Then
-            data.Add(chbox.Tag.ToString, "TRUE")
+            Data.Add(chbox.Tag.ToString, "TRUE")
           End If
         Case GetType(RadioButton)
           radio = TryCast(ctrl, RadioButton)
           If radio.Enabled AndAlso radio.Checked Then
-            data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
+            Data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
           End If
         Case GetType(GroupBox), GetType(TabPage)
           CollectData(ctrl.Controls)

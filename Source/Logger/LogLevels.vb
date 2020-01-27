@@ -1,4 +1,7 @@
 ﻿Namespace Logger
+	''' <summary>
+	''' Logging levels
+	''' </summary>
 	Public Class LogLevels
 		''' <summary>
 		''' Logging levels

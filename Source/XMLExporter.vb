@@ -6,12 +6,12 @@ Public Class XMLExporter
   ''' Path to XML file
   ''' </summary>
   ''' <returns></returns>
-  Public Property Path As String
+  Public Property FilePath As String
   ''' <summary>
   ''' Constructor
   ''' </summary>
   Public Sub New(Optional ByVal path As String = "")
-    Me.Path = path
+    FilePath = Helpers.ReplaceInvalidChars(path)
   End Sub
   ''' <summary>
   ''' Check if given patient is already in XML file
@@ -20,11 +20,11 @@ Public Class XMLExporter
   ''' <param name="datte">Inspection date</param>
   ''' <returns>True if exist / False if not</returns>
   Private Function CheckPatient(ByVal name As String, ByVal datte As String) As Boolean
-    If Not IO.File.Exists(Path) Then
+    If Not IO.File.Exists(FilePath) Then
       Return False
     End If
 
-    Dim root = XElement.Load(Path)
+    Dim root = XElement.Load(FilePath)
 
     Dim patients As IEnumerable(Of XElement) =
       From el In root.<patient>
@@ -68,10 +68,10 @@ Public Class XMLExporter
     Dim root As XElement
     Dim patient = New XElement("patient")
     Dim element As XElement
-    If Not IO.File.Exists(Path) Then
+    If Not IO.File.Exists(FilePath) Then
       root = <records></records>
     Else
-      root = XElement.Load(Path)
+      root = XElement.Load(FilePath)
     End If
 
     patient.SetAttributeValue("name", name)
@@ -84,7 +84,7 @@ Public Class XMLExporter
     Next
 
     root.Add(patient)
-    root.Save(Path)
+    root.Save(FilePath)
 
     MsgBox("Sikeresen mentve")
   End Sub
@@ -94,11 +94,11 @@ Public Class XMLExporter
   ''' <returns>Patient names and dates</returns>
   Public Function LoadPatients() As Dictionary(Of String, String)
     Dim results = New Dictionary(Of String, String)
-    If Not IO.File.Exists(Path) Then
+    If Not IO.File.Exists(FilePath) Then
       Return results
     End If
 
-    Dim root = XElement.Load(Path)
+    Dim root = XElement.Load(FilePath)
     Dim patients As IEnumerable(Of XElement) =
       From el In root.<patient>
       Select el
@@ -116,11 +116,11 @@ Public Class XMLExporter
   ''' <returns>Patient data</returns>
   Public Function LoadData(ByVal name As String, ByVal datte As String) As Dictionary(Of String, String)
     Dim results = New Dictionary(Of String, String)
-    If Not IO.File.Exists(Path) Then
+    If Not IO.File.Exists(FilePath) Then
       Return results
     End If
 
-    Dim root = XElement.Load(Path)
+    Dim root = XElement.Load(FilePath)
     Dim patient As IEnumerable(Of XElement) =
       From el In root.<patient>
       Where el.@name = name And el.@date = datte
@@ -141,11 +141,11 @@ Public Class XMLExporter
   ''' <param name="datte">Inspection date</param>
   ''' <returns></returns>
   Private Function DeletePatient(ByVal name As String, ByVal datte As String) As Boolean
-    If Not IO.File.Exists(Path) Then
+    If Not IO.File.Exists(FilePath) Then
       Return False
     End If
 
-    Dim root = XElement.Load(Path)
+    Dim root = XElement.Load(FilePath)
     Dim patient As IEnumerable(Of XElement) =
       From el In root.<patient>
       Where el.@name = name And el.@date = datte
@@ -153,7 +153,7 @@ Public Class XMLExporter
       Take 1
 
     patient.Remove
-    root.Save(Path)
+    root.Save(FilePath)
     Return True
   End Function
 End Class

@@ -15,7 +15,10 @@ Public Class Main
   ''' UI worker
   ''' </summary>
   Private ui As UI = New UI(Me)
-  Private path As String = Application.StartupPath + IO.Path.DirectorySeparatorChar
+  ''' <summary>
+  ''' Application Path
+  ''' </summary>
+  Private Path As String = Application.StartupPath + IO.Path.DirectorySeparatorChar
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' Main features '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ''' <summary>
   ''' Save data to disk
@@ -23,12 +26,12 @@ Public Class Main
   Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles saveBtn.Click
     Try
       Dim datamng = New DataManager
-      Dim xmlexp = New XMLExporter(path + "saves.xml")
+      Dim xmlexp = New XMLExporter(Path + "saves.xml")
 
       datamng.CollectData(dataInput.Controls)
       xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
     Catch ex As Exception
-      ErrorHandling.General(ex, AppName)
+      ErrorHandling.General(ex)
     End Try
   End Sub
   ''' <summary>
@@ -42,10 +45,10 @@ Public Class Main
       ui.SetNameDate(name, datte)
 
       Dim datamng = New DataManager
-      Dim xmlexporter = New XMLExporter
+      Dim xmlexporter = New XMLExporter(Path + "saves.xml")
       datamng.LoadData(dataInput.Controls, xmlexporter.LoadData(name, datte))
     Catch ex As Exception
-      ErrorHandling.General(ex, AppName)
+      ErrorHandling.General(ex)
     End Try
   End Sub
   ''' <summary>
@@ -55,7 +58,7 @@ Public Class Main
     Try
       Dim datamng = New DataManager
       transformer = New WordTransformer(False)
-      Dim exporter = New WordExporter
+      Dim exporter = New WordExporter(Path)
 
       datamng.CollectData(dataInput.Controls)
 
@@ -65,9 +68,9 @@ Public Class Main
 
       exporter.Open("bjk.docx")
       exporter.LoadData(transformer.GetContent)
-      exporter.SaveAs(nev.Text + "_" + datum.Text + "_bjk.docx")
+      exporter.SaveAs("jkv" + IO.Path.DirectorySeparatorChar + nev.Text + "_" + datum.Text + "_bjk.docx")
     Catch ex As Exception
-      ErrorHandling.General(ex, AppName)
+      ErrorHandling.General(ex)
     End Try
   End Sub
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' UI actions ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -77,10 +80,10 @@ Public Class Main
   Friend Sub InitUI(sender As Object, e As EventArgs) Handles MyBase.Load, reset.Click
     Try
       ComponentManager.Main = Me
-      ComponentManager.Logger = New FileLogger
+      ComponentManager.Logger = New FileLogger(IO.Path.Combine(Path, "log.txt"))
       ui.ResetScreen()
     Catch ex As Exception
-      ErrorHandling.General(ex, AppName)
+      ErrorHandling.General(ex)
     End Try
   End Sub
   ''' <summary>
@@ -90,7 +93,7 @@ Public Class Main
     Try
       LoadForm.Show()
     Catch ex As Exception
-      ErrorHandling.General(ex, AppName)
+      ErrorHandling.General(ex)
     End Try
   End Sub
   ''' <summary>
@@ -329,17 +332,5 @@ Public Class Main
 
   Private Sub test(sender As Object, e As EventArgs) Handles Button4.Click
 
-    ComponentManager.Logger.Debug("monkey")
-    FileLogger.LogFile = IO.Directory.GetCurrentDirectory + IO.Path.DirectorySeparatorChar + "log.txt"
-    Try
-      FileLogger.Singleton.Debug("kutya")
-      Dim mang = New DataManager
-      mang.CollectData(TabPage1.Controls)
-      FileLogger.Singleton.Debug("majom")
-    Catch ex As Exception
-      MsgBox("main catch" + ex.Message)
-      FileLogger.Singleton.Warning("main catch" + ex.Message)
-    End Try
-    FileLogger.Singleton.Debug("jani")
   End Sub
 End Class

@@ -7,7 +7,7 @@ Public Class WordExporter
   ''' <summary>
   ''' Word application
   ''' </summary>
-  Private Wordapp As Word.Application
+  Private WordApp As Word.Application
   ''' <summary>
   ''' Word document
   ''' </summary>
@@ -16,30 +16,30 @@ Public Class WordExporter
   ''' Path of Application
   ''' </summary>
   ''' <returns>Path to the Application</returns>
-  Private Property Path As String
+  Public Property FilePath As String
   ''' <summary>
   ''' Constructor
   ''' </summary>
-  Public Sub New()
-    Wordapp = New Word.Application
+  Public Sub New(Optional ByVal path As String = "")
+    WordApp = New Word.Application
     WordDoc = New Word.Document
-    Path = Application.StartupPath + DirectorySeparatorChar
+    FilePath = Helpers.ReplaceInvalidChars(path)
   End Sub
   ''' <summary>
   ''' Opens a word document in current directory
   ''' </summary>
   ''' <param name="filename">Filename</param>
   Public Sub Open(ByVal filename As String)
-    WordDoc = Wordapp.Documents.Open(Path + filename)
-    Wordapp.Visible = True
+    filename = Helpers.ReplaceInvalidChars(filename)
+    WordDoc = WordApp.Documents.Open(FilePath + filename)
+    WordApp.Visible = True
   End Sub
   ''' <summary>
   ''' Load word document content controls with data from input
   ''' </summary>
   ''' <param name="data">Data to save</param>
   Public Sub LoadData(ByVal data As Dictionary(Of String, String))
-    Dim allcc = WordDoc.ContentControls
-    For Each cc As Word.ContentControl In allcc
+    For Each cc As Word.ContentControl In WordDoc.ContentControls
       If data.ContainsKey(cc.Tag) Then
         cc.Range.Text = data.Item(cc.Tag)
         cc.Appearance = Word.WdContentControlAppearance.wdContentControlHidden
@@ -53,10 +53,8 @@ Public Class WordExporter
   ''' </summary>
   ''' <param name="filename">Filename</param>
   Public Sub SaveAs(ByVal filename As String)
-    Dim directory = Path + "jkv"
-    For Each character As Char In GetInvalidFileNameChars()
-      filename = filename.Replace(character, "")
-    Next
+    filename = Helpers.ReplaceInvalidChars(filename)
+    Dim directory = FilePath + "jkv"
     IO.Directory.CreateDirectory(directory)
     filename = directory + DirectorySeparatorChar + filename
     WordDoc.SaveAs2(filename.ToString)

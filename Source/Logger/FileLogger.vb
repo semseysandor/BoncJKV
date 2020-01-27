@@ -6,18 +6,13 @@ Namespace Logger
 	Public Class FileLogger
 		Inherits Logger
 		''' <summary>
-		''' Singleton
-		''' </summary>
-		Private Shared instance As FileLogger = New FileLogger
-		''' <summary>
 		''' Log file path
 		''' </summary>
 		Public Shared Property LogFile As String
-		Public Sub New()
+		Public Sub New(Optional ByVal path As String = "")
+			LogFile = Helpers.ReplaceInvalidChars(path)
 		End Sub
-		Public Shared Function Singleton() As FileLogger
-			Return instance
-		End Function
+
 		''' <summary>
 		''' Logs message
 		''' </summary>
@@ -32,7 +27,7 @@ Namespace Logger
 					message = "[" + MessageLevel(msgLevel) + "] [" + DateTime.Now.ToString + "] " + message + vbCr
 					FileSystem.WriteAllText(LogFile, message, True)
 				Catch ex As Exception
-					MessageBox.Show(ex.Message, ComponentName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+					MessageBox.Show(ex.Message, "Logger", MessageBoxButtons.OK, MessageBoxIcon.Error)
 				End Try
 			End If
 		End Sub
