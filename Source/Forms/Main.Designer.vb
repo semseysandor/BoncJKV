@@ -25,6 +25,7 @@ Partial Class Main
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
 		Me.dataInput = New System.Windows.Forms.TabControl()
 		Me.TabPage1 = New System.Windows.Forms.TabPage()
+		Me.reset_1 = New System.Windows.Forms.Button()
 		Me.GroupBox14 = New System.Windows.Forms.GroupBox()
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
@@ -41,12 +42,12 @@ Partial Class Main
 		Me.ascites = New System.Windows.Forms.CheckBox()
 		Me.asc_liter = New System.Windows.Forms.TextBox()
 		Me.asc_l = New System.Windows.Forms.Label()
-		Me.CheckBox8 = New System.Windows.Forms.CheckBox()
+		Me.icterus = New System.Windows.Forms.CheckBox()
 		Me.GroupBox11 = New System.Windows.Forms.GroupBox()
 		Me.pacemaker = New System.Windows.Forms.CheckBox()
 		Me.pacemaker_id = New System.Windows.Forms.Label()
 		Me.pacemaker_serial = New System.Windows.Forms.TextBox()
-		Me.Next1 = New System.Windows.Forms.Button()
+		Me.next_1 = New System.Windows.Forms.Button()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.decub_meret = New System.Windows.Forms.TextBox()
 		Me.decub_sac = New System.Windows.Forms.CheckBox()
@@ -93,6 +94,7 @@ Partial Class Main
 		Me.RadioButton2 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton1 = New System.Windows.Forms.RadioButton()
 		Me.TabPage2 = New System.Windows.Forms.TabPage()
+		Me.reset_2 = New System.Windows.Forms.Button()
 		Me.GroupBox24 = New System.Windows.Forms.GroupBox()
 		Me.agy_attet_kisagy = New System.Windows.Forms.CheckBox()
 		Me.agy_attet_temp = New System.Windows.Forms.CheckBox()
@@ -134,14 +136,15 @@ Partial Class Main
 		Me.agy_lagyulas_front = New System.Windows.Forms.RadioButton()
 		Me.agy_lagyulas = New System.Windows.Forms.CheckBox()
 		Me.agy_lagyulas_meret = New System.Windows.Forms.TextBox()
-		Me.Next2 = New System.Windows.Forms.Button()
+		Me.next_2 = New System.Windows.Forms.Button()
 		Me.GroupBox8 = New System.Windows.Forms.GroupBox()
 		Me.RadioButton21 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton22 = New System.Windows.Forms.RadioButton()
 		Me.CheckBox9 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox7 = New System.Windows.Forms.CheckBox()
 		Me.TabPage3 = New System.Windows.Forms.TabPage()
-		Me.Next3 = New System.Windows.Forms.Button()
+		Me.reset_3 = New System.Windows.Forms.Button()
+		Me.next_3 = New System.Windows.Forms.Button()
 		Me.GroupBox20 = New System.Windows.Forms.GroupBox()
 		Me.CheckBox27 = New System.Windows.Forms.CheckBox()
 		Me.haemo_g = New System.Windows.Forms.Label()
@@ -205,12 +208,13 @@ Partial Class Main
 		Me.TextBox12 = New System.Windows.Forms.TextBox()
 		Me.RadioButton29 = New System.Windows.Forms.RadioButton()
 		Me.TabPage4 = New System.Windows.Forms.TabPage()
+		Me.reset_4 = New System.Windows.Forms.Button()
 		Me.GroupBox37 = New System.Windows.Forms.GroupBox()
 		Me.CheckBox28 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox63 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox32 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox33 = New System.Windows.Forms.CheckBox()
-		Me.Button1 = New System.Windows.Forms.Button()
+		Me.next_4 = New System.Windows.Forms.Button()
 		Me.GroupBox36 = New System.Windows.Forms.GroupBox()
 		Me.hydro_mko = New System.Windows.Forms.RadioButton()
 		Me.hydro_j = New System.Windows.Forms.RadioButton()
@@ -258,7 +262,7 @@ Partial Class Main
 		Me.RadioButton60 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton59 = New System.Windows.Forms.RadioButton()
 		Me.TabPage5 = New System.Windows.Forms.TabPage()
-		Me.Button3 = New System.Windows.Forms.Button()
+		Me.reset_5 = New System.Windows.Forms.Button()
 		Me.GroupBox47 = New System.Windows.Forms.GroupBox()
 		Me.bel_tumor_cm = New System.Windows.Forms.Label()
 		Me.bel_tumor_meret = New System.Windows.Forms.TextBox()
@@ -273,7 +277,7 @@ Partial Class Main
 		Me.CheckBox77 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox76 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox75 = New System.Windows.Forms.CheckBox()
-		Me.Button2 = New System.Windows.Forms.Button()
+		Me.next_5 = New System.Windows.Forms.Button()
 		Me.GroupBox46 = New System.Windows.Forms.GroupBox()
 		Me.ileum_cm = New System.Windows.Forms.Label()
 		Me.ileum_meret = New System.Windows.Forms.TextBox()
@@ -328,6 +332,8 @@ Partial Class Main
 		Me.RadioButton65 = New System.Windows.Forms.RadioButton()
 		Me.RadioButton64 = New System.Windows.Forms.RadioButton()
 		Me.TabPage6 = New System.Windows.Forms.TabPage()
+		Me.reset_6 = New System.Windows.Forms.Button()
+		Me.next_6 = New System.Windows.Forms.Button()
 		Me.GroupBox49 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox50 = New System.Windows.Forms.GroupBox()
 		Me.here_tumor = New System.Windows.Forms.CheckBox()
@@ -384,6 +390,7 @@ Partial Class Main
 		Me.vese_tumor_b = New System.Windows.Forms.RadioButton()
 		Me.vese_tumor_meret = New System.Windows.Forms.TextBox()
 		Me.TabPage7 = New System.Windows.Forms.TabPage()
+		Me.reset_7 = New System.Windows.Forms.Button()
 		Me.GroupBox52 = New System.Windows.Forms.GroupBox()
 		Me.CheckBox19 = New System.Windows.Forms.CheckBox()
 		Me.CheckBox18 = New System.Windows.Forms.CheckBox()
@@ -416,7 +423,6 @@ Partial Class Main
 		Me.loadButton = New System.Windows.Forms.Button()
 		Me.Label38 = New System.Windows.Forms.Label()
 		Me.Label37 = New System.Windows.Forms.Label()
-		Me.Button4 = New System.Windows.Forms.Button()
 		Me.dataInput.SuspendLayout()
 		Me.TabPage1.SuspendLayout()
 		Me.GroupBox14.SuspendLayout()
@@ -506,11 +512,13 @@ Partial Class Main
 		'
 		'TabPage1
 		'
+		Me.TabPage1.BackColor = System.Drawing.Color.Transparent
+		Me.TabPage1.Controls.Add(Me.reset_1)
 		Me.TabPage1.Controls.Add(Me.GroupBox14)
 		Me.TabPage1.Controls.Add(Me.GroupBox13)
 		Me.TabPage1.Controls.Add(Me.GroupBox12)
 		Me.TabPage1.Controls.Add(Me.GroupBox11)
-		Me.TabPage1.Controls.Add(Me.Next1)
+		Me.TabPage1.Controls.Add(Me.next_1)
 		Me.TabPage1.Controls.Add(Me.GroupBox3)
 		Me.TabPage1.Controls.Add(Me.GroupBox1)
 		Me.TabPage1.Controls.Add(Me.GroupBox7)
@@ -525,7 +533,16 @@ Partial Class Main
 		Me.TabPage1.Size = New System.Drawing.Size(503, 495)
 		Me.TabPage1.TabIndex = 0
 		Me.TabPage1.Text = "Külleírás - Általános"
-		Me.TabPage1.UseVisualStyleBackColor = True
+		'
+		'reset_1
+		'
+		Me.reset_1.Location = New System.Drawing.Point(420, 135)
+		Me.reset_1.Margin = New System.Windows.Forms.Padding(2)
+		Me.reset_1.Name = "reset_1"
+		Me.reset_1.Size = New System.Drawing.Size(66, 37)
+		Me.reset_1.TabIndex = 34
+		Me.reset_1.Text = "Törlés"
+		Me.reset_1.UseVisualStyleBackColor = True
 		'
 		'GroupBox14
 		'
@@ -641,7 +658,7 @@ Partial Class Main
 		Me.GroupBox12.Controls.Add(Me.ascites)
 		Me.GroupBox12.Controls.Add(Me.asc_liter)
 		Me.GroupBox12.Controls.Add(Me.asc_l)
-		Me.GroupBox12.Controls.Add(Me.CheckBox8)
+		Me.GroupBox12.Controls.Add(Me.icterus)
 		Me.GroupBox12.Location = New System.Drawing.Point(346, 5)
 		Me.GroupBox12.Margin = New System.Windows.Forms.Padding(2)
 		Me.GroupBox12.Name = "GroupBox12"
@@ -708,17 +725,17 @@ Partial Class Main
 		Me.asc_l.TabIndex = 20
 		Me.asc_l.Text = "liter"
 		'
-		'CheckBox8
+		'icterus
 		'
-		Me.CheckBox8.AutoSize = True
-		Me.CheckBox8.Location = New System.Drawing.Point(4, 104)
-		Me.CheckBox8.Margin = New System.Windows.Forms.Padding(2)
-		Me.CheckBox8.Name = "CheckBox8"
-		Me.CheckBox8.Size = New System.Drawing.Size(58, 17)
-		Me.CheckBox8.TabIndex = 5
-		Me.CheckBox8.Tag = "icterus"
-		Me.CheckBox8.Text = "Icterus"
-		Me.CheckBox8.UseVisualStyleBackColor = True
+		Me.icterus.AutoSize = True
+		Me.icterus.Location = New System.Drawing.Point(4, 104)
+		Me.icterus.Margin = New System.Windows.Forms.Padding(2)
+		Me.icterus.Name = "icterus"
+		Me.icterus.Size = New System.Drawing.Size(58, 17)
+		Me.icterus.TabIndex = 5
+		Me.icterus.Tag = "icterus"
+		Me.icterus.Text = "Icterus"
+		Me.icterus.UseVisualStyleBackColor = True
 		'
 		'GroupBox11
 		'
@@ -766,15 +783,15 @@ Partial Class Main
 		Me.pacemaker_serial.TabIndex = 17
 		Me.pacemaker_serial.Tag = "pacemaker_serial"
 		'
-		'Next1
+		'next_1
 		'
-		Me.Next1.Location = New System.Drawing.Point(374, 380)
-		Me.Next1.Margin = New System.Windows.Forms.Padding(2)
-		Me.Next1.Name = "Next1"
-		Me.Next1.Size = New System.Drawing.Size(66, 37)
-		Me.Next1.TabIndex = 18
-		Me.Next1.Text = "Következő"
-		Me.Next1.UseVisualStyleBackColor = True
+		Me.next_1.Location = New System.Drawing.Point(374, 380)
+		Me.next_1.Margin = New System.Windows.Forms.Padding(2)
+		Me.next_1.Name = "next_1"
+		Me.next_1.Size = New System.Drawing.Size(66, 37)
+		Me.next_1.TabIndex = 18
+		Me.next_1.Text = "Következő"
+		Me.next_1.UseVisualStyleBackColor = True
 		'
 		'GroupBox3
 		'
@@ -1343,10 +1360,11 @@ Partial Class Main
 		'
 		'TabPage2
 		'
+		Me.TabPage2.Controls.Add(Me.reset_2)
 		Me.TabPage2.Controls.Add(Me.GroupBox24)
 		Me.TabPage2.Controls.Add(Me.GroupBox21)
 		Me.TabPage2.Controls.Add(Me.GroupBox10)
-		Me.TabPage2.Controls.Add(Me.Next2)
+		Me.TabPage2.Controls.Add(Me.next_2)
 		Me.TabPage2.Controls.Add(Me.GroupBox8)
 		Me.TabPage2.Location = New System.Drawing.Point(4, 22)
 		Me.TabPage2.Margin = New System.Windows.Forms.Padding(2)
@@ -1356,6 +1374,16 @@ Partial Class Main
 		Me.TabPage2.TabIndex = 1
 		Me.TabPage2.Text = "Agy"
 		Me.TabPage2.UseVisualStyleBackColor = True
+		'
+		'reset_2
+		'
+		Me.reset_2.Location = New System.Drawing.Point(429, 5)
+		Me.reset_2.Margin = New System.Windows.Forms.Padding(2)
+		Me.reset_2.Name = "reset_2"
+		Me.reset_2.Size = New System.Drawing.Size(66, 37)
+		Me.reset_2.TabIndex = 34
+		Me.reset_2.Text = "Törlés"
+		Me.reset_2.UseVisualStyleBackColor = True
 		'
 		'GroupBox24
 		'
@@ -1890,15 +1918,15 @@ Partial Class Main
 		Me.agy_lagyulas_meret.TabIndex = 17
 		Me.agy_lagyulas_meret.Tag = "agy_lagyulas_meret"
 		'
-		'Next2
+		'next_2
 		'
-		Me.Next2.Location = New System.Drawing.Point(374, 380)
-		Me.Next2.Margin = New System.Windows.Forms.Padding(2)
-		Me.Next2.Name = "Next2"
-		Me.Next2.Size = New System.Drawing.Size(66, 37)
-		Me.Next2.TabIndex = 4
-		Me.Next2.Text = "Következő"
-		Me.Next2.UseVisualStyleBackColor = True
+		Me.next_2.Location = New System.Drawing.Point(374, 380)
+		Me.next_2.Margin = New System.Windows.Forms.Padding(2)
+		Me.next_2.Name = "next_2"
+		Me.next_2.Size = New System.Drawing.Size(66, 37)
+		Me.next_2.TabIndex = 4
+		Me.next_2.Text = "Következő"
+		Me.next_2.UseVisualStyleBackColor = True
 		'
 		'GroupBox8
 		'
@@ -1966,7 +1994,8 @@ Partial Class Main
 		'
 		'TabPage3
 		'
-		Me.TabPage3.Controls.Add(Me.Next3)
+		Me.TabPage3.Controls.Add(Me.reset_3)
+		Me.TabPage3.Controls.Add(Me.next_3)
 		Me.TabPage3.Controls.Add(Me.GroupBox20)
 		Me.TabPage3.Controls.Add(Me.GroupBox19)
 		Me.TabPage3.Controls.Add(Me.GroupBox16)
@@ -1980,15 +2009,25 @@ Partial Class Main
 		Me.TabPage3.Text = "Szív"
 		Me.TabPage3.UseVisualStyleBackColor = True
 		'
-		'Next3
+		'reset_3
 		'
-		Me.Next3.Location = New System.Drawing.Point(433, 454)
-		Me.Next3.Margin = New System.Windows.Forms.Padding(2)
-		Me.Next3.Name = "Next3"
-		Me.Next3.Size = New System.Drawing.Size(66, 37)
-		Me.Next3.TabIndex = 29
-		Me.Next3.Text = "Következő"
-		Me.Next3.UseVisualStyleBackColor = True
+		Me.reset_3.Location = New System.Drawing.Point(429, 10)
+		Me.reset_3.Margin = New System.Windows.Forms.Padding(2)
+		Me.reset_3.Name = "reset_3"
+		Me.reset_3.Size = New System.Drawing.Size(66, 37)
+		Me.reset_3.TabIndex = 34
+		Me.reset_3.Text = "Törlés"
+		Me.reset_3.UseVisualStyleBackColor = True
+		'
+		'next_3
+		'
+		Me.next_3.Location = New System.Drawing.Point(433, 454)
+		Me.next_3.Margin = New System.Windows.Forms.Padding(2)
+		Me.next_3.Name = "next_3"
+		Me.next_3.Size = New System.Drawing.Size(66, 37)
+		Me.next_3.TabIndex = 29
+		Me.next_3.Text = "Következő"
+		Me.next_3.UseVisualStyleBackColor = True
 		'
 		'GroupBox20
 		'
@@ -2772,8 +2811,9 @@ Partial Class Main
 		'
 		'TabPage4
 		'
+		Me.TabPage4.Controls.Add(Me.reset_4)
 		Me.TabPage4.Controls.Add(Me.GroupBox37)
-		Me.TabPage4.Controls.Add(Me.Button1)
+		Me.TabPage4.Controls.Add(Me.next_4)
 		Me.TabPage4.Controls.Add(Me.GroupBox36)
 		Me.TabPage4.Controls.Add(Me.GroupBox35)
 		Me.TabPage4.Controls.Add(Me.GroupBox34)
@@ -2788,6 +2828,16 @@ Partial Class Main
 		Me.TabPage4.TabIndex = 3
 		Me.TabPage4.Text = "Tüdő"
 		Me.TabPage4.UseVisualStyleBackColor = True
+		'
+		'reset_4
+		'
+		Me.reset_4.Location = New System.Drawing.Point(429, 13)
+		Me.reset_4.Margin = New System.Windows.Forms.Padding(2)
+		Me.reset_4.Name = "reset_4"
+		Me.reset_4.Size = New System.Drawing.Size(66, 37)
+		Me.reset_4.TabIndex = 34
+		Me.reset_4.Text = "Törlés"
+		Me.reset_4.UseVisualStyleBackColor = True
 		'
 		'GroupBox37
 		'
@@ -2845,15 +2895,15 @@ Partial Class Main
 		Me.CheckBox33.Text = "Oedema"
 		Me.CheckBox33.UseVisualStyleBackColor = True
 		'
-		'Button1
+		'next_4
 		'
-		Me.Button1.Location = New System.Drawing.Point(432, 444)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(2)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(66, 37)
-		Me.Button1.TabIndex = 30
-		Me.Button1.Text = "Következő"
-		Me.Button1.UseVisualStyleBackColor = True
+		Me.next_4.Location = New System.Drawing.Point(432, 444)
+		Me.next_4.Margin = New System.Windows.Forms.Padding(2)
+		Me.next_4.Name = "next_4"
+		Me.next_4.Size = New System.Drawing.Size(66, 37)
+		Me.next_4.TabIndex = 30
+		Me.next_4.Text = "Következő"
+		Me.next_4.UseVisualStyleBackColor = True
 		'
 		'GroupBox36
 		'
@@ -3414,9 +3464,9 @@ Partial Class Main
 		'
 		'TabPage5
 		'
-		Me.TabPage5.Controls.Add(Me.Button3)
+		Me.TabPage5.Controls.Add(Me.reset_5)
 		Me.TabPage5.Controls.Add(Me.GroupBox47)
-		Me.TabPage5.Controls.Add(Me.Button2)
+		Me.TabPage5.Controls.Add(Me.next_5)
 		Me.TabPage5.Controls.Add(Me.GroupBox46)
 		Me.TabPage5.Controls.Add(Me.GroupBox45)
 		Me.TabPage5.Controls.Add(Me.GroupBox42)
@@ -3432,15 +3482,15 @@ Partial Class Main
 		Me.TabPage5.Text = "Hasüreg"
 		Me.TabPage5.UseVisualStyleBackColor = True
 		'
-		'Button3
+		'reset_5
 		'
-		Me.Button3.Location = New System.Drawing.Point(432, 6)
-		Me.Button3.Margin = New System.Windows.Forms.Padding(2)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(66, 37)
-		Me.Button3.TabIndex = 33
-		Me.Button3.Text = "Törlés"
-		Me.Button3.UseVisualStyleBackColor = True
+		Me.reset_5.Location = New System.Drawing.Point(432, 6)
+		Me.reset_5.Margin = New System.Windows.Forms.Padding(2)
+		Me.reset_5.Name = "reset_5"
+		Me.reset_5.Size = New System.Drawing.Size(66, 37)
+		Me.reset_5.TabIndex = 33
+		Me.reset_5.Text = "Törlés"
+		Me.reset_5.UseVisualStyleBackColor = True
 		'
 		'GroupBox47
 		'
@@ -3611,15 +3661,15 @@ Partial Class Main
 		Me.CheckBox75.Text = "Diverticulomok"
 		Me.CheckBox75.UseVisualStyleBackColor = True
 		'
-		'Button2
+		'next_5
 		'
-		Me.Button2.Location = New System.Drawing.Point(432, 444)
-		Me.Button2.Margin = New System.Windows.Forms.Padding(2)
-		Me.Button2.Name = "Button2"
-		Me.Button2.Size = New System.Drawing.Size(66, 37)
-		Me.Button2.TabIndex = 31
-		Me.Button2.Text = "Következő"
-		Me.Button2.UseVisualStyleBackColor = True
+		Me.next_5.Location = New System.Drawing.Point(432, 444)
+		Me.next_5.Margin = New System.Windows.Forms.Padding(2)
+		Me.next_5.Name = "next_5"
+		Me.next_5.Size = New System.Drawing.Size(66, 37)
+		Me.next_5.TabIndex = 31
+		Me.next_5.Text = "Következő"
+		Me.next_5.UseVisualStyleBackColor = True
 		'
 		'GroupBox46
 		'
@@ -4250,6 +4300,8 @@ Partial Class Main
 		'
 		'TabPage6
 		'
+		Me.TabPage6.Controls.Add(Me.reset_6)
+		Me.TabPage6.Controls.Add(Me.next_6)
 		Me.TabPage6.Controls.Add(Me.GroupBox49)
 		Me.TabPage6.Controls.Add(Me.GroupBox48)
 		Me.TabPage6.Controls.Add(Me.GroupBox44)
@@ -4262,12 +4314,32 @@ Partial Class Main
 		Me.TabPage6.Text = "Kismedence"
 		Me.TabPage6.UseVisualStyleBackColor = True
 		'
+		'reset_6
+		'
+		Me.reset_6.Location = New System.Drawing.Point(420, 13)
+		Me.reset_6.Margin = New System.Windows.Forms.Padding(2)
+		Me.reset_6.Name = "reset_6"
+		Me.reset_6.Size = New System.Drawing.Size(66, 37)
+		Me.reset_6.TabIndex = 34
+		Me.reset_6.Text = "Törlés"
+		Me.reset_6.UseVisualStyleBackColor = True
+		'
+		'next_6
+		'
+		Me.next_6.Location = New System.Drawing.Point(429, 433)
+		Me.next_6.Margin = New System.Windows.Forms.Padding(2)
+		Me.next_6.Name = "next_6"
+		Me.next_6.Size = New System.Drawing.Size(66, 37)
+		Me.next_6.TabIndex = 32
+		Me.next_6.Text = "Következő"
+		Me.next_6.UseVisualStyleBackColor = True
+		'
 		'GroupBox49
 		'
 		Me.GroupBox49.Controls.Add(Me.GroupBox50)
 		Me.GroupBox49.Controls.Add(Me.CheckBox21)
 		Me.GroupBox49.Controls.Add(Me.CheckBox20)
-		Me.GroupBox49.Location = New System.Drawing.Point(31, 394)
+		Me.GroupBox49.Location = New System.Drawing.Point(6, 394)
 		Me.GroupBox49.Name = "GroupBox49"
 		Me.GroupBox49.Size = New System.Drawing.Size(407, 84)
 		Me.GroupBox49.TabIndex = 3
@@ -4346,7 +4418,7 @@ Partial Class Main
 		'CheckBox21
 		'
 		Me.CheckBox21.AutoSize = True
-		Me.CheckBox21.Location = New System.Drawing.Point(0, 41)
+		Me.CheckBox21.Location = New System.Drawing.Point(6, 47)
 		Me.CheckBox21.Name = "CheckBox21"
 		Me.CheckBox21.Size = New System.Drawing.Size(108, 17)
 		Me.CheckBox21.TabIndex = 1
@@ -4656,10 +4728,10 @@ Partial Class Main
 		Me.GroupBox43.Controls.Add(Me.vese_tumor_grp)
 		Me.GroupBox43.Location = New System.Drawing.Point(6, 6)
 		Me.GroupBox43.Name = "GroupBox43"
-		Me.GroupBox43.Size = New System.Drawing.Size(432, 161)
+		Me.GroupBox43.Size = New System.Drawing.Size(395, 161)
 		Me.GroupBox43.TabIndex = 0
 		Me.GroupBox43.TabStop = False
-		Me.GroupBox43.Tag = "vese"
+		Me.GroupBox43.Tag = "med_vese"
 		Me.GroupBox43.Text = "Vese"
 		'
 		'veseko
@@ -4902,6 +4974,7 @@ Partial Class Main
 		'
 		'TabPage7
 		'
+		Me.TabPage7.Controls.Add(Me.reset_7)
 		Me.TabPage7.Controls.Add(Me.GroupBox52)
 		Me.TabPage7.Controls.Add(Me.GroupBox51)
 		Me.TabPage7.Location = New System.Drawing.Point(4, 22)
@@ -4911,6 +4984,16 @@ Partial Class Main
 		Me.TabPage7.TabIndex = 6
 		Me.TabPage7.Text = "Epikrízis"
 		Me.TabPage7.UseVisualStyleBackColor = True
+		'
+		'reset_7
+		'
+		Me.reset_7.Location = New System.Drawing.Point(429, 5)
+		Me.reset_7.Margin = New System.Windows.Forms.Padding(2)
+		Me.reset_7.Name = "reset_7"
+		Me.reset_7.Size = New System.Drawing.Size(66, 37)
+		Me.reset_7.TabIndex = 34
+		Me.reset_7.Text = "Törlés"
+		Me.reset_7.UseVisualStyleBackColor = True
 		'
 		'GroupBox52
 		'
@@ -5283,23 +5366,13 @@ Partial Class Main
 		Me.Label37.Name = "Label37"
 		Me.Label37.Size = New System.Drawing.Size(28, 13)
 		Me.Label37.TabIndex = 11
-		Me.Label37.Text = "v0.6"
-		'
-		'Button4
-		'
-		Me.Button4.Location = New System.Drawing.Point(437, 18)
-		Me.Button4.Name = "Button4"
-		Me.Button4.Size = New System.Drawing.Size(75, 23)
-		Me.Button4.TabIndex = 12
-		Me.Button4.Text = "Button4"
-		Me.Button4.UseVisualStyleBackColor = True
+		Me.Label37.Text = "v0.8"
 		'
 		'Main
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(529, 636)
-		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.Label37)
 		Me.Controls.Add(Me.Label38)
 		Me.Controls.Add(Me.loadButton)
@@ -5509,7 +5582,7 @@ Partial Class Main
 	Friend WithEvents pacemaker_id As Label
 	Friend WithEvents pacemaker_serial As TextBox
 	Friend WithEvents pacemaker As CheckBox
-	Friend WithEvents CheckBox8 As CheckBox
+	Friend WithEvents icterus As CheckBox
 	Friend WithEvents saveBtn As Button
 	Friend WithEvents GroupBox8 As GroupBox
 	Friend WithEvents RadioButton21 As RadioButton
@@ -5518,7 +5591,7 @@ Partial Class Main
 	Friend WithEvents GroupBox3 As GroupBox
 	Friend WithEvents GroupBox1 As GroupBox
 	Friend WithEvents export As Button
-	Friend WithEvents Next1 As Button
+	Friend WithEvents next_1 As Button
 	Friend WithEvents CheckBox9 As CheckBox
 	Friend WithEvents CheckBox7 As CheckBox
 	Friend WithEvents GroupBox9 As GroupBox
@@ -5531,7 +5604,7 @@ Partial Class Main
 	Friend WithEvents agy_lagyulas_pariet As RadioButton
 	Friend WithEvents agy_lagyulas_front As RadioButton
 	Friend WithEvents agy_lagyulas_cm As Label
-	Friend WithEvents Next2 As Button
+	Friend WithEvents next_2 As Button
 	Friend WithEvents TabPage3 As TabPage
 	Friend WithEvents TabPage4 As TabPage
 	Friend WithEvents GroupBox14 As GroupBox
@@ -5567,7 +5640,7 @@ Partial Class Main
 	Friend WithEvents CheckBox13 As CheckBox
 	Friend WithEvents haemo_g As Label
 	Friend WithEvents haemo_tomeg As TextBox
-	Friend WithEvents Next3 As Button
+	Friend WithEvents next_3 As Button
 	Friend WithEvents Button7 As Button
 	Friend WithEvents Label21 As Label
 	Friend WithEvents nev As TextBox
@@ -5643,7 +5716,7 @@ Partial Class Main
 	Friend WithEvents CheckBox63 As CheckBox
 	Friend WithEvents CheckBox32 As CheckBox
 	Friend WithEvents CheckBox33 As CheckBox
-	Friend WithEvents Button1 As Button
+	Friend WithEvents next_4 As Button
 	Friend WithEvents GroupBox36 As GroupBox
 	Friend WithEvents hydro_mko As RadioButton
 	Friend WithEvents hydro_j As RadioButton
@@ -5741,7 +5814,7 @@ Partial Class Main
 	Friend WithEvents CheckBox76 As CheckBox
 	Friend WithEvents CheckBox75 As CheckBox
 	Friend WithEvents bel_tumor As CheckBox
-	Friend WithEvents Button2 As Button
+	Friend WithEvents next_5 As Button
 	Friend WithEvents GroupBox46 As GroupBox
 	Friend WithEvents ileum_cm As Label
 	Friend WithEvents ileum_meret As TextBox
@@ -5761,7 +5834,7 @@ Partial Class Main
 	Friend WithEvents RadioButton83 As RadioButton
 	Friend WithEvents Label38 As Label
 	Friend WithEvents Label37 As Label
-	Friend WithEvents Button3 As Button
+	Friend WithEvents reset_5 As Button
 	Friend WithEvents TabPage6 As TabPage
 	Friend WithEvents GroupBox49 As GroupBox
 	Friend WithEvents here_tumor As CheckBox
@@ -5841,5 +5914,11 @@ Partial Class Main
 	Friend WithEvents RadioButton27 As RadioButton
 	Friend WithEvents RadioButton26 As RadioButton
 	Friend WithEvents RadioButton25 As RadioButton
-	Friend WithEvents Button4 As Button
+	Friend WithEvents reset_1 As Button
+	Friend WithEvents reset_2 As Button
+	Friend WithEvents reset_3 As Button
+	Friend WithEvents reset_4 As Button
+	Friend WithEvents reset_6 As Button
+	Friend WithEvents next_6 As Button
+	Friend WithEvents reset_7 As Button
 End Class

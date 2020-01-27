@@ -9,10 +9,13 @@ Namespace Logger
 		''' Log file path
 		''' </summary>
 		Public Shared Property LogFile As String
+		''' <summary>
+		''' Constructor
+		''' </summary>
+		''' <param name="path">Log file path</param>
 		Public Sub New(Optional ByVal path As String = "")
-			LogFile = Helpers.ReplaceInvalidChars(path)
+			LogFile = path
 		End Sub
-
 		''' <summary>
 		''' Logs message
 		''' </summary>

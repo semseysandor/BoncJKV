@@ -13,25 +13,18 @@ Public Class WordExporter
   ''' </summary>
   Private WordDoc As Word.Document
   ''' <summary>
-  ''' Path of Application
-  ''' </summary>
-  ''' <returns>Path to the Application</returns>
-  Public Property FilePath As String
-  ''' <summary>
   ''' Constructor
   ''' </summary>
-  Public Sub New(Optional ByVal path As String = "")
+  Public Sub New()
     WordApp = New Word.Application
     WordDoc = New Word.Document
-    FilePath = Helpers.ReplaceInvalidChars(path)
   End Sub
   ''' <summary>
   ''' Opens a word document in current directory
   ''' </summary>
-  ''' <param name="filename">Filename</param>
+  ''' <param name="filename">File to open</param>
   Public Sub Open(ByVal filename As String)
-    filename = Helpers.ReplaceInvalidChars(filename)
-    WordDoc = WordApp.Documents.Open(FilePath + filename)
+    WordDoc = WordApp.Documents.Open(filename.ToString)
     WordApp.Visible = True
   End Sub
   ''' <summary>
@@ -51,12 +44,8 @@ Public Class WordExporter
   ''' <summary>
   ''' Saves word doc as...
   ''' </summary>
-  ''' <param name="filename">Filename</param>
+  ''' <param name="filename">File name</param>
   Public Sub SaveAs(ByVal filename As String)
-    filename = Helpers.ReplaceInvalidChars(filename)
-    Dim directory = FilePath + "jkv"
-    IO.Directory.CreateDirectory(directory)
-    filename = directory + DirectorySeparatorChar + filename
     WordDoc.SaveAs2(filename.ToString)
   End Sub
 End Class

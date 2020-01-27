@@ -975,13 +975,13 @@ Public Class WordTransformer
     If data.ContainsKey(key) Then
       Select Case data.Item(key)
         Case "verbo"
-          Content.Add("lep", "A vérbő, vörhenyes lép megtartott szerkezetű. ")
+          Content.Add("has_lep", "A vérbő, vörhenyes lép megtartott szerkezetű. ")
           AddToDiag("Hyperaemia passiva lienis.")
         Case "puhult"
-          Content.Add("lep", "A vérbő, vörhenyes lép állománya ellágyult, metszlapjáról nagy mennyiségű kaparék nyerhető. ")
+          Content.Add("has_lep", "A vérbő, vörhenyes lép állománya ellágyult, metszlapjáról nagy mennyiségű kaparék nyerhető. ")
           AddToDiag("Splenitis septica acuta.")
         Case "nagy"
-          Content.Add("lep", "A vérbő, vörhenyes lép megnagyobbodott, állománya megtartott szerkezetű. ")
+          Content.Add("has_lep", "A vérbő, vörhenyes lép megnagyobbodott, állománya megtartott szerkezetű. ")
           AddToDiag("Splenomegalia.")
       End Select
     End If
@@ -990,18 +990,18 @@ Public Class WordTransformer
     If data.ContainsKey(key) Then
       Select Case data.Item(key)
         Case "verbo"
-          Content.Add("maj", "A máj vörhenyesbarna színű, állománya eltérés nélkül. ")
+          Content.Add("has_maj", "A máj vörhenyesbarna színű, állománya eltérés nélkül. ")
         Case "enyhe"
-          Content.Add("maj", "A máj vörhenyesbarna színű, állománya metszéslapon sárgásan zsírfényű. ")
+          Content.Add("has_maj", "A máj vörhenyesbarna színű, állománya metszéslapon sárgásan zsírfényű. ")
           AddToDiag("Steatosis minoris gradus hepatis.")
         Case "zsir"
-          Content.Add("maj", "A máj megnagyobbodott, szélei lekerekítettek, állománya zsírosan átalakult. ")
+          Content.Add("has_maj", "A máj megnagyobbodott, szélei lekerekítettek, állománya zsírosan átalakult. ")
           AddToDiag("Steatosis hepatis.")
         Case "szerecsen"
-          Content.Add("maj", "A vörhenyesbarna, vérbő máj metszlapon szerecsendió-rajzolatot mutat. ")
+          Content.Add("has_maj", "A vörhenyesbarna, vérbő máj metszlapon szerecsendió-rajzolatot mutat. ")
           AddToDiag("Hepar moschatum.")
         Case "cirr"
-          Content.Add("maj", "A máj zsugorodott, állománya apró göbös kötőszövetes átalakulást mutat. ")
+          Content.Add("has_maj", "A máj zsugorodott, állománya apró göbös kötőszövetes átalakulást mutat. ")
           AddToDiag("Cirrhosis hepatis.")
       End Select
     End If
@@ -1246,18 +1246,18 @@ Public Class WordTransformer
   Private Function ApplyRulesKidney(data As Dictionary(Of String, String)) As Boolean
     Dim key As String
     '########################################################################
-    key = "vese"
+    key = "med_vese"
     If CheckRequired(key, data) Then
       Select Case data.Item(key)
         Case "sima"
-          Content.Add("vese", ", felszínük sima")
+          Content.Add("has_vese", ", felszínük sima")
         Case "szemcses"
-          Content.Add("vese", ", felszínükön finom szemcsézettség ")
+          Content.Add("has_vese", ", felszínükön finom szemcsézettség ")
           If data.ContainsKey("vese_behuz") Then
-            Content.Item("vese") += "és számos behúzódás "
+            Content.Item("has_vese") += "és számos behúzódás "
             AddToDiag("Nephritis interstitialis chronica l. u.")
           End If
-          Content.Item("vese") += "látható"
+          Content.Item("has_vese") += "látható"
           AddToDiag("Nephrosclerosis arteriolosclerotica renum.")
       End Select
     ElseIf AbortOnMissing Then

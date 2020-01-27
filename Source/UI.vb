@@ -84,6 +84,28 @@ Public Class UI
     ComponentManager.Main.dataInput.SelectedIndex = TryCast(sender, Button).Parent.TabIndex + 1
   End Sub
   ''' <summary>
+  ''' Reset controls on this tab
+  ''' </summary>
+  Public Sub ResetTab(sender As Object)
+    ResetControls(TryCast(sender, Button).Parent.Controls)
+  End Sub
+  ''' <summary>
+  ''' Reset controls on this tab
+  ''' </summary>
+  Public Sub IcterusChange(sender As Object)
+    If TryCast(sender, CheckBox).Checked Then
+      ComponentManager.Main.BackColor = Color.Yellow
+      For Each tab As TabPage In ComponentManager.Main.dataInput.TabPages
+        tab.BackColor = Color.Yellow
+      Next
+    Else
+      ComponentManager.Main.BackColor = Control.DefaultBackColor
+      For Each tab As TabPage In ComponentManager.Main.dataInput.TabPages
+        tab.BackColor = Control.DefaultBackColor
+      Next
+    End If
+  End Sub
+  ''' <summary>
   ''' Sets name and date on the main form
   ''' </summary>
   ''' <param name="name">Name of patient</param>

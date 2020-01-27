@@ -5,13 +5,12 @@ Public Class XMLExporter
   ''' <summary>
   ''' Path to XML file
   ''' </summary>
-  ''' <returns></returns>
   Public Property FilePath As String
   ''' <summary>
   ''' Constructor
   ''' </summary>
   Public Sub New(Optional ByVal path As String = "")
-    FilePath = Helpers.ReplaceInvalidChars(path)
+    FilePath = path
   End Sub
   ''' <summary>
   ''' Check if given patient is already in XML file
