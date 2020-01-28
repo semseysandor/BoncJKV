@@ -43,12 +43,12 @@ Public Class XMLExporter
   ''' <param name="datte">Inspection date</param>
   ''' <param name="data">Data</param>
   Public Sub SaveData(ByVal name As String, ByVal datte As String, ByRef data As Dictionary(Of String, String))
-    If name Is Nothing Then
+    If name = String.Empty Then
       UI.Warning("Név hiányzik", "Mentés")
       Exit Sub
     End If
 
-    If datte Is Nothing Then
+    If datte = String.Empty Then
       UI.Warning("Dátum hiányzik", "Mentés")
       Exit Sub
     End If

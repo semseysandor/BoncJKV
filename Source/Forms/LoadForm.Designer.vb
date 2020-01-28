@@ -31,19 +31,19 @@ Partial Class LoadForm
 		'
 		Me.saved.FormattingEnabled = True
 		Me.saved.Location = New System.Drawing.Point(9, 10)
-		Me.saved.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+		Me.saved.Margin = New System.Windows.Forms.Padding(2)
 		Me.saved.Name = "saved"
-		Me.saved.Size = New System.Drawing.Size(233, 121)
+		Me.saved.Size = New System.Drawing.Size(224, 121)
 		Me.saved.TabIndex = 0
 		'
 		'LoadButton
 		'
 		Me.LoadButton.Location = New System.Drawing.Point(12, 141)
-		Me.LoadButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+		Me.LoadButton.Margin = New System.Windows.Forms.Padding(2)
 		Me.LoadButton.Name = "LoadButton"
-		Me.LoadButton.Size = New System.Drawing.Size(228, 35)
+		Me.LoadButton.Size = New System.Drawing.Size(221, 35)
 		Me.LoadButton.TabIndex = 1
-		Me.LoadButton.Text = "Betöltés"
+		Me.LoadButton.Text = "Megnyitás"
 		Me.LoadButton.UseVisualStyleBackColor = True
 		'
 		'LoadForm
@@ -51,17 +51,17 @@ Partial Class LoadForm
 		Me.AcceptButton = Me.LoadButton
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(249, 180)
+		Me.ClientSize = New System.Drawing.Size(244, 180)
 		Me.Controls.Add(Me.LoadButton)
 		Me.Controls.Add(Me.saved)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-		Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+		Me.Margin = New System.Windows.Forms.Padding(2)
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "LoadForm"
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-		Me.Text = "BoncJKV - Betöltés"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+		Me.Text = "BoncJKV - Megnyitás"
 		Me.TopMost = True
 		Me.ResumeLayout(False)
 

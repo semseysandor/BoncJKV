@@ -21,7 +21,7 @@ Public Class Main
   ''' <summary>
   ''' Initializes form
   ''' </summary>
-  Friend Sub InitUI(sender As Object, e As EventArgs) Handles MyBase.Load, reset.Click
+  Friend Sub InitUI(sender As Object, e As EventArgs) Handles MyBase.Load, menu_new.Click, toolstrip_new.Click
     Try
       ComponentManager.Main = Me
       ComponentManager.Logger = New FileLogger(LogFilePath)
@@ -35,7 +35,7 @@ Public Class Main
   ''' <summary>
   ''' Save data to disk
   ''' </summary>
-  Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles saveBtn.Click
+  Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles menu_save.Click, toolstrip_save.Click
     Try
       Dim datamng = New DataManager
       Dim xmlexp = New XMLExporter(SaveFilePath)
@@ -66,7 +66,7 @@ Public Class Main
   ''' <summary>
   ''' Exports data
   ''' </summary>
-  Private Sub ExportWord(sender As Object, e As EventArgs) Handles export.Click
+  Private Sub ExportWord(sender As Object, e As EventArgs) Handles menu_export.Click, toolstrip_export.Click
     Try
       Dim datamng = New DataManager
       Transformer = New WordTransformer(True)
@@ -80,16 +80,29 @@ Public Class Main
 
       exporter.Open(Path + "bjk.docx")
       exporter.LoadData(Transformer.GetContent)
+      IO.Directory.CreateDirectory(Path + "jkv")
       exporter.SaveAs(Path + "jkv" + IO.Path.DirectorySeparatorChar + nev.Text + "_" + datum.Text + "_bjk.docx")
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
   End Sub
+  ''' <summary>
+  ''' Close application
+  ''' </summary>
+  Private Sub CloseApp(sender As Object, e As EventArgs) Handles menu_exit.Click
+    Application.Exit()
+  End Sub
+  ''' <summary>
+  ''' Show about
+  ''' </summary>
+  Private Sub ShowAbout(sender As Object, e As EventArgs) Handles menu_about.Click
+    About.Show()
+  End Sub
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' UI actions ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ''' <summary>
   ''' Opens load dialog
   ''' </summary>
-  Private Sub Loading(sender As Object, e As EventArgs) Handles loadButton.Click
+  Private Sub Loading(sender As Object, e As EventArgs) Handles menu_open.Click, toolstrip_open.Click
     Try
       LoadForm.Show()
     Catch ex As Exception
