@@ -185,26 +185,28 @@ Public Class WordTransformer
     '########################################################################
     key = "amputacio"
     If data.ContainsKey(key) Then
+      Content.Add(key, "")
       Select Case data.Item(key)
         Case "jobb_comb"
-          Content.Add(key, "jobb alsó végtag combszintben amputálva, egyebekben a ")
+          Content.Item(key) += "jobb alsó végtag combszintben"
           AddToDiag("Status post amputationem femoris dextri.")
         Case "bal_comb"
-          Content.Add(key, "bal alsó végtag combszintben amputálva, egyebekben a ")
+          Content.Item(key) += "bal alsó végtag combszintben"
           AddToDiag("Status post amputationem femoris sinistri.")
         Case "combok"
-          Content.Add(key, "alsó végtagok combszintben amputálva, egyebekben a ")
+          Content.Item(key) += "alsó végtagok combszintben"
           AddToDiag("Status post amputationem femoris l. u.")
         Case "jobb_labszar"
-          Content.Add(key, "jobb alsó végtag lábszárszintben amputálva, egyebekben a ")
+          Content.Item(key) += "jobb alsó végtag lábszárszintben"
           AddToDiag("Status post amputationem cruris dextri.")
         Case "bal_labszar"
-          Content.Add(key, "bal alsó végtag lábszárszintben amputálva, egyebekben a ")
+          Content.Item(key) += "bal alsó végtag lábszárszintben"
           AddToDiag("Status post amputationem crusis sinistri.")
         Case "labszarak"
-          Content.Add(key, "alsó végtagok lábszárszintben amputálva, egyebekben a ")
+          Content.Item(key) += "alsó végtagok lábszárszintben"
           AddToDiag("Status post amputationem cruris l. u.")
       End Select
+      Content.Item(key) += " amputálva, egyebekben a "
     End If
     '########################################################################
     key = "asu_kp"
@@ -263,6 +265,7 @@ Public Class WordTransformer
     Dim oldal As String
     Dim meret = ""
     Dim darab = ""
+    Dim flag = False
     '########################################################################
     key = "agy_allapot"
     If CheckRequired(key, data) Then
@@ -307,6 +310,7 @@ Public Class WordTransformer
       elvaltozas = BrainLocationBuilder(data.Item("agy_lagyulas_meret"), oldal, data.Item("agy_lagyulas_lebeny"))
       text = "A " + elvaltozas.Item("helyzet") + "lágyulás"
       AddToDiag("Emollitio " + elvaltozas.Item("diag"))
+      flag = True
     End If
     '########################################################################
     key = "agy_verzes"
@@ -324,12 +328,14 @@ Public Class WordTransformer
       End If
 
       elvaltozas = BrainLocationBuilder(data.Item("agy_verzes_meret"), oldal, data.Item("agy_verzes_lebeny"))
-      If text <> "" Then
-        text += ", a " + elvaltozas.Item("helyzet") + "agyállományi vérzés"
+      If flag Then
+        text += ", a "
       Else
-        text = "A " + elvaltozas.Item("helyzet") + "agyállományi vérzés"
+        text = "A "
       End If
+      text += elvaltozas.Item("helyzet") + "agyállományi vérzés"
       AddToDiag("Apoplexia " + elvaltozas.Item("diag"))
+      flag = True
     End If
     '########################################################################
     key = "agy_attet"
@@ -352,51 +358,61 @@ Public Class WordTransformer
 
       If data.ContainsKey("agy_attet_front") Then
         elvaltozas = BrainLocationBuilder(meret, oldal, "frontalis")
-        If text <> "" Then
-          text += ", a " + elvaltozas.Item("helyzet") + "daganatáttét"
+        If flag Then
+          text += ", a "
         Else
-          text = "A " + elvaltozas.Item("helyzet") + "daganatáttét"
+          text = "A "
         End If
+        text += elvaltozas.Item("helyzet") + "daganatáttét"
         AddToDiag("Metastasis " + elvaltozas.Item("diag"))
+        flag = True
       End If
       If data.ContainsKey("agy_attet_parietalis") Then
         elvaltozas = BrainLocationBuilder(meret, oldal, "parietalis")
-        If text <> "" Then
-          text += ", a " + elvaltozas.Item("helyzet") + "daganatáttét"
+        If flag Then
+          text += ", a "
         Else
-          text = "A " + elvaltozas.Item("helyzet") + "daganatáttét"
+          text = "A "
         End If
+        text += elvaltozas.Item("helyzet") + "daganatáttét"
         AddToDiag("Metastasis " + elvaltozas.Item("diag"))
+        flag = True
       End If
       If data.ContainsKey("agy_attet_temporalis") Then
         elvaltozas = BrainLocationBuilder(meret, oldal, "temporalis")
-        If text <> "" Then
-          text += ", a " + elvaltozas.Item("helyzet") + "daganatáttét"
+        If flag Then
+          text += ", a "
         Else
-          text = "A " + elvaltozas.Item("helyzet") + "daganatáttét"
+          text = "A "
         End If
+        text += elvaltozas.Item("helyzet") + "daganatáttét"
         AddToDiag("Metastasis " + elvaltozas.Item("diag"))
+        flag = True
       End If
       If data.ContainsKey("agy_attet_occ") Then
         elvaltozas = BrainLocationBuilder(meret, oldal, "occipitalis")
-        If text <> "" Then
-          text += ", a " + elvaltozas.Item("helyzet") + "daganatáttét"
+        If flag Then
+          text += ", a "
         Else
-          text = "A " + elvaltozas.Item("helyzet") + "daganatáttét"
+          text = "A "
         End If
+        text += elvaltozas.Item("helyzet") + "daganatáttét"
         AddToDiag("Metastasis " + elvaltozas.Item("diag"))
+        flag = True
       End If
       If data.ContainsKey("agy_attet_kisagy") Then
         elvaltozas = BrainLocationBuilder(meret, oldal, "kisagy")
-        If text <> "" Then
-          text += ", a " + elvaltozas.Item("helyzet") + "daganatáttét"
+        If flag Then
+          text += ", a "
         Else
-          text = "A " + elvaltozas.Item("helyzet") + "daganatáttét"
+          text = "A "
         End If
+        text += elvaltozas.Item("helyzet") + "daganatáttét"
         AddToDiag("Metastasis " + elvaltozas.Item("diag"))
+        flag = True
       End If
     End If
-    If text <> "" Then
+    If flag Then
       Content.Add("agy_elvaltozas", text + " figyelhető meg. ")
     End If
 
@@ -442,14 +458,14 @@ Public Class WordTransformer
       Content.Add("sziv_allapot_1", "A szív megnagyobbodott. ")
     End If
     text += "bal kamra fala " + data.Item("sziv_bal_kamra") + " mm, a "
-
+    '########################################################################
     key = "sziv_cor_pulm"
     If data.ContainsKey(key) Then
       text += "tágult, túltengett "
       AddToDiag("Cor pulmonale chronicum.")
     End If
     text += "jobb kamra fala " + data.Item("sziv_jobb_kamra") + " mm vastag"
-
+    '########################################################################
     key = "sziv_dcm"
     If data.ContainsKey(key) Then
       text += ", a kamrák fala elvékonyodott, lumenük extrém mértékben tágult"
@@ -485,13 +501,14 @@ Public Class WordTransformer
         Return False
       End If
 
+      Content.Add("koszoru_szuk", "A ")
       Select Case data.Item(key)
         Case "jobb"
-          Content.Add("koszoru_szuk", "A jobb koszorúverőérben ")
+          Content.Item("koszoru_szuk") += "jobb koszorúverőérben "
         Case "lad"
-          Content.Add("koszoru_szuk", "A bal koszorúverőér elülső leszálló ágában ")
+          Content.Item("koszoru_szuk") += "bal koszorúverőér elülső leszálló ágában "
         Case "cx"
-          Content.Add("koszoru_szuk", "A bal koszorúverőér körbefutó ágában ")
+          Content.Item("koszoru_szuk") += "bal koszorúverőér körbefutó ágában "
       End Select
       Content.Item("koszoru_szuk") += data.Item("sziv_szuk_percent") + " %-os lumenszűkület figyelhető meg. "
     End If
@@ -536,17 +553,19 @@ Public Class WordTransformer
       If Not CheckRequired("sziv_thrombus_poz", data) AndAlso AbortOnMissing Then
         Return False
       End If
+      Content.Add("thrombus", "A ")
       Select Case data.Item("sziv_thrombus_poz")
         Case "jobb"
-          Content.Add("thrombus", "A jobb koszorúverőérben friss vérrögös elzáródás figyelhető meg. ")
+          Content.Item("thrombus") += "jobb koszorúverőérben"
           AddToDiag("Thrombus recens arteriae coronariae dextri cordis.")
         Case "lad"
-          Content.Add("thrombus", "A bal koszorúverőér elülső leszálló ágában friss vérrögös elzáródás figyelhető meg. ")
+          Content.Item("thrombus") += "bal koszorúverőér elülső leszálló ágában"
           AddToDiag("Thrombus recens rami interventricularis anterioris arteriae coronariae sinistri cordis.")
         Case "cx"
-          Content.Add("thrombus", "A bal koszorúverőér körbefutó ágában friss vérrögös elzáródás figyelhető meg. ")
+          Content.Item("thrombus") += "bal koszorúverőér körbefutó ágában "
           AddToDiag("Thrombus recens rami circumflexi arteriae coronariae sinistri cordis.")
       End Select
+      Content.Item("thrombus") += " friss vérrögös elzáródás figyelhető meg. "
     End If
     '########################################################################
     key = "sziv_inf_regi"
@@ -620,7 +639,7 @@ Public Class WordTransformer
     key = "sziv_haemo"
     If data.ContainsKey(key) Then
       If CheckRequired("sziv_haemo_g", data) Then
-        Content.Add(key, "A szívburokban " + data.Item("haemo_g") + " g részben alvadt vér található. ")
+        Content.Add(key, "A szívburokban " + data.Item("sziv_haemo_g") + " g részben alvadt vér található. ")
         AddToDiag("Haemopericardium.")
       ElseIf AbortOnMissing Then
         Return False
@@ -631,7 +650,8 @@ Public Class WordTransformer
     If data.ContainsKey(key) Then
       Content.Add("sziv_cabg_kul", "a sternum felett régi hegvonal látható, a szegycsontban fémkapcsok figyelhetők meg, ")
       Content.Add("sziv_cabg_nyaki_1", ", a szívburok lapszerint latapadva")
-      Content.Add("sziv_cabg_nyaki_2", "A koszorú-verőerekhez az aortából kiinduló bypass graftok csatlakoznak varratokkal, a graftok arterializálódtak, helyenkét szűkültek. ")
+      Content.Add("sziv_cabg_nyaki_2", "A koszorú-verőerekhez az aortából kiinduló bypass graftok csatlakoznak varratokkal,")
+      Content.Item("sziv_cabg_nyaki_2") += " a graftok arterializálódtak, helyenkét szűkültek. "
       AddToDiag("Status post CABG.")
     End If
     Return True
@@ -659,7 +679,8 @@ Public Class WordTransformer
     '########################################################################
     key = "tudo_oedema"
     If data.ContainsKey(key) Then
-      Content.Add("tudo_oedema", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek, metszlapjukról nyomásra habos szilvalészerű folyadék ürül")
+      Content.Add("tudo_oedema", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek,")
+      Content.Item("tudo_oedema") += " metszlapjukról nyomásra habos szilvalészerű folyadék ürül"
       AddToDiag("Oedema pulmonum.")
     End If
     '########################################################################
@@ -672,7 +693,8 @@ Public Class WordTransformer
         Content.Add("tudo_anthra", "tágult ")
       End If
       If Not Content.ContainsKey("tudo_oedema") Then
-        Content.Add("tudo_anthra", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek, metszlapjukról nyomásra habos szilvalészerű folyadék ürül")
+        Content.Add("tudo_anthra", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek,")
+        Content.Item("tudo_anthra") += " metszlapjukról nyomásra habos szilvalészerű folyadék ürül"
       End If
       AddToDiag("Anthracosis, emphysema et oedema pulmonum.")
     End If
@@ -693,64 +715,64 @@ Public Class WordTransformer
     '########################################################################
     key = "tudo_pneu"
     If data.ContainsKey(key) Then
-
+      flag = False
+      Content.Add("tudo_pneu", "")
+      text = "Bronchopenumonia"
       If data.ContainsKey("tudo_pneu_mko") Then
-        Content.Add("tudo_pneu", "Mindkét tüdő alsó lebenye")
-        text = "Bronchopenumonia loborum inferiorum pulmonum"
+        Content.Item("tudo_pneu") += "Mindkét tüdő alsó lebenye"
+        text += " loborum inferiorum pulmonum"
         flag = True
       Else
-        Content.Add("tudo_pneu", "A ")
-        text = "Bronchopenumonia"
-        flag = False
+        Content.Item("tudo_pneu") += "A "
       End If
 
       If data.ContainsKey("tudo_pneu_j_a") Then
         If flag Then
           Content.Item("tudo_pneu") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_pneu") += "jobb tüdő alsó lebenye"
-        text += "lobi inferioris pulmonis dextri"
+        text += " lobi inferioris pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_pneu_j_k") Then
         If flag Then
           Content.Item("tudo_pneu") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_pneu") += "jobb tüdő középső lebenye"
-        text += "lobi medii pulmonis dextri"
+        text += " lobi medii pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_pneu_j_f") Then
         If flag Then
           Content.Item("tudo_pneu") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_pneu") += "jobb tüdő felső lebenye"
-        text += "lobi superioris pulmonis dextri"
+        text += " lobi superioris pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_pneu_b_a") Then
         If flag Then
           Content.Item("tudo_pneu") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_pneu") += "bal tüdő alsó lebenye"
-        text += "lobi inferioris pulmonis sinistri"
+        text += " lobi inferioris pulmonis sinistri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_pneu_b_f") Then
         If flag Then
           Content.Item("tudo_pneu") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_pneu") += "bal tüdő felső lebenye"
-        text += "lobi suprioris pulmonis sinistri"
+        text += " lobi suprioris pulmonis sinistri"
         flag = True
       End If
       Content.Item("tudo_pneu") += " légtelen, tömött tapintatú, metszéslapján gennycsapok préselhetők. "
@@ -759,68 +781,70 @@ Public Class WordTransformer
     '########################################################################
     key = "tudo_tumor"
     If data.ContainsKey(key) Then
+      flag = False
+      Content.Add("tudo_tumor", "")
+      text = "Neoplasma malignum"
       If data.ContainsKey("tudo_tumor_m") Then
-        Content.Add("tudo_tumor", "Az összes lebenyben")
-        text = "Neoplasma malignum loborum omnium pulmonum"
+        Content.Item("tudo_tumor") += "Az összes lebenyben"
+        text += " loborum omnium pulmonum"
         flag = True
       Else
-        Content.Add("tudo_tumor", "A ")
-        text = "Neoplasma malignum"
-        flag = False
+        Content.Item("tudo_tumor") += "A "
       End If
 
       If data.ContainsKey("tudo_tumor_j_a") Then
         If flag Then
           Content.Item("tudo_tumor") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_tumor") += "jobb alsó lebenyben"
-        text += "lobi inferioris pulmonis dextri"
+        text += " lobi inferioris pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_tumor_j_k") Then
         If flag Then
           Content.Item("tudo_tumor") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_tumor") += "jobb középső lebenyben"
-        text += "lobi medii pulmonis dextri. "
+        text += " lobi medii pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_tumor_j_f") Then
         If flag Then
           Content.Item("tudo_tumor") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_tumor") += "jobb felső lebenyben"
-        text += "lobi superioris pulmonis dextri"
+        text += " lobi superioris pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_tumor_b_a") Then
         If flag Then
           Content.Item("tudo_tumor") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_tumor") += "bal alsó lebenyben"
-        text += "lobi inferioris pulmonis sinistri"
+        text += " lobi inferioris pulmonis sinistri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_tumor_b_f") Then
         If flag Then
           Content.Item("tudo_tumor") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_tumor") += "bal felső lebenyben"
-        text += "lobi superioris pulmonis sinistri"
+        text += " lobi superioris pulmonis sinistri"
         flag = True
       End If
 
       If CheckRequired("tudo_tumor_meret", data) Then
-        text += "szürkésfehér színű " + data.Item("tudo_tumor_meret") + " mm legnagyobb átmérőjű idegenszövet-szaporulat látható. "
+        Content.Item("tudo_tumor") += "szürkésfehér színű " + data.Item("tudo_tumor_meret")
+        Content.Item("tudo_tumor") += " mm legnagyobb átmérőjű idegenszövet-szaporulat látható. "
       ElseIf AbortOnMissing Then
         Return False
       End If
@@ -829,68 +853,70 @@ Public Class WordTransformer
     '########################################################################
     key = "tudo_attet"
     If data.ContainsKey(key) Then
+      flag = False
+      Content.Add("tudo_attet", "Az összes lebenyben")
+      text = "Metastasis"
       If data.ContainsKey("tudo_attet_m") Then
-        Content.Add("tudo_attet", "Az összes lebenyben")
-        text = "Metastasis loborum omnium pulmonum"
+        Content.Item("tudo_attet") += "Az összes lebenyben"
+        text = " loborum omnium pulmonum"
         flag = True
       Else
-        Content.Add("tudo_attet", "A ")
-        text = "Metastasis"
-        flag = False
+        Content.Item("tudo_attet") += "A "
       End If
 
       If data.ContainsKey("tudo_attet_j_a") Then
         If flag Then
           Content.Item("tudo_attet") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_attet") += "jobb alsó lebenyben"
-        text += "lobi inferioris pulmonis dextri"
+        text += " lobi inferioris pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_attet_j_k") Then
         If flag Then
           Content.Item("tudo_attet") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_attet") += "jobb középső lebenyben"
-        text += "lobi medii pulmonis dextri. "
+        text += " lobi medii pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_attet_j_f") Then
         If flag Then
           Content.Item("tudo_attet") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_attet") += "jobb felső lebenyben"
-        text += "lobi superioris pulmonis dextri"
+        text += " lobi superioris pulmonis dextri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_attet_b_a") Then
         If flag Then
           Content.Item("tudo_attet") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_attet") += "bal alsó lebenyben"
-        text += "lobi inferioris pulmonis sinistri"
+        text += " lobi inferioris pulmonis sinistri"
         flag = True
       End If
 
       If data.ContainsKey("tudo_attet_b_f") Then
         If flag Then
           Content.Item("tudo_attet") += ", "
-          text += " et "
+          text += " et"
         End If
         Content.Item("tudo_attet") += "bal felső lebenyben"
-        text += "lobi superioris pulmonis sinistri"
+        text += " lobi superioris pulmonis sinistri"
         flag = True
       End If
 
       If CheckRequired("tudo_attet_meret", data) Then
-        text += "szürkésfehér színű " + data.Item("tudo_attet_meret") + " mm legnagyobb átmérőjű daganatáttét látható. "
+        Content.Item("tudo_attet") += "szürkésfehér színű " + data.Item("tudo_attet_meret")
+        Content.Item("tudo_attet") += " mm legnagyobb átmérőjű daganatáttét látható. "
       ElseIf AbortOnMissing Then
         Return False
       End If
@@ -973,35 +999,37 @@ Public Class WordTransformer
     '########################################################################
     key = "has_lep"
     If data.ContainsKey(key) Then
+      Content.Add(key, "A vérbő, vörhenyes lép ")
       Select Case data.Item(key)
         Case "verbo"
-          Content.Add("has_lep", "A vérbő, vörhenyes lép megtartott szerkezetű. ")
+          Content.Item(key) += "megtartott szerkezetű. "
           AddToDiag("Hyperaemia passiva lienis.")
         Case "puhult"
-          Content.Add("has_lep", "A vérbő, vörhenyes lép állománya ellágyult, metszlapjáról nagy mennyiségű kaparék nyerhető. ")
+          Content.Item(key) += "állománya ellágyult, metszlapjáról nagy mennyiségű kaparék nyerhető. "
           AddToDiag("Splenitis septica acuta.")
         Case "nagy"
-          Content.Add("has_lep", "A vérbő, vörhenyes lép megnagyobbodott, állománya megtartott szerkezetű. ")
+          Content.Item(key) += "megnagyobbodott, állománya megtartott szerkezetű. "
           AddToDiag("Splenomegalia.")
       End Select
     End If
     '########################################################################
     key = "has_maj"
     If data.ContainsKey(key) Then
+      Content.Add(key, "A ")
       Select Case data.Item(key)
         Case "verbo"
-          Content.Add("has_maj", "A máj vörhenyesbarna színű, állománya eltérés nélkül. ")
+          Content.Item(key) += "máj vörhenyesbarna színű, állománya eltérés nélkül. "
         Case "enyhe"
-          Content.Add("has_maj", "A máj vörhenyesbarna színű, állománya metszéslapon sárgásan zsírfényű. ")
+          Content.Item(key) += "máj vörhenyesbarna színű, állománya metszéslapon sárgásan zsírfényű. "
           AddToDiag("Steatosis minoris gradus hepatis.")
         Case "zsir"
-          Content.Add("has_maj", "A máj megnagyobbodott, szélei lekerekítettek, állománya zsírosan átalakult. ")
+          Content.Item(key) += "máj megnagyobbodott, szélei lekerekítettek, állománya zsírosan átalakult. "
           AddToDiag("Steatosis hepatis.")
         Case "szerecsen"
-          Content.Add("has_maj", "A vörhenyesbarna, vérbő máj metszlapon szerecsendió-rajzolatot mutat. ")
+          Content.Item(key) += "vörhenyesbarna, vérbő máj metszlapon szerecsendió-rajzolatot mutat. "
           AddToDiag("Hepar moschatum.")
         Case "cirr"
-          Content.Add("has_maj", "A máj zsugorodott, állománya apró göbös kötőszövetes átalakulást mutat. ")
+          Content.Item(key) += "máj zsugorodott, állománya apró göbös kötőszövetes átalakulást mutat. "
           AddToDiag("Cirrhosis hepatis.")
       End Select
     End If
@@ -1017,28 +1045,30 @@ Public Class WordTransformer
       Content.Add("maj_attet", "A máj állományában ")
       Select Case data.Item("has_maj_attet_db")
         Case "egy"
-          Content.Item("maj_attet") += "egy"
+          Content.Item("maj_attet") += "egy "
           AddToDiag("Metastasis hepatis.")
         Case "tobb"
-          Content.Item("maj_attet") += "több"
+          Content.Item("maj_attet") += "több "
           AddToDiag("Metastases multiplex hepatis.")
       End Select
-      Content.Item("maj_attet") += " db " + data.Item("has_maj_attet_meret")
-      Content.Item("maj_attet") += " mm legnagyobb kiterjedésű, szürkésfehér színű, környezetétől élesen elhatárolódó daganatáttét azonosítható. "
-      AddToDiag("Cirrhosis hepatis.")
+      Content.Item("maj_attet") += "db " + data.Item("has_maj_attet_meret")
+      Content.Item("maj_attet") += " mm legnagyobb kiterjedésű, szürkésfehér színű,"
+      Content.Item("maj_attet") += " környezetétől élesen elhatárolódó daganatáttét azonosítható. "
     End If
     '########################################################################
     key = "has_hasnyal"
     If data.ContainsKey(key) Then
+      Content.Add("hasnyal", "A hasnyálmirigy ")
       Select Case data.Item(key)
         Case "ep"
-          Content.Add("hasnyal", "A hasnyálmirigy mirigyes, megtartott szerkezetű. ")
+          Content.Item("hasnyal") += "mirigyes, megtartott szerkezetű. "
         Case "chronic"
-          Content.Add("hasnyal", "A hasnyálmirigy kiszélesedett, mirigyes állománya kifejezett. ")
+          Content.Item("hasnyal") += "kiszélesedett, mirigyes állománya kifejezett. "
           AddToDiag("Pancreatitis chronica.")
         Case "acut"
-          Content.Add("hasnyal", "A hasnyálmirigy állománya kiszélesedett, kiterjedten barnás-vörhenyes elszíneződést mutat," +
-                          "nekrotikus, környezete vizenyős, a környező zsírszövetben sárgásfehér, ún. szappanképződés figyelhető meg. ")
+          Content.Item("hasnyal") += "állománya kiszélesedett, kiterjedten barnás-vörhenyes elszíneződést mutat, "
+          Content.Item("hasnyal") += "nekrotikus, környezete vizenyős, a környező zsírszövetben sárgásfehér,"
+          Content.Item("hasnyal") += " ún. szappanképződés figyelhető meg. "
           AddToDiag("Pancreatitis acuta.")
       End Select
     End If
@@ -1088,7 +1118,8 @@ Public Class WordTransformer
             Case "nagy"
               Content.Item("gyomor") += "nagygörbület"
           End Select
-          Content.Item("gyomor") += " területén " + data.Item("has_gyomor_fekely_meret") + " mm legnagyobb átmérőjű fekély figyelhető meg. "
+          Content.Item("gyomor") += " területén " + data.Item("has_gyomor_fekely_meret")
+          Content.Item("gyomor") += " mm legnagyobb átmérőjű fekély figyelhető meg. "
           AddToDiag("Ulcus ventriculi.")
       End Select
     End If
@@ -1108,8 +1139,8 @@ Public Class WordTransformer
         Case "nagy"
           Content.Item("gyomor_tumor") += "nagygörbület"
       End Select
-      Content.Item("gyomor_tumor") += " területén " + data.Item("has_gyomor_tumor_meret") +
-          " mm nagyságú szürkésfehér idegenszövet-szaporulat figyelhető meg.   "
+      Content.Item("gyomor_tumor") += " területén " + data.Item("has_gyomor_tumor_meret")
+      Content.Item("gyomor_tumor") += " mm nagyságú szürkésfehér idegenszövet-szaporulat figyelhető meg. "
       AddToDiag("Neoplasma malignum ventriculi.")
     End If
     '########################################################################
@@ -1134,7 +1165,8 @@ Public Class WordTransformer
         Return False
       End If
       Content.Add("ileum", "Az ileum nyálkahártyája ")
-      Content.Item("ileum") += data.Item("has_ileum_meret") + " cm-es szakaszon vizenyős, felszínén sárgásfehér felrakódás mutatkozik. "
+      Content.Item("ileum") += data.Item("has_ileum_meret")
+      Content.Item("ileum") += " cm-es szakaszon vizenyős, felszínén sárgásfehér felrakódás mutatkozik. "
       AddToDiag("Ileitis pseudomembranacea.")
     End If
     '########################################################################
@@ -1144,97 +1176,98 @@ Public Class WordTransformer
       AddToDiag("Adhaesinones intestini tenuis.")
     End If
     '########################################################################
-    key = "has_vastagbel_divert"
+    key = "vastagbel_divert"
     If data.ContainsKey(key) Then
-      Content.Add("vastagbel_divert", "A szigmabélben több területen a nyálkahártya zsákszerű kitüremkedése látható. ")
+      Content.Add(key, "A szigmabélben több területen a nyálkahártya zsákszerű kitüremkedése látható. ")
       AddToDiag("Divetriculosis sigmatos.")
     End If
     '########################################################################
-    key = "has_vastagbel_col_is"
+    key = "vastagbel_col_is"
     If data.ContainsKey(key) Then
       Content.Add("vastagbel_ischaem", "A vastagbél nyálkahártyája diffúzan vörhenyesbarna elszíneződést mutat. ")
       AddToDiag("Colitis ischaemica.")
     End If
     '########################################################################
-    key = "has_vastagbel_col_alh"
+    key = "vastagbel_col_alh"
     If data.ContainsKey(key) Then
       Content.Add("vastagbel_alhartya", "A vastagbél nyálkahártyája diffúzan vizenyős, felszínén sárgásfehér felrakódás mutatkozik. ")
       AddToDiag("Colitis pseudomembranacea.")
     End If
     '########################################################################
-    key = "has_vastagbel_tumor"
+    key = "vastagbel_tumor"
     If data.ContainsKey(key) Then
-      Content.Add("vastagbel_tumor", "A ")
-      text = "Neoplasma malignum "
+      Content.Add(key, "A ")
+      text = "Neoplasma malignum"
       flag = False
 
-      If data.ContainsKey("has_vastagbel_tumor_le") Then
-        Content.Item("vastagbel_tumor") += "leszálló vastagbél"
-        text += "colontos descendentis"
+      If data.ContainsKey("vastagbel_tumor_le") Then
+        Content.Item(key) += "leszálló vastagbél"
+        text += " colontos descendentis"
         flag = True
       End If
 
-      If data.ContainsKey("has_vastagbel_tumor_fel") Then
+      If data.ContainsKey("vastagbel_tumor_fel") Then
         If flag Then
-          Content.Item("vastagbel_tumor") += ", "
-          text += " et "
+          Content.Item(key) += ", "
+          text += " et"
         End If
-        Content.Item("vastagbel_tumor") += "felszálló vastagbél"
-        text += "colontos ascendentis"
+        Content.Item(key) += "felszálló vastagbél"
+        text += " colontos ascendentis"
         flag = True
       End If
 
-      If data.ContainsKey("has_vastagbel_tumor_sigma") Then
+      If data.ContainsKey("vastagbel_tumor_sigma") Then
         If flag Then
-          Content.Item("vastagbel_tumor") += ", "
-          text += " et "
+          Content.Item(key) += ", "
+          text += " et"
         End If
-        Content.Item("vastagbel_tumor") += "szigmabél"
-        text += "sigmatos"
+        Content.Item(key) += "szigmabél"
+        text += " sigmatos"
         flag = True
       End If
 
-      If data.ContainsKey("has_vastagbel_tumor_harant") Then
+      If data.ContainsKey("vastagbel_tumor_harant") Then
         If flag Then
-          Content.Item("vastagbel_tumor") += ", "
-          text += " et "
+          Content.Item(key) += ", "
+          text += " et"
         End If
-        Content.Item("vastagbel_tumor") += "haránt vastagbél"
-        text += "colontos transversi"
+        Content.Item(key) += "haránt vastagbél"
+        text += " colontos transversi"
         flag = True
       End If
 
-      If data.ContainsKey("has_vastagbel_tumor_coec") Then
+      If data.ContainsKey("vastagbel_tumor_coec") Then
         If flag Then
-          Content.Item("vastagbel_tumor") += ", "
-          text += " et "
+          Content.Item(key) += ", "
+          text += " et"
         End If
-        Content.Item("vastagbel_tumor") += "vakbél"
-        text += "coeci"
+        Content.Item(key) += "vakbél"
+        text += " coeci"
         flag = True
       End If
 
-      If data.ContainsKey("has_vastagbel_tumor_vegbel") Then
+      If data.ContainsKey("vastagbel_tumor_vegbel") Then
         If flag Then
-          Content.Item("vastagbel_tumor") += ", "
+          Content.Item(key) += ", "
           text += " et "
         End If
-        Content.Item("vastagbel_tumor") += "végbél"
+        Content.Item(key) += "végbél"
         text += "recti"
         flag = True
       End If
 
-      If CheckRequired("has_vastagbel_tumor_meret", data) Then
-        Content.Item("vastagbel_tumor") += " területén " + data.Item("has_vastagbel_tumor_meret") + " cm-es szakaszon a nyálkahártyából kiinduló, "
+      If CheckRequired("vastagbel_tumor_meret", data) Then
+        Content.Item(key) += " területén " + data.Item("vastagbel_tumor_meret")
+        Content.Item(key) += " cm-es szakaszon a nyálkahártyából kiinduló, "
       ElseIf AbortOnMissing Then
         Return False
       End If
 
-      If data.ContainsKey("has_vastagbel_tumor_szukito") Then
-        Content.Item("vastagbel_tumor") += "a lumen jelentős szűkületét okozó, "
+      If data.ContainsKey("vastagbel_tumor_szukito") Then
+        Content.Item(key) += "a lumen jelentős szűkületét okozó, "
       End If
 
-      Content.Item("vastagbel_tumor") += "szürkésfehér színű, idegenszövet-szaporulat azonosítható. "
+      Content.Item(key) += "szürkésfehér színű, idegenszövet-szaporulat azonosítható. "
       AddToDiag(text + ".")
     End If
     Return True
@@ -1246,18 +1279,18 @@ Public Class WordTransformer
   Private Function ApplyRulesKidney(data As Dictionary(Of String, String)) As Boolean
     Dim key As String
     '########################################################################
-    key = "med_vese"
+    key = "has_vese"
     If CheckRequired(key, data) Then
       Select Case data.Item(key)
         Case "sima"
-          Content.Add("has_vese", ", felszínük sima")
+          Content.Add(key, ", felszínük sima")
         Case "szemcses"
-          Content.Add("has_vese", ", felszínükön finom szemcsézettség ")
+          Content.Add(key, ", felszínükön finom szemcsézettség ")
           If data.ContainsKey("vese_behuz") Then
-            Content.Item("has_vese") += "és számos behúzódás "
+            Content.Item(key) += "és számos behúzódás "
             AddToDiag("Nephritis interstitialis chronica l. u.")
           End If
-          Content.Item("has_vese") += "látható"
+          Content.Item(key) += "látható"
           AddToDiag("Nephrosclerosis arteriolosclerotica renum.")
       End Select
     ElseIf AbortOnMissing Then
@@ -1276,13 +1309,13 @@ Public Class WordTransformer
       Content.Add(key, "A ")
       Select Case data.Item("vese_tumor_poz")
         Case "bal"
-          Content.Item(key) += "bal"
+          Content.Item(key) += "bal "
           AddToDiag("Neoplasma malignum renis sinistri.")
         Case "jobb"
-          Content.Item(key) += "jobb"
+          Content.Item(key) += "jobb "
           AddToDiag("Neoplasma malignum renis dextri.")
       End Select
-      Content.Item(key) += " vese állományában " + data.Item("vese_tumor_meret") + " mm nagyságú, "
+      Content.Item(key) += "vese állományában " + data.Item("vese_tumor_meret") + " mm nagyságú, "
       Content.Item(key) += "kénsárga, helyenként vörhenyes idegenszövet-szaporulat azonosítható. "
     End If
     '########################################################################
@@ -1298,13 +1331,13 @@ Public Class WordTransformer
       Content.Add(key, "A ")
       Select Case data.Item("veseko_poz")
         Case "bal"
-          Content.Item(key) += "bal"
+          Content.Item(key) += "bal "
           AddToDiag("Nephrolithiasis sinistri.")
         Case "jobb"
-          Content.Item(key) += "jobb"
+          Content.Item(key) += "jobb "
           AddToDiag("Nephrolithiasis dextri.")
       End Select
-      Content.Item(key) += " vesemedence területén " + data.Item("veseko_meret")
+      Content.Item(key) += "vesemedence területén " + data.Item("veseko_meret")
       Content.Item(key) += " mm legnagyobb kiterjedésű vesekő azonosítható. "
     End If
     '########################################################################
@@ -1317,16 +1350,17 @@ Public Class WordTransformer
       Content.Add(key, "")
       Select Case data.Item("vese_pyelo_poz")
         Case "bal"
-          Content.Item(key) += "A bal"
+          Content.Item(key) += "A bal "
           AddToDiag("Pyelonephritis acuta purulenta sinistri.")
         Case "jobb"
-          Content.Item(key) += "A jobb"
+          Content.Item(key) += "A jobb "
           AddToDiag("Pyelonephritis acuta purulenta dextri.")
         Case "mko"
-          Content.Item(key) += "Mindkét"
+          Content.Item(key) += "Mindkét "
           AddToDiag("Pyelonephritis acuta purulenta l.u.")
       End Select
-      Content.Item(key) += " vesemedencében purulens váladék azonosítható, a vesék felszínén kicsiny abscessusok láthatók. "
+      Content.Item(key) += "vesemedencében purulens váladék azonosítható,"
+      Content.Item(key) += " a vesék felszínén kicsiny abscessusok láthatók. "
     End If
     '########################################################################
     key = "holyag_kateter"
@@ -1336,7 +1370,8 @@ Public Class WordTransformer
     '########################################################################
     key = "holyag_gyull"
     If data.ContainsKey(key) Then
-      Content.Add(key, "A húgyhólyag nyálkahártyája diffúzan vörhenyes, lumenében opálos vizelet azonosítható. ")
+      Content.Add(key, "A húgyhólyag nyálkahártyája diffúzan vörhenyes,")
+      Content.Item(key) += " lumenében opálos vizelet azonosítható. "
       AddToDiag("Urocytitis acuta.")
     End If
     '########################################################################
@@ -1346,7 +1381,9 @@ Public Class WordTransformer
         Return False
       End If
       Content.Add(key, "A húgyhólyag lumenében ")
-      Content.Item(key) += data.Item("holyag_tumor_meret") + " mm legnagyobb kiterjedésű, szürkésfehér-vörhenyes idegenszövet-szaporulat azonosítható. "
+      Content.Item(key) += data.Item("holyag_tumor_meret")
+      Content.Item(key) += " mm legnagyobb kiterjedésű, szürkésfehér-vörhenyes"
+      Content.Item(key) += " idegenszövet-szaporulat azonosítható. "
       AddToDiag("Neoplasma malignum vesicae urinariae.")
     End If
     '########################################################################
@@ -1370,7 +1407,8 @@ Public Class WordTransformer
 
       Content.Add(key, "A méh izmos falában ")
       Content.Item(key) += data.Item("meh_myoma_darab") + " darab, " + data.Item("meh_myoma_meret")
-      Content.Item(key) += " mm nagyságú, szürkésfehér színű, örvényes szerkezetű, myomagöbnek imponáló képlet mutatkozik. "
+      Content.Item(key) += " mm nagyságú, szürkésfehér színű, örvényes szerkezetű,"
+      Content.Item(key) += " myomagöbnek imponáló képlet mutatkozik. "
       AddToDiag("Myomata uteri.")
     End If
     '########################################################################
@@ -1391,7 +1429,8 @@ Public Class WordTransformer
         Return False
       End If
 
-      Content.Add(key, "A méh üregében a myometriumot is infiltráló szürkésfehér, helyenként vörhenyesbarna idegenszövet-szaporulat azonosítható. ")
+      Content.Add(key, "A méh üregében a myometriumot is infiltráló szürkésfehér,")
+      Content.Item(key) += " helyenként vörhenyesbarna idegenszövet-szaporulat azonosítható. "
       AddToDiag("Neoplasma malignum uteri.")
     End If
     '########################################################################
@@ -1407,19 +1446,20 @@ Public Class WordTransformer
       Content.Add(key, "A ")
       Select Case data.Item("meh_cysta_poz")
         Case "bal"
-          Content.Item(key) += "bal"
+          Content.Item(key) += "bal "
           AddToDiag("Cysta ovarii sinistri.")
         Case "jobb"
-          Content.Item(key) += "jobb"
+          Content.Item(key) += "jobb "
           AddToDiag("Cysta ovarii dextri.")
       End Select
-      Content.Item(key) += " petefészek állományában " + data.Item("meh_cysta_meret")
+      Content.Item(key) += "petefészek állományában " + data.Item("meh_cysta_meret")
       Content.Item(key) += " mm nagyságú, hártyás falú, víztiszta bennékű ciszta mutatkozik. "
     End If
     '########################################################################
     key = "prostata"
     If data.ContainsKey(key) Then
-      Content.Add(key, "A húgyhólyag lumene tágult, izomzata vaskos, a prostata megnagyobbodott, állománya göbös, körülírt kóros nem azonosítható. ")
+      Content.Add(key, "A húgyhólyag lumene tágult, izomzata vaskos, a prostata megnagyobbodott,")
+      Content.Item(key) += " állománya göbös, körülírt kóros nem azonosítható. "
       AddToDiag("Hyperplasia nodosa prostatae.")
     End If
     '########################################################################
@@ -1441,14 +1481,15 @@ Public Class WordTransformer
       Content.Add(key, "A ")
       Select Case data.Item("here_tumor_poz")
         Case "bal"
-          Content.Item(key) += "bal"
+          Content.Item(key) += "bal "
           AddToDiag("Neoplasma malignum testis sinistri.")
         Case "jobb"
-          Content.Item(key) += "jobb"
+          Content.Item(key) += "jobb "
           AddToDiag("Neoplasma malignum testis dextri.")
       End Select
-      Content.Item(key) += " here állományában jól körülírt, " + data.Item("here_tumor_meret")
-      Content.Item(key) += " mm nagyságú, szürkésfehér színű, helyenként barnás-vörhenyes idegenszövet-szaporulat azonosítható. "
+      Content.Item(key) += "here állományában jól körülírt, " + data.Item("here_tumor_meret")
+      Content.Item(key) += " mm nagyságú, szürkésfehér színű, helyenként barnás-vörhenyes"
+      Content.Item(key) += " idegenszövet-szaporulat azonosítható. "
     End If
     Return True
   End Function

@@ -3531,7 +3531,7 @@ Partial Class Main
 		Me.bel_tumor_meret.Name = "bel_tumor_meret"
 		Me.bel_tumor_meret.Size = New System.Drawing.Size(40, 20)
 		Me.bel_tumor_meret.TabIndex = 11
-		Me.bel_tumor_meret.Tag = "has_vastagbel_tumor_meret"
+		Me.bel_tumor_meret.Tag = "vastagbel_tumor_meret"
 		'
 		'bel_tumor_le
 		'
@@ -3541,7 +3541,7 @@ Partial Class Main
 		Me.bel_tumor_le.Name = "bel_tumor_le"
 		Me.bel_tumor_le.Size = New System.Drawing.Size(64, 17)
 		Me.bel_tumor_le.TabIndex = 10
-		Me.bel_tumor_le.Tag = "has_vastagbel_tumor_le"
+		Me.bel_tumor_le.Tag = "vastagbel_tumor_le"
 		Me.bel_tumor_le.Text = "Leszálló"
 		Me.bel_tumor_le.UseVisualStyleBackColor = True
 		'
@@ -3553,7 +3553,7 @@ Partial Class Main
 		Me.bel_tumor_szuk.Name = "bel_tumor_szuk"
 		Me.bel_tumor_szuk.Size = New System.Drawing.Size(63, 17)
 		Me.bel_tumor_szuk.TabIndex = 9
-		Me.bel_tumor_szuk.Tag = "has_vastagbel_tumor_szukito"
+		Me.bel_tumor_szuk.Tag = "vastagbel_tumor_szukito"
 		Me.bel_tumor_szuk.Text = "Szűkítő"
 		Me.bel_tumor_szuk.UseVisualStyleBackColor = True
 		'
@@ -3564,7 +3564,7 @@ Partial Class Main
 		Me.bel_tumor.Name = "bel_tumor"
 		Me.bel_tumor.Size = New System.Drawing.Size(56, 17)
 		Me.bel_tumor.TabIndex = 0
-		Me.bel_tumor.Tag = "has_vastagbel_tumor"
+		Me.bel_tumor.Tag = "vastagbel_tumor"
 		Me.bel_tumor.Text = "Tumor"
 		Me.bel_tumor.UseVisualStyleBackColor = True
 		'
@@ -3576,7 +3576,7 @@ Partial Class Main
 		Me.bel_tumor_fel.Name = "bel_tumor_fel"
 		Me.bel_tumor_fel.Size = New System.Drawing.Size(66, 17)
 		Me.bel_tumor_fel.TabIndex = 8
-		Me.bel_tumor_fel.Tag = "has_vastagbel_tumor_fel"
+		Me.bel_tumor_fel.Tag = "vastagbel_tumor_fel"
 		Me.bel_tumor_fel.Text = "Felszálló"
 		Me.bel_tumor_fel.UseVisualStyleBackColor = True
 		'
@@ -3588,7 +3588,7 @@ Partial Class Main
 		Me.bel_tumor_harant.Name = "bel_tumor_harant"
 		Me.bel_tumor_harant.Size = New System.Drawing.Size(58, 17)
 		Me.bel_tumor_harant.TabIndex = 7
-		Me.bel_tumor_harant.Tag = "has_vastagbel_tumor_harant"
+		Me.bel_tumor_harant.Tag = "vastagbel_tumor_harant"
 		Me.bel_tumor_harant.Text = "Haránt"
 		Me.bel_tumor_harant.UseVisualStyleBackColor = True
 		'
@@ -3600,7 +3600,7 @@ Partial Class Main
 		Me.bel_tumor_vegbel.Name = "bel_tumor_vegbel"
 		Me.bel_tumor_vegbel.Size = New System.Drawing.Size(59, 17)
 		Me.bel_tumor_vegbel.TabIndex = 6
-		Me.bel_tumor_vegbel.Tag = "has_vastagbel_tumor_vegbel"
+		Me.bel_tumor_vegbel.Tag = "vastagbel_tumor_vegbel"
 		Me.bel_tumor_vegbel.Text = "Végbél"
 		Me.bel_tumor_vegbel.UseVisualStyleBackColor = True
 		'
@@ -3612,7 +3612,7 @@ Partial Class Main
 		Me.bel_tumor_sig.Name = "bel_tumor_sig"
 		Me.bel_tumor_sig.Size = New System.Drawing.Size(55, 17)
 		Me.bel_tumor_sig.TabIndex = 5
-		Me.bel_tumor_sig.Tag = "has_vastagbel_tumor_sigma"
+		Me.bel_tumor_sig.Tag = "vastagbel_tumor_sigma"
 		Me.bel_tumor_sig.Text = "Sigma"
 		Me.bel_tumor_sig.UseVisualStyleBackColor = True
 		'
@@ -3624,7 +3624,7 @@ Partial Class Main
 		Me.bel_tumor_coec.Name = "bel_tumor_coec"
 		Me.bel_tumor_coec.Size = New System.Drawing.Size(65, 17)
 		Me.bel_tumor_coec.TabIndex = 4
-		Me.bel_tumor_coec.Tag = "has_vastagbel_tumor_coec"
+		Me.bel_tumor_coec.Tag = "vastagbel_tumor_coec"
 		Me.bel_tumor_coec.Text = "Coecum"
 		Me.bel_tumor_coec.UseVisualStyleBackColor = True
 		'
@@ -3635,7 +3635,7 @@ Partial Class Main
 		Me.CheckBox77.Name = "CheckBox77"
 		Me.CheckBox77.Size = New System.Drawing.Size(99, 17)
 		Me.CheckBox77.TabIndex = 3
-		Me.CheckBox77.Tag = "has_vastagbel_col_alh"
+		Me.CheckBox77.Tag = "vastagbel_col_alh"
 		Me.CheckBox77.Text = "Álhártyás Colitis"
 		Me.CheckBox77.UseVisualStyleBackColor = True
 		'
@@ -3646,7 +3646,7 @@ Partial Class Main
 		Me.CheckBox76.Name = "CheckBox76"
 		Me.CheckBox76.Size = New System.Drawing.Size(109, 17)
 		Me.CheckBox76.TabIndex = 2
-		Me.CheckBox76.Tag = "has_vastagbel_col_is"
+		Me.CheckBox76.Tag = "vastagbel_col_is"
 		Me.CheckBox76.Text = "Ischaemias Colitis"
 		Me.CheckBox76.UseVisualStyleBackColor = True
 		'
@@ -3657,7 +3657,7 @@ Partial Class Main
 		Me.CheckBox75.Name = "CheckBox75"
 		Me.CheckBox75.Size = New System.Drawing.Size(96, 17)
 		Me.CheckBox75.TabIndex = 1
-		Me.CheckBox75.Tag = "has_vastagbel_divert"
+		Me.CheckBox75.Tag = "vastagbel_divert"
 		Me.CheckBox75.Text = "Diverticulomok"
 		Me.CheckBox75.UseVisualStyleBackColor = True
 		'
@@ -4731,7 +4731,7 @@ Partial Class Main
 		Me.GroupBox43.Size = New System.Drawing.Size(395, 161)
 		Me.GroupBox43.TabIndex = 0
 		Me.GroupBox43.TabStop = False
-		Me.GroupBox43.Tag = "med_vese"
+		Me.GroupBox43.Tag = "has_vese"
 		Me.GroupBox43.Text = "Vese"
 		'
 		'veseko
