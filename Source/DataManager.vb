@@ -52,7 +52,6 @@ Public Class DataManager
         Case GetType(RadioButton)
           radio = TryCast(ctrl, RadioButton)
           If radio.Enabled AndAlso radio.Checked Then
-            Console.WriteLine(radio.Parent.Tag.ToString)
             Data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
           End If
         Case GetType(GroupBox), GetType(TabPage)

@@ -8,7 +8,7 @@ Namespace Logger
 		''' <summary>
 		''' Log file path
 		''' </summary>
-		Public Shared Property LogFile As String
+		Public Property LogFile As String
 		''' <summary>
 		''' Constructor
 		''' </summary>
@@ -26,12 +26,8 @@ Namespace Logger
 				Exit Sub
 			End If
 			If msgLevel >= LogLevel Then
-				Try
-					message = "[" + MessageLevel(msgLevel) + "] [" + DateTime.Now.ToString + "] " + message + vbCr
-					FileSystem.WriteAllText(LogFile, message, True)
-				Catch ex As Exception
-					MessageBox.Show(ex.Message, "Logger", MessageBoxButtons.OK, MessageBoxIcon.Error)
-				End Try
+				message = "[" + MessageLevel(msgLevel) + "] [" + DateTime.Now.ToString + "] " + message + vbCr
+				FileSystem.WriteAllText(LogFile, message, True)
 			End If
 		End Sub
 	End Class

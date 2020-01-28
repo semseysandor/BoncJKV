@@ -1,5 +1,4 @@
 ﻿Imports Microsoft.Office.Interop
-Imports System.IO.Path
 ''' <summary>
 ''' Exports content to Word document
 ''' </summary>
