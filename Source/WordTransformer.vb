@@ -690,11 +690,11 @@ Public Class WordTransformer
         Content.Add("tudo_anthra", "A mellhártyákon szürkésfekete hálózatos rajzolat látható. ")
       End If
       If Not Content.ContainsKey("tudo_emphy") Then
-        Content.Add("tudo_anthra", "tágult ")
+        Content.Add("tudo_emphy", "tágult ")
       End If
       If Not Content.ContainsKey("tudo_oedema") Then
-        Content.Add("tudo_anthra", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek,")
-        Content.Item("tudo_anthra") += " metszlapjukról nyomásra habos szilvalészerű folyadék ürül"
+        Content.Add("tudo_oedema", ", vizenyősek, főként az alsó lebenyek vérbővek, vörhenyesek,")
+        Content.Item("tudo_oedema") += " metszlapjukról nyomásra habos szilvalészerű folyadék ürül"
       End If
       AddToDiag("Anthracosis, emphysema et oedema pulmonum.")
     End If

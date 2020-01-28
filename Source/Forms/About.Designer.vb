@@ -70,9 +70,9 @@ Partial Class About
 		Me.Label3.Font = New System.Drawing.Font("Bahnschrift Light SemiCondensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
 		Me.Label3.Location = New System.Drawing.Point(6, 89)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(29, 16)
+		Me.Label3.Size = New System.Drawing.Size(36, 16)
 		Me.Label3.TabIndex = 3
-		Me.Label3.Text = "v0.9"
+		Me.Label3.Text = "v0.9.1"
 		'
 		'Label4
 		'
