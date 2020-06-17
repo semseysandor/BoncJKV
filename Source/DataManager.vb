@@ -60,11 +60,11 @@ Public Class DataManager
     Next
   End Sub
   ''' <summary>
-  ''' Loads data to the UI
+  ''' Loads data into the UI
   ''' </summary>
-  ''' <param name="root">Control collection to load data to</param>
   ''' <param name="load">Actual data</param>
-  Public Sub LoadData(ByRef root As Control.ControlCollection, ByVal load As Dictionary(Of String, String))
+  ''' <param name="root">Control collection into load data</param>
+  Public Sub LoadData(ByVal load As Dictionary(Of String, String), ByRef root As Control.ControlCollection)
     Dim textbox As TextBox
     Dim chbox As CheckBox
     Dim radio As RadioButton
@@ -89,7 +89,7 @@ Public Class DataManager
             radio.Enabled = True
           End If
         Case GetType(GroupBox), GetType(TabPage)
-          LoadData(ctrl.Controls, load)
+          LoadData(load, ctrl.Controls)
       End Select
     Next
   End Sub

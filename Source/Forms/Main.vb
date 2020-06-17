@@ -58,7 +58,7 @@ Public Class Main
 
       Dim datamng = New DataManager
       Dim xmlexporter = New XMLExporter(SaveFilePath)
-      datamng.LoadData(dataInput.Controls, xmlexporter.LoadData(name, datte))
+      datamng.LoadData(xmlexporter.LoadData(name, datte), dataInput.Controls)
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
