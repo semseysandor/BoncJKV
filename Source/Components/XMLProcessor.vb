@@ -2,16 +2,19 @@
 ''' Export/import data from XML files
 ''' </summary>
 Public Class XMLProcessor
+
   ''' <summary>
   ''' Path to XML file
   ''' </summary>
   Public Property FilePath As String
+
   ''' <summary>
   ''' Constructor
   ''' </summary>
   Public Sub New(Optional ByVal path As String = "")
     FilePath = path
   End Sub
+
   ''' <summary>
   ''' Check if given patient is already in XML file
   ''' </summary>
@@ -35,7 +38,9 @@ Public Class XMLProcessor
     Else
       Return False
     End If
+
   End Function
+
   ''' <summary>
   ''' Saves patient data to XML file
   ''' </summary>
@@ -67,6 +72,7 @@ Public Class XMLProcessor
     Dim root As XElement
     Dim patient = New XElement("patient")
     Dim element As XElement
+
     If Not IO.File.Exists(FilePath) Then
       root = <records></records>
     Else
@@ -86,7 +92,9 @@ Public Class XMLProcessor
     root.Save(FilePath)
 
     MsgBox("Sikeresen mentve")
+
   End Sub
+
   ''' <summary>
   ''' Load stored patients names and date
   ''' </summary>
@@ -105,8 +113,11 @@ Public Class XMLProcessor
     For Each element As XElement In patients
       results.Add(element.Attribute("name").Value, element.Attribute("date").Value)
     Next
+
     Return results
+
   End Function
+
   ''' <summary>
   ''' Load patient data from XML
   ''' </summary>
@@ -115,6 +126,7 @@ Public Class XMLProcessor
   ''' <returns>Patient data</returns>
   Public Function LoadData(ByVal name As String, ByVal datte As String) As Dictionary(Of String, String)
     Dim results = New Dictionary(Of String, String)
+
     If Not IO.File.Exists(FilePath) Then
       Return results
     End If
@@ -131,8 +143,11 @@ Public Class XMLProcessor
         results.Add(subelem.Name.ToString, subelem.Value)
       Next
     Next
+
     Return results
+
   End Function
+
   ''' <summary>
   ''' Deletes a patient
   ''' </summary>
@@ -153,6 +168,8 @@ Public Class XMLProcessor
 
     patient.Remove
     root.Save(FilePath)
+
     Return True
+
   End Function
 End Class

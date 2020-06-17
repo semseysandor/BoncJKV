@@ -2,16 +2,19 @@
 ''' Manages data from UI
 ''' </summary>
 Public Class DataManager
+
   ''' <summary>
   ''' Inspection data
   ''' </summary>
   Private Data As Dictionary(Of String, String)
+
   ''' <summary>
   ''' Constructor
   ''' </summary>
   Public Sub New()
     Data = New Dictionary(Of String, String)
   End Sub
+
   ''' <summary>
   ''' Returns data
   ''' </summary>
@@ -19,15 +22,19 @@ Public Class DataManager
   Public Function GetData() As Dictionary(Of String, String)
     Return Data
   End Function
+
   ''' <summary>
   ''' Prints data to the console
   ''' </summary>
   Public Sub PrintData()
     Console.WriteLine("UI DATA *******************************")
+
     For Each row As KeyValuePair(Of String, String) In Data
       Console.WriteLine(row.Key.ToString + vbTab + row.Value.ToString)
     Next
+
   End Sub
+
   ''' <summary>
   ''' Collects data from UI and puts in the dictionary
   ''' </summary>
@@ -38,6 +45,7 @@ Public Class DataManager
     Dim radio As RadioButton
 
     For Each ctrl As Control In root
+
       Select Case ctrl.GetType
         Case GetType(TextBox)
           textbox = TryCast(ctrl, TextBox)
@@ -57,8 +65,10 @@ Public Class DataManager
         Case GetType(GroupBox), GetType(TabPage)
           CollectData(ctrl.Controls)
       End Select
+
     Next
   End Sub
+
   ''' <summary>
   ''' Loads data into the UI
   ''' </summary>
@@ -70,6 +80,7 @@ Public Class DataManager
     Dim radio As RadioButton
 
     For Each ctrl As Control In root
+
       Select Case ctrl.GetType
         Case GetType(TextBox)
           textbox = TryCast(ctrl, TextBox)
@@ -91,6 +102,8 @@ Public Class DataManager
         Case GetType(GroupBox), GetType(TabPage)
           LoadData(load, ctrl.Controls)
       End Select
+
     Next
   End Sub
+
 End Class
