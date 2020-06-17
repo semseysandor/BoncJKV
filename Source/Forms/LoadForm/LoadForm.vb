@@ -2,6 +2,7 @@
 ''' Load patient dialog
 ''' </summary>
 Public Class LoadForm
+
   ''' <summary>
   ''' Initializes form
   ''' </summary>
@@ -15,6 +16,7 @@ Public Class LoadForm
       ErrorHandling.General(ex)
     End Try
   End Sub
+
   ''' <summary>
   ''' Loads selected patient data then closes form
   ''' </summary>

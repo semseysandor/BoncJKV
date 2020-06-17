@@ -3,20 +3,24 @@
 ''' Applies business rules to data
 ''' </summary>
 Public Class Rules
+
   ''' <summary>
   ''' Content ready to export
   ''' </summary>
   Private Content As Dictionary(Of String, String)
+
   ''' <summary>
   ''' Whether to abort transformation if a required field is missing
   ''' </summary>
   ''' <returns></returns>
   Private Property AbortOnMissing As Boolean
+
   ''' <summary>
   ''' Event occurs when a field is missing
   ''' </summary>
   ''' <param name="fieldname"></param>
   Public Event FieldMissing(ByVal fieldname As String)
+
   ''' <summary>
   ''' Constructor
   ''' </summary>
@@ -24,6 +28,7 @@ Public Class Rules
   Public Sub New(ByVal abort As Boolean)
     AbortOnMissing = abort
   End Sub
+
   ''' <summary>
   ''' Returns exportable content
   ''' </summary>
@@ -31,26 +36,33 @@ Public Class Rules
   Public Function GetContent() As Dictionary(Of String, String)
     Return Content
   End Function
+
   ''' <summary>
   ''' Prints content to the console
   ''' </summary>
   Public Sub PrintContent()
     Console.WriteLine("Content DATA *******************************")
+
     For Each row As KeyValuePair(Of String, String) In Content
       Console.WriteLine(row.Key.ToString + " " + row.Value.ToString)
     Next
+
   End Sub
+
   ''' <summary>
   ''' Adds a new diagnose to the diagnoses
   ''' </summary>
   ''' <param name="diag">Diagnose to add</param>
   Private Sub AddToDiag(ByVal diag As String)
+
     If Content.ContainsKey("diag") Then
       Content.Item("diag") += ", " + diag
     Else
       Content.Add("diag", diag)
     End If
+
   End Sub
+
   ''' <summary>
   ''' Checks if required field is available
   ''' </summary>
@@ -60,11 +72,14 @@ Public Class Rules
   Private Function CheckRequired(ByVal key As String, ByRef data As Dictionary(Of String, String)) As Boolean
     If data.ContainsKey(key) Then
       Return True
-    Else
-      RaiseEvent FieldMissing(key)
-      Return False
     End If
+
+    RaiseEvent FieldMissing(key)
+
+    Return False
+
   End Function
+
   ''' <summary>
   ''' Builds string expression to indicate location
   ''' </summary>
@@ -74,22 +89,33 @@ Public Class Rules
   ''' <returns>Location and diagnose</returns>
   Private Function BrainLocationBuilder(ByVal meret As String, ByVal oldal As String, ByVal lebeny As String) As Dictionary(Of String, String)
     Dim result = New Dictionary(Of String, String) From {{"helyzet", ""}, {"diag", ""}}
+
     Select Case lebeny
+
       Case "frontalis", "parietalis", "temporalis", "occipitalis"
         result.Item("helyzet") = oldal + " " + lebeny + " lebenyben "
+
         Select Case oldal
+
           Case "jobb"
             result.Item("diag") = "lobi " + lebeny + " hemispherii dextri" + " cerebri."
+
           Case "bal"
             result.Item("diag") = "lobi " + lebeny + " hemispherii sinistri" + " cerebri."
         End Select
+
       Case "kisagy"
         result.Item("helyzet") = "kisagyi féltekében "
         result.Item("diag") = "cerebelli."
+
     End Select
+
     result.Item("helyzet") += meret + " cm kiterjedésű "
+
     Return result
+
   End Function
+
   ''' <summary>
   ''' Applies business rules to transform data
   ''' </summary>
@@ -100,27 +126,35 @@ Public Class Rules
     If Not ApplyRulesGeneral(data) Then
       Return False
     End If
+
     If Not ApplyRulesBrain(data) Then
       Return False
     End If
+
     If Not ApplyRulesHeart(data) Then
       Return False
     End If
+
     If Not ApplyRulesLungs(data) Then
       Return False
     End If
+
     If Not ApplyRulesStomach(data) Then
       Return False
     End If
+
     If Not ApplyRulesKidney(data) Then
       Return False
     End If
+
     If Not ApplyRulesDeath(data) Then
       Return False
     End If
 
     Return True
+
   End Function
+
   ''' <summary>
   ''' Applies rules (general parts)
   ''' </summary>
@@ -254,6 +288,7 @@ Public Class Rules
     End If
     Return True
   End Function
+
   ''' <summary>
   ''' Applies rules regarding the brain
   ''' </summary>
@@ -427,6 +462,7 @@ Public Class Rules
     End If
     Return True
   End Function
+
   ''' <summary>
   ''' Applies rules regarding the heart
   ''' </summary>
@@ -656,6 +692,7 @@ Public Class Rules
     End If
     Return True
   End Function
+
   ''' <summary>
   ''' Applies rules regarding the lungs
   ''' </summary>
@@ -988,6 +1025,7 @@ Public Class Rules
     End If
     Return True
   End Function
+
   ''' <summary>
   ''' Applies rules regarding the stomach
   ''' </summary>
@@ -1272,6 +1310,7 @@ Public Class Rules
     End If
     Return True
   End Function
+
   ''' <summary>
   ''' Applies rules regarding the kidney
   ''' </summary>
@@ -1493,6 +1532,7 @@ Public Class Rules
     End If
     Return True
   End Function
+
   ''' <summary>
   ''' Applies rules regarding the death
   ''' </summary>
@@ -1645,6 +1685,8 @@ Public Class Rules
       Content.Add("kisero", "Kísérő betegségként ")
       Content.Item("kisero") += text + " emelendő ki."
     End If
+
     Return True
+
   End Function
 End Class

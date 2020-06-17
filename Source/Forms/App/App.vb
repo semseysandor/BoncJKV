@@ -1,22 +1,35 @@
 ﻿Imports BoncJKV.Logger
+
 ''' <summary>
 ''' Main UI form
 ''' </summary>
 Public Class App
+
   ''' <summary>
   ''' Application Name
   ''' </summary>
   Public Const AppName = "BoncJKV"
+
   ''' <summary>
   ''' Transformer object
   ''' </summary>
   Private WithEvents Transformer As Rules
+
   ''' <summary>
   ''' Application Path
   ''' </summary>
-  Private Path As String = Application.StartupPath + IO.Path.DirectorySeparatorChar
+  Private ReadOnly Path As String = Application.StartupPath + IO.Path.DirectorySeparatorChar
+
+  ''' <summary>
+  ''' Save file relative path
+  ''' </summary>
   Public SaveFilePath As String = "saves.xml"
+
+  ''' <summary>
+  ''' Log file relative path
+  ''' </summary>
   Public LogFilePath As String = "log.txt"
+
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' Main features '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ''' <summary>
   ''' Initializes form
@@ -32,6 +45,7 @@ Public Class App
       ErrorHandling.General(ex)
     End Try
   End Sub
+
   ''' <summary>
   ''' Save data to disk
   ''' </summary>
@@ -46,6 +60,7 @@ Public Class App
       ErrorHandling.General(ex)
     End Try
   End Sub
+
   ''' <summary>
   ''' Loads data from disk
   ''' </summary>
@@ -63,6 +78,7 @@ Public Class App
       ErrorHandling.General(ex)
     End Try
   End Sub
+
   ''' <summary>
   ''' Exports data
   ''' </summary>
@@ -86,18 +102,21 @@ Public Class App
       ErrorHandling.General(ex)
     End Try
   End Sub
+
   ''' <summary>
   ''' Close application
   ''' </summary>
   Private Sub CloseApp(sender As Object, e As EventArgs) Handles menu_exit.Click
     Application.Exit()
   End Sub
+
   ''' <summary>
   ''' Show about
   ''' </summary>
   Private Sub ShowAbout(sender As Object, e As EventArgs) Handles menu_about.Click
     About.Show()
   End Sub
+
   ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' UI actions ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ''' <summary>
   ''' Opens load dialog
@@ -109,18 +128,34 @@ Public Class App
       ErrorHandling.General(ex)
     End Try
   End Sub
+
   ''' <summary>
   ''' Switch to the next tab
   ''' </summary>
-  Private Sub NextTab(sender As Object, e As EventArgs) Handles next_1.Click, next_2.Click, next_3.Click, next_4.Click, next_5.Click, next_6.Click
+  Private Sub NextTab(sender As Object, e As EventArgs) Handles next_1.Click,
+    next_2.Click,
+    next_3.Click,
+    next_4.Click,
+    next_5.Click,
+    next_6.Click
+
     ComponentManager.UI.NextTab(sender)
   End Sub
+
   ''' <summary>
   ''' Reset tab
   ''' </summary>
-  Private Sub ResetTab(sender As Object, e As EventArgs) Handles reset_1.Click, reset_2.Click, reset_3.Click, reset_4.Click, reset_5.Click, reset_6.Click, reset_7.Click
+  Private Sub ResetTab(sender As Object, e As EventArgs) Handles reset_1.Click,
+    reset_2.Click,
+    reset_3.Click,
+    reset_4.Click,
+    reset_5.Click,
+    reset_6.Click,
+    reset_7.Click
+
     ComponentManager.UI.ResetTab(sender)
   End Sub
+
   ''' <summary>
   ''' UI action when a required field is missing
   ''' </summary>
@@ -128,24 +163,51 @@ Public Class App
   Private Sub FieldMissing(ByVal fieldname As String) Handles Transformer.FieldMissing
     AppUI.Warning("Hiányzó adat: " + vbNewLine + vbNewLine + fieldname, AppName)
   End Sub
+
   ''' <summary>
   ''' Change form background
   ''' </summary>
   Private Sub IcterusChange(sender As Object, e As EventArgs) Handles icterus.CheckedChanged
     ComponentManager.UI.IcterusChange(sender)
   End Sub
+
   ''' <summary>
   ''' Enables controls associated to this control
   ''' </summary>
-  Private Sub EnableControl(sender As Object, e As EventArgs) Handles here_tumor.CheckedChanged, decub_meret.TextChanged,
-    ascites.CheckedChanged, pacemaker.CheckedChanged, agy_lagyulas.CheckedChanged, agy_verzes.CheckedChanged,
-    agy_attet.CheckedChanged, koszoru_szuk.TextChanged, koszoru_stent.CheckedChanged, koszoru_thromb.CheckedChanged,
-    inf_regi.CheckedChanged, inf_uj.CheckedChanged, haemo.CheckedChanged, pneu.CheckedChanged,
-    tudo_tumor.CheckedChanged, tudo_attet.CheckedChanged, tudo_emb.CheckedChanged, hydro.CheckedChanged,
-    maj_attet.CheckedChanged, epeko.CheckedChanged, gyomor_fekely.CheckedChanged, gyomor_tumor.CheckedChanged,
-    nyombel_fekely.CheckedChanged, ileum.CheckedChanged, bel_tumor.CheckedChanged, vese_tumor.CheckedChanged,
-    veseko.CheckedChanged, pyelo.CheckedChanged, holyag_tumor.CheckedChanged, pete.CheckedChanged,
-    meh_myoma.CheckedChanged, meh_em.CheckedChanged, meh_tumor.CheckedChanged, here_tumor.CheckedChanged
+  Private Sub EnableControl(sender As Object, e As EventArgs) Handles here_tumor.CheckedChanged,
+    decub_meret.TextChanged,
+    ascites.CheckedChanged,
+    pacemaker.CheckedChanged,
+    agy_lagyulas.CheckedChanged,
+    agy_verzes.CheckedChanged,
+    agy_attet.CheckedChanged,
+    koszoru_szuk.TextChanged,
+    koszoru_stent.CheckedChanged,
+    koszoru_thromb.CheckedChanged,
+    inf_regi.CheckedChanged,
+    inf_uj.CheckedChanged,
+    haemo.CheckedChanged,
+    pneu.CheckedChanged,
+    tudo_tumor.CheckedChanged,
+    tudo_attet.CheckedChanged,
+    tudo_emb.CheckedChanged,
+    hydro.CheckedChanged,
+    maj_attet.CheckedChanged,
+    epeko.CheckedChanged,
+    gyomor_fekely.CheckedChanged,
+    gyomor_tumor.CheckedChanged,
+    nyombel_fekely.CheckedChanged,
+    ileum.CheckedChanged,
+    bel_tumor.CheckedChanged,
+    vese_tumor.CheckedChanged,
+    veseko.CheckedChanged,
+    pyelo.CheckedChanged,
+    holyag_tumor.CheckedChanged,
+    pete.CheckedChanged,
+    meh_myoma.CheckedChanged,
+    meh_em.CheckedChanged,
+    meh_tumor.CheckedChanged,
+    here_tumor.CheckedChanged
 
     Dim controls As Collection
     If sender.Equals(decub_meret) Then
@@ -223,6 +285,7 @@ Public Class App
     Else
       controls = New Collection From {}
     End If
+
     ComponentManager.UI.EnableAssociatedControls(sender, controls)
   End Sub
 End Class

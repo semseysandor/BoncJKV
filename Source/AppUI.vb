@@ -3,6 +3,7 @@
 ''' </summary>
 Public Class AppUI
   Inherits CoreUI
+
   ''' <summary>
   ''' Resets screen
   ''' </summary>
@@ -30,17 +31,23 @@ Public Class AppUI
   ''' </summary>
   Public Sub IcterusChange(sender As Object)
     If TryCast(sender, CheckBox).Checked Then
+
       ComponentManager.Main.BackColor = Color.Yellow
+
       For Each tab As TabPage In ComponentManager.Main.dataInput.TabPages
         tab.BackColor = Color.Yellow
       Next
+
     Else
       ComponentManager.Main.BackColor = Control.DefaultBackColor
+
       For Each tab As TabPage In ComponentManager.Main.dataInput.TabPages
         tab.BackColor = Control.DefaultBackColor
       Next
+
     End If
   End Sub
+
   ''' <summary>
   ''' Sets name and date on the main form
   ''' </summary>
@@ -50,5 +57,4 @@ Public Class AppUI
     ComponentManager.Main.nev.Text = name
     ComponentManager.Main.datum.Text = datte
   End Sub
-
 End Class
