@@ -17,5 +17,5 @@ Public Class ComponentManager
 	''' UI worker
 	''' </summary>
 	''' <returns></returns>
-	Public Shared Property UI As UI
+	Public Shared Property UI As AppUI
 End Class

@@ -8,7 +8,7 @@ Public Class LoadForm
   Private Sub Init(sender As Object, e As EventArgs) Handles MyBase.Load
     Try
       saved.Items.Clear()
-      For Each row As KeyValuePair(Of String, String) In New XMLExporter(ComponentManager.Main.SaveFilePath).LoadPatients
+      For Each row As KeyValuePair(Of String, String) In New XMLProcessor(ComponentManager.Main.SaveFilePath).LoadPatients
         saved.Items.Add(row.Value + " " + row.Key)
       Next
     Catch ex As Exception

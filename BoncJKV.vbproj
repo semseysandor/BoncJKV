@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Sandor\Desktop\boncjkv\</PublishUrl>
+    <PublishUrl>D:\win\project\BoncJKV\release\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -47,6 +47,7 @@
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
     <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -82,13 +83,16 @@
     <ManifestKeyFile>BoncJKV_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -118,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Project files\ApplicationEvents.vb" />
     <Compile Include="Source\Components\ComponentManager.vb" />
+    <Compile Include="Source\Components\CoreUI.vb" />
     <Compile Include="Source\Components\DataManager.vb" />
     <Compile Include="Source\Components\ErrorHandling.vb" />
     <Compile Include="Source\Forms\About\About.Designer.vb">
@@ -136,8 +141,8 @@
     <Compile Include="Source\Components\Logger\FileLogger.vb" />
     <Compile Include="Source\Components\Logger\Logger.vb" />
     <Compile Include="Source\Components\Logger\LogLevels.vb" />
-    <Compile Include="Source\UI.vb" />
-    <Compile Include="Source\Components\Exporter\WordExporter.vb" />
+    <Compile Include="Source\AppUI.vb" />
+    <Compile Include="Source\Components\WordExporter.vb" />
     <Compile Include="Source\Forms\App\App.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -161,7 +166,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Source\Rules.vb" />
-    <Compile Include="Source\Components\Exporter\XMLExporter.vb" />
+    <Compile Include="Source\Components\XMLProcessor.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Source\Forms\About\About.resx">

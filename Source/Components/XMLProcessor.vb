@@ -1,7 +1,7 @@
 ﻿''' <summary>
 ''' Export/import data from XML files
 ''' </summary>
-Public Class XMLExporter
+Public Class XMLProcessor
   ''' <summary>
   ''' Path to XML file
   ''' </summary>
@@ -44,19 +44,19 @@ Public Class XMLExporter
   ''' <param name="data">Data</param>
   Public Sub SaveData(ByVal name As String, ByVal datte As String, ByRef data As Dictionary(Of String, String))
     If name = String.Empty Then
-      UI.Warning("Név hiányzik", "Mentés")
+      AppUI.Warning("Név hiányzik", "Mentés")
       Exit Sub
     End If
 
     If datte = String.Empty Then
-      UI.Warning("Dátum hiányzik", "Mentés")
+      AppUI.Warning("Dátum hiányzik", "Mentés")
       Exit Sub
     End If
 
     If CheckPatient(name, datte) Then
-      If UI.Question("Már van rekord ezzel a névvel és dátummal, felülírjuk?", "Mentés") = DialogResult.Yes Then
+      If AppUI.Question("Már van rekord ezzel a névvel és dátummal, felülírjuk?", "Mentés") = DialogResult.Yes Then
         If Not DeletePatient(name, datte) Then
-          UI.Warning("Mentés nem sikerült", "Mentés")
+          AppUI.Warning("Mentés nem sikerült", "Mentés")
           Exit Sub
         End If
       Else

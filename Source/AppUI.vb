@@ -1,7 +1,8 @@
 ﻿''' <summary>
-''' UI worker class
+''' UI handling
 ''' </summary>
-Public Class UI
+Public Class AppUI
+  Inherits CoreUI
   ''' <summary>
   ''' Resets screen
   ''' </summary>

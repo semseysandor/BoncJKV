@@ -8,7 +8,7 @@ Public Class ErrorHandling
 	''' <param name="ex">Exception</param>
 	Public Shared Sub General(ByRef ex As Exception)
 		Try
-			UI.ErrorBox(ex.Message, App.AppName)
+			AppUI.ErrorBox(ex.Message, App.AppName)
 		Catch exUI As Exception
 			MessageBox.Show(exUI.Message, "UI", MessageBoxButtons.OK, MessageBoxIcon.Error)
 			Console.WriteLine("UI not working")

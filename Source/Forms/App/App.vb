@@ -25,7 +25,7 @@ Public Class App
     Try
       ComponentManager.Main = Me
       ComponentManager.Logger = New FileLogger(LogFilePath)
-      ComponentManager.UI = New UI
+      ComponentManager.UI = New AppUI
 
       ComponentManager.UI.ResetScreen()
     Catch ex As Exception
@@ -38,7 +38,7 @@ Public Class App
   Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles menu_save.Click, toolstrip_save.Click
     Try
       Dim datamng = New DataManager
-      Dim xmlexp = New XMLExporter(SaveFilePath)
+      Dim xmlexp = New XMLProcessor(SaveFilePath)
 
       datamng.CollectData(dataInput.Controls)
       xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
@@ -57,7 +57,7 @@ Public Class App
       ComponentManager.UI.SetNameDate(name, datte)
 
       Dim datamng = New DataManager
-      Dim xmlexporter = New XMLExporter(SaveFilePath)
+      Dim xmlexporter = New XMLProcessor(SaveFilePath)
       datamng.LoadData(xmlexporter.LoadData(name, datte), dataInput.Controls)
     Catch ex As Exception
       ErrorHandling.General(ex)
@@ -126,7 +126,7 @@ Public Class App
   ''' </summary>
   ''' <param name="fieldname">Missing field name</param>
   Private Sub FieldMissing(ByVal fieldname As String) Handles Transformer.FieldMissing
-    UI.Warning("Hiányzó adat: " + vbNewLine + vbNewLine + fieldname, AppName)
+    AppUI.Warning("Hiányzó adat: " + vbNewLine + vbNewLine + fieldname, AppName)
   End Sub
   ''' <summary>
   ''' Change form background
