@@ -2,7 +2,7 @@
 ''' Transform UI data to exportable format
 ''' Applies business rules to data
 ''' </summary>
-Public Class WordTransformer
+Public Class Rules
   ''' <summary>
   ''' Content ready to export
   ''' </summary>

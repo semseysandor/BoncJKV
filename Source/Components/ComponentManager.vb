@@ -12,7 +12,7 @@ Public Class ComponentManager
 	''' Main App
 	''' </summary>
 	''' <returns></returns>
-	Public Shared Property Main As Main
+	Public Shared Property Main As App
 	''' <summary>
 	''' UI worker
 	''' </summary>

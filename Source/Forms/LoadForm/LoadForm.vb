@@ -21,7 +21,7 @@ Public Class LoadForm
   Private Sub LoadData(sender As Object, e As EventArgs) Handles LoadButton.Click
     Try
       If Not IsNothing(saved.SelectedItem) Then
-        Main.LoadDataUI(saved.SelectedItem.ToString.Substring(11), saved.SelectedItem.ToString.Substring(0, 10))
+        App.LoadDataUI(saved.SelectedItem.ToString.Substring(11), saved.SelectedItem.ToString.Substring(0, 10))
       End If
       Close()
     Catch ex As Exception

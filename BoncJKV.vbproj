@@ -117,32 +117,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Project files\ApplicationEvents.vb" />
-    <Compile Include="Source\ComponentManager.vb" />
-    <Compile Include="Source\DataManager.vb" />
-    <Compile Include="Source\ErrorHandling.vb" />
-    <Compile Include="Source\Forms\About.Designer.vb">
+    <Compile Include="Source\Components\ComponentManager.vb" />
+    <Compile Include="Source\Components\DataManager.vb" />
+    <Compile Include="Source\Components\ErrorHandling.vb" />
+    <Compile Include="Source\Forms\About\About.Designer.vb">
       <DependentUpon>About.vb</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\About.vb">
+    <Compile Include="Source\Forms\About\About.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\LoadForm.Designer.vb">
+    <Compile Include="Source\Forms\LoadForm\LoadForm.Designer.vb">
       <DependentUpon>LoadForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\LoadForm.vb">
+    <Compile Include="Source\Forms\LoadForm\LoadForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Logger\ILogger.vb" />
-    <Compile Include="Source\Logger\FileLogger.vb" />
-    <Compile Include="Source\Logger\Logger.vb" />
-    <Compile Include="Source\Logger\LogLevels.vb" />
+    <Compile Include="Source\Components\Logger\ILogger.vb" />
+    <Compile Include="Source\Components\Logger\FileLogger.vb" />
+    <Compile Include="Source\Components\Logger\Logger.vb" />
+    <Compile Include="Source\Components\Logger\LogLevels.vb" />
     <Compile Include="Source\UI.vb" />
-    <Compile Include="Source\WordExporter.vb" />
-    <Compile Include="Source\Forms\Main.vb">
+    <Compile Include="Source\Components\Exporter\WordExporter.vb" />
+    <Compile Include="Source\Forms\App\App.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\Main.Designer.vb">
-      <DependentUpon>Main.vb</DependentUpon>
+    <Compile Include="Source\Forms\App\App.Designer.vb">
+      <DependentUpon>App.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -160,18 +160,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Source\WordTransformer.vb" />
-    <Compile Include="Source\XMLExporter.vb" />
+    <Compile Include="Source\Rules.vb" />
+    <Compile Include="Source\Components\Exporter\XMLExporter.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Source\Forms\About.resx">
+    <EmbeddedResource Include="Source\Forms\About\About.resx">
       <DependentUpon>About.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\LoadForm.resx">
+    <EmbeddedResource Include="Source\Forms\LoadForm\LoadForm.resx">
       <DependentUpon>LoadForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\Main.resx">
-      <DependentUpon>Main.vb</DependentUpon>
+    <EmbeddedResource Include="Source\Forms\App\App.resx">
+      <DependentUpon>App.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

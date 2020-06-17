@@ -2,7 +2,7 @@
 ''' <summary>
 ''' Main UI form
 ''' </summary>
-Public Class Main
+Public Class App
   ''' <summary>
   ''' Application Name
   ''' </summary>
@@ -10,7 +10,7 @@ Public Class Main
   ''' <summary>
   ''' Transformer object
   ''' </summary>
-  Private WithEvents Transformer As WordTransformer
+  Private WithEvents Transformer As Rules
   ''' <summary>
   ''' Application Path
   ''' </summary>
@@ -69,7 +69,7 @@ Public Class Main
   Private Sub ExportWord(sender As Object, e As EventArgs) Handles menu_export.Click, toolstrip_export.Click
     Try
       Dim datamng = New DataManager
-      Transformer = New WordTransformer(True)
+      Transformer = New Rules(True)
       Dim exporter = New WordExporter()
 
       datamng.CollectData(dataInput.Controls)

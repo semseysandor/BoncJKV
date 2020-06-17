@@ -6,7 +6,7 @@ Public Class UI
   ''' Resets screen
   ''' </summary>
   Public Sub ResetScreen()
-    ResetControls(Main.dataInput.Controls)
+    ResetControls(App.dataInput.Controls)
 
     ComponentManager.Main.dataInput.SelectedIndex = 0
 
