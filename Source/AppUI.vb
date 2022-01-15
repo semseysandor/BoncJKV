@@ -63,10 +63,6 @@ Public Class AppUI
   ''' </summary>
   ''' <param name="ready">Is UI ready</param>
   Public Sub SetUIState(ready As Boolean)
-    For Each ctrl As Control In ComponentManager.Main.Controls
-      EnableControls(ctrl, ready)
-    Next
-
     If ready Then
       ComponentManager.Main.Cursor = Cursors.Default
     Else
