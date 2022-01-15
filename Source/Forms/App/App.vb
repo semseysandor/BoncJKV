@@ -51,11 +51,13 @@ Public Class App
   ''' </summary>
   Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles menu_save.Click, toolstrip_save.Click
     Try
+      ComponentManager.UI.SetUIState(False)
       Dim datamng = New DataManager
       Dim xmlexp = New XMLProcessor(SaveFilePath)
 
       datamng.CollectData(dataInput.Controls)
       xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
+      ComponentManager.UI.SetUIState(True)
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
@@ -68,12 +70,14 @@ Public Class App
   ''' <param name="datte">Date of inspection</param>
   Friend Sub LoadDataUI(ByVal name As String, ByVal datte As String)
     Try
+      ComponentManager.UI.SetUIState(False)
       ComponentManager.UI.ResetScreen()
       ComponentManager.UI.SetNameDate(name, datte)
 
       Dim datamng = New DataManager
       Dim xmlexporter = New XMLProcessor(SaveFilePath)
       datamng.LoadData(xmlexporter.LoadData(name, datte), dataInput.Controls)
+      ComponentManager.UI.SetUIState(True)
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
@@ -88,6 +92,7 @@ Public Class App
       Transformer = New Rules(True)
       Dim exporter = New WordExporter()
 
+      ComponentManager.UI.SetUIState(False)
       datamng.CollectData(dataInput.Controls)
 
       If Not Transformer.ApplyRules(datamng.GetData) Then
@@ -98,6 +103,7 @@ Public Class App
       exporter.LoadData(Transformer.GetContent)
       IO.Directory.CreateDirectory(Path + "jkv")
       exporter.SaveAs(Path + "jkv" + IO.Path.DirectorySeparatorChar + nev.Text + "_" + datum.Text + "_bjk.docx")
+      ComponentManager.UI.SetUIState(True)
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
