@@ -57,4 +57,20 @@ Public Class AppUI
     ComponentManager.Main.nev.Text = name
     ComponentManager.Main.datum.Text = datte
   End Sub
+
+  ''' <summary>
+  ''' Set UI state (busy or ready)
+  ''' </summary>
+  ''' <param name="ready">Is UI ready</param>
+  Public Sub SetUIState(ready As Boolean)
+    For Each ctrl As Control In ComponentManager.Main.Controls
+      EnableControls(ctrl, ready)
+    Next
+
+    If ready Then
+      ComponentManager.Main.Cursor = Cursors.Default
+    Else
+      ComponentManager.Main.Cursor = Cursors.WaitCursor
+    End If
+  End Sub
 End Class
