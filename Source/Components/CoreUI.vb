@@ -28,6 +28,18 @@ Public Class CoreUI
   End Sub
 
   ''' <summary>
+  ''' Recursively enable/disable a control and all its children
+  ''' </summary>
+  ''' <param name="ctrl">Control</param>
+  ''' <param name="enabled">True to enable, false to disable controls</param>
+  Protected Sub EnableControls(ctrl As Control, Optional enabled As Boolean = True)
+    ctrl.Enabled = enabled
+    For Each subctrl As Control In ctrl.Controls
+      EnableControls(subctrl, enabled)
+    Next
+  End Sub
+
+  ''' <summary>
   ''' Enables associated controls
   ''' </summary>
   ''' <param name="mainCtrl">Main control</param>
