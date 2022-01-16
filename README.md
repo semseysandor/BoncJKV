@@ -10,4 +10,4 @@ It is also possible to save and load records. Previous examinations are stored i
 
 The user interface's language is Hungarian.
 
-[screenshot](./Resources/screenshot.png)
+![screenshot](./Resources/screenshot.png)
