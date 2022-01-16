@@ -104,6 +104,7 @@ Public Class App
       IO.Directory.CreateDirectory(Path + "jkv")
       exporter.SaveAs(Path + "jkv" + IO.Path.DirectorySeparatorChar + nev.Text + "_" + datum.Text + "_bjk.docx")
       ComponentManager.UI.SetUIState(True)
+      MsgBox("Exportálás befejezve")
     Catch ex As Exception
       ErrorHandling.General(ex)
     End Try
