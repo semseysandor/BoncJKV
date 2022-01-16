@@ -59,6 +59,7 @@ Public Class App
       xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
       ComponentManager.UI.SetUIState(True)
     Catch ex As Exception
+      ComponentManager.UI.SetUIState(True)
       ErrorHandling.General(ex)
     End Try
   End Sub
@@ -79,6 +80,7 @@ Public Class App
       datamng.LoadData(xmlexporter.LoadData(name, datte), dataInput.Controls)
       ComponentManager.UI.SetUIState(True)
     Catch ex As Exception
+      ComponentManager.UI.SetUIState(True)
       ErrorHandling.General(ex)
     End Try
   End Sub
@@ -106,6 +108,7 @@ Public Class App
       ComponentManager.UI.SetUIState(True)
       MsgBox("Exportálás befejezve")
     Catch ex As Exception
+      ComponentManager.UI.SetUIState(True)
       ErrorHandling.General(ex)
     End Try
   End Sub
