@@ -203,6 +203,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="Project files\App.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="ACTIVEXLib">
