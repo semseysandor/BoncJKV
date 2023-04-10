@@ -677,6 +677,8 @@ Public Class Rules
             End Select
             Content.Item("inf_uj") += " falában " + data.Item("sziv_inf_uj_meret") + " mm nagyságú "
             Content.Item("inf_uj") += "agyagsárga színű, helyenként vörhenyes szegéllyel bíró, heveny szívizomelhalás figyelhető meg. "
+
+            Content.Add("inf_uj_szovettan", " A szívizomból származó kimetszésben magfestődés nélküli szívizomrostokat azonosítottunk az izomrostok között neutrophil granulocytás infiltrációval és bevérzéssel.")
         End If
         '########################################################################
         key = "sziv_stenosis"
