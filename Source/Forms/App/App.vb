@@ -201,6 +201,7 @@ Public Class App
     inf_regi.CheckedChanged,
     inf_uj.CheckedChanged,
     haemo.CheckedChanged,
+    mubillentyuk.CheckedChanged,
     pneu.CheckedChanged,
     tudo_tumor.CheckedChanged,
     tudo_attet.CheckedChanged,
@@ -253,6 +254,8 @@ Public Class App
             controls = New Collection From {inf_uj_meret, inf_uj_cm, inf_uj_elul, inf_uj_hat, inf_uj_sept, inf_uj_oldal}
         ElseIf sender.Equals(haemo) Then
             controls = New Collection From {haemo_tomeg, haemo_g}
+        ElseIf sender.Equals(mubillentyuk) Then
+            controls = New Collection From {mubillentyuk_aorta, mubillentyuk_mitralis}
         ElseIf sender.Equals(pneu) Then
             controls = New Collection From {pneu_ba, pneu_bf, pneu_ja, pneu_jf, pneu_jk, pneu_mko}
         ElseIf sender.Equals(tudo_tumor) Then

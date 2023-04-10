@@ -159,6 +159,9 @@ Partial Class App
         Me.reset_3 = New System.Windows.Forms.Button()
         Me.next_3 = New System.Windows.Forms.Button()
         Me.GroupBox20 = New System.Windows.Forms.GroupBox()
+        Me.mubillentyuk_mitralis = New System.Windows.Forms.CheckBox()
+        Me.mubillentyuk_aorta = New System.Windows.Forms.CheckBox()
+        Me.mubillentyuk = New System.Windows.Forms.CheckBox()
         Me.CheckBox27 = New System.Windows.Forms.CheckBox()
         Me.haemo_g = New System.Windows.Forms.Label()
         Me.haemo_tomeg = New System.Windows.Forms.TextBox()
@@ -2224,26 +2227,64 @@ Partial Class App
         '
         'GroupBox20
         '
+        Me.GroupBox20.Controls.Add(Me.mubillentyuk_mitralis)
+        Me.GroupBox20.Controls.Add(Me.mubillentyuk_aorta)
+        Me.GroupBox20.Controls.Add(Me.mubillentyuk)
         Me.GroupBox20.Controls.Add(Me.CheckBox27)
-        Me.GroupBox20.Controls.Add(Me.haemo_g)
-        Me.GroupBox20.Controls.Add(Me.haemo_tomeg)
-        Me.GroupBox20.Controls.Add(Me.haemo)
         Me.GroupBox20.Controls.Add(Me.CheckBox12)
         Me.GroupBox20.Controls.Add(Me.CheckBox13)
-        Me.GroupBox20.Location = New System.Drawing.Point(5, 503)
+        Me.GroupBox20.Controls.Add(Me.haemo_g)
+        Me.GroupBox20.Controls.Add(Me.haemo)
+        Me.GroupBox20.Controls.Add(Me.haemo_tomeg)
+        Me.GroupBox20.Location = New System.Drawing.Point(5, 493)
         Me.GroupBox20.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox20.Name = "GroupBox20"
         Me.GroupBox20.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox20.Size = New System.Drawing.Size(520, 96)
+        Me.GroupBox20.Size = New System.Drawing.Size(520, 109)
         Me.GroupBox20.TabIndex = 5
         Me.GroupBox20.TabStop = False
         Me.GroupBox20.Tag = ""
         Me.GroupBox20.Text = "Billentyűk"
         '
+        'mubillentyuk_mitralis
+        '
+        Me.mubillentyuk_mitralis.AutoSize = True
+        Me.mubillentyuk_mitralis.Enabled = False
+        Me.mubillentyuk_mitralis.Location = New System.Drawing.Point(199, 75)
+        Me.mubillentyuk_mitralis.Name = "mubillentyuk_mitralis"
+        Me.mubillentyuk_mitralis.Size = New System.Drawing.Size(71, 20)
+        Me.mubillentyuk_mitralis.TabIndex = 32
+        Me.mubillentyuk_mitralis.Tag = "mubillentyuk_mitralis"
+        Me.mubillentyuk_mitralis.Text = "Mitralis"
+        Me.mubillentyuk_mitralis.UseVisualStyleBackColor = True
+        '
+        'mubillentyuk_aorta
+        '
+        Me.mubillentyuk_aorta.AutoSize = True
+        Me.mubillentyuk_aorta.Enabled = False
+        Me.mubillentyuk_aorta.Location = New System.Drawing.Point(199, 49)
+        Me.mubillentyuk_aorta.Name = "mubillentyuk_aorta"
+        Me.mubillentyuk_aorta.Size = New System.Drawing.Size(61, 20)
+        Me.mubillentyuk_aorta.TabIndex = 31
+        Me.mubillentyuk_aorta.Tag = "mubillentyuk_aorta"
+        Me.mubillentyuk_aorta.Text = "Aorta"
+        Me.mubillentyuk_aorta.UseVisualStyleBackColor = True
+        '
+        'mubillentyuk
+        '
+        Me.mubillentyuk.AutoSize = True
+        Me.mubillentyuk.Location = New System.Drawing.Point(181, 23)
+        Me.mubillentyuk.Name = "mubillentyuk"
+        Me.mubillentyuk.Size = New System.Drawing.Size(103, 20)
+        Me.mubillentyuk.TabIndex = 30
+        Me.mubillentyuk.Tag = "mubillentyuk"
+        Me.mubillentyuk.Text = "Műbillentyűk"
+        Me.mubillentyuk.UseVisualStyleBackColor = True
+        '
         'CheckBox27
         '
         Me.CheckBox27.AutoSize = True
-        Me.CheckBox27.Location = New System.Drawing.Point(236, 53)
+        Me.CheckBox27.Location = New System.Drawing.Point(304, 73)
         Me.CheckBox27.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox27.Name = "CheckBox27"
         Me.CheckBox27.Size = New System.Drawing.Size(66, 20)
@@ -2256,7 +2297,7 @@ Partial Class App
         '
         Me.haemo_g.AutoSize = True
         Me.haemo_g.Enabled = False
-        Me.haemo_g.Location = New System.Drawing.Point(453, 23)
+        Me.haemo_g.Location = New System.Drawing.Point(425, 50)
         Me.haemo_g.Name = "haemo_g"
         Me.haemo_g.Size = New System.Drawing.Size(15, 16)
         Me.haemo_g.TabIndex = 10
@@ -2265,7 +2306,7 @@ Partial Class App
         'haemo_tomeg
         '
         Me.haemo_tomeg.Enabled = False
-        Me.haemo_tomeg.Location = New System.Drawing.Point(395, 20)
+        Me.haemo_tomeg.Location = New System.Drawing.Point(367, 47)
         Me.haemo_tomeg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.haemo_tomeg.Name = "haemo_tomeg"
         Me.haemo_tomeg.Size = New System.Drawing.Size(52, 22)
@@ -2275,7 +2316,7 @@ Partial Class App
         'haemo
         '
         Me.haemo.AutoSize = True
-        Me.haemo.Location = New System.Drawing.Point(237, 22)
+        Me.haemo.Location = New System.Drawing.Point(304, 23)
         Me.haemo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.haemo.Name = "haemo"
         Me.haemo.Size = New System.Drawing.Size(145, 20)
@@ -6522,4 +6563,7 @@ Partial Class App
     Friend WithEvents combkorfogat As CheckBox
     Friend WithEvents combkorfogat_bal_label As Label
     Friend WithEvents combkorfogat_bal As TextBox
+    Friend WithEvents mubillentyuk_mitralis As CheckBox
+    Friend WithEvents mubillentyuk_aorta As CheckBox
+    Friend WithEvents mubillentyuk As CheckBox
 End Class
