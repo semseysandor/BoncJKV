@@ -999,25 +999,33 @@ Public Class Rules
 
             If data.ContainsKey("tudo_embolia_lovag") Then
                 Content.Add("tudo_emb_lovag_1", ", oszlásában vérrögös elzáródás láható")
-                Content.Add("tudo_emb_lovag_2", ", egyebekben")
+                If Not Content.ContainsKey("tudo_egyebek") Then
+                    Content.Add("tudo_egyebek", "egyebekben ")
+                End If
                 AddToDiag("Thromboembolus bifurcationis trunci pulmonalis.")
-            End If
+                End If
 
-            If data.ContainsKey("tudo_embolia_ket") Then
+                If data.ContainsKey("tudo_embolia_ket") Then
                 Content.Add("tudo_emb_ket", ", oszlása után a tüdőverőerek mindkét főágában masszív vérrögös elzáródás látható")
-                If Not Content.ContainsKey("tudo_emb_lovag_2") Then
-                    Content.Add("tudo_emb_lovag_2", ", egyebekben")
+                If Not Content.ContainsKey("tudo_egyebek") Then
+                    Content.Add("tudo_egyebek", "egyebekben ")
                 End If
                 AddToDiag("Thromboembolus ramorum principalum arteriarum pulmonalum.")
             End If
 
             If data.ContainsKey("tudo_embolia_elso") Then
                 If data.ContainsKey("tudo_embolia_b") Then
-                    Content.Add("tudo_emb_elso_b", "bal arteria pulmonalis elsőrendű ágában vérrögös elzáródás látható, egyebekben ")
+                    Content.Add("tudo_emb_elso_b", "bal arteria pulmonalis elsőrendű ágában vérrögös elzáródás látható, a ")
+                    If Not Content.ContainsKey("tudo_egyebek") Then
+                        Content.Add("tudo_egyebek", "egyebekben ")
+                    End If
                     AddToDiag("Thromboembolus rami principalis arteriae pulmonalis sinistri.")
                 End If
                 If data.ContainsKey("tudo_embolia_j") Then
-                    Content.Add("tudo_emb_elso_j", "jobb arteria pulmonalis elsőrendű ágában vérrögös elzáródás látható, egyebekben ")
+                    Content.Add("tudo_emb_elso_j", "jobb arteria pulmonalis elsőrendű ágában vérrögös elzáródás látható, a ")
+                    If Not Content.ContainsKey("tudo_egyebek") Then
+                        Content.Add("tudo_egyebek", "egyebekben ")
+                    End If
                     AddToDiag("Thromboembolus rami principalis arteriae pulmonalis dextri.")
                 End If
             End If
@@ -1029,7 +1037,10 @@ Public Class Rules
                 If data.ContainsKey("tudo_embolia_j") Then
                     AddToDiag("Thromboembolus rami ordinis II-III. arteriae pulmonalis dextri.")
                 End If
-                Content.Add("tudo_emb_tobb", "a másod-, és harmadrendű ágaiban vérrögös elzáródás látható, egyebekben ")
+                Content.Add("tudo_emb_tobb", "bal/jobb arteria pulmonalis másod-, és harmadrendű ágaiban vérrögös elzáródás látható, a ")
+                If Not Content.ContainsKey("tudo_egyebek") Then
+                    Content.Add("tudo_egyebek", "egyebekben ")
+                End If
             End If
         End If
         '########################################################################
