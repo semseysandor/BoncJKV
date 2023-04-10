@@ -439,6 +439,8 @@ Partial Class App
         Me.toolstrip_save = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.toolstrip_export = New System.Windows.Forms.ToolStripButton()
+        Me.benti = New System.Windows.Forms.CheckBox()
+        Me.metaInput = New System.Windows.Forms.Panel()
         Me.dataInput.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -513,6 +515,7 @@ Partial Class App
         Me.GroupBox51.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
+        Me.metaInput.SuspendLayout()
         Me.SuspendLayout()
         '
         'dataInput
@@ -1401,9 +1404,9 @@ Partial Class App
         Me.GroupBox24.Controls.Add(Me.GroupBox25)
         Me.GroupBox24.Controls.Add(Me.agy_attet)
         Me.GroupBox24.Location = New System.Drawing.Point(4, 346)
-        Me.GroupBox24.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox24.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox24.Name = "GroupBox24"
-        Me.GroupBox24.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox24.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox24.Size = New System.Drawing.Size(483, 130)
         Me.GroupBox24.TabIndex = 20
         Me.GroupBox24.TabStop = False
@@ -1417,9 +1420,9 @@ Partial Class App
         Me.GroupBox57.Controls.Add(Me.agy_attet_temp)
         Me.GroupBox57.Controls.Add(Me.agy_attet_occ)
         Me.GroupBox57.Location = New System.Drawing.Point(7, 70)
-        Me.GroupBox57.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox57.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox57.Name = "GroupBox57"
-        Me.GroupBox57.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox57.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox57.Size = New System.Drawing.Size(469, 55)
         Me.GroupBox57.TabIndex = 36
         Me.GroupBox57.TabStop = False
@@ -1430,7 +1433,7 @@ Partial Class App
         Me.agy_attet_front.AutoSize = True
         Me.agy_attet_front.Enabled = False
         Me.agy_attet_front.Location = New System.Drawing.Point(7, 23)
-        Me.agy_attet_front.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_attet_front.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_attet_front.Name = "agy_attet_front"
         Me.agy_attet_front.Size = New System.Drawing.Size(59, 20)
         Me.agy_attet_front.TabIndex = 19
@@ -1443,7 +1446,7 @@ Partial Class App
         Me.agy_attet_pariet.AutoSize = True
         Me.agy_attet_pariet.Enabled = False
         Me.agy_attet_pariet.Location = New System.Drawing.Point(76, 22)
-        Me.agy_attet_pariet.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_attet_pariet.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_attet_pariet.Name = "agy_attet_pariet"
         Me.agy_attet_pariet.Size = New System.Drawing.Size(85, 20)
         Me.agy_attet_pariet.TabIndex = 20
@@ -1456,7 +1459,7 @@ Partial Class App
         Me.agy_attet_kisagy.AutoSize = True
         Me.agy_attet_kisagy.Enabled = False
         Me.agy_attet_kisagy.Location = New System.Drawing.Point(380, 22)
-        Me.agy_attet_kisagy.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_attet_kisagy.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_attet_kisagy.Name = "agy_attet_kisagy"
         Me.agy_attet_kisagy.Size = New System.Drawing.Size(70, 20)
         Me.agy_attet_kisagy.TabIndex = 22
@@ -1469,7 +1472,7 @@ Partial Class App
         Me.agy_attet_temp.AutoSize = True
         Me.agy_attet_temp.Enabled = False
         Me.agy_attet_temp.Location = New System.Drawing.Point(171, 22)
-        Me.agy_attet_temp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_attet_temp.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_attet_temp.Name = "agy_attet_temp"
         Me.agy_attet_temp.Size = New System.Drawing.Size(98, 20)
         Me.agy_attet_temp.TabIndex = 21
@@ -1482,7 +1485,7 @@ Partial Class App
         Me.agy_attet_occ.AutoSize = True
         Me.agy_attet_occ.Enabled = False
         Me.agy_attet_occ.Location = New System.Drawing.Point(277, 22)
-        Me.agy_attet_occ.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_attet_occ.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_attet_occ.Name = "agy_attet_occ"
         Me.agy_attet_occ.Size = New System.Drawing.Size(91, 20)
         Me.agy_attet_occ.TabIndex = 21
@@ -1495,9 +1498,9 @@ Partial Class App
         Me.GroupBox56.Controls.Add(Me.agy_attet_meret)
         Me.GroupBox56.Controls.Add(Me.agy_attet_cm)
         Me.GroupBox56.Location = New System.Drawing.Point(95, 9)
-        Me.GroupBox56.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox56.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox56.Name = "GroupBox56"
-        Me.GroupBox56.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox56.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox56.Size = New System.Drawing.Size(101, 55)
         Me.GroupBox56.TabIndex = 35
         Me.GroupBox56.TabStop = False
@@ -1507,7 +1510,7 @@ Partial Class App
         '
         Me.agy_attet_meret.Enabled = False
         Me.agy_attet_meret.Location = New System.Drawing.Point(5, 20)
-        Me.agy_attet_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_attet_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_attet_meret.Name = "agy_attet_meret"
         Me.agy_attet_meret.Size = New System.Drawing.Size(57, 22)
         Me.agy_attet_meret.TabIndex = 17
@@ -1609,7 +1612,7 @@ Partial Class App
         '
         Me.agy_attet.AutoSize = True
         Me.agy_attet.Location = New System.Drawing.Point(23, 30)
-        Me.agy_attet.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_attet.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_attet.Name = "agy_attet"
         Me.agy_attet.Size = New System.Drawing.Size(55, 20)
         Me.agy_attet.TabIndex = 16
@@ -1624,9 +1627,9 @@ Partial Class App
         Me.GroupBox21.Controls.Add(Me.GroupBox23)
         Me.GroupBox21.Controls.Add(Me.agy_verzes)
         Me.GroupBox21.Location = New System.Drawing.Point(7, 209)
-        Me.GroupBox21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox21.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox21.Name = "GroupBox21"
-        Me.GroupBox21.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox21.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox21.Size = New System.Drawing.Size(481, 129)
         Me.GroupBox21.TabIndex = 19
         Me.GroupBox21.TabStop = False
@@ -1677,9 +1680,9 @@ Partial Class App
         Me.GroupBox55.Controls.Add(Me.agy_verzes_meret)
         Me.GroupBox55.Controls.Add(Me.agy_verzes_cm)
         Me.GroupBox55.Location = New System.Drawing.Point(215, 9)
-        Me.GroupBox55.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox55.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox55.Name = "GroupBox55"
-        Me.GroupBox55.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox55.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox55.Size = New System.Drawing.Size(109, 55)
         Me.GroupBox55.TabIndex = 18
         Me.GroupBox55.TabStop = False
@@ -1689,7 +1692,7 @@ Partial Class App
         '
         Me.agy_verzes_meret.Enabled = False
         Me.agy_verzes_meret.Location = New System.Drawing.Point(8, 20)
-        Me.agy_verzes_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_verzes_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_verzes_meret.Name = "agy_verzes_meret"
         Me.agy_verzes_meret.Size = New System.Drawing.Size(57, 22)
         Me.agy_verzes_meret.TabIndex = 17
@@ -1796,7 +1799,7 @@ Partial Class App
         '
         Me.agy_verzes.AutoSize = True
         Me.agy_verzes.Location = New System.Drawing.Point(21, 27)
-        Me.agy_verzes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_verzes.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_verzes.Name = "agy_verzes"
         Me.agy_verzes.Size = New System.Drawing.Size(71, 20)
         Me.agy_verzes.TabIndex = 16
@@ -1811,9 +1814,9 @@ Partial Class App
         Me.GroupBox10.Controls.Add(Me.GroupBox6)
         Me.GroupBox10.Controls.Add(Me.agy_lagyulas)
         Me.GroupBox10.Location = New System.Drawing.Point(5, 66)
-        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox10.Size = New System.Drawing.Size(481, 135)
         Me.GroupBox10.TabIndex = 18
         Me.GroupBox10.TabStop = False
@@ -1824,9 +1827,9 @@ Partial Class App
         Me.GroupBox53.Controls.Add(Me.agy_lagyulas_meret)
         Me.GroupBox53.Controls.Add(Me.agy_lagyulas_cm)
         Me.GroupBox53.Location = New System.Drawing.Point(215, 12)
-        Me.GroupBox53.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox53.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox53.Name = "GroupBox53"
-        Me.GroupBox53.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox53.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox53.Size = New System.Drawing.Size(115, 55)
         Me.GroupBox53.TabIndex = 17
         Me.GroupBox53.TabStop = False
@@ -1836,7 +1839,7 @@ Partial Class App
         '
         Me.agy_lagyulas_meret.Enabled = False
         Me.agy_lagyulas_meret.Location = New System.Drawing.Point(9, 21)
-        Me.agy_lagyulas_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_lagyulas_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_lagyulas_meret.Name = "agy_lagyulas_meret"
         Me.agy_lagyulas_meret.Size = New System.Drawing.Size(57, 22)
         Me.agy_lagyulas_meret.TabIndex = 17
@@ -1985,7 +1988,7 @@ Partial Class App
         '
         Me.agy_lagyulas.AutoSize = True
         Me.agy_lagyulas.Location = New System.Drawing.Point(21, 36)
-        Me.agy_lagyulas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.agy_lagyulas.Margin = New System.Windows.Forms.Padding(4)
         Me.agy_lagyulas.Name = "agy_lagyulas"
         Me.agy_lagyulas.Size = New System.Drawing.Size(84, 20)
         Me.agy_lagyulas.TabIndex = 16
@@ -2228,9 +2231,9 @@ Partial Class App
         Me.GroupBox30.Controls.Add(Me.inf_uj_hat)
         Me.GroupBox30.Controls.Add(Me.inf_uj_sept)
         Me.GroupBox30.Location = New System.Drawing.Point(171, 76)
-        Me.GroupBox30.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox30.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox30.Name = "GroupBox30"
-        Me.GroupBox30.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox30.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox30.Size = New System.Drawing.Size(336, 55)
         Me.GroupBox30.TabIndex = 33
         Me.GroupBox30.TabStop = False
@@ -2241,7 +2244,7 @@ Partial Class App
         Me.inf_uj_elul.AutoSize = True
         Me.inf_uj_elul.Enabled = False
         Me.inf_uj_elul.Location = New System.Drawing.Point(8, 23)
-        Me.inf_uj_elul.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_uj_elul.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_uj_elul.Name = "inf_uj_elul"
         Me.inf_uj_elul.Size = New System.Drawing.Size(65, 20)
         Me.inf_uj_elul.TabIndex = 26
@@ -2255,7 +2258,7 @@ Partial Class App
         Me.inf_uj_oldal.AutoSize = True
         Me.inf_uj_oldal.Enabled = False
         Me.inf_uj_oldal.Location = New System.Drawing.Point(245, 23)
-        Me.inf_uj_oldal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_uj_oldal.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_uj_oldal.Name = "inf_uj_oldal"
         Me.inf_uj_oldal.Size = New System.Drawing.Size(75, 20)
         Me.inf_uj_oldal.TabIndex = 29
@@ -2269,7 +2272,7 @@ Partial Class App
         Me.inf_uj_hat.AutoSize = True
         Me.inf_uj_hat.Enabled = False
         Me.inf_uj_hat.Location = New System.Drawing.Point(83, 23)
-        Me.inf_uj_hat.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_uj_hat.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_uj_hat.Name = "inf_uj_hat"
         Me.inf_uj_hat.Size = New System.Drawing.Size(64, 20)
         Me.inf_uj_hat.TabIndex = 28
@@ -2283,7 +2286,7 @@ Partial Class App
         Me.inf_uj_sept.AutoSize = True
         Me.inf_uj_sept.Enabled = False
         Me.inf_uj_sept.Location = New System.Drawing.Point(161, 23)
-        Me.inf_uj_sept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_uj_sept.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_uj_sept.Name = "inf_uj_sept"
         Me.inf_uj_sept.Size = New System.Drawing.Size(77, 20)
         Me.inf_uj_sept.TabIndex = 27
@@ -2296,7 +2299,7 @@ Partial Class App
         '
         Me.inf_uj.AutoSize = True
         Me.inf_uj.Location = New System.Drawing.Point(9, 100)
-        Me.inf_uj.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_uj.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_uj.Name = "inf_uj"
         Me.inf_uj.Size = New System.Drawing.Size(58, 20)
         Me.inf_uj.TabIndex = 32
@@ -2321,9 +2324,9 @@ Partial Class App
         Me.GroupBox29.Controls.Add(Me.inf_regi_hat)
         Me.GroupBox29.Controls.Add(Me.inf_regi_sept)
         Me.GroupBox29.Location = New System.Drawing.Point(171, 14)
-        Me.GroupBox29.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox29.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox29.Name = "GroupBox29"
-        Me.GroupBox29.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox29.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox29.Size = New System.Drawing.Size(336, 55)
         Me.GroupBox29.TabIndex = 30
         Me.GroupBox29.TabStop = False
@@ -2334,7 +2337,7 @@ Partial Class App
         Me.inf_regi_elul.AutoSize = True
         Me.inf_regi_elul.Enabled = False
         Me.inf_regi_elul.Location = New System.Drawing.Point(8, 23)
-        Me.inf_regi_elul.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_regi_elul.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_regi_elul.Name = "inf_regi_elul"
         Me.inf_regi_elul.Size = New System.Drawing.Size(65, 20)
         Me.inf_regi_elul.TabIndex = 26
@@ -2348,7 +2351,7 @@ Partial Class App
         Me.inf_regi_oldal.AutoSize = True
         Me.inf_regi_oldal.Enabled = False
         Me.inf_regi_oldal.Location = New System.Drawing.Point(245, 23)
-        Me.inf_regi_oldal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_regi_oldal.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_regi_oldal.Name = "inf_regi_oldal"
         Me.inf_regi_oldal.Size = New System.Drawing.Size(75, 20)
         Me.inf_regi_oldal.TabIndex = 29
@@ -2362,7 +2365,7 @@ Partial Class App
         Me.inf_regi_hat.AutoSize = True
         Me.inf_regi_hat.Enabled = False
         Me.inf_regi_hat.Location = New System.Drawing.Point(83, 23)
-        Me.inf_regi_hat.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_regi_hat.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_regi_hat.Name = "inf_regi_hat"
         Me.inf_regi_hat.Size = New System.Drawing.Size(64, 20)
         Me.inf_regi_hat.TabIndex = 28
@@ -2376,7 +2379,7 @@ Partial Class App
         Me.inf_regi_sept.AutoSize = True
         Me.inf_regi_sept.Enabled = False
         Me.inf_regi_sept.Location = New System.Drawing.Point(161, 23)
-        Me.inf_regi_sept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_regi_sept.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_regi_sept.Name = "inf_regi_sept"
         Me.inf_regi_sept.Size = New System.Drawing.Size(77, 20)
         Me.inf_regi_sept.TabIndex = 27
@@ -2389,7 +2392,7 @@ Partial Class App
         '
         Me.inf_regi.AutoSize = True
         Me.inf_regi.Location = New System.Drawing.Point(9, 37)
-        Me.inf_regi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.inf_regi.Margin = New System.Windows.Forms.Padding(4)
         Me.inf_regi.Name = "inf_regi"
         Me.inf_regi.Size = New System.Drawing.Size(58, 20)
         Me.inf_regi.TabIndex = 25
@@ -2547,7 +2550,7 @@ Partial Class App
         '
         Me.koszoru_thromb.AutoSize = True
         Me.koszoru_thromb.Location = New System.Drawing.Point(12, 22)
-        Me.koszoru_thromb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_thromb.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_thromb.Name = "koszoru_thromb"
         Me.koszoru_thromb.Size = New System.Drawing.Size(90, 20)
         Me.koszoru_thromb.TabIndex = 19
@@ -2560,7 +2563,7 @@ Partial Class App
         Me.koszoru_thromb_cx.AutoSize = True
         Me.koszoru_thromb_cx.Enabled = False
         Me.koszoru_thromb_cx.Location = New System.Drawing.Point(291, 21)
-        Me.koszoru_thromb_cx.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_thromb_cx.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_thromb_cx.Name = "koszoru_thromb_cx"
         Me.koszoru_thromb_cx.Size = New System.Drawing.Size(45, 20)
         Me.koszoru_thromb_cx.TabIndex = 18
@@ -2574,7 +2577,7 @@ Partial Class App
         Me.koszoru_thromb_lad.AutoSize = True
         Me.koszoru_thromb_lad.Enabled = False
         Me.koszoru_thromb_lad.Location = New System.Drawing.Point(209, 21)
-        Me.koszoru_thromb_lad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_thromb_lad.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_thromb_lad.Name = "koszoru_thromb_lad"
         Me.koszoru_thromb_lad.Size = New System.Drawing.Size(54, 20)
         Me.koszoru_thromb_lad.TabIndex = 17
@@ -2588,7 +2591,7 @@ Partial Class App
         Me.koszoru_thromb_jobb.AutoSize = True
         Me.koszoru_thromb_jobb.Enabled = False
         Me.koszoru_thromb_jobb.Location = New System.Drawing.Point(117, 21)
-        Me.koszoru_thromb_jobb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_thromb_jobb.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_thromb_jobb.Name = "koszoru_thromb_jobb"
         Me.koszoru_thromb_jobb.Size = New System.Drawing.Size(80, 20)
         Me.koszoru_thromb_jobb.TabIndex = 16
@@ -2616,7 +2619,7 @@ Partial Class App
         '
         Me.koszoru_stent.AutoSize = True
         Me.koszoru_stent.Location = New System.Drawing.Point(12, 21)
-        Me.koszoru_stent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_stent.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_stent.Name = "koszoru_stent"
         Me.koszoru_stent.Size = New System.Drawing.Size(59, 20)
         Me.koszoru_stent.TabIndex = 13
@@ -2667,7 +2670,7 @@ Partial Class App
         '
         Me.RadioButton35.AutoSize = True
         Me.RadioButton35.Location = New System.Drawing.Point(9, 58)
-        Me.RadioButton35.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton35.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton35.Name = "RadioButton35"
         Me.RadioButton35.Size = New System.Drawing.Size(69, 20)
         Me.RadioButton35.TabIndex = 1
@@ -2680,7 +2683,7 @@ Partial Class App
         '
         Me.RadioButton28.AutoSize = True
         Me.RadioButton28.Location = New System.Drawing.Point(9, 30)
-        Me.RadioButton28.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton28.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton28.Name = "RadioButton28"
         Me.RadioButton28.Size = New System.Drawing.Size(76, 20)
         Me.RadioButton28.TabIndex = 0
@@ -2711,7 +2714,7 @@ Partial Class App
         Me.koszoru_szuk_cx.AutoSize = True
         Me.koszoru_szuk_cx.Enabled = False
         Me.koszoru_szuk_cx.Location = New System.Drawing.Point(291, 22)
-        Me.koszoru_szuk_cx.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_szuk_cx.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_szuk_cx.Name = "koszoru_szuk_cx"
         Me.koszoru_szuk_cx.Size = New System.Drawing.Size(45, 20)
         Me.koszoru_szuk_cx.TabIndex = 15
@@ -2725,7 +2728,7 @@ Partial Class App
         Me.koszoru_szuk_lad.AutoSize = True
         Me.koszoru_szuk_lad.Enabled = False
         Me.koszoru_szuk_lad.Location = New System.Drawing.Point(209, 22)
-        Me.koszoru_szuk_lad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_szuk_lad.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_szuk_lad.Name = "koszoru_szuk_lad"
         Me.koszoru_szuk_lad.Size = New System.Drawing.Size(54, 20)
         Me.koszoru_szuk_lad.TabIndex = 14
@@ -2739,7 +2742,7 @@ Partial Class App
         Me.koszoru_szuk_jobb.AutoSize = True
         Me.koszoru_szuk_jobb.Enabled = False
         Me.koszoru_szuk_jobb.Location = New System.Drawing.Point(117, 22)
-        Me.koszoru_szuk_jobb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.koszoru_szuk_jobb.Margin = New System.Windows.Forms.Padding(4)
         Me.koszoru_szuk_jobb.Name = "koszoru_szuk_jobb"
         Me.koszoru_szuk_jobb.Size = New System.Drawing.Size(80, 20)
         Me.koszoru_szuk_jobb.TabIndex = 13
@@ -2793,7 +2796,7 @@ Partial Class App
         '
         Me.CheckBox24.AutoSize = True
         Me.CheckBox24.Location = New System.Drawing.Point(127, 85)
-        Me.CheckBox24.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox24.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox24.Name = "CheckBox24"
         Me.CheckBox24.Size = New System.Drawing.Size(59, 20)
         Me.CheckBox24.TabIndex = 31
@@ -2805,7 +2808,7 @@ Partial Class App
         '
         Me.CheckBox23.AutoSize = True
         Me.CheckBox23.Location = New System.Drawing.Point(9, 85)
-        Me.CheckBox23.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox23.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox23.Name = "CheckBox23"
         Me.CheckBox23.Size = New System.Drawing.Size(85, 20)
         Me.CheckBox23.TabIndex = 30
@@ -2817,7 +2820,7 @@ Partial Class App
         '
         Me.CheckBox22.AutoSize = True
         Me.CheckBox22.Location = New System.Drawing.Point(217, 49)
-        Me.CheckBox22.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox22.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox22.Name = "CheckBox22"
         Me.CheckBox22.Size = New System.Drawing.Size(89, 20)
         Me.CheckBox22.TabIndex = 14
@@ -2942,9 +2945,9 @@ Partial Class App
         Me.GroupBox37.Controls.Add(Me.CheckBox32)
         Me.GroupBox37.Controls.Add(Me.CheckBox33)
         Me.GroupBox37.Location = New System.Drawing.Point(5, 5)
-        Me.GroupBox37.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox37.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox37.Name = "GroupBox37"
-        Me.GroupBox37.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox37.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox37.Size = New System.Drawing.Size(565, 55)
         Me.GroupBox37.TabIndex = 31
         Me.GroupBox37.TabStop = False
@@ -2954,7 +2957,7 @@ Partial Class App
         '
         Me.CheckBox28.AutoSize = True
         Me.CheckBox28.Location = New System.Drawing.Point(8, 23)
-        Me.CheckBox28.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox28.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox28.Name = "CheckBox28"
         Me.CheckBox28.Size = New System.Drawing.Size(99, 20)
         Me.CheckBox28.TabIndex = 0
@@ -2966,7 +2969,7 @@ Partial Class App
         '
         Me.CheckBox63.AutoSize = True
         Me.CheckBox63.Location = New System.Drawing.Point(437, 23)
-        Me.CheckBox63.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox63.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox63.Name = "CheckBox63"
         Me.CheckBox63.Size = New System.Drawing.Size(96, 20)
         Me.CheckBox63.TabIndex = 5
@@ -2978,7 +2981,7 @@ Partial Class App
         '
         Me.CheckBox32.AutoSize = True
         Me.CheckBox32.Location = New System.Drawing.Point(132, 23)
-        Me.CheckBox32.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox32.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox32.Name = "CheckBox32"
         Me.CheckBox32.Size = New System.Drawing.Size(105, 20)
         Me.CheckBox32.TabIndex = 1
@@ -2990,7 +2993,7 @@ Partial Class App
         '
         Me.CheckBox33.AutoSize = True
         Me.CheckBox33.Location = New System.Drawing.Point(251, 23)
-        Me.CheckBox33.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox33.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox33.Name = "CheckBox33"
         Me.CheckBox33.Size = New System.Drawing.Size(82, 20)
         Me.CheckBox33.TabIndex = 2
@@ -3017,9 +3020,9 @@ Partial Class App
         Me.GroupBox36.Controls.Add(Me.hydro_menny)
         Me.GroupBox36.Controls.Add(Me.hydro)
         Me.GroupBox36.Location = New System.Drawing.Point(4, 428)
-        Me.GroupBox36.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox36.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox36.Name = "GroupBox36"
-        Me.GroupBox36.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox36.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox36.Size = New System.Drawing.Size(381, 89)
         Me.GroupBox36.TabIndex = 9
         Me.GroupBox36.TabStop = False
@@ -3031,7 +3034,7 @@ Partial Class App
         Me.hydro_mko.AutoSize = True
         Me.hydro_mko.Enabled = False
         Me.hydro_mko.Location = New System.Drawing.Point(251, 52)
-        Me.hydro_mko.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.hydro_mko.Margin = New System.Windows.Forms.Padding(4)
         Me.hydro_mko.Name = "hydro_mko"
         Me.hydro_mko.Size = New System.Drawing.Size(111, 20)
         Me.hydro_mko.TabIndex = 24
@@ -3045,7 +3048,7 @@ Partial Class App
         Me.hydro_j.AutoSize = True
         Me.hydro_j.Enabled = False
         Me.hydro_j.Location = New System.Drawing.Point(133, 52)
-        Me.hydro_j.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.hydro_j.Margin = New System.Windows.Forms.Padding(4)
         Me.hydro_j.Name = "hydro_j"
         Me.hydro_j.Size = New System.Drawing.Size(59, 20)
         Me.hydro_j.TabIndex = 23
@@ -3059,7 +3062,7 @@ Partial Class App
         Me.hydro_b.AutoSize = True
         Me.hydro_b.Enabled = False
         Me.hydro_b.Location = New System.Drawing.Point(9, 52)
-        Me.hydro_b.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.hydro_b.Margin = New System.Windows.Forms.Padding(4)
         Me.hydro_b.Name = "hydro_b"
         Me.hydro_b.Size = New System.Drawing.Size(48, 20)
         Me.hydro_b.TabIndex = 22
@@ -3082,7 +3085,7 @@ Partial Class App
         '
         Me.hydro_menny.Enabled = False
         Me.hydro_menny.Location = New System.Drawing.Point(249, 21)
-        Me.hydro_menny.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.hydro_menny.Margin = New System.Windows.Forms.Padding(4)
         Me.hydro_menny.Name = "hydro_menny"
         Me.hydro_menny.Size = New System.Drawing.Size(51, 22)
         Me.hydro_menny.TabIndex = 1
@@ -3092,7 +3095,7 @@ Partial Class App
         '
         Me.hydro.AutoSize = True
         Me.hydro.Location = New System.Drawing.Point(9, 23)
-        Me.hydro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.hydro.Margin = New System.Windows.Forms.Padding(4)
         Me.hydro.Name = "hydro"
         Me.hydro.Size = New System.Drawing.Size(102, 20)
         Me.hydro.TabIndex = 0
@@ -3110,9 +3113,9 @@ Partial Class App
         Me.GroupBox35.Controls.Add(Me.tudo_emb_lovag)
         Me.GroupBox35.Controls.Add(Me.tudo_emb)
         Me.GroupBox35.Location = New System.Drawing.Point(292, 282)
-        Me.GroupBox35.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox35.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox35.Name = "GroupBox35"
-        Me.GroupBox35.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox35.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox35.Size = New System.Drawing.Size(279, 139)
         Me.GroupBox35.TabIndex = 8
         Me.GroupBox35.TabStop = False
@@ -3123,7 +3126,7 @@ Partial Class App
         Me.tudo_emb_tobb.AutoSize = True
         Me.tudo_emb_tobb.Enabled = False
         Me.tudo_emb_tobb.Location = New System.Drawing.Point(135, 108)
-        Me.tudo_emb_tobb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_emb_tobb.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_emb_tobb.Name = "tudo_emb_tobb"
         Me.tudo_emb_tobb.Size = New System.Drawing.Size(112, 20)
         Me.tudo_emb_tobb.TabIndex = 6
@@ -3136,7 +3139,7 @@ Partial Class App
         Me.tudo_emb_elso.AutoSize = True
         Me.tudo_emb_elso.Enabled = False
         Me.tudo_emb_elso.Location = New System.Drawing.Point(8, 108)
-        Me.tudo_emb_elso.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_emb_elso.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_emb_elso.Name = "tudo_emb_elso"
         Me.tudo_emb_elso.Size = New System.Drawing.Size(90, 20)
         Me.tudo_emb_elso.TabIndex = 5
@@ -3149,7 +3152,7 @@ Partial Class App
         Me.tudo_emb_jobb.AutoSize = True
         Me.tudo_emb_jobb.Enabled = False
         Me.tudo_emb_jobb.Location = New System.Drawing.Point(135, 80)
-        Me.tudo_emb_jobb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_emb_jobb.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_emb_jobb.Name = "tudo_emb_jobb"
         Me.tudo_emb_jobb.Size = New System.Drawing.Size(60, 20)
         Me.tudo_emb_jobb.TabIndex = 4
@@ -3162,7 +3165,7 @@ Partial Class App
         Me.tudo_emb_ket.AutoSize = True
         Me.tudo_emb_ket.Enabled = False
         Me.tudo_emb_ket.Location = New System.Drawing.Point(135, 52)
-        Me.tudo_emb_ket.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_emb_ket.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_emb_ket.Name = "tudo_emb_ket"
         Me.tudo_emb_ket.Size = New System.Drawing.Size(132, 20)
         Me.tudo_emb_ket.TabIndex = 3
@@ -3175,7 +3178,7 @@ Partial Class App
         Me.tudo_emb_bal.AutoSize = True
         Me.tudo_emb_bal.Enabled = False
         Me.tudo_emb_bal.Location = New System.Drawing.Point(8, 80)
-        Me.tudo_emb_bal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_emb_bal.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_emb_bal.Name = "tudo_emb_bal"
         Me.tudo_emb_bal.Size = New System.Drawing.Size(49, 20)
         Me.tudo_emb_bal.TabIndex = 2
@@ -3188,7 +3191,7 @@ Partial Class App
         Me.tudo_emb_lovag.AutoSize = True
         Me.tudo_emb_lovag.Enabled = False
         Me.tudo_emb_lovag.Location = New System.Drawing.Point(8, 52)
-        Me.tudo_emb_lovag.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_emb_lovag.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_emb_lovag.Name = "tudo_emb_lovag"
         Me.tudo_emb_lovag.Size = New System.Drawing.Size(78, 20)
         Me.tudo_emb_lovag.TabIndex = 1
@@ -3200,7 +3203,7 @@ Partial Class App
         '
         Me.tudo_emb.AutoSize = True
         Me.tudo_emb.Location = New System.Drawing.Point(8, 23)
-        Me.tudo_emb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_emb.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_emb.Name = "tudo_emb"
         Me.tudo_emb.Size = New System.Drawing.Size(110, 20)
         Me.tudo_emb.TabIndex = 0
@@ -3220,9 +3223,9 @@ Partial Class App
         Me.GroupBox34.Controls.Add(Me.tudo_attet_bf)
         Me.GroupBox34.Controls.Add(Me.tudo_attet)
         Me.GroupBox34.Location = New System.Drawing.Point(5, 282)
-        Me.GroupBox34.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox34.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox34.Name = "GroupBox34"
-        Me.GroupBox34.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox34.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox34.Size = New System.Drawing.Size(269, 139)
         Me.GroupBox34.TabIndex = 7
         Me.GroupBox34.TabStop = False
@@ -3242,7 +3245,7 @@ Partial Class App
         '
         Me.tudo_attet_meret.Enabled = False
         Me.tudo_attet_meret.Location = New System.Drawing.Point(132, 21)
-        Me.tudo_attet_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet_meret.Name = "tudo_attet_meret"
         Me.tudo_attet_meret.Size = New System.Drawing.Size(51, 22)
         Me.tudo_attet_meret.TabIndex = 7
@@ -3253,7 +3256,7 @@ Partial Class App
         Me.tudo_attet_ja.AutoSize = True
         Me.tudo_attet_ja.Enabled = False
         Me.tudo_attet_ja.Location = New System.Drawing.Point(132, 108)
-        Me.tudo_attet_ja.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet_ja.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet_ja.Name = "tudo_attet_ja"
         Me.tudo_attet_ja.Size = New System.Drawing.Size(89, 20)
         Me.tudo_attet_ja.TabIndex = 6
@@ -3266,7 +3269,7 @@ Partial Class App
         Me.tudo_attet_ba.AutoSize = True
         Me.tudo_attet_ba.Enabled = False
         Me.tudo_attet_ba.Location = New System.Drawing.Point(8, 108)
-        Me.tudo_attet_ba.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet_ba.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet_ba.Name = "tudo_attet_ba"
         Me.tudo_attet_ba.Size = New System.Drawing.Size(78, 20)
         Me.tudo_attet_ba.TabIndex = 5
@@ -3279,7 +3282,7 @@ Partial Class App
         Me.tudo_attet_jf.AutoSize = True
         Me.tudo_attet_jf.Enabled = False
         Me.tudo_attet_jf.Location = New System.Drawing.Point(132, 52)
-        Me.tudo_attet_jf.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet_jf.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet_jf.Name = "tudo_attet_jf"
         Me.tudo_attet_jf.Size = New System.Drawing.Size(92, 20)
         Me.tudo_attet_jf.TabIndex = 4
@@ -3292,7 +3295,7 @@ Partial Class App
         Me.tudo_attet_jk.AutoSize = True
         Me.tudo_attet_jk.Enabled = False
         Me.tudo_attet_jk.Location = New System.Drawing.Point(132, 80)
-        Me.tudo_attet_jk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet_jk.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet_jk.Name = "tudo_attet_jk"
         Me.tudo_attet_jk.Size = New System.Drawing.Size(115, 20)
         Me.tudo_attet_jk.TabIndex = 3
@@ -3305,7 +3308,7 @@ Partial Class App
         Me.tudo_attet_minden.AutoSize = True
         Me.tudo_attet_minden.Enabled = False
         Me.tudo_attet_minden.Location = New System.Drawing.Point(8, 52)
-        Me.tudo_attet_minden.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet_minden.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet_minden.Name = "tudo_attet_minden"
         Me.tudo_attet_minden.Size = New System.Drawing.Size(117, 20)
         Me.tudo_attet_minden.TabIndex = 2
@@ -3318,7 +3321,7 @@ Partial Class App
         Me.tudo_attet_bf.AutoSize = True
         Me.tudo_attet_bf.Enabled = False
         Me.tudo_attet_bf.Location = New System.Drawing.Point(8, 80)
-        Me.tudo_attet_bf.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet_bf.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet_bf.Name = "tudo_attet_bf"
         Me.tudo_attet_bf.Size = New System.Drawing.Size(81, 20)
         Me.tudo_attet_bf.TabIndex = 1
@@ -3330,7 +3333,7 @@ Partial Class App
         '
         Me.tudo_attet.AutoSize = True
         Me.tudo_attet.Location = New System.Drawing.Point(8, 23)
-        Me.tudo_attet.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_attet.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_attet.Name = "tudo_attet"
         Me.tudo_attet.Size = New System.Drawing.Size(55, 20)
         Me.tudo_attet.TabIndex = 0
@@ -3350,9 +3353,9 @@ Partial Class App
         Me.GroupBox33.Controls.Add(Me.tudo_tumor_bf)
         Me.GroupBox33.Controls.Add(Me.tudo_tumor)
         Me.GroupBox33.Location = New System.Drawing.Point(292, 130)
-        Me.GroupBox33.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox33.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox33.Name = "GroupBox33"
-        Me.GroupBox33.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox33.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox33.Size = New System.Drawing.Size(279, 144)
         Me.GroupBox33.TabIndex = 5
         Me.GroupBox33.TabStop = False
@@ -3363,7 +3366,7 @@ Partial Class App
         Me.tudo_tumor_minden.AutoSize = True
         Me.tudo_tumor_minden.Enabled = False
         Me.tudo_tumor_minden.Location = New System.Drawing.Point(8, 59)
-        Me.tudo_tumor_minden.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor_minden.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor_minden.Name = "tudo_tumor_minden"
         Me.tudo_tumor_minden.Size = New System.Drawing.Size(117, 20)
         Me.tudo_tumor_minden.TabIndex = 11
@@ -3385,7 +3388,7 @@ Partial Class App
         '
         Me.tudo_tumor_meret.Enabled = False
         Me.tudo_tumor_meret.Location = New System.Drawing.Point(151, 21)
-        Me.tudo_tumor_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor_meret.Name = "tudo_tumor_meret"
         Me.tudo_tumor_meret.Size = New System.Drawing.Size(51, 22)
         Me.tudo_tumor_meret.TabIndex = 9
@@ -3396,7 +3399,7 @@ Partial Class App
         Me.tudo_tumor_ja.AutoSize = True
         Me.tudo_tumor_ja.Enabled = False
         Me.tudo_tumor_ja.Location = New System.Drawing.Point(151, 116)
-        Me.tudo_tumor_ja.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor_ja.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor_ja.Name = "tudo_tumor_ja"
         Me.tudo_tumor_ja.Size = New System.Drawing.Size(89, 20)
         Me.tudo_tumor_ja.TabIndex = 6
@@ -3409,7 +3412,7 @@ Partial Class App
         Me.tudo_tumor_ba.AutoSize = True
         Me.tudo_tumor_ba.Enabled = False
         Me.tudo_tumor_ba.Location = New System.Drawing.Point(8, 116)
-        Me.tudo_tumor_ba.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor_ba.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor_ba.Name = "tudo_tumor_ba"
         Me.tudo_tumor_ba.Size = New System.Drawing.Size(78, 20)
         Me.tudo_tumor_ba.TabIndex = 5
@@ -3422,7 +3425,7 @@ Partial Class App
         Me.tudo_tumor_jf.AutoSize = True
         Me.tudo_tumor_jf.Enabled = False
         Me.tudo_tumor_jf.Location = New System.Drawing.Point(151, 59)
-        Me.tudo_tumor_jf.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor_jf.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor_jf.Name = "tudo_tumor_jf"
         Me.tudo_tumor_jf.Size = New System.Drawing.Size(92, 20)
         Me.tudo_tumor_jf.TabIndex = 4
@@ -3435,7 +3438,7 @@ Partial Class App
         Me.tudo_tumor_jk.AutoSize = True
         Me.tudo_tumor_jk.Enabled = False
         Me.tudo_tumor_jk.Location = New System.Drawing.Point(151, 87)
-        Me.tudo_tumor_jk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor_jk.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor_jk.Name = "tudo_tumor_jk"
         Me.tudo_tumor_jk.Size = New System.Drawing.Size(115, 20)
         Me.tudo_tumor_jk.TabIndex = 3
@@ -3448,7 +3451,7 @@ Partial Class App
         Me.tudo_tumor_bf.AutoSize = True
         Me.tudo_tumor_bf.Enabled = False
         Me.tudo_tumor_bf.Location = New System.Drawing.Point(8, 87)
-        Me.tudo_tumor_bf.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor_bf.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor_bf.Name = "tudo_tumor_bf"
         Me.tudo_tumor_bf.Size = New System.Drawing.Size(81, 20)
         Me.tudo_tumor_bf.TabIndex = 1
@@ -3460,7 +3463,7 @@ Partial Class App
         '
         Me.tudo_tumor.AutoSize = True
         Me.tudo_tumor.Location = New System.Drawing.Point(8, 23)
-        Me.tudo_tumor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tudo_tumor.Margin = New System.Windows.Forms.Padding(4)
         Me.tudo_tumor.Name = "tudo_tumor"
         Me.tudo_tumor.Size = New System.Drawing.Size(68, 20)
         Me.tudo_tumor.TabIndex = 0
@@ -3478,9 +3481,9 @@ Partial Class App
         Me.GroupBox32.Controls.Add(Me.pneu_bf)
         Me.GroupBox32.Controls.Add(Me.pneu)
         Me.GroupBox32.Location = New System.Drawing.Point(5, 130)
-        Me.GroupBox32.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox32.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox32.Name = "GroupBox32"
-        Me.GroupBox32.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox32.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox32.Size = New System.Drawing.Size(269, 144)
         Me.GroupBox32.TabIndex = 4
         Me.GroupBox32.TabStop = False
@@ -3491,7 +3494,7 @@ Partial Class App
         Me.pneu_ja.AutoSize = True
         Me.pneu_ja.Enabled = False
         Me.pneu_ja.Location = New System.Drawing.Point(132, 116)
-        Me.pneu_ja.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pneu_ja.Margin = New System.Windows.Forms.Padding(4)
         Me.pneu_ja.Name = "pneu_ja"
         Me.pneu_ja.Size = New System.Drawing.Size(89, 20)
         Me.pneu_ja.TabIndex = 6
@@ -3504,7 +3507,7 @@ Partial Class App
         Me.pneu_ba.AutoSize = True
         Me.pneu_ba.Enabled = False
         Me.pneu_ba.Location = New System.Drawing.Point(8, 116)
-        Me.pneu_ba.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pneu_ba.Margin = New System.Windows.Forms.Padding(4)
         Me.pneu_ba.Name = "pneu_ba"
         Me.pneu_ba.Size = New System.Drawing.Size(78, 20)
         Me.pneu_ba.TabIndex = 5
@@ -3517,7 +3520,7 @@ Partial Class App
         Me.pneu_mko.AutoSize = True
         Me.pneu_mko.Enabled = False
         Me.pneu_mko.Location = New System.Drawing.Point(8, 59)
-        Me.pneu_mko.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pneu_mko.Margin = New System.Windows.Forms.Padding(4)
         Me.pneu_mko.Name = "pneu_mko"
         Me.pneu_mko.Size = New System.Drawing.Size(105, 20)
         Me.pneu_mko.TabIndex = 4
@@ -3530,7 +3533,7 @@ Partial Class App
         Me.pneu_jk.AutoSize = True
         Me.pneu_jk.Enabled = False
         Me.pneu_jk.Location = New System.Drawing.Point(132, 87)
-        Me.pneu_jk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pneu_jk.Margin = New System.Windows.Forms.Padding(4)
         Me.pneu_jk.Name = "pneu_jk"
         Me.pneu_jk.Size = New System.Drawing.Size(115, 20)
         Me.pneu_jk.TabIndex = 3
@@ -3543,7 +3546,7 @@ Partial Class App
         Me.pneu_jf.AutoSize = True
         Me.pneu_jf.Enabled = False
         Me.pneu_jf.Location = New System.Drawing.Point(132, 59)
-        Me.pneu_jf.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pneu_jf.Margin = New System.Windows.Forms.Padding(4)
         Me.pneu_jf.Name = "pneu_jf"
         Me.pneu_jf.Size = New System.Drawing.Size(92, 20)
         Me.pneu_jf.TabIndex = 2
@@ -3556,7 +3559,7 @@ Partial Class App
         Me.pneu_bf.AutoSize = True
         Me.pneu_bf.Enabled = False
         Me.pneu_bf.Location = New System.Drawing.Point(8, 87)
-        Me.pneu_bf.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pneu_bf.Margin = New System.Windows.Forms.Padding(4)
         Me.pneu_bf.Name = "pneu_bf"
         Me.pneu_bf.Size = New System.Drawing.Size(81, 20)
         Me.pneu_bf.TabIndex = 1
@@ -3568,7 +3571,7 @@ Partial Class App
         '
         Me.pneu.AutoSize = True
         Me.pneu.Location = New System.Drawing.Point(8, 23)
-        Me.pneu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pneu.Margin = New System.Windows.Forms.Padding(4)
         Me.pneu.Name = "pneu"
         Me.pneu.Size = New System.Drawing.Size(97, 20)
         Me.pneu.TabIndex = 0
@@ -3581,9 +3584,9 @@ Partial Class App
         Me.GroupBox31.Controls.Add(Me.RadioButton60)
         Me.GroupBox31.Controls.Add(Me.RadioButton59)
         Me.GroupBox31.Location = New System.Drawing.Point(5, 68)
-        Me.GroupBox31.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox31.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox31.Name = "GroupBox31"
-        Me.GroupBox31.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox31.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox31.Size = New System.Drawing.Size(269, 55)
         Me.GroupBox31.TabIndex = 3
         Me.GroupBox31.TabStop = False
@@ -3594,7 +3597,7 @@ Partial Class App
         '
         Me.RadioButton60.AutoSize = True
         Me.RadioButton60.Location = New System.Drawing.Point(132, 23)
-        Me.RadioButton60.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton60.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton60.Name = "RadioButton60"
         Me.RadioButton60.Size = New System.Drawing.Size(107, 20)
         Me.RadioButton60.TabIndex = 4
@@ -3607,7 +3610,7 @@ Partial Class App
         '
         Me.RadioButton59.AutoSize = True
         Me.RadioButton59.Location = New System.Drawing.Point(8, 23)
-        Me.RadioButton59.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton59.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton59.Name = "RadioButton59"
         Me.RadioButton59.Size = New System.Drawing.Size(81, 20)
         Me.RadioButton59.TabIndex = 3
@@ -3629,9 +3632,9 @@ Partial Class App
         Me.TabPage5.Controls.Add(Me.GroupBox39)
         Me.TabPage5.Controls.Add(Me.GroupBox38)
         Me.TabPage5.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage5.Margin = New System.Windows.Forms.Padding(4)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(4)
         Me.TabPage5.Size = New System.Drawing.Size(673, 612)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Hasüreg"
@@ -3663,9 +3666,9 @@ Partial Class App
         Me.GroupBox47.Controls.Add(Me.CheckBox76)
         Me.GroupBox47.Controls.Add(Me.CheckBox75)
         Me.GroupBox47.Location = New System.Drawing.Point(168, 460)
-        Me.GroupBox47.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox47.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox47.Name = "GroupBox47"
-        Me.GroupBox47.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox47.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox47.Size = New System.Drawing.Size(403, 142)
         Me.GroupBox47.TabIndex = 32
         Me.GroupBox47.TabStop = False
@@ -3686,7 +3689,7 @@ Partial Class App
         '
         Me.bel_tumor_meret.Enabled = False
         Me.bel_tumor_meret.Location = New System.Drawing.Point(179, 17)
-        Me.bel_tumor_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_meret.Name = "bel_tumor_meret"
         Me.bel_tumor_meret.Size = New System.Drawing.Size(52, 22)
         Me.bel_tumor_meret.TabIndex = 11
@@ -3697,7 +3700,7 @@ Partial Class App
         Me.bel_tumor_le.AutoSize = True
         Me.bel_tumor_le.Enabled = False
         Me.bel_tumor_le.Location = New System.Drawing.Point(300, 52)
-        Me.bel_tumor_le.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_le.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_le.Name = "bel_tumor_le"
         Me.bel_tumor_le.Size = New System.Drawing.Size(79, 20)
         Me.bel_tumor_le.TabIndex = 10
@@ -3710,7 +3713,7 @@ Partial Class App
         Me.bel_tumor_szuk.AutoSize = True
         Me.bel_tumor_szuk.Enabled = False
         Me.bel_tumor_szuk.Location = New System.Drawing.Point(179, 52)
-        Me.bel_tumor_szuk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_szuk.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_szuk.Name = "bel_tumor_szuk"
         Me.bel_tumor_szuk.Size = New System.Drawing.Size(72, 20)
         Me.bel_tumor_szuk.TabIndex = 9
@@ -3722,7 +3725,7 @@ Partial Class App
         '
         Me.bel_tumor.AutoSize = True
         Me.bel_tumor.Location = New System.Drawing.Point(8, 23)
-        Me.bel_tumor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor.Name = "bel_tumor"
         Me.bel_tumor.Size = New System.Drawing.Size(68, 20)
         Me.bel_tumor.TabIndex = 0
@@ -3735,7 +3738,7 @@ Partial Class App
         Me.bel_tumor_fel.AutoSize = True
         Me.bel_tumor_fel.Enabled = False
         Me.bel_tumor_fel.Location = New System.Drawing.Point(300, 80)
-        Me.bel_tumor_fel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_fel.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_fel.Name = "bel_tumor_fel"
         Me.bel_tumor_fel.Size = New System.Drawing.Size(83, 20)
         Me.bel_tumor_fel.TabIndex = 8
@@ -3748,7 +3751,7 @@ Partial Class App
         Me.bel_tumor_harant.AutoSize = True
         Me.bel_tumor_harant.Enabled = False
         Me.bel_tumor_harant.Location = New System.Drawing.Point(179, 80)
-        Me.bel_tumor_harant.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_harant.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_harant.Name = "bel_tumor_harant"
         Me.bel_tumor_harant.Size = New System.Drawing.Size(69, 20)
         Me.bel_tumor_harant.TabIndex = 7
@@ -3761,7 +3764,7 @@ Partial Class App
         Me.bel_tumor_vegbel.AutoSize = True
         Me.bel_tumor_vegbel.Enabled = False
         Me.bel_tumor_vegbel.Location = New System.Drawing.Point(300, 108)
-        Me.bel_tumor_vegbel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_vegbel.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_vegbel.Name = "bel_tumor_vegbel"
         Me.bel_tumor_vegbel.Size = New System.Drawing.Size(73, 20)
         Me.bel_tumor_vegbel.TabIndex = 6
@@ -3774,7 +3777,7 @@ Partial Class App
         Me.bel_tumor_sig.AutoSize = True
         Me.bel_tumor_sig.Enabled = False
         Me.bel_tumor_sig.Location = New System.Drawing.Point(300, 20)
-        Me.bel_tumor_sig.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_sig.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_sig.Name = "bel_tumor_sig"
         Me.bel_tumor_sig.Size = New System.Drawing.Size(68, 20)
         Me.bel_tumor_sig.TabIndex = 5
@@ -3787,7 +3790,7 @@ Partial Class App
         Me.bel_tumor_coec.AutoSize = True
         Me.bel_tumor_coec.Enabled = False
         Me.bel_tumor_coec.Location = New System.Drawing.Point(179, 108)
-        Me.bel_tumor_coec.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bel_tumor_coec.Margin = New System.Windows.Forms.Padding(4)
         Me.bel_tumor_coec.Name = "bel_tumor_coec"
         Me.bel_tumor_coec.Size = New System.Drawing.Size(79, 20)
         Me.bel_tumor_coec.TabIndex = 4
@@ -3799,7 +3802,7 @@ Partial Class App
         '
         Me.CheckBox77.AutoSize = True
         Me.CheckBox77.Location = New System.Drawing.Point(8, 108)
-        Me.CheckBox77.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox77.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox77.Name = "CheckBox77"
         Me.CheckBox77.Size = New System.Drawing.Size(124, 20)
         Me.CheckBox77.TabIndex = 3
@@ -3811,7 +3814,7 @@ Partial Class App
         '
         Me.CheckBox76.AutoSize = True
         Me.CheckBox76.Location = New System.Drawing.Point(8, 80)
-        Me.CheckBox76.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox76.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox76.Name = "CheckBox76"
         Me.CheckBox76.Size = New System.Drawing.Size(137, 20)
         Me.CheckBox76.TabIndex = 2
@@ -3823,7 +3826,7 @@ Partial Class App
         '
         Me.CheckBox75.AutoSize = True
         Me.CheckBox75.Location = New System.Drawing.Point(8, 52)
-        Me.CheckBox75.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox75.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox75.Name = "CheckBox75"
         Me.CheckBox75.Size = New System.Drawing.Size(118, 20)
         Me.CheckBox75.TabIndex = 1
@@ -3848,9 +3851,9 @@ Partial Class App
         Me.GroupBox46.Controls.Add(Me.CheckBox73)
         Me.GroupBox46.Controls.Add(Me.ileum)
         Me.GroupBox46.Location = New System.Drawing.Point(5, 459)
-        Me.GroupBox46.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox46.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox46.Name = "GroupBox46"
-        Me.GroupBox46.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox46.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox46.Size = New System.Drawing.Size(155, 143)
         Me.GroupBox46.TabIndex = 6
         Me.GroupBox46.TabStop = False
@@ -3871,7 +3874,7 @@ Partial Class App
         '
         Me.ileum_meret.Enabled = False
         Me.ileum_meret.Location = New System.Drawing.Point(40, 50)
-        Me.ileum_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ileum_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.ileum_meret.Name = "ileum_meret"
         Me.ileum_meret.Size = New System.Drawing.Size(52, 22)
         Me.ileum_meret.TabIndex = 3
@@ -3881,7 +3884,7 @@ Partial Class App
         '
         Me.CheckBox73.AutoSize = True
         Me.CheckBox73.Location = New System.Drawing.Point(8, 110)
-        Me.CheckBox73.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox73.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox73.Name = "CheckBox73"
         Me.CheckBox73.Size = New System.Drawing.Size(122, 20)
         Me.CheckBox73.TabIndex = 1
@@ -3893,7 +3896,7 @@ Partial Class App
         '
         Me.ileum.AutoSize = True
         Me.ileum.Location = New System.Drawing.Point(8, 25)
-        Me.ileum.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ileum.Margin = New System.Windows.Forms.Padding(4)
         Me.ileum.Name = "ileum"
         Me.ileum.Size = New System.Drawing.Size(85, 20)
         Me.ileum.TabIndex = 0
@@ -3908,9 +3911,9 @@ Partial Class App
         Me.GroupBox45.Controls.Add(Me.nyombel_fekely)
         Me.GroupBox45.Controls.Add(Me.RadioButton81)
         Me.GroupBox45.Location = New System.Drawing.Point(5, 405)
-        Me.GroupBox45.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox45.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox45.Name = "GroupBox45"
-        Me.GroupBox45.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox45.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox45.Size = New System.Drawing.Size(312, 55)
         Me.GroupBox45.TabIndex = 5
         Me.GroupBox45.TabStop = False
@@ -3932,7 +3935,7 @@ Partial Class App
         '
         Me.nyombel_fekely_meret.Enabled = False
         Me.nyombel_fekely_meret.Location = New System.Drawing.Point(195, 22)
-        Me.nyombel_fekely_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.nyombel_fekely_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.nyombel_fekely_meret.Name = "nyombel_fekely_meret"
         Me.nyombel_fekely_meret.Size = New System.Drawing.Size(52, 22)
         Me.nyombel_fekely_meret.TabIndex = 2
@@ -3942,7 +3945,7 @@ Partial Class App
         '
         Me.nyombel_fekely.AutoSize = True
         Me.nyombel_fekely.Location = New System.Drawing.Point(95, 23)
-        Me.nyombel_fekely.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.nyombel_fekely.Margin = New System.Windows.Forms.Padding(4)
         Me.nyombel_fekely.Name = "nyombel_fekely"
         Me.nyombel_fekely.Size = New System.Drawing.Size(69, 20)
         Me.nyombel_fekely.TabIndex = 1
@@ -3955,7 +3958,7 @@ Partial Class App
         '
         Me.RadioButton81.AutoSize = True
         Me.RadioButton81.Location = New System.Drawing.Point(8, 23)
-        Me.RadioButton81.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton81.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton81.Name = "RadioButton81"
         Me.RadioButton81.Size = New System.Drawing.Size(45, 20)
         Me.RadioButton81.TabIndex = 0
@@ -3973,9 +3976,9 @@ Partial Class App
         Me.GroupBox42.Controls.Add(Me.RadioButton75)
         Me.GroupBox42.Controls.Add(Me.RadioButton74)
         Me.GroupBox42.Location = New System.Drawing.Point(5, 265)
-        Me.GroupBox42.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox42.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox42.Name = "GroupBox42"
-        Me.GroupBox42.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox42.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox42.Size = New System.Drawing.Size(565, 139)
         Me.GroupBox42.TabIndex = 4
         Me.GroupBox42.TabStop = False
@@ -3990,9 +3993,9 @@ Partial Class App
         Me.gyomor_tumor_group.Controls.Add(Me.gyomor_tumor_meret)
         Me.gyomor_tumor_group.Enabled = False
         Me.gyomor_tumor_group.Location = New System.Drawing.Point(187, 68)
-        Me.gyomor_tumor_group.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_tumor_group.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_tumor_group.Name = "gyomor_tumor_group"
-        Me.gyomor_tumor_group.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_tumor_group.Padding = New System.Windows.Forms.Padding(4)
         Me.gyomor_tumor_group.Size = New System.Drawing.Size(364, 55)
         Me.gyomor_tumor_group.TabIndex = 7
         Me.gyomor_tumor_group.TabStop = False
@@ -4015,7 +4018,7 @@ Partial Class App
         Me.gyomor_tumor_nagy.AutoSize = True
         Me.gyomor_tumor_nagy.Enabled = False
         Me.gyomor_tumor_nagy.Location = New System.Drawing.Point(241, 25)
-        Me.gyomor_tumor_nagy.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_tumor_nagy.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_tumor_nagy.Name = "gyomor_tumor_nagy"
         Me.gyomor_tumor_nagy.Size = New System.Drawing.Size(110, 20)
         Me.gyomor_tumor_nagy.TabIndex = 7
@@ -4029,7 +4032,7 @@ Partial Class App
         Me.gyomor_tumor_kis.AutoSize = True
         Me.gyomor_tumor_kis.Enabled = False
         Me.gyomor_tumor_kis.Location = New System.Drawing.Point(127, 23)
-        Me.gyomor_tumor_kis.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_tumor_kis.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_tumor_kis.Name = "gyomor_tumor_kis"
         Me.gyomor_tumor_kis.Size = New System.Drawing.Size(95, 20)
         Me.gyomor_tumor_kis.TabIndex = 6
@@ -4042,7 +4045,7 @@ Partial Class App
         '
         Me.gyomor_tumor_meret.Enabled = False
         Me.gyomor_tumor_meret.Location = New System.Drawing.Point(8, 23)
-        Me.gyomor_tumor_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_tumor_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_tumor_meret.Name = "gyomor_tumor_meret"
         Me.gyomor_tumor_meret.Size = New System.Drawing.Size(53, 22)
         Me.gyomor_tumor_meret.TabIndex = 5
@@ -4056,9 +4059,9 @@ Partial Class App
         Me.gyomor_fekely_group.Controls.Add(Me.gyomor_fekely_meret)
         Me.gyomor_fekely_group.Enabled = False
         Me.gyomor_fekely_group.Location = New System.Drawing.Point(187, 14)
-        Me.gyomor_fekely_group.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_fekely_group.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_fekely_group.Name = "gyomor_fekely_group"
-        Me.gyomor_fekely_group.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_fekely_group.Padding = New System.Windows.Forms.Padding(4)
         Me.gyomor_fekely_group.Size = New System.Drawing.Size(365, 55)
         Me.gyomor_fekely_group.TabIndex = 6
         Me.gyomor_fekely_group.TabStop = False
@@ -4081,7 +4084,7 @@ Partial Class App
         Me.gyomor_fekely_nagy.AutoSize = True
         Me.gyomor_fekely_nagy.Enabled = False
         Me.gyomor_fekely_nagy.Location = New System.Drawing.Point(243, 22)
-        Me.gyomor_fekely_nagy.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_fekely_nagy.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_fekely_nagy.Name = "gyomor_fekely_nagy"
         Me.gyomor_fekely_nagy.Size = New System.Drawing.Size(110, 20)
         Me.gyomor_fekely_nagy.TabIndex = 6
@@ -4095,7 +4098,7 @@ Partial Class App
         Me.gyomor_fekely_kis.AutoSize = True
         Me.gyomor_fekely_kis.Enabled = False
         Me.gyomor_fekely_kis.Location = New System.Drawing.Point(128, 22)
-        Me.gyomor_fekely_kis.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_fekely_kis.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_fekely_kis.Name = "gyomor_fekely_kis"
         Me.gyomor_fekely_kis.Size = New System.Drawing.Size(95, 20)
         Me.gyomor_fekely_kis.TabIndex = 5
@@ -4108,7 +4111,7 @@ Partial Class App
         '
         Me.gyomor_fekely_meret.Enabled = False
         Me.gyomor_fekely_meret.Location = New System.Drawing.Point(9, 21)
-        Me.gyomor_fekely_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_fekely_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_fekely_meret.Name = "gyomor_fekely_meret"
         Me.gyomor_fekely_meret.Size = New System.Drawing.Size(53, 22)
         Me.gyomor_fekely_meret.TabIndex = 4
@@ -4118,7 +4121,7 @@ Partial Class App
         '
         Me.gyomor_tumor.AutoSize = True
         Me.gyomor_tumor.Location = New System.Drawing.Point(96, 94)
-        Me.gyomor_tumor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_tumor.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_tumor.Name = "gyomor_tumor"
         Me.gyomor_tumor.Size = New System.Drawing.Size(68, 20)
         Me.gyomor_tumor.TabIndex = 3
@@ -4130,7 +4133,7 @@ Partial Class App
         '
         Me.gyomor_fekely.AutoSize = True
         Me.gyomor_fekely.Location = New System.Drawing.Point(95, 36)
-        Me.gyomor_fekely.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gyomor_fekely.Margin = New System.Windows.Forms.Padding(4)
         Me.gyomor_fekely.Name = "gyomor_fekely"
         Me.gyomor_fekely.Size = New System.Drawing.Size(69, 20)
         Me.gyomor_fekely.TabIndex = 2
@@ -4143,7 +4146,7 @@ Partial Class App
         '
         Me.RadioButton75.AutoSize = True
         Me.RadioButton75.Location = New System.Drawing.Point(8, 91)
-        Me.RadioButton75.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton75.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton75.Name = "RadioButton75"
         Me.RadioButton75.Size = New System.Drawing.Size(67, 20)
         Me.RadioButton75.TabIndex = 1
@@ -4156,7 +4159,7 @@ Partial Class App
         '
         Me.RadioButton74.AutoSize = True
         Me.RadioButton74.Location = New System.Drawing.Point(8, 36)
-        Me.RadioButton74.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton74.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton74.Name = "RadioButton74"
         Me.RadioButton74.Size = New System.Drawing.Size(45, 20)
         Me.RadioButton74.TabIndex = 0
@@ -4175,9 +4178,9 @@ Partial Class App
         Me.GroupBox41.Controls.Add(Me.RadioButton73)
         Me.GroupBox41.Controls.Add(Me.RadioButton72)
         Me.GroupBox41.Location = New System.Drawing.Point(5, 207)
-        Me.GroupBox41.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox41.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox41.Name = "GroupBox41"
-        Me.GroupBox41.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox41.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox41.Size = New System.Drawing.Size(565, 55)
         Me.GroupBox41.TabIndex = 3
         Me.GroupBox41.TabStop = False
@@ -4210,7 +4213,7 @@ Partial Class App
         '
         Me.epeko_darab.Enabled = False
         Me.epeko_darab.Location = New System.Drawing.Point(351, 22)
-        Me.epeko_darab.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.epeko_darab.Margin = New System.Windows.Forms.Padding(4)
         Me.epeko_darab.Name = "epeko_darab"
         Me.epeko_darab.Size = New System.Drawing.Size(52, 22)
         Me.epeko_darab.TabIndex = 4
@@ -4220,7 +4223,7 @@ Partial Class App
         '
         Me.epeko_meret.Enabled = False
         Me.epeko_meret.Location = New System.Drawing.Point(452, 22)
-        Me.epeko_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.epeko_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.epeko_meret.Name = "epeko_meret"
         Me.epeko_meret.Size = New System.Drawing.Size(47, 22)
         Me.epeko_meret.TabIndex = 3
@@ -4230,7 +4233,7 @@ Partial Class App
         '
         Me.epeko.AutoSize = True
         Me.epeko.Location = New System.Drawing.Point(265, 25)
-        Me.epeko.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.epeko.Margin = New System.Windows.Forms.Padding(4)
         Me.epeko.Name = "epeko"
         Me.epeko.Size = New System.Drawing.Size(69, 20)
         Me.epeko.TabIndex = 2
@@ -4242,7 +4245,7 @@ Partial Class App
         '
         Me.RadioButton73.AutoSize = True
         Me.RadioButton73.Location = New System.Drawing.Point(137, 23)
-        Me.RadioButton73.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton73.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton73.Name = "RadioButton73"
         Me.RadioButton73.Size = New System.Drawing.Size(90, 20)
         Me.RadioButton73.TabIndex = 1
@@ -4255,7 +4258,7 @@ Partial Class App
         '
         Me.RadioButton72.AutoSize = True
         Me.RadioButton72.Location = New System.Drawing.Point(8, 23)
-        Me.RadioButton72.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton72.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton72.Name = "RadioButton72"
         Me.RadioButton72.Size = New System.Drawing.Size(87, 20)
         Me.RadioButton72.TabIndex = 0
@@ -4270,9 +4273,9 @@ Partial Class App
         Me.GroupBox40.Controls.Add(Me.RadioButton70)
         Me.GroupBox40.Controls.Add(Me.RadioButton69)
         Me.GroupBox40.Location = New System.Drawing.Point(7, 146)
-        Me.GroupBox40.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox40.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox40.Name = "GroupBox40"
-        Me.GroupBox40.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox40.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox40.Size = New System.Drawing.Size(564, 55)
         Me.GroupBox40.TabIndex = 2
         Me.GroupBox40.TabStop = False
@@ -4283,7 +4286,7 @@ Partial Class App
         '
         Me.RadioButton71.AutoSize = True
         Me.RadioButton71.Location = New System.Drawing.Point(315, 23)
-        Me.RadioButton71.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton71.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton71.Name = "RadioButton71"
         Me.RadioButton71.Size = New System.Drawing.Size(165, 20)
         Me.RadioButton71.TabIndex = 2
@@ -4296,7 +4299,7 @@ Partial Class App
         '
         Me.RadioButton70.AutoSize = True
         Me.RadioButton70.Location = New System.Drawing.Point(136, 23)
-        Me.RadioButton70.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton70.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton70.Name = "RadioButton70"
         Me.RadioButton70.Size = New System.Drawing.Size(124, 20)
         Me.RadioButton70.TabIndex = 1
@@ -4309,7 +4312,7 @@ Partial Class App
         '
         Me.RadioButton69.AutoSize = True
         Me.RadioButton69.Location = New System.Drawing.Point(7, 23)
-        Me.RadioButton69.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton69.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton69.Name = "RadioButton69"
         Me.RadioButton69.Size = New System.Drawing.Size(45, 20)
         Me.RadioButton69.TabIndex = 0
@@ -4328,9 +4331,9 @@ Partial Class App
         Me.GroupBox39.Controls.Add(Me.RadioButton84)
         Me.GroupBox39.Controls.Add(Me.RadioButton83)
         Me.GroupBox39.Location = New System.Drawing.Point(5, 60)
-        Me.GroupBox39.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox39.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox39.Name = "GroupBox39"
-        Me.GroupBox39.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox39.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox39.Size = New System.Drawing.Size(565, 87)
         Me.GroupBox39.TabIndex = 1
         Me.GroupBox39.TabStop = False
@@ -4345,9 +4348,9 @@ Partial Class App
         Me.maj_attet_group.Controls.Add(Me.maj_attet_meret)
         Me.maj_attet_group.Enabled = False
         Me.maj_attet_group.Location = New System.Drawing.Point(372, 10)
-        Me.maj_attet_group.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.maj_attet_group.Margin = New System.Windows.Forms.Padding(4)
         Me.maj_attet_group.Name = "maj_attet_group"
-        Me.maj_attet_group.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.maj_attet_group.Padding = New System.Windows.Forms.Padding(4)
         Me.maj_attet_group.Size = New System.Drawing.Size(179, 70)
         Me.maj_attet_group.TabIndex = 15
         Me.maj_attet_group.TabStop = False
@@ -4370,7 +4373,7 @@ Partial Class App
         Me.maj_attet_tobb.AutoSize = True
         Me.maj_attet_tobb.Enabled = False
         Me.maj_attet_tobb.Location = New System.Drawing.Point(107, 41)
-        Me.maj_attet_tobb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.maj_attet_tobb.Margin = New System.Windows.Forms.Padding(4)
         Me.maj_attet_tobb.Name = "maj_attet_tobb"
         Me.maj_attet_tobb.Size = New System.Drawing.Size(61, 20)
         Me.maj_attet_tobb.TabIndex = 7
@@ -4384,7 +4387,7 @@ Partial Class App
         Me.maj_attet_egy.AutoSize = True
         Me.maj_attet_egy.Enabled = False
         Me.maj_attet_egy.Location = New System.Drawing.Point(107, 12)
-        Me.maj_attet_egy.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.maj_attet_egy.Margin = New System.Windows.Forms.Padding(4)
         Me.maj_attet_egy.Name = "maj_attet_egy"
         Me.maj_attet_egy.Size = New System.Drawing.Size(52, 20)
         Me.maj_attet_egy.TabIndex = 6
@@ -4397,7 +4400,7 @@ Partial Class App
         '
         Me.maj_attet_meret.Enabled = False
         Me.maj_attet_meret.Location = New System.Drawing.Point(8, 27)
-        Me.maj_attet_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.maj_attet_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.maj_attet_meret.Name = "maj_attet_meret"
         Me.maj_attet_meret.Size = New System.Drawing.Size(51, 22)
         Me.maj_attet_meret.TabIndex = 8
@@ -4407,7 +4410,7 @@ Partial Class App
         '
         Me.RadioButton87.AutoSize = True
         Me.RadioButton87.Location = New System.Drawing.Point(279, 20)
-        Me.RadioButton87.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton87.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton87.Name = "RadioButton87"
         Me.RadioButton87.Size = New System.Drawing.Size(80, 20)
         Me.RadioButton87.TabIndex = 14
@@ -4420,7 +4423,7 @@ Partial Class App
         '
         Me.RadioButton86.AutoSize = True
         Me.RadioButton86.Location = New System.Drawing.Point(137, 50)
-        Me.RadioButton86.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton86.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton86.Name = "RadioButton86"
         Me.RadioButton86.Size = New System.Drawing.Size(133, 20)
         Me.RadioButton86.TabIndex = 13
@@ -4433,7 +4436,7 @@ Partial Class App
         '
         Me.RadioButton85.AutoSize = True
         Me.RadioButton85.Location = New System.Drawing.Point(137, 20)
-        Me.RadioButton85.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton85.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton85.Name = "RadioButton85"
         Me.RadioButton85.Size = New System.Drawing.Size(72, 20)
         Me.RadioButton85.TabIndex = 12
@@ -4446,7 +4449,7 @@ Partial Class App
         '
         Me.maj_attet.AutoSize = True
         Me.maj_attet.Location = New System.Drawing.Point(279, 52)
-        Me.maj_attet.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.maj_attet.Margin = New System.Windows.Forms.Padding(4)
         Me.maj_attet.Name = "maj_attet"
         Me.maj_attet.Size = New System.Drawing.Size(70, 20)
         Me.maj_attet.TabIndex = 5
@@ -4458,7 +4461,7 @@ Partial Class App
         '
         Me.RadioButton84.AutoSize = True
         Me.RadioButton84.Location = New System.Drawing.Point(8, 50)
-        Me.RadioButton84.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton84.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton84.Name = "RadioButton84"
         Me.RadioButton84.Size = New System.Drawing.Size(111, 20)
         Me.RadioButton84.TabIndex = 11
@@ -4471,7 +4474,7 @@ Partial Class App
         '
         Me.RadioButton83.AutoSize = True
         Me.RadioButton83.Location = New System.Drawing.Point(8, 20)
-        Me.RadioButton83.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton83.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton83.Name = "RadioButton83"
         Me.RadioButton83.Size = New System.Drawing.Size(65, 20)
         Me.RadioButton83.TabIndex = 10
@@ -4486,9 +4489,9 @@ Partial Class App
         Me.GroupBox38.Controls.Add(Me.RadioButton65)
         Me.GroupBox38.Controls.Add(Me.RadioButton64)
         Me.GroupBox38.Location = New System.Drawing.Point(5, 5)
-        Me.GroupBox38.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox38.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox38.Name = "GroupBox38"
-        Me.GroupBox38.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox38.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox38.Size = New System.Drawing.Size(565, 55)
         Me.GroupBox38.TabIndex = 0
         Me.GroupBox38.TabStop = False
@@ -4499,7 +4502,7 @@ Partial Class App
         '
         Me.RadioButton66.AutoSize = True
         Me.RadioButton66.Location = New System.Drawing.Point(279, 23)
-        Me.RadioButton66.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton66.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton66.Name = "RadioButton66"
         Me.RadioButton66.Size = New System.Drawing.Size(131, 20)
         Me.RadioButton66.TabIndex = 2
@@ -4511,7 +4514,7 @@ Partial Class App
         '
         Me.RadioButton65.AutoSize = True
         Me.RadioButton65.Location = New System.Drawing.Point(137, 23)
-        Me.RadioButton65.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton65.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton65.Name = "RadioButton65"
         Me.RadioButton65.Size = New System.Drawing.Size(82, 20)
         Me.RadioButton65.TabIndex = 1
@@ -4523,7 +4526,7 @@ Partial Class App
         '
         Me.RadioButton64.AutoSize = True
         Me.RadioButton64.Location = New System.Drawing.Point(8, 23)
-        Me.RadioButton64.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton64.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton64.Name = "RadioButton64"
         Me.RadioButton64.Size = New System.Drawing.Size(65, 20)
         Me.RadioButton64.TabIndex = 0
@@ -4540,9 +4543,9 @@ Partial Class App
         Me.TabPage6.Controls.Add(Me.GroupBox44)
         Me.TabPage6.Controls.Add(Me.GroupBox43)
         Me.TabPage6.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage6.Margin = New System.Windows.Forms.Padding(4)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(4)
         Me.TabPage6.Size = New System.Drawing.Size(673, 612)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Kismedence"
@@ -4574,9 +4577,9 @@ Partial Class App
         Me.GroupBox49.Controls.Add(Me.CheckBox21)
         Me.GroupBox49.Controls.Add(Me.CheckBox20)
         Me.GroupBox49.Location = New System.Drawing.Point(5, 439)
-        Me.GroupBox49.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox49.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox49.Name = "GroupBox49"
-        Me.GroupBox49.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox49.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox49.Size = New System.Drawing.Size(507, 103)
         Me.GroupBox49.TabIndex = 3
         Me.GroupBox49.TabStop = False
@@ -4590,9 +4593,9 @@ Partial Class App
         Me.GroupBox50.Controls.Add(Me.here_tumor_mm)
         Me.GroupBox50.Controls.Add(Me.here_tumor_meret)
         Me.GroupBox50.Location = New System.Drawing.Point(231, 10)
-        Me.GroupBox50.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox50.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox50.Name = "GroupBox50"
-        Me.GroupBox50.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox50.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox50.Size = New System.Drawing.Size(256, 78)
         Me.GroupBox50.TabIndex = 4
         Me.GroupBox50.TabStop = False
@@ -4602,7 +4605,7 @@ Partial Class App
         '
         Me.here_tumor.AutoSize = True
         Me.here_tumor.Location = New System.Drawing.Point(8, 14)
-        Me.here_tumor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.here_tumor.Margin = New System.Windows.Forms.Padding(4)
         Me.here_tumor.Name = "here_tumor"
         Me.here_tumor.Size = New System.Drawing.Size(95, 20)
         Me.here_tumor.TabIndex = 0
@@ -4615,7 +4618,7 @@ Partial Class App
         Me.here_tumor_j.AutoSize = True
         Me.here_tumor_j.Enabled = False
         Me.here_tumor_j.Location = New System.Drawing.Point(180, 44)
-        Me.here_tumor_j.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.here_tumor_j.Margin = New System.Windows.Forms.Padding(4)
         Me.here_tumor_j.Name = "here_tumor_j"
         Me.here_tumor_j.Size = New System.Drawing.Size(59, 20)
         Me.here_tumor_j.TabIndex = 15
@@ -4629,7 +4632,7 @@ Partial Class App
         Me.here_tumor_b.AutoSize = True
         Me.here_tumor_b.Enabled = False
         Me.here_tumor_b.Location = New System.Drawing.Point(112, 44)
-        Me.here_tumor_b.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.here_tumor_b.Margin = New System.Windows.Forms.Padding(4)
         Me.here_tumor_b.Name = "here_tumor_b"
         Me.here_tumor_b.Size = New System.Drawing.Size(48, 20)
         Me.here_tumor_b.TabIndex = 14
@@ -4653,7 +4656,7 @@ Partial Class App
         '
         Me.here_tumor_meret.Enabled = False
         Me.here_tumor_meret.Location = New System.Drawing.Point(11, 43)
-        Me.here_tumor_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.here_tumor_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.here_tumor_meret.Name = "here_tumor_meret"
         Me.here_tumor_meret.Size = New System.Drawing.Size(56, 22)
         Me.here_tumor_meret.TabIndex = 12
@@ -4663,7 +4666,7 @@ Partial Class App
         '
         Me.CheckBox21.AutoSize = True
         Me.CheckBox21.Location = New System.Drawing.Point(13, 55)
-        Me.CheckBox21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox21.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox21.Name = "CheckBox21"
         Me.CheckBox21.Size = New System.Drawing.Size(134, 20)
         Me.CheckBox21.TabIndex = 1
@@ -4675,7 +4678,7 @@ Partial Class App
         '
         Me.CheckBox20.AutoSize = True
         Me.CheckBox20.Location = New System.Drawing.Point(13, 23)
-        Me.CheckBox20.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox20.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox20.Name = "CheckBox20"
         Me.CheckBox20.Size = New System.Drawing.Size(156, 20)
         Me.CheckBox20.TabIndex = 0
@@ -4699,9 +4702,9 @@ Partial Class App
         Me.GroupBox48.Controls.Add(Me.CheckBox15)
         Me.GroupBox48.Controls.Add(Me.GroupBox54)
         Me.GroupBox48.Location = New System.Drawing.Point(5, 267)
-        Me.GroupBox48.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox48.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox48.Name = "GroupBox48"
-        Me.GroupBox48.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox48.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox48.Size = New System.Drawing.Size(507, 167)
         Me.GroupBox48.TabIndex = 2
         Me.GroupBox48.TabStop = False
@@ -4711,7 +4714,7 @@ Partial Class App
         '
         Me.meh_tumor.AutoSize = True
         Me.meh_tumor.Location = New System.Drawing.Point(211, 100)
-        Me.meh_tumor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.meh_tumor.Margin = New System.Windows.Forms.Padding(4)
         Me.meh_tumor.Name = "meh_tumor"
         Me.meh_tumor.Size = New System.Drawing.Size(68, 20)
         Me.meh_tumor.TabIndex = 21
@@ -4734,7 +4737,7 @@ Partial Class App
         '
         Me.meh_tumor_meret.Enabled = False
         Me.meh_tumor_meret.Location = New System.Drawing.Point(304, 97)
-        Me.meh_tumor_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.meh_tumor_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.meh_tumor_meret.Name = "meh_tumor_meret"
         Me.meh_tumor_meret.Size = New System.Drawing.Size(51, 22)
         Me.meh_tumor_meret.TabIndex = 19
@@ -4755,7 +4758,7 @@ Partial Class App
         '
         Me.meh_em_meret.Enabled = False
         Me.meh_em_meret.Location = New System.Drawing.Point(304, 60)
-        Me.meh_em_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.meh_em_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.meh_em_meret.Name = "meh_em_meret"
         Me.meh_em_meret.Size = New System.Drawing.Size(51, 22)
         Me.meh_em_meret.TabIndex = 17
@@ -4765,7 +4768,7 @@ Partial Class App
         '
         Me.meh_em.AutoSize = True
         Me.meh_em.Location = New System.Drawing.Point(211, 65)
-        Me.meh_em.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.meh_em.Margin = New System.Windows.Forms.Padding(4)
         Me.meh_em.Name = "meh_em"
         Me.meh_em.Size = New System.Drawing.Size(87, 20)
         Me.meh_em.TabIndex = 16
@@ -4788,7 +4791,7 @@ Partial Class App
         '
         Me.meh_myoma_meret.Enabled = False
         Me.meh_myoma_meret.Location = New System.Drawing.Point(399, 21)
-        Me.meh_myoma_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.meh_myoma_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.meh_myoma_meret.Name = "meh_myoma_meret"
         Me.meh_myoma_meret.Size = New System.Drawing.Size(56, 22)
         Me.meh_myoma_meret.TabIndex = 14
@@ -4809,7 +4812,7 @@ Partial Class App
         '
         Me.meh_myoma_darab.Enabled = False
         Me.meh_myoma_darab.Location = New System.Drawing.Point(304, 21)
-        Me.meh_myoma_darab.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.meh_myoma_darab.Margin = New System.Windows.Forms.Padding(4)
         Me.meh_myoma_darab.Name = "meh_myoma_darab"
         Me.meh_myoma_darab.Size = New System.Drawing.Size(51, 22)
         Me.meh_myoma_darab.TabIndex = 12
@@ -4819,7 +4822,7 @@ Partial Class App
         '
         Me.meh_myoma.AutoSize = True
         Me.meh_myoma.Location = New System.Drawing.Point(211, 23)
-        Me.meh_myoma.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.meh_myoma.Margin = New System.Windows.Forms.Padding(4)
         Me.meh_myoma.Name = "meh_myoma"
         Me.meh_myoma.Size = New System.Drawing.Size(74, 20)
         Me.meh_myoma.TabIndex = 2
@@ -4831,7 +4834,7 @@ Partial Class App
         '
         Me.CheckBox15.AutoSize = True
         Me.CheckBox15.Location = New System.Drawing.Point(13, 25)
-        Me.CheckBox15.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox15.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox15.Name = "CheckBox15"
         Me.CheckBox15.Size = New System.Drawing.Size(52, 20)
         Me.CheckBox15.TabIndex = 1
@@ -4847,9 +4850,9 @@ Partial Class App
         Me.GroupBox54.Controls.Add(Me.pete_mm)
         Me.GroupBox54.Controls.Add(Me.pete_meret)
         Me.GroupBox54.Location = New System.Drawing.Point(7, 52)
-        Me.GroupBox54.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox54.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox54.Name = "GroupBox54"
-        Me.GroupBox54.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox54.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox54.Size = New System.Drawing.Size(180, 103)
         Me.GroupBox54.TabIndex = 0
         Me.GroupBox54.TabStop = False
@@ -4859,7 +4862,7 @@ Partial Class App
         '
         Me.pete.AutoSize = True
         Me.pete.Location = New System.Drawing.Point(7, 14)
-        Me.pete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pete.Margin = New System.Windows.Forms.Padding(4)
         Me.pete.Name = "pete"
         Me.pete.Size = New System.Drawing.Size(131, 20)
         Me.pete.TabIndex = 22
@@ -4872,7 +4875,7 @@ Partial Class App
         Me.pete_j.AutoSize = True
         Me.pete_j.Enabled = False
         Me.pete_j.Location = New System.Drawing.Point(80, 74)
-        Me.pete_j.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pete_j.Margin = New System.Windows.Forms.Padding(4)
         Me.pete_j.Name = "pete_j"
         Me.pete_j.Size = New System.Drawing.Size(59, 20)
         Me.pete_j.TabIndex = 15
@@ -4886,7 +4889,7 @@ Partial Class App
         Me.pete_b.AutoSize = True
         Me.pete_b.Enabled = False
         Me.pete_b.Location = New System.Drawing.Point(7, 74)
-        Me.pete_b.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pete_b.Margin = New System.Windows.Forms.Padding(4)
         Me.pete_b.Name = "pete_b"
         Me.pete_b.Size = New System.Drawing.Size(48, 20)
         Me.pete_b.TabIndex = 14
@@ -4910,7 +4913,7 @@ Partial Class App
         '
         Me.pete_meret.Enabled = False
         Me.pete_meret.Location = New System.Drawing.Point(45, 42)
-        Me.pete_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pete_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.pete_meret.Name = "pete_meret"
         Me.pete_meret.Size = New System.Drawing.Size(56, 22)
         Me.pete_meret.TabIndex = 12
@@ -4924,9 +4927,9 @@ Partial Class App
         Me.GroupBox44.Controls.Add(Me.CheckBox11)
         Me.GroupBox44.Controls.Add(Me.CheckBox10)
         Me.GroupBox44.Location = New System.Drawing.Point(5, 208)
-        Me.GroupBox44.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox44.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox44.Name = "GroupBox44"
-        Me.GroupBox44.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox44.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox44.Size = New System.Drawing.Size(507, 55)
         Me.GroupBox44.TabIndex = 1
         Me.GroupBox44.TabStop = False
@@ -4947,7 +4950,7 @@ Partial Class App
         '
         Me.holyag_tumor_meret.Enabled = False
         Me.holyag_tumor_meret.Location = New System.Drawing.Point(384, 21)
-        Me.holyag_tumor_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.holyag_tumor_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.holyag_tumor_meret.Name = "holyag_tumor_meret"
         Me.holyag_tumor_meret.Size = New System.Drawing.Size(56, 22)
         Me.holyag_tumor_meret.TabIndex = 12
@@ -4957,7 +4960,7 @@ Partial Class App
         '
         Me.holyag_tumor.AutoSize = True
         Me.holyag_tumor.Location = New System.Drawing.Point(288, 23)
-        Me.holyag_tumor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.holyag_tumor.Margin = New System.Windows.Forms.Padding(4)
         Me.holyag_tumor.Name = "holyag_tumor"
         Me.holyag_tumor.Size = New System.Drawing.Size(68, 20)
         Me.holyag_tumor.TabIndex = 2
@@ -4969,7 +4972,7 @@ Partial Class App
         '
         Me.CheckBox11.AutoSize = True
         Me.CheckBox11.Location = New System.Drawing.Point(153, 23)
-        Me.CheckBox11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox11.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox11.Name = "CheckBox11"
         Me.CheckBox11.Size = New System.Drawing.Size(90, 20)
         Me.CheckBox11.TabIndex = 1
@@ -4981,7 +4984,7 @@ Partial Class App
         '
         Me.CheckBox10.AutoSize = True
         Me.CheckBox10.Location = New System.Drawing.Point(13, 23)
-        Me.CheckBox10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox10.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox10.Name = "CheckBox10"
         Me.CheckBox10.Size = New System.Drawing.Size(71, 20)
         Me.CheckBox10.TabIndex = 0
@@ -5001,9 +5004,9 @@ Partial Class App
         Me.GroupBox43.Controls.Add(Me.pyelo_grp)
         Me.GroupBox43.Controls.Add(Me.vese_tumor_grp)
         Me.GroupBox43.Location = New System.Drawing.Point(5, 5)
-        Me.GroupBox43.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox43.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox43.Name = "GroupBox43"
-        Me.GroupBox43.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox43.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox43.Size = New System.Drawing.Size(507, 198)
         Me.GroupBox43.TabIndex = 0
         Me.GroupBox43.TabStop = False
@@ -5014,7 +5017,7 @@ Partial Class App
         '
         Me.veseko.AutoSize = True
         Me.veseko.Location = New System.Drawing.Point(153, 97)
-        Me.veseko.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.veseko.Margin = New System.Windows.Forms.Padding(4)
         Me.veseko.Name = "veseko"
         Me.veseko.Size = New System.Drawing.Size(76, 20)
         Me.veseko.TabIndex = 8
@@ -5026,7 +5029,7 @@ Partial Class App
         '
         Me.pyelo.AutoSize = True
         Me.pyelo.Location = New System.Drawing.Point(88, 161)
-        Me.pyelo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pyelo.Margin = New System.Windows.Forms.Padding(4)
         Me.pyelo.Name = "pyelo"
         Me.pyelo.Size = New System.Drawing.Size(128, 20)
         Me.pyelo.TabIndex = 7
@@ -5038,7 +5041,7 @@ Partial Class App
         '
         Me.vese_tumor.AutoSize = True
         Me.vese_tumor.Location = New System.Drawing.Point(153, 33)
-        Me.vese_tumor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.vese_tumor.Margin = New System.Windows.Forms.Padding(4)
         Me.vese_tumor.Name = "vese_tumor"
         Me.vese_tumor.Size = New System.Drawing.Size(68, 20)
         Me.vese_tumor.TabIndex = 6
@@ -5050,7 +5053,7 @@ Partial Class App
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(13, 89)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(112, 20)
         Me.CheckBox1.TabIndex = 5
@@ -5062,7 +5065,7 @@ Partial Class App
         '
         Me.RadioButton24.AutoSize = True
         Me.RadioButton24.Location = New System.Drawing.Point(13, 60)
-        Me.RadioButton24.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton24.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton24.Name = "RadioButton24"
         Me.RadioButton24.Size = New System.Drawing.Size(91, 20)
         Me.RadioButton24.TabIndex = 4
@@ -5075,7 +5078,7 @@ Partial Class App
         '
         Me.RadioButton23.AutoSize = True
         Me.RadioButton23.Location = New System.Drawing.Point(13, 32)
-        Me.RadioButton23.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton23.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton23.Name = "RadioButton23"
         Me.RadioButton23.Size = New System.Drawing.Size(59, 20)
         Me.RadioButton23.TabIndex = 3
@@ -5092,9 +5095,9 @@ Partial Class App
         Me.veseko_grp.Controls.Add(Me.veseko_meret)
         Me.veseko_grp.Enabled = False
         Me.veseko_grp.Location = New System.Drawing.Point(236, 76)
-        Me.veseko_grp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.veseko_grp.Margin = New System.Windows.Forms.Padding(4)
         Me.veseko_grp.Name = "veseko_grp"
-        Me.veseko_grp.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.veseko_grp.Padding = New System.Windows.Forms.Padding(4)
         Me.veseko_grp.Size = New System.Drawing.Size(245, 55)
         Me.veseko_grp.TabIndex = 2
         Me.veseko_grp.TabStop = False
@@ -5117,7 +5120,7 @@ Partial Class App
         Me.veseko_j.AutoSize = True
         Me.veseko_j.Enabled = False
         Me.veseko_j.Location = New System.Drawing.Point(176, 20)
-        Me.veseko_j.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.veseko_j.Margin = New System.Windows.Forms.Padding(4)
         Me.veseko_j.Name = "veseko_j"
         Me.veseko_j.Size = New System.Drawing.Size(59, 20)
         Me.veseko_j.TabIndex = 2
@@ -5131,7 +5134,7 @@ Partial Class App
         Me.veseko_b.AutoSize = True
         Me.veseko_b.Enabled = False
         Me.veseko_b.Location = New System.Drawing.Point(115, 20)
-        Me.veseko_b.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.veseko_b.Margin = New System.Windows.Forms.Padding(4)
         Me.veseko_b.Name = "veseko_b"
         Me.veseko_b.Size = New System.Drawing.Size(48, 20)
         Me.veseko_b.TabIndex = 1
@@ -5144,7 +5147,7 @@ Partial Class App
         '
         Me.veseko_meret.Enabled = False
         Me.veseko_meret.Location = New System.Drawing.Point(8, 18)
-        Me.veseko_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.veseko_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.veseko_meret.Name = "veseko_meret"
         Me.veseko_meret.Size = New System.Drawing.Size(45, 22)
         Me.veseko_meret.TabIndex = 0
@@ -5157,9 +5160,9 @@ Partial Class App
         Me.pyelo_grp.Controls.Add(Me.pyelo_b)
         Me.pyelo_grp.Enabled = False
         Me.pyelo_grp.Location = New System.Drawing.Point(236, 138)
-        Me.pyelo_grp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pyelo_grp.Margin = New System.Windows.Forms.Padding(4)
         Me.pyelo_grp.Name = "pyelo_grp"
-        Me.pyelo_grp.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pyelo_grp.Padding = New System.Windows.Forms.Padding(4)
         Me.pyelo_grp.Size = New System.Drawing.Size(245, 55)
         Me.pyelo_grp.TabIndex = 1
         Me.pyelo_grp.TabStop = False
@@ -5171,7 +5174,7 @@ Partial Class App
         Me.pyelo_mko.AutoSize = True
         Me.pyelo_mko.Enabled = False
         Me.pyelo_mko.Location = New System.Drawing.Point(161, 23)
-        Me.pyelo_mko.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pyelo_mko.Margin = New System.Windows.Forms.Padding(4)
         Me.pyelo_mko.Name = "pyelo_mko"
         Me.pyelo_mko.Size = New System.Drawing.Size(54, 20)
         Me.pyelo_mko.TabIndex = 2
@@ -5185,7 +5188,7 @@ Partial Class App
         Me.pyelo_j.AutoSize = True
         Me.pyelo_j.Enabled = False
         Me.pyelo_j.Location = New System.Drawing.Point(89, 23)
-        Me.pyelo_j.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pyelo_j.Margin = New System.Windows.Forms.Padding(4)
         Me.pyelo_j.Name = "pyelo_j"
         Me.pyelo_j.Size = New System.Drawing.Size(59, 20)
         Me.pyelo_j.TabIndex = 1
@@ -5199,7 +5202,7 @@ Partial Class App
         Me.pyelo_b.AutoSize = True
         Me.pyelo_b.Enabled = False
         Me.pyelo_b.Location = New System.Drawing.Point(11, 23)
-        Me.pyelo_b.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pyelo_b.Margin = New System.Windows.Forms.Padding(4)
         Me.pyelo_b.Name = "pyelo_b"
         Me.pyelo_b.Size = New System.Drawing.Size(48, 20)
         Me.pyelo_b.TabIndex = 0
@@ -5216,9 +5219,9 @@ Partial Class App
         Me.vese_tumor_grp.Controls.Add(Me.vese_tumor_meret)
         Me.vese_tumor_grp.Enabled = False
         Me.vese_tumor_grp.Location = New System.Drawing.Point(236, 11)
-        Me.vese_tumor_grp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.vese_tumor_grp.Margin = New System.Windows.Forms.Padding(4)
         Me.vese_tumor_grp.Name = "vese_tumor_grp"
-        Me.vese_tumor_grp.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.vese_tumor_grp.Padding = New System.Windows.Forms.Padding(4)
         Me.vese_tumor_grp.Size = New System.Drawing.Size(245, 55)
         Me.vese_tumor_grp.TabIndex = 0
         Me.vese_tumor_grp.TabStop = False
@@ -5241,7 +5244,7 @@ Partial Class App
         Me.vese_tumor_j.AutoSize = True
         Me.vese_tumor_j.Enabled = False
         Me.vese_tumor_j.Location = New System.Drawing.Point(176, 21)
-        Me.vese_tumor_j.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.vese_tumor_j.Margin = New System.Windows.Forms.Padding(4)
         Me.vese_tumor_j.Name = "vese_tumor_j"
         Me.vese_tumor_j.Size = New System.Drawing.Size(59, 20)
         Me.vese_tumor_j.TabIndex = 2
@@ -5255,7 +5258,7 @@ Partial Class App
         Me.vese_tumor_b.AutoSize = True
         Me.vese_tumor_b.Enabled = False
         Me.vese_tumor_b.Location = New System.Drawing.Point(115, 21)
-        Me.vese_tumor_b.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.vese_tumor_b.Margin = New System.Windows.Forms.Padding(4)
         Me.vese_tumor_b.Name = "vese_tumor_b"
         Me.vese_tumor_b.Size = New System.Drawing.Size(48, 20)
         Me.vese_tumor_b.TabIndex = 1
@@ -5268,7 +5271,7 @@ Partial Class App
         '
         Me.vese_tumor_meret.Enabled = False
         Me.vese_tumor_meret.Location = New System.Drawing.Point(8, 20)
-        Me.vese_tumor_meret.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.vese_tumor_meret.Margin = New System.Windows.Forms.Padding(4)
         Me.vese_tumor_meret.Name = "vese_tumor_meret"
         Me.vese_tumor_meret.Size = New System.Drawing.Size(45, 22)
         Me.vese_tumor_meret.TabIndex = 0
@@ -5280,9 +5283,9 @@ Partial Class App
         Me.TabPage7.Controls.Add(Me.GroupBox52)
         Me.TabPage7.Controls.Add(Me.GroupBox51)
         Me.TabPage7.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage7.Margin = New System.Windows.Forms.Padding(4)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(4)
         Me.TabPage7.Size = New System.Drawing.Size(673, 612)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Epikrízis"
@@ -5309,9 +5312,9 @@ Partial Class App
         Me.GroupBox52.Controls.Add(Me.CheckBox3)
         Me.GroupBox52.Controls.Add(Me.CheckBox2)
         Me.GroupBox52.Location = New System.Drawing.Point(5, 394)
-        Me.GroupBox52.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox52.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox52.Name = "GroupBox52"
-        Me.GroupBox52.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox52.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox52.Size = New System.Drawing.Size(525, 181)
         Me.GroupBox52.TabIndex = 1
         Me.GroupBox52.TabStop = False
@@ -5321,7 +5324,7 @@ Partial Class App
         '
         Me.CheckBox19.AutoSize = True
         Me.CheckBox19.Location = New System.Drawing.Point(237, 148)
-        Me.CheckBox19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox19.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox19.Name = "CheckBox19"
         Me.CheckBox19.Size = New System.Drawing.Size(81, 20)
         Me.CheckBox19.TabIndex = 7
@@ -5333,7 +5336,7 @@ Partial Class App
         '
         Me.CheckBox18.AutoSize = True
         Me.CheckBox18.Location = New System.Drawing.Point(8, 148)
-        Me.CheckBox18.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox18.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox18.Name = "CheckBox18"
         Me.CheckBox18.Size = New System.Drawing.Size(165, 20)
         Me.CheckBox18.TabIndex = 6
@@ -5345,7 +5348,7 @@ Partial Class App
         '
         Me.CheckBox17.AutoSize = True
         Me.CheckBox17.Location = New System.Drawing.Point(237, 111)
-        Me.CheckBox17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox17.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox17.Name = "CheckBox17"
         Me.CheckBox17.Size = New System.Drawing.Size(97, 20)
         Me.CheckBox17.TabIndex = 5
@@ -5357,7 +5360,7 @@ Partial Class App
         '
         Me.CheckBox16.AutoSize = True
         Me.CheckBox16.Location = New System.Drawing.Point(237, 74)
-        Me.CheckBox16.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox16.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox16.Name = "CheckBox16"
         Me.CheckBox16.Size = New System.Drawing.Size(105, 20)
         Me.CheckBox16.TabIndex = 4
@@ -5369,7 +5372,7 @@ Partial Class App
         '
         Me.CheckBox14.AutoSize = True
         Me.CheckBox14.Location = New System.Drawing.Point(237, 37)
-        Me.CheckBox14.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox14.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(67, 20)
         Me.CheckBox14.TabIndex = 3
@@ -5381,7 +5384,7 @@ Partial Class App
         '
         Me.CheckBox4.AutoSize = True
         Me.CheckBox4.Location = New System.Drawing.Point(8, 111)
-        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(74, 20)
         Me.CheckBox4.TabIndex = 2
@@ -5393,7 +5396,7 @@ Partial Class App
         '
         Me.CheckBox3.AutoSize = True
         Me.CheckBox3.Location = New System.Drawing.Point(8, 74)
-        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(48, 20)
         Me.CheckBox3.TabIndex = 1
@@ -5405,7 +5408,7 @@ Partial Class App
         '
         Me.CheckBox2.AutoSize = True
         Me.CheckBox2.Location = New System.Drawing.Point(8, 37)
-        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(57, 20)
         Me.CheckBox2.TabIndex = 0
@@ -5428,9 +5431,9 @@ Partial Class App
         Me.GroupBox51.Controls.Add(Me.RadioButton26)
         Me.GroupBox51.Controls.Add(Me.RadioButton25)
         Me.GroupBox51.Location = New System.Drawing.Point(5, 5)
-        Me.GroupBox51.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox51.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox51.Name = "GroupBox51"
-        Me.GroupBox51.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox51.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox51.Size = New System.Drawing.Size(528, 357)
         Me.GroupBox51.TabIndex = 0
         Me.GroupBox51.TabStop = False
@@ -5441,7 +5444,7 @@ Partial Class App
         '
         Me.RadioButton40.AutoSize = True
         Me.RadioButton40.Location = New System.Drawing.Point(237, 314)
-        Me.RadioButton40.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton40.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton40.Name = "RadioButton40"
         Me.RadioButton40.Size = New System.Drawing.Size(132, 20)
         Me.RadioButton40.TabIndex = 11
@@ -5454,7 +5457,7 @@ Partial Class App
         '
         Me.RadioButton39.AutoSize = True
         Me.RadioButton39.Location = New System.Drawing.Point(237, 258)
-        Me.RadioButton39.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton39.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton39.Name = "RadioButton39"
         Me.RadioButton39.Size = New System.Drawing.Size(229, 20)
         Me.RadioButton39.TabIndex = 10
@@ -5467,7 +5470,7 @@ Partial Class App
         '
         Me.RadioButton38.AutoSize = True
         Me.RadioButton38.Location = New System.Drawing.Point(8, 314)
-        Me.RadioButton38.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton38.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton38.Name = "RadioButton38"
         Me.RadioButton38.Size = New System.Drawing.Size(180, 20)
         Me.RadioButton38.TabIndex = 9
@@ -5480,7 +5483,7 @@ Partial Class App
         '
         Me.RadioButton36.AutoSize = True
         Me.RadioButton36.Location = New System.Drawing.Point(8, 258)
-        Me.RadioButton36.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton36.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton36.Name = "RadioButton36"
         Me.RadioButton36.Size = New System.Drawing.Size(163, 20)
         Me.RadioButton36.TabIndex = 8
@@ -5493,7 +5496,7 @@ Partial Class App
         '
         Me.RadioButton34.AutoSize = True
         Me.RadioButton34.Location = New System.Drawing.Point(237, 203)
-        Me.RadioButton34.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton34.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton34.Name = "RadioButton34"
         Me.RadioButton34.Size = New System.Drawing.Size(109, 20)
         Me.RadioButton34.TabIndex = 7
@@ -5506,7 +5509,7 @@ Partial Class App
         '
         Me.RadioButton33.AutoSize = True
         Me.RadioButton33.Location = New System.Drawing.Point(8, 203)
-        Me.RadioButton33.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton33.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton33.Name = "RadioButton33"
         Me.RadioButton33.Size = New System.Drawing.Size(138, 20)
         Me.RadioButton33.TabIndex = 6
@@ -5519,7 +5522,7 @@ Partial Class App
         '
         Me.RadioButton32.AutoSize = True
         Me.RadioButton32.Location = New System.Drawing.Point(237, 148)
-        Me.RadioButton32.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton32.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton32.Name = "RadioButton32"
         Me.RadioButton32.Size = New System.Drawing.Size(226, 20)
         Me.RadioButton32.TabIndex = 5
@@ -5532,7 +5535,7 @@ Partial Class App
         '
         Me.RadioButton31.AutoSize = True
         Me.RadioButton31.Location = New System.Drawing.Point(8, 148)
-        Me.RadioButton31.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton31.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton31.Name = "RadioButton31"
         Me.RadioButton31.Size = New System.Drawing.Size(178, 20)
         Me.RadioButton31.TabIndex = 4
@@ -5545,7 +5548,7 @@ Partial Class App
         '
         Me.RadioButton30.AutoSize = True
         Me.RadioButton30.Location = New System.Drawing.Point(8, 92)
-        Me.RadioButton30.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton30.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton30.Name = "RadioButton30"
         Me.RadioButton30.Size = New System.Drawing.Size(173, 20)
         Me.RadioButton30.TabIndex = 3
@@ -5558,7 +5561,7 @@ Partial Class App
         '
         Me.RadioButton27.AutoSize = True
         Me.RadioButton27.Location = New System.Drawing.Point(237, 92)
-        Me.RadioButton27.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton27.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton27.Name = "RadioButton27"
         Me.RadioButton27.Size = New System.Drawing.Size(260, 20)
         Me.RadioButton27.TabIndex = 2
@@ -5571,7 +5574,7 @@ Partial Class App
         '
         Me.RadioButton26.AutoSize = True
         Me.RadioButton26.Location = New System.Drawing.Point(237, 37)
-        Me.RadioButton26.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton26.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton26.Name = "RadioButton26"
         Me.RadioButton26.Size = New System.Drawing.Size(158, 20)
         Me.RadioButton26.TabIndex = 1
@@ -5584,7 +5587,7 @@ Partial Class App
         '
         Me.RadioButton25.AutoSize = True
         Me.RadioButton25.Location = New System.Drawing.Point(8, 37)
-        Me.RadioButton25.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton25.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton25.Name = "RadioButton25"
         Me.RadioButton25.Size = New System.Drawing.Size(131, 20)
         Me.RadioButton25.TabIndex = 0
@@ -5596,7 +5599,7 @@ Partial Class App
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(11, 98)
+        Me.Label21.Location = New System.Drawing.Point(10, 10)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(32, 16)
         Me.Label21.TabIndex = 4
@@ -5604,7 +5607,7 @@ Partial Class App
         '
         'nev
         '
-        Me.nev.Location = New System.Drawing.Point(45, 96)
+        Me.nev.Location = New System.Drawing.Point(56, 7)
         Me.nev.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.nev.Name = "nev"
         Me.nev.Size = New System.Drawing.Size(229, 22)
@@ -5614,7 +5617,7 @@ Partial Class App
         '
         'datum
         '
-        Me.datum.Location = New System.Drawing.Point(505, 94)
+        Me.datum.Location = New System.Drawing.Point(565, 7)
         Me.datum.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.datum.Name = "datum"
         Me.datum.Size = New System.Drawing.Size(97, 22)
@@ -5625,7 +5628,7 @@ Partial Class App
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(451, 97)
+        Me.Label22.Location = New System.Drawing.Point(513, 10)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(46, 16)
         Me.Label22.TabIndex = 6
@@ -5775,17 +5778,37 @@ Partial Class App
         Me.toolstrip_export.Size = New System.Drawing.Size(32, 32)
         Me.toolstrip_export.Text = "Exportálás"
         '
+        'benti
+        '
+        Me.benti.AutoSize = True
+        Me.benti.Location = New System.Drawing.Point(309, 8)
+        Me.benti.Name = "benti"
+        Me.benti.Size = New System.Drawing.Size(59, 20)
+        Me.benti.TabIndex = 14
+        Me.benti.Tag = "benti"
+        Me.benti.Text = "Benti"
+        Me.benti.UseVisualStyleBackColor = True
+        '
+        'metaInput
+        '
+        Me.metaInput.Controls.Add(Me.benti)
+        Me.metaInput.Controls.Add(Me.nev)
+        Me.metaInput.Controls.Add(Me.datum)
+        Me.metaInput.Controls.Add(Me.Label21)
+        Me.metaInput.Controls.Add(Me.Label22)
+        Me.metaInput.Location = New System.Drawing.Point(7, 82)
+        Me.metaInput.Name = "metaInput"
+        Me.metaInput.Size = New System.Drawing.Size(673, 39)
+        Me.metaInput.TabIndex = 15
+        '
         'App
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(681, 769)
+        Me.Controls.Add(Me.metaInput)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Controls.Add(Me.datum)
-        Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.nev)
-        Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.dataInput)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
@@ -5935,6 +5958,8 @@ Partial Class App
         Me.MenuStrip1.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.metaInput.ResumeLayout(False)
+        Me.metaInput.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -6355,5 +6380,7 @@ Partial Class App
 	Friend WithEvents toolstrip_open As ToolStripButton
 	Friend WithEvents toolstrip_save As ToolStripButton
 	Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
-	Friend WithEvents toolstrip_export As ToolStripButton
+    Friend WithEvents toolstrip_export As ToolStripButton
+    Friend WithEvents benti As CheckBox
+    Friend WithEvents metaInput As Panel
 End Class

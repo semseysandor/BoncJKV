@@ -55,6 +55,7 @@ Public Class App
       Dim xmlexp = New XMLProcessor(SaveFilePath)
 
       ComponentManager.UI.SetUIState(False)
+            datamng.CollectData(metaInput.Controls)
       datamng.CollectData(dataInput.Controls)
       xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
       ComponentManager.UI.SetUIState(True)
@@ -77,6 +78,7 @@ Public Class App
       ComponentManager.UI.SetUIState(False)
       ComponentManager.UI.ResetScreen()
       ComponentManager.UI.SetNameDate(name, datte)
+            datamng.LoadData(xmlexporter.LoadData(name, datte), metaInput.Controls)
       datamng.LoadData(xmlexporter.LoadData(name, datte), dataInput.Controls)
       ComponentManager.UI.SetUIState(True)
     Catch ex As Exception
@@ -95,6 +97,7 @@ Public Class App
       Dim exporter = New WordExporter()
 
       ComponentManager.UI.SetUIState(False)
+            datamng.CollectData(metaInput.Controls)
       datamng.CollectData(dataInput.Controls)
 
       If Not Transformer.ApplyRules(datamng.GetData) Then

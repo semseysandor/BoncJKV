@@ -62,8 +62,8 @@ Public Class DataManager
           If radio.Enabled AndAlso radio.Checked Then
             Data.Add(radio.Parent.Tag.ToString, radio.Tag.ToString)
           End If
-        Case GetType(GroupBox), GetType(TabPage)
-          CollectData(ctrl.Controls)
+                Case GetType(GroupBox), GetType(TabPage)
+                    CollectData(ctrl.Controls)
       End Select
 
     Next

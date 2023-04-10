@@ -4,25 +4,26 @@
 Public Class AppUI
   Inherits CoreUI
 
-  ''' <summary>
-  ''' Resets screen
-  ''' </summary>
-  Public Sub ResetScreen()
-    ResetControls(App.dataInput.Controls)
+    ''' <summary>
+    ''' Resets screen
+    ''' </summary>
+    Public Sub ResetScreen()
+        ResetControls(App.metaInput.Controls)
+        ResetControls(App.dataInput.Controls)
 
-    ComponentManager.Main.dataInput.SelectedIndex = 0
+        ComponentManager.Main.dataInput.SelectedIndex = 0
 
-    ComponentManager.Main.datum.Text = Now.ToString("yyyy-MM-dd")
+        ComponentManager.Main.datum.Text = Now.ToString("yyyy-MM-dd")
 
-    ComponentManager.Main.nev.ResetText()
-    ComponentManager.Main.nev.Select()
-    ComponentManager.Main.nev.Select()
-  End Sub
+        ComponentManager.Main.nev.ResetText()
+        ComponentManager.Main.nev.Select()
+        ComponentManager.Main.nev.Select()
+    End Sub
 
-  ''' <summary>
-  ''' Switch to the next tab
-  ''' </summary>
-  Public Sub NextTab(sender As Object)
+    ''' <summary>
+    ''' Switch to the next tab
+    ''' </summary>
+    Public Sub NextTab(sender As Object)
     ComponentManager.Main.dataInput.SelectedIndex = TryCast(sender, Button).Parent.TabIndex + 1
   End Sub
 
