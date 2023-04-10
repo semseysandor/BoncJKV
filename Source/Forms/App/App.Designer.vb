@@ -442,6 +442,7 @@ Partial Class App
         Me.benti = New System.Windows.Forms.CheckBox()
         Me.metaInput = New System.Windows.Forms.Panel()
         Me.foto = New System.Windows.Forms.CheckBox()
+        Me.RadioButton41 = New System.Windows.Forms.RadioButton()
         Me.dataInput.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -582,7 +583,7 @@ Partial Class App
         Me.GroupBox14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox14.Name = "GroupBox14"
         Me.GroupBox14.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox14.Size = New System.Drawing.Size(107, 117)
+        Me.GroupBox14.Size = New System.Drawing.Size(118, 117)
         Me.GroupBox14.TabIndex = 1
         Me.GroupBox14.TabStop = False
         Me.GroupBox14.Text = "Méretek"
@@ -645,7 +646,7 @@ Partial Class App
         '
         Me.GroupBox13.Controls.Add(Me.TextBox9)
         Me.GroupBox13.Controls.Add(Me.Label11)
-        Me.GroupBox13.Location = New System.Drawing.Point(117, 345)
+        Me.GroupBox13.Location = New System.Drawing.Point(129, 367)
         Me.GroupBox13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox13.Name = "GroupBox13"
         Me.GroupBox13.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -680,7 +681,7 @@ Partial Class App
         Me.GroupBox12.Controls.Add(Me.asc_liter)
         Me.GroupBox12.Controls.Add(Me.asc_l)
         Me.GroupBox12.Controls.Add(Me.icterus)
-        Me.GroupBox12.Location = New System.Drawing.Point(419, 5)
+        Me.GroupBox12.Location = New System.Drawing.Point(431, 5)
         Me.GroupBox12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -762,7 +763,7 @@ Partial Class App
         Me.GroupBox11.Controls.Add(Me.pacemaker)
         Me.GroupBox11.Controls.Add(Me.pacemaker_id)
         Me.GroupBox11.Controls.Add(Me.pacemaker_serial)
-        Me.GroupBox11.Location = New System.Drawing.Point(219, 324)
+        Me.GroupBox11.Location = New System.Drawing.Point(231, 346)
         Me.GroupBox11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -820,7 +821,7 @@ Partial Class App
         Me.GroupBox3.Controls.Add(Me.decub_sark)
         Me.GroupBox3.Controls.Add(Me.decub_b)
         Me.GroupBox3.Controls.Add(Me.decub_j)
-        Me.GroupBox3.Location = New System.Drawing.Point(293, 5)
+        Me.GroupBox3.Location = New System.Drawing.Point(305, 5)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -913,7 +914,7 @@ Partial Class App
         Me.GroupBox1.Controls.Add(Me.TextBox5)
         Me.GroupBox1.Controls.Add(Me.TextBox7)
         Me.GroupBox1.Controls.Add(Me.TextBox6)
-        Me.GroupBox1.Location = New System.Drawing.Point(117, 5)
+        Me.GroupBox1.Location = New System.Drawing.Point(129, 5)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1038,7 +1039,7 @@ Partial Class App
         Me.GroupBox7.Controls.Add(Me.RadioButton17)
         Me.GroupBox7.Controls.Add(Me.RadioButton16)
         Me.GroupBox7.Controls.Add(Me.RadioButton15)
-        Me.GroupBox7.Location = New System.Drawing.Point(219, 204)
+        Me.GroupBox7.Location = New System.Drawing.Point(231, 204)
         Me.GroupBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1132,7 +1133,7 @@ Partial Class App
         Me.GroupBox5.Controls.Add(Me.RadioButton12)
         Me.GroupBox5.Controls.Add(Me.RadioButton13)
         Me.GroupBox5.Controls.Add(Me.RadioButton14)
-        Me.GroupBox5.Location = New System.Drawing.Point(117, 204)
+        Me.GroupBox5.Location = New System.Drawing.Point(129, 204)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1200,11 +1201,11 @@ Partial Class App
         Me.GroupBox4.Controls.Add(Me.RadioButton8)
         Me.GroupBox4.Controls.Add(Me.RadioButton9)
         Me.GroupBox4.Controls.Add(Me.RadioButton10)
-        Me.GroupBox4.Location = New System.Drawing.Point(5, 345)
+        Me.GroupBox4.Location = New System.Drawing.Point(5, 367)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox4.Size = New System.Drawing.Size(107, 117)
+        Me.GroupBox4.Size = New System.Drawing.Size(118, 117)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Tag = "test"
@@ -1264,6 +1265,7 @@ Partial Class App
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.RadioButton41)
         Me.GroupBox2.Controls.Add(Me.RadioButton6)
         Me.GroupBox2.Controls.Add(Me.RadioButton5)
         Me.GroupBox2.Controls.Add(Me.RadioButton3)
@@ -1272,7 +1274,7 @@ Partial Class App
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(107, 135)
+        Me.GroupBox2.Size = New System.Drawing.Size(118, 159)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Tag = "kor"
@@ -1281,7 +1283,7 @@ Partial Class App
         'RadioButton6
         '
         Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(5, 102)
+        Me.RadioButton6.Location = New System.Drawing.Point(5, 128)
         Me.RadioButton6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton6.Name = "RadioButton6"
         Me.RadioButton6.Size = New System.Drawing.Size(54, 20)
@@ -1294,7 +1296,7 @@ Partial Class App
         'RadioButton5
         '
         Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Location = New System.Drawing.Point(5, 75)
+        Me.RadioButton5.Location = New System.Drawing.Point(5, 101)
         Me.RadioButton5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton5.Name = "RadioButton5"
         Me.RadioButton5.Size = New System.Drawing.Size(78, 20)
@@ -1338,7 +1340,7 @@ Partial Class App
         Me.gender.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.gender.Name = "gender"
         Me.gender.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.gender.Size = New System.Drawing.Size(107, 70)
+        Me.gender.Size = New System.Drawing.Size(118, 70)
         Me.gender.TabIndex = 2
         Me.gender.TabStop = False
         Me.gender.Tag = "nem"
@@ -5814,6 +5816,19 @@ Partial Class App
         Me.foto.Text = "Fotó"
         Me.foto.UseVisualStyleBackColor = True
         '
+        'RadioButton41
+        '
+        Me.RadioButton41.AutoSize = True
+        Me.RadioButton41.Location = New System.Drawing.Point(5, 75)
+        Me.RadioButton41.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.RadioButton41.Name = "RadioButton41"
+        Me.RadioButton41.Size = New System.Drawing.Size(109, 20)
+        Me.RadioButton41.TabIndex = 4
+        Me.RadioButton41.TabStop = True
+        Me.RadioButton41.Tag = "átmeneti korú"
+        Me.RadioButton41.Text = "Átmeneti korú"
+        Me.RadioButton41.UseVisualStyleBackColor = True
+        '
         'App
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -6397,4 +6412,5 @@ Partial Class App
     Friend WithEvents benti As CheckBox
     Friend WithEvents metaInput As Panel
     Friend WithEvents foto As CheckBox
+    Friend WithEvents RadioButton41 As RadioButton
 End Class
