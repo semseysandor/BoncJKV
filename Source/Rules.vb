@@ -56,8 +56,8 @@ Public Class Rules
   Private Sub AddToDiag(ByVal diag As String)
 
     If Content.ContainsKey("diag") Then
-      Content.Item("diag") += ", " + diag
-    Else
+            Content.Item("diag") += " " + diag
+        Else
       Content.Add("diag", diag)
     End If
 
