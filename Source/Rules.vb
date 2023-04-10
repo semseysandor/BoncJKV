@@ -537,7 +537,7 @@ Public Class Rules
         key = "sziv_iszb"
         If data.ContainsKey(key) Then
             Content.Add("iszb", ", metszéslapján szürkésfehér rajzolat mutatkozik")
-            AddToDiag("Cardyomyopathia ischaemica chronica.")
+            AddToDiag("Cardiomyopathia ischaemica chronica.")
         End If
         '########################################################################
         key = "sziv_erek"
@@ -660,7 +660,7 @@ Public Class Rules
                 Return False
             End If
 
-            Content.Add("inf_uj", "A bal kamra")
+            Content.Add("inf_uj", "A bal kamra ")
             Select Case data.Item("sziv_inf_uj_poz")
                 Case "elulso"
                     Content.Item("inf_uj") += "elülső"
@@ -706,7 +706,7 @@ Public Class Rules
             Content.Add("sziv_cabg_kul", "a sternum felett régi hegvonal látható, a szegycsontban fémkapcsok figyelhetők meg, ")
             Content.Add("sziv_cabg_nyaki_1", ", a szívburok lapszerint latapadva")
             Content.Add("sziv_cabg_nyaki_2", "A koszorú-verőerekhez az aortából kiinduló bypass graftok csatlakoznak varratokkal,")
-            Content.Item("sziv_cabg_nyaki_2") += " a graftok arterializálódtak, helyenkét szűkültek. "
+            Content.Item("sziv_cabg_nyaki_2") += " a graftok arterializálódtak, helyenként szűkültek. "
             AddToDiag("Status post CABG.")
         End If
         Return True
