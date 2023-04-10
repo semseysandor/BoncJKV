@@ -190,6 +190,7 @@ Public Class App
     Private Sub EnableControl(sender As Object, e As EventArgs) Handles here_tumor.CheckedChanged,
     decub_meret.TextChanged,
     ascites.CheckedChanged,
+    combkorfogat.CheckedChanged,
     pacemaker.CheckedChanged,
     agy_lagyulas.CheckedChanged,
     agy_verzes.CheckedChanged,
@@ -227,6 +228,8 @@ Public Class App
             controls = New Collection From {decub_b, decub_j, decub_sac, decub_sark}
         ElseIf sender.Equals(ascites) Then
             controls = New Collection From {asc_l, asc_liter}
+        ElseIf sender.Equals(combkorfogat) Then
+            controls = New Collection From {combkorfogat_bal, combkorfogat_jobb, combkorfogat_bal_label, combkorfogat_jobb_label, combkorfogat_bal_unit, combkorfogat_jobb_unit}
         ElseIf sender.Equals(pacemaker) Then
             controls = New Collection From {pacemaker_serial, pacemaker_id}
         ElseIf sender.Equals(agy_lagyulas) Then
