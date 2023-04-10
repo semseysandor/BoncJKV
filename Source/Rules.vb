@@ -286,6 +286,15 @@ Public Class Rules
             AddToDiag("Icterus universalis.")
         End If
         '########################################################################
+        key = "combkorfogat"
+        If data.ContainsKey(key) Then
+            If CheckRequired("combkorfogat_bal", data) AndAlso CheckRequired("combkorfogat_jobb", data) Then
+                Content.Add(key, ", a bal combkörfogat " + data.Item("combkorfogat_bal") + " cm, a jobb combkörfogat " + data.Item("combkorfogat_jobb") + " cm")
+            ElseIf AbortOnMissing Then
+                Return False
+            End If
+        End If
+        '########################################################################
         key = "pacemaker"
         If data.ContainsKey(key) Then
             If CheckRequired("pacemaker_serial", data) Then

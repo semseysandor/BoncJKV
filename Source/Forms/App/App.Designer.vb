@@ -25,6 +25,14 @@ Partial Class App
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(App))
         Me.dataInput = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBox58 = New System.Windows.Forms.GroupBox()
+        Me.combkorfogat_jobb_unit = New System.Windows.Forms.Label()
+        Me.combkorfogat_jobb_label = New System.Windows.Forms.Label()
+        Me.combkorfogat_jobb = New System.Windows.Forms.TextBox()
+        Me.combkorfogat_bal_unit = New System.Windows.Forms.Label()
+        Me.combkorfogat = New System.Windows.Forms.CheckBox()
+        Me.combkorfogat_bal_label = New System.Windows.Forms.Label()
+        Me.combkorfogat_bal = New System.Windows.Forms.TextBox()
         Me.reset_1 = New System.Windows.Forms.Button()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -86,6 +94,7 @@ Partial Class App
         Me.RadioButton9 = New System.Windows.Forms.RadioButton()
         Me.RadioButton10 = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton41 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
@@ -442,9 +451,9 @@ Partial Class App
         Me.benti = New System.Windows.Forms.CheckBox()
         Me.metaInput = New System.Windows.Forms.Panel()
         Me.foto = New System.Windows.Forms.CheckBox()
-        Me.RadioButton41 = New System.Windows.Forms.RadioButton()
         Me.dataInput.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.GroupBox58.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox12.SuspendLayout()
@@ -540,6 +549,7 @@ Partial Class App
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.Transparent
+        Me.TabPage1.Controls.Add(Me.GroupBox58)
         Me.TabPage1.Controls.Add(Me.reset_1)
         Me.TabPage1.Controls.Add(Me.GroupBox14)
         Me.TabPage1.Controls.Add(Me.GroupBox13)
@@ -560,6 +570,95 @@ Partial Class App
         Me.TabPage1.Size = New System.Drawing.Size(673, 612)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Külleírás - Általános"
+        '
+        'GroupBox58
+        '
+        Me.GroupBox58.Controls.Add(Me.combkorfogat_jobb_unit)
+        Me.GroupBox58.Controls.Add(Me.combkorfogat_jobb_label)
+        Me.GroupBox58.Controls.Add(Me.combkorfogat_jobb)
+        Me.GroupBox58.Controls.Add(Me.combkorfogat_bal_unit)
+        Me.GroupBox58.Controls.Add(Me.combkorfogat)
+        Me.GroupBox58.Controls.Add(Me.combkorfogat_bal_label)
+        Me.GroupBox58.Controls.Add(Me.combkorfogat_bal)
+        Me.GroupBox58.Location = New System.Drawing.Point(231, 319)
+        Me.GroupBox58.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox58.Name = "GroupBox58"
+        Me.GroupBox58.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox58.Size = New System.Drawing.Size(325, 108)
+        Me.GroupBox58.TabIndex = 35
+        Me.GroupBox58.TabStop = False
+        '
+        'combkorfogat_jobb_unit
+        '
+        Me.combkorfogat_jobb_unit.AutoSize = True
+        Me.combkorfogat_jobb_unit.Enabled = False
+        Me.combkorfogat_jobb_unit.Location = New System.Drawing.Point(135, 76)
+        Me.combkorfogat_jobb_unit.Name = "combkorfogat_jobb_unit"
+        Me.combkorfogat_jobb_unit.Size = New System.Drawing.Size(25, 16)
+        Me.combkorfogat_jobb_unit.TabIndex = 21
+        Me.combkorfogat_jobb_unit.Text = "cm"
+        '
+        'combkorfogat_jobb_label
+        '
+        Me.combkorfogat_jobb_label.AutoSize = True
+        Me.combkorfogat_jobb_label.Enabled = False
+        Me.combkorfogat_jobb_label.Location = New System.Drawing.Point(34, 76)
+        Me.combkorfogat_jobb_label.Name = "combkorfogat_jobb_label"
+        Me.combkorfogat_jobb_label.Size = New System.Drawing.Size(38, 16)
+        Me.combkorfogat_jobb_label.TabIndex = 19
+        Me.combkorfogat_jobb_label.Text = "Jobb"
+        '
+        'combkorfogat_jobb
+        '
+        Me.combkorfogat_jobb.Enabled = False
+        Me.combkorfogat_jobb.Location = New System.Drawing.Point(78, 73)
+        Me.combkorfogat_jobb.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.combkorfogat_jobb.Name = "combkorfogat_jobb"
+        Me.combkorfogat_jobb.Size = New System.Drawing.Size(49, 22)
+        Me.combkorfogat_jobb.TabIndex = 20
+        Me.combkorfogat_jobb.Tag = "combkorfogat_jobb"
+        '
+        'combkorfogat_bal_unit
+        '
+        Me.combkorfogat_bal_unit.AutoSize = True
+        Me.combkorfogat_bal_unit.Enabled = False
+        Me.combkorfogat_bal_unit.Location = New System.Drawing.Point(135, 46)
+        Me.combkorfogat_bal_unit.Name = "combkorfogat_bal_unit"
+        Me.combkorfogat_bal_unit.Size = New System.Drawing.Size(25, 16)
+        Me.combkorfogat_bal_unit.TabIndex = 18
+        Me.combkorfogat_bal_unit.Text = "cm"
+        '
+        'combkorfogat
+        '
+        Me.combkorfogat.AutoSize = True
+        Me.combkorfogat.Location = New System.Drawing.Point(5, 21)
+        Me.combkorfogat.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.combkorfogat.Name = "combkorfogat"
+        Me.combkorfogat.Size = New System.Drawing.Size(114, 20)
+        Me.combkorfogat.TabIndex = 16
+        Me.combkorfogat.Tag = "combkorfogat"
+        Me.combkorfogat.Text = "Combkörfogat"
+        Me.combkorfogat.UseVisualStyleBackColor = True
+        '
+        'combkorfogat_bal_label
+        '
+        Me.combkorfogat_bal_label.AutoSize = True
+        Me.combkorfogat_bal_label.Enabled = False
+        Me.combkorfogat_bal_label.Location = New System.Drawing.Point(45, 46)
+        Me.combkorfogat_bal_label.Name = "combkorfogat_bal_label"
+        Me.combkorfogat_bal_label.Size = New System.Drawing.Size(27, 16)
+        Me.combkorfogat_bal_label.TabIndex = 1
+        Me.combkorfogat_bal_label.Text = "Bal"
+        '
+        'combkorfogat_bal
+        '
+        Me.combkorfogat_bal.Enabled = False
+        Me.combkorfogat_bal.Location = New System.Drawing.Point(78, 43)
+        Me.combkorfogat_bal.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.combkorfogat_bal.Name = "combkorfogat_bal"
+        Me.combkorfogat_bal.Size = New System.Drawing.Size(49, 22)
+        Me.combkorfogat_bal.TabIndex = 17
+        Me.combkorfogat_bal.Tag = "combkorfogat_bal"
         '
         'reset_1
         '
@@ -763,7 +862,7 @@ Partial Class App
         Me.GroupBox11.Controls.Add(Me.pacemaker)
         Me.GroupBox11.Controls.Add(Me.pacemaker_id)
         Me.GroupBox11.Controls.Add(Me.pacemaker_serial)
-        Me.GroupBox11.Location = New System.Drawing.Point(231, 346)
+        Me.GroupBox11.Location = New System.Drawing.Point(231, 415)
         Me.GroupBox11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1279,6 +1378,19 @@ Partial Class App
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Tag = "kor"
         Me.GroupBox2.Text = "Kor"
+        '
+        'RadioButton41
+        '
+        Me.RadioButton41.AutoSize = True
+        Me.RadioButton41.Location = New System.Drawing.Point(5, 75)
+        Me.RadioButton41.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.RadioButton41.Name = "RadioButton41"
+        Me.RadioButton41.Size = New System.Drawing.Size(109, 20)
+        Me.RadioButton41.TabIndex = 4
+        Me.RadioButton41.TabStop = True
+        Me.RadioButton41.Tag = "átmeneti korú"
+        Me.RadioButton41.Text = "Átmeneti korú"
+        Me.RadioButton41.UseVisualStyleBackColor = True
         '
         'RadioButton6
         '
@@ -5816,19 +5928,6 @@ Partial Class App
         Me.foto.Text = "Fotó"
         Me.foto.UseVisualStyleBackColor = True
         '
-        'RadioButton41
-        '
-        Me.RadioButton41.AutoSize = True
-        Me.RadioButton41.Location = New System.Drawing.Point(5, 75)
-        Me.RadioButton41.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.RadioButton41.Name = "RadioButton41"
-        Me.RadioButton41.Size = New System.Drawing.Size(109, 20)
-        Me.RadioButton41.TabIndex = 4
-        Me.RadioButton41.TabStop = True
-        Me.RadioButton41.Tag = "átmeneti korú"
-        Me.RadioButton41.Text = "Átmeneti korú"
-        Me.RadioButton41.UseVisualStyleBackColor = True
-        '
         'App
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -5848,6 +5947,8 @@ Partial Class App
         Me.Text = "BoncJKV"
         Me.dataInput.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.GroupBox58.ResumeLayout(False)
+        Me.GroupBox58.PerformLayout()
         Me.GroupBox14.ResumeLayout(False)
         Me.GroupBox14.PerformLayout()
         Me.GroupBox13.ResumeLayout(False)
@@ -6413,4 +6514,12 @@ Partial Class App
     Friend WithEvents metaInput As Panel
     Friend WithEvents foto As CheckBox
     Friend WithEvents RadioButton41 As RadioButton
+    Friend WithEvents GroupBox58 As GroupBox
+    Friend WithEvents combkorfogat_jobb_unit As Label
+    Friend WithEvents combkorfogat_jobb_label As Label
+    Friend WithEvents combkorfogat_jobb As TextBox
+    Friend WithEvents combkorfogat_bal_unit As Label
+    Friend WithEvents combkorfogat As CheckBox
+    Friend WithEvents combkorfogat_bal_label As Label
+    Friend WithEvents combkorfogat_bal As TextBox
 End Class
