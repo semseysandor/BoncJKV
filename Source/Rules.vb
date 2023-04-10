@@ -776,8 +776,9 @@ Public Class Rules
                     Content.Add("tudo_bronch_chron", "kifejezett")
                     AddToDiag("Bronchitis chronica.")
                 Case "acut"
+                    Content.Add("tudo_bronch_chron", "kifejezett")
                     Content.Add("tudo_bronch_acut", "purulens váladékot tartalmazó ")
-                    AddToDiag("Bronchitis chronica cum exacerbatinoe acuta.")
+                    AddToDiag("Bronchitis chronica cum exacerbatione acuta.")
             End Select
         Else
             Content.Add("tudo_bronch_chron", "enyhe")
