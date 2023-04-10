@@ -441,6 +441,7 @@ Partial Class App
         Me.toolstrip_export = New System.Windows.Forms.ToolStripButton()
         Me.benti = New System.Windows.Forms.CheckBox()
         Me.metaInput = New System.Windows.Forms.Panel()
+        Me.foto = New System.Windows.Forms.CheckBox()
         Me.dataInput.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -5791,6 +5792,7 @@ Partial Class App
         '
         'metaInput
         '
+        Me.metaInput.Controls.Add(Me.foto)
         Me.metaInput.Controls.Add(Me.benti)
         Me.metaInput.Controls.Add(Me.nev)
         Me.metaInput.Controls.Add(Me.datum)
@@ -5800,6 +5802,17 @@ Partial Class App
         Me.metaInput.Name = "metaInput"
         Me.metaInput.Size = New System.Drawing.Size(673, 39)
         Me.metaInput.TabIndex = 15
+        '
+        'foto
+        '
+        Me.foto.AutoSize = True
+        Me.foto.Location = New System.Drawing.Point(374, 8)
+        Me.foto.Name = "foto"
+        Me.foto.Size = New System.Drawing.Size(56, 20)
+        Me.foto.TabIndex = 15
+        Me.foto.Tag = "foto"
+        Me.foto.Text = "Fotó"
+        Me.foto.UseVisualStyleBackColor = True
         '
         'App
         '
@@ -6383,4 +6396,5 @@ Partial Class App
     Friend WithEvents toolstrip_export As ToolStripButton
     Friend WithEvents benti As CheckBox
     Friend WithEvents metaInput As Panel
+    Friend WithEvents foto As CheckBox
 End Class

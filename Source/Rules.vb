@@ -167,6 +167,11 @@ Public Class Rules
             Content.Add(key, "Az anamnézist illetően a zárójelentésben foglaltakra utalunk.")
         End If
         '########################################################################
+        key = "foto"
+        If data.ContainsKey(key) Then
+            Content.Add(key, " Fotódokumentáció készült.")
+        End If
+        '########################################################################
         For Each key In {"hossz", "haj", "kor", "agy", "sziv", "tudo", "maj", "lep", "vese", "fog", "zsir"}
             If CheckRequired(key, data) Then
                 Content.Add(key, data.Item(key))
