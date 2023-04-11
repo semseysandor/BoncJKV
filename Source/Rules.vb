@@ -677,8 +677,8 @@ Public Class Rules
             Content.Item("inf_uj") += " falában " + data.Item("sziv_inf_uj_meret") + " mm nagyságú "
             Content.Item("inf_uj") += "agyagsárga színű, helyenként vörhenyes szegéllyel bíró, heveny szívizomelhalás figyelhető meg. "
 
-            Content.Add("inf_uj_szovettan", " A szívizomból származó kimetszésben magfestődés nélküli szívizomrostokat azonosítottunk az izomrostok között neutrophil granulocytás infiltrációval és bevérzéssel.")
-        End If
+      Content.Add("inf_uj_szovettan", " A szívizomból származó kimetszésben magfestődés nélküli szívizomrostokat azonosítottunk az izomrostok között neutrophil granulocytás infiltrációval és bevérzéssel. ")
+    End If
         '########################################################################
         key = "sziv_stenosis"
         If data.ContainsKey(key) Then
@@ -879,6 +879,7 @@ Public Class Rules
     ' Covid pneumonia
     If data.ContainsKey(key) AndAlso data.Item(key) = "tudo_pneu_covid" Then
       Content.Add("tudo_pneu", "Mindkét tüdő összes lebenye légtelen, tömött tapintatú, szakadékony. ")
+      Content.Add("covid_szovettan", "A tüdőből származó kimetszésben hyalionsan megvastagodott alveolus falak, az alveolusokban izzadmány mellett hámsejtdesquamatio és vegyes lobsejtes beszűrődés látható. ")
       AddToDiag("Ut fertur infectio virosa (SARS-CoV-2 (COVID-19)). Pneumonia virosa loborum omnium pulmonum.")
     End If
     '########################################################################
