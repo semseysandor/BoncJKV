@@ -684,24 +684,36 @@ Public Class Rules
         key = "sziv_stenosis"
         If data.ContainsKey(key) Then
             Content.Add(key, "z aortabillentyű meszes szűkületet mutat, a")
+            If Not Content.ContainsKey("billentyuk_egyebek") Then
+                Content.Add("billentyuk_egyebek", "egyebekben ")
+            End If
             AddToDiag("Stenosis calcificans ostii aortae.")
         End If
         '########################################################################
         key = "sziv_mitralis"
         If data.ContainsKey(key) Then
             Content.Add(key, " mitralis billentyű anulusa kifejezetten meszes, a")
+            If Not Content.ContainsKey("billentyuk_egyebek") Then
+                Content.Add("billentyuk_egyebek", "egyebekben ")
+            End If
             AddToDiag("Calcificatio ostii atrioventricularis sinistri cordis.")
         End If
         '########################################################################
         key = "mubillentyuk_aorta"
         If data.ContainsKey(key) Then
             Content.Add(key, "z aorta szájadékban jól funkcionáló műbillentyű azonosítható, a varratok épek, vegetatio nem látható, a")
+            If Not Content.ContainsKey("billentyuk_egyebek") Then
+                Content.Add("billentyuk_egyebek", "egyebekben ")
+            End If
             AddToDiag("Implantatum ostii aortae.")
         End If
         '########################################################################
         key = "mubillentyuk_mitralis"
         If data.ContainsKey(key) Then
             Content.Add(key, " mitralis szájadékban jól funkcionáló műbillentyű azonosítható, a varratok épek, vegetatio nem látható, a")
+            If Not Content.ContainsKey("billentyuk_egyebek") Then
+                Content.Add("billentyuk_egyebek", "egyebekben ")
+            End If
             AddToDiag("Implantatum ostii atrioventricularis sinistri.")
         End If
         '########################################################################
