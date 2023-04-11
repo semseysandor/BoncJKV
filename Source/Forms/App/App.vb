@@ -5,160 +5,160 @@
 ''' </summary>
 Public Class App
 
-    ''' <summary>
-    ''' Application Name
-    ''' </summary>
-    Public Const AppName = "BoncJKV"
+  ''' <summary>
+  ''' Application Name
+  ''' </summary>
+  Public Const AppName = "BoncJKV"
 
-    ''' <summary>
-    ''' Transformer object
-    ''' </summary>
-    Private WithEvents Transformer As Rules
+  ''' <summary>
+  ''' Transformer object
+  ''' </summary>
+  Private WithEvents Transformer As Rules
 
-    ''' <summary>
-    ''' Application Path
-    ''' </summary>
-    Private ReadOnly Path As String = Application.StartupPath + IO.Path.DirectorySeparatorChar
+  ''' <summary>
+  ''' Application Path
+  ''' </summary>
+  Private ReadOnly Path As String = Application.StartupPath + IO.Path.DirectorySeparatorChar
 
-    ''' <summary>
-    ''' Save file relative path
-    ''' </summary>
-    Public SaveFilePath As String = "saves.xml"
+  ''' <summary>
+  ''' Save file relative path
+  ''' </summary>
+  Public SaveFilePath As String = "saves.xml"
 
-    ''' <summary>
-    ''' Log file relative path
-    ''' </summary>
-    Public LogFilePath As String = "log.txt"
+  ''' <summary>
+  ''' Log file relative path
+  ''' </summary>
+  Public LogFilePath As String = "log.txt"
 
-    ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' Main features '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    ''' <summary>
-    ''' Initializes form
-    ''' </summary>
-    Friend Sub InitUI(sender As Object, e As EventArgs) Handles MyBase.Load, menu_new.Click, toolstrip_new.Click
-        Try
-            ComponentManager.Main = Me
-            ComponentManager.Logger = New FileLogger(LogFilePath)
-            ComponentManager.UI = New AppUI
+  ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' Main features '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  ''' <summary>
+  ''' Initializes form
+  ''' </summary>
+  Friend Sub InitUI(sender As Object, e As EventArgs) Handles MyBase.Load, menu_new.Click, toolstrip_new.Click
+    Try
+      ComponentManager.Main = Me
+      ComponentManager.Logger = New FileLogger(LogFilePath)
+      ComponentManager.UI = New AppUI
 
-            ComponentManager.UI.ResetScreen()
-        Catch ex As Exception
-            ErrorHandling.General(ex)
-        End Try
-    End Sub
+      ComponentManager.UI.ResetScreen()
+    Catch ex As Exception
+      ErrorHandling.General(ex)
+    End Try
+  End Sub
 
-    ''' <summary>
-    ''' Save data to disk
-    ''' </summary>
-    Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles menu_save.Click, toolstrip_save.Click
-        Try
-            Dim datamng = New DataManager
-            Dim xmlexp = New XMLProcessor(SaveFilePath)
+  ''' <summary>
+  ''' Save data to disk
+  ''' </summary>
+  Private Sub SaveDataUI(sender As Object, e As EventArgs) Handles menu_save.Click, toolstrip_save.Click
+    Try
+      Dim datamng = New DataManager
+      Dim xmlexp = New XMLProcessor(SaveFilePath)
 
-            ComponentManager.UI.SetUIState(False)
-            datamng.CollectData(metaInput.Controls)
-            datamng.CollectData(dataInput.Controls)
-            xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
-            ComponentManager.UI.SetUIState(True)
-        Catch ex As Exception
-            ComponentManager.UI.SetUIState(True)
-            ErrorHandling.General(ex)
-        End Try
-    End Sub
+      ComponentManager.UI.SetUIState(False)
+      datamng.CollectData(metaInput.Controls)
+      datamng.CollectData(dataInput.Controls)
+      xmlexp.SaveData(nev.Text, datum.Text, datamng.GetData)
+      ComponentManager.UI.SetUIState(True)
+    Catch ex As Exception
+      ComponentManager.UI.SetUIState(True)
+      ErrorHandling.General(ex)
+    End Try
+  End Sub
 
-    ''' <summary>
-    ''' Loads data from disk
-    ''' </summary>
-    ''' <param name="name">Patient name to load</param>
-    ''' <param name="datte">Date of inspection</param>
-    Friend Sub LoadDataUI(ByVal name As String, ByVal datte As String)
-        Try
-            Dim datamng = New DataManager
-            Dim xmlexporter = New XMLProcessor(SaveFilePath)
+  ''' <summary>
+  ''' Loads data from disk
+  ''' </summary>
+  ''' <param name="name">Patient name to load</param>
+  ''' <param name="datte">Date of inspection</param>
+  Friend Sub LoadDataUI(ByVal name As String, ByVal datte As String)
+    Try
+      Dim datamng = New DataManager
+      Dim xmlexporter = New XMLProcessor(SaveFilePath)
 
-            ComponentManager.UI.SetUIState(False)
-            ComponentManager.UI.ResetScreen()
-            ComponentManager.UI.SetNameDate(name, datte)
+      ComponentManager.UI.SetUIState(False)
+      ComponentManager.UI.ResetScreen()
+      ComponentManager.UI.SetNameDate(name, datte)
       datamng.LoadData(xmlexporter.LoadData(name, datte), metaInput.Controls)
       datamng.LoadData(xmlexporter.LoadData(name, datte), dataInput.Controls)
-            ComponentManager.UI.SetUIState(True)
-        Catch ex As Exception
-            ComponentManager.UI.SetUIState(True)
-            ErrorHandling.General(ex)
-        End Try
-    End Sub
+      ComponentManager.UI.SetUIState(True)
+    Catch ex As Exception
+      ComponentManager.UI.SetUIState(True)
+      ErrorHandling.General(ex)
+    End Try
+  End Sub
 
-    ''' <summary>
-    ''' Exports data
-    ''' </summary>
-    Private Sub ExportWord(sender As Object, e As EventArgs) Handles menu_export.Click, toolstrip_export.Click
-        Try
-            Dim datamng = New DataManager
-            Transformer = New Rules(True)
-            Dim exporter = New WordExporter()
+  ''' <summary>
+  ''' Exports data
+  ''' </summary>
+  Private Sub ExportWord(sender As Object, e As EventArgs) Handles menu_export.Click, toolstrip_export.Click
+    Try
+      Dim datamng = New DataManager
+      Transformer = New Rules(True)
+      Dim exporter = New WordExporter()
 
-            ComponentManager.UI.SetUIState(False)
-            datamng.CollectData(metaInput.Controls)
-            datamng.CollectData(dataInput.Controls)
+      ComponentManager.UI.SetUIState(False)
+      datamng.CollectData(metaInput.Controls)
+      datamng.CollectData(dataInput.Controls)
 
-            If Not Transformer.ApplyRules(datamng.GetData) Then
-                Exit Sub
-            End If
+      If Not Transformer.ApplyRules(datamng.GetData) Then
+        Exit Sub
+      End If
 
       exporter.Open(Path + "bjk.docx")
       exporter.LoadData(Transformer.GetContent)
-            IO.Directory.CreateDirectory(Path + "jkv")
-            exporter.SaveAs(Path + "jkv" + IO.Path.DirectorySeparatorChar + nev.Text + "_" + datum.Text + "_bjk.docx")
-            ComponentManager.UI.SetUIState(True)
-            MsgBox("Exportálás befejezve")
-        Catch ex As Exception
-            ComponentManager.UI.SetUIState(True)
-            ErrorHandling.General(ex)
-        End Try
-    End Sub
+      IO.Directory.CreateDirectory(Path + "jkv")
+      exporter.SaveAs(Path + "jkv" + IO.Path.DirectorySeparatorChar + nev.Text + "_" + datum.Text + "_bjk.docx")
+      ComponentManager.UI.SetUIState(True)
+      MsgBox("Exportálás befejezve")
+    Catch ex As Exception
+      ComponentManager.UI.SetUIState(True)
+      ErrorHandling.General(ex)
+    End Try
+  End Sub
 
-    ''' <summary>
-    ''' Close application
-    ''' </summary>
-    Private Sub CloseApp(sender As Object, e As EventArgs) Handles menu_exit.Click
-        Application.Exit()
-    End Sub
+  ''' <summary>
+  ''' Close application
+  ''' </summary>
+  Private Sub CloseApp(sender As Object, e As EventArgs) Handles menu_exit.Click
+    Application.Exit()
+  End Sub
 
-    ''' <summary>
-    ''' Show about
-    ''' </summary>
-    Private Sub ShowAbout(sender As Object, e As EventArgs) Handles menu_about.Click
-        About.Show()
-    End Sub
+  ''' <summary>
+  ''' Show about
+  ''' </summary>
+  Private Sub ShowAbout(sender As Object, e As EventArgs) Handles menu_about.Click
+    About.Show()
+  End Sub
 
-    ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' UI actions ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    ''' <summary>
-    ''' Opens load dialog
-    ''' </summary>
-    Private Sub Loading(sender As Object, e As EventArgs) Handles menu_open.Click, toolstrip_open.Click
-        Try
-            LoadForm.Show()
-        Catch ex As Exception
-            ErrorHandling.General(ex)
-        End Try
-    End Sub
+  ''' ''''''''''''''''''''''''''''''''''''''''''''''''''''' UI actions ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  ''' <summary>
+  ''' Opens load dialog
+  ''' </summary>
+  Private Sub Loading(sender As Object, e As EventArgs) Handles menu_open.Click, toolstrip_open.Click
+    Try
+      LoadForm.Show()
+    Catch ex As Exception
+      ErrorHandling.General(ex)
+    End Try
+  End Sub
 
-    ''' <summary>
-    ''' Switch to the next tab
-    ''' </summary>
-    Private Sub NextTab(sender As Object, e As EventArgs) Handles next_1.Click,
+  ''' <summary>
+  ''' Switch to the next tab
+  ''' </summary>
+  Private Sub NextTab(sender As Object, e As EventArgs) Handles next_1.Click,
     next_2.Click,
     next_3.Click,
     next_4.Click,
     next_5.Click,
     next_6.Click
 
-        ComponentManager.UI.NextTab(sender)
-    End Sub
+    ComponentManager.UI.NextTab(sender)
+  End Sub
 
-    ''' <summary>
-    ''' Reset tab
-    ''' </summary>
-    Private Sub ResetTab(sender As Object, e As EventArgs) Handles reset_1.Click,
+  ''' <summary>
+  ''' Reset tab
+  ''' </summary>
+  Private Sub ResetTab(sender As Object, e As EventArgs) Handles reset_1.Click,
     reset_2.Click,
     reset_3.Click,
     reset_4.Click,
@@ -166,23 +166,23 @@ Public Class App
     reset_6.Click,
     reset_7.Click
 
-        ComponentManager.UI.ResetTab(sender)
-    End Sub
+    ComponentManager.UI.ResetTab(sender)
+  End Sub
 
-    ''' <summary>
-    ''' UI action when a required field is missing
-    ''' </summary>
-    ''' <param name="fieldname">Missing field name</param>
-    Private Sub FieldMissing(ByVal fieldname As String) Handles Transformer.FieldMissing
-        AppUI.Warning("Hiányzó adat: " + vbNewLine + vbNewLine + fieldname, AppName)
-    End Sub
+  ''' <summary>
+  ''' UI action when a required field is missing
+  ''' </summary>
+  ''' <param name="fieldname">Missing field name</param>
+  Private Sub FieldMissing(ByVal fieldname As String) Handles Transformer.FieldMissing
+    AppUI.Warning("Hiányzó adat: " + vbNewLine + vbNewLine + fieldname, AppName)
+  End Sub
 
-    ''' <summary>
-    ''' Change form background
-    ''' </summary>
-    Private Sub IcterusChange(sender As Object, e As EventArgs) Handles icterus.CheckedChanged
-        ComponentManager.UI.IcterusChange(sender)
-    End Sub
+  ''' <summary>
+  ''' Change form background
+  ''' </summary>
+  Private Sub IcterusChange(sender As Object, e As EventArgs) Handles icterus.CheckedChanged
+    ComponentManager.UI.IcterusChange(sender)
+  End Sub
 
   ''' <summary>
   ''' Enables controls associated to this control
