@@ -183,7 +183,7 @@ Public Class Rules
         key = "nem"
         If CheckRequired(key, data) Then
       Content.Add("nem", data.Item(key))
-        ElseIf AbortOnMissing Then
+    ElseIf AbortOnMissing Then
             Return False
         End If
         '########################################################################
@@ -799,69 +799,83 @@ Public Class Rules
         If data.ContainsKey(key) Then
             flag = False
             Content.Add("tudo_pneu", "")
-            text = "Bronchopenumonia"
-            If data.ContainsKey("tudo_pneu_mko") Then
-                Content.Item("tudo_pneu") += "Mindkét tüdő alsó lebenye"
-                text += " loborum inferiorum pulmonum"
-                flag = True
-            Else
-                Content.Item("tudo_pneu") += "A "
-            End If
+      text = "Bronchopenumonia"
 
-            If data.ContainsKey("tudo_pneu_j_a") Then
-                If flag Then
-                    Content.Item("tudo_pneu") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_pneu") += "jobb tüdő alsó lebenye"
-                text += " lobi inferioris pulmonis dextri"
-                flag = True
-            End If
+      ' Check all right side parts checked
+      If data.ContainsKey("tudo_pneu_j_a") AndAlso data.ContainsKey("tudo_pneu_j_k") AndAlso data.ContainsKey("tudo_pneu_j_f") Then
+        Content.Item("tudo_pneu") += "A jobb tüdő minden lebenye"
+        text += " loborum omnium pulmonis dextri"
 
-            If data.ContainsKey("tudo_pneu_j_k") Then
-                If flag Then
-                    Content.Item("tudo_pneu") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_pneu") += "jobb tüdő középső lebenye"
-                text += " lobi medii pulmonis dextri"
-                flag = True
-            End If
-
-            If data.ContainsKey("tudo_pneu_j_f") Then
-                If flag Then
-                    Content.Item("tudo_pneu") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_pneu") += "jobb tüdő felső lebenye"
-                text += " lobi superioris pulmonis dextri"
-                flag = True
-            End If
-
-            If data.ContainsKey("tudo_pneu_b_a") Then
-                If flag Then
-                    Content.Item("tudo_pneu") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_pneu") += "bal tüdő alsó lebenye"
-                text += " lobi inferioris pulmonis sinistri"
-                flag = True
-            End If
-
-            If data.ContainsKey("tudo_pneu_b_f") Then
-                If flag Then
-                    Content.Item("tudo_pneu") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_pneu") += "bal tüdő felső lebenye"
-                text += " lobi suprioris pulmonis sinistri"
-                flag = True
-            End If
-            Content.Item("tudo_pneu") += " légtelen, tömött tapintatú, metszéslapján gennycsapok préselhetők. "
-            AddToDiag(text + ".")
+      ElseIf data.ContainsKey("tudo_pneu_b_a") AndAlso data.ContainsKey("tudo_pneu_b_f") Then
+        ' Check is all left side checked
+        Content.Item("tudo_pneu") += "A bal tüdő minden lebenye"
+        text += " loborum omnium pulmonis sinistri"
+      Else
+        ' Only single parts
+        If data.ContainsKey("tudo_pneu_mko") Then
+          Content.Item("tudo_pneu") += "Mindkét tüdő alsó lebenye"
+          text += " loborum inferiorum pulmonum"
+          flag = True
+        Else
+          Content.Item("tudo_pneu") += "A "
         End If
-        '########################################################################
-        key = "tudo_tumor"
+
+        If data.ContainsKey("tudo_pneu_j_a") Then
+          If flag Then
+            Content.Item("tudo_pneu") += ", "
+            text += " et"
+          End If
+          Content.Item("tudo_pneu") += "jobb tüdő alsó lebenye"
+          text += " lobi inferioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_j_k") Then
+          If flag Then
+            Content.Item("tudo_pneu") += ", "
+            text += " et"
+          End If
+          Content.Item("tudo_pneu") += "jobb tüdő középső lebenye"
+          text += " lobi medii pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_j_f") Then
+          If flag Then
+            Content.Item("tudo_pneu") += ", "
+            text += " et"
+          End If
+          Content.Item("tudo_pneu") += "jobb tüdő felső lebenye"
+          text += " lobi superioris pulmonis dextri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_b_a") Then
+          If flag Then
+            Content.Item("tudo_pneu") += ", "
+            text += " et"
+          End If
+          Content.Item("tudo_pneu") += "bal tüdő alsó lebenye"
+          text += " lobi inferioris pulmonis sinistri"
+          flag = True
+        End If
+
+        If data.ContainsKey("tudo_pneu_b_f") Then
+          If flag Then
+            Content.Item("tudo_pneu") += ", "
+            text += " et"
+          End If
+          Content.Item("tudo_pneu") += "bal tüdő felső lebenye"
+          text += " lobi suprioris pulmonis sinistri"
+          flag = True
+        End If
+      End If
+
+      Content.Item("tudo_pneu") += " légtelen, tömött tapintatú, metszéslapján gennycsapok préselhetők. "
+        AddToDiag(text + ".")
+      End If
+      '########################################################################
+      key = "tudo_tumor"
         If data.ContainsKey(key) Then
             flag = False
             text = "Neoplasma malignum"
