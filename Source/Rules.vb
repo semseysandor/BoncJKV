@@ -796,7 +796,8 @@ Public Class Rules
         End If
         '########################################################################
         key = "tudo_pneu"
-        If data.ContainsKey(key) Then
+    ' Normal pneumonia
+    If data.ContainsKey(key) AndAlso data.Item(key) = "tudo_pneu_sima" Then
             flag = False
             Content.Add("tudo_pneu", "")
       text = "Bronchopenumonia"
@@ -874,6 +875,12 @@ Public Class Rules
       Content.Item("tudo_pneu") += " légtelen, tömött tapintatú, metszéslapján gennycsapok préselhetők. "
         AddToDiag(text + ".")
       End If
+
+    ' Covid pneumonia
+    If data.ContainsKey(key) AndAlso data.Item(key) = "tudo_pneu_covid" Then
+      Content.Add("tudo_pneu", "Mindkét tüdő összes lebenye légtelen, tömött tapintatú, szakadékony. ")
+      AddToDiag("Ut fertur infectio virosa (SARS-CoV-2 (COVID-19)). Pneumonia virosa loborum omnium pulmonum.")
+    End If
       '########################################################################
       key = "tudo_tumor"
         If data.ContainsKey(key) Then

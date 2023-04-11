@@ -163,11 +163,11 @@ Partial Class App
         Me.mubillentyuk_aorta = New System.Windows.Forms.CheckBox()
         Me.mubillentyuk = New System.Windows.Forms.CheckBox()
         Me.CheckBox27 = New System.Windows.Forms.CheckBox()
-        Me.haemo_g = New System.Windows.Forms.Label()
-        Me.haemo_tomeg = New System.Windows.Forms.TextBox()
-        Me.haemo = New System.Windows.Forms.CheckBox()
         Me.CheckBox12 = New System.Windows.Forms.CheckBox()
         Me.CheckBox13 = New System.Windows.Forms.CheckBox()
+        Me.haemo_g = New System.Windows.Forms.Label()
+        Me.haemo = New System.Windows.Forms.CheckBox()
+        Me.haemo_tomeg = New System.Windows.Forms.TextBox()
         Me.GroupBox19 = New System.Windows.Forms.GroupBox()
         Me.inf_uj_cm = New System.Windows.Forms.Label()
         Me.GroupBox30 = New System.Windows.Forms.GroupBox()
@@ -267,13 +267,14 @@ Partial Class App
         Me.tudo_tumor_bf = New System.Windows.Forms.CheckBox()
         Me.tudo_tumor = New System.Windows.Forms.CheckBox()
         Me.GroupBox32 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton43 = New System.Windows.Forms.RadioButton()
+        Me.pneu = New System.Windows.Forms.RadioButton()
         Me.pneu_ja = New System.Windows.Forms.CheckBox()
         Me.pneu_ba = New System.Windows.Forms.CheckBox()
         Me.pneu_mko = New System.Windows.Forms.CheckBox()
         Me.pneu_jk = New System.Windows.Forms.CheckBox()
         Me.pneu_jf = New System.Windows.Forms.CheckBox()
         Me.pneu_bf = New System.Windows.Forms.CheckBox()
-        Me.pneu = New System.Windows.Forms.CheckBox()
         Me.GroupBox31 = New System.Windows.Forms.GroupBox()
         Me.RadioButton60 = New System.Windows.Forms.RadioButton()
         Me.RadioButton59 = New System.Windows.Forms.RadioButton()
@@ -2293,38 +2294,6 @@ Partial Class App
         Me.CheckBox27.Text = "CABG"
         Me.CheckBox27.UseVisualStyleBackColor = True
         '
-        'haemo_g
-        '
-        Me.haemo_g.AutoSize = True
-        Me.haemo_g.Enabled = False
-        Me.haemo_g.Location = New System.Drawing.Point(425, 50)
-        Me.haemo_g.Name = "haemo_g"
-        Me.haemo_g.Size = New System.Drawing.Size(15, 16)
-        Me.haemo_g.TabIndex = 10
-        Me.haemo_g.Text = "g"
-        '
-        'haemo_tomeg
-        '
-        Me.haemo_tomeg.Enabled = False
-        Me.haemo_tomeg.Location = New System.Drawing.Point(367, 47)
-        Me.haemo_tomeg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.haemo_tomeg.Name = "haemo_tomeg"
-        Me.haemo_tomeg.Size = New System.Drawing.Size(52, 22)
-        Me.haemo_tomeg.TabIndex = 28
-        Me.haemo_tomeg.Tag = "sziv_haemo_g"
-        '
-        'haemo
-        '
-        Me.haemo.AutoSize = True
-        Me.haemo.Location = New System.Drawing.Point(304, 23)
-        Me.haemo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.haemo.Name = "haemo"
-        Me.haemo.Size = New System.Drawing.Size(145, 20)
-        Me.haemo.TabIndex = 27
-        Me.haemo.Tag = "sziv_haemo"
-        Me.haemo.Text = "Haemopericardium"
-        Me.haemo.UseVisualStyleBackColor = True
-        '
         'CheckBox12
         '
         Me.CheckBox12.AutoSize = True
@@ -2348,6 +2317,38 @@ Partial Class App
         Me.CheckBox13.Tag = "sziv_mitralis"
         Me.CheckBox13.Text = "Mitralis meszesedés"
         Me.CheckBox13.UseVisualStyleBackColor = True
+        '
+        'haemo_g
+        '
+        Me.haemo_g.AutoSize = True
+        Me.haemo_g.Enabled = False
+        Me.haemo_g.Location = New System.Drawing.Point(425, 50)
+        Me.haemo_g.Name = "haemo_g"
+        Me.haemo_g.Size = New System.Drawing.Size(15, 16)
+        Me.haemo_g.TabIndex = 10
+        Me.haemo_g.Text = "g"
+        '
+        'haemo
+        '
+        Me.haemo.AutoSize = True
+        Me.haemo.Location = New System.Drawing.Point(304, 23)
+        Me.haemo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.haemo.Name = "haemo"
+        Me.haemo.Size = New System.Drawing.Size(145, 20)
+        Me.haemo.TabIndex = 27
+        Me.haemo.Tag = "sziv_haemo"
+        Me.haemo.Text = "Haemopericardium"
+        Me.haemo.UseVisualStyleBackColor = True
+        '
+        'haemo_tomeg
+        '
+        Me.haemo_tomeg.Enabled = False
+        Me.haemo_tomeg.Location = New System.Drawing.Point(367, 47)
+        Me.haemo_tomeg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.haemo_tomeg.Name = "haemo_tomeg"
+        Me.haemo_tomeg.Size = New System.Drawing.Size(52, 22)
+        Me.haemo_tomeg.TabIndex = 28
+        Me.haemo_tomeg.Tag = "sziv_haemo_g"
         '
         'GroupBox19
         '
@@ -3629,13 +3630,14 @@ Partial Class App
         '
         'GroupBox32
         '
+        Me.GroupBox32.Controls.Add(Me.RadioButton43)
+        Me.GroupBox32.Controls.Add(Me.pneu)
         Me.GroupBox32.Controls.Add(Me.pneu_ja)
         Me.GroupBox32.Controls.Add(Me.pneu_ba)
         Me.GroupBox32.Controls.Add(Me.pneu_mko)
         Me.GroupBox32.Controls.Add(Me.pneu_jk)
         Me.GroupBox32.Controls.Add(Me.pneu_jf)
         Me.GroupBox32.Controls.Add(Me.pneu_bf)
-        Me.GroupBox32.Controls.Add(Me.pneu)
         Me.GroupBox32.Location = New System.Drawing.Point(5, 130)
         Me.GroupBox32.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox32.Name = "GroupBox32"
@@ -3643,7 +3645,32 @@ Partial Class App
         Me.GroupBox32.Size = New System.Drawing.Size(269, 144)
         Me.GroupBox32.TabIndex = 4
         Me.GroupBox32.TabStop = False
+        Me.GroupBox32.Tag = "tudo_pneu"
         Me.GroupBox32.Text = "Pneumonia"
+        '
+        'RadioButton43
+        '
+        Me.RadioButton43.AutoSize = True
+        Me.RadioButton43.Location = New System.Drawing.Point(132, 23)
+        Me.RadioButton43.Name = "RadioButton43"
+        Me.RadioButton43.Size = New System.Drawing.Size(134, 20)
+        Me.RadioButton43.TabIndex = 8
+        Me.RadioButton43.TabStop = True
+        Me.RadioButton43.Tag = "tudo_pneu_covid"
+        Me.RadioButton43.Text = "Covid Pneumonia"
+        Me.RadioButton43.UseVisualStyleBackColor = True
+        '
+        'pneu
+        '
+        Me.pneu.AutoSize = True
+        Me.pneu.Location = New System.Drawing.Point(8, 23)
+        Me.pneu.Name = "pneu"
+        Me.pneu.Size = New System.Drawing.Size(96, 20)
+        Me.pneu.TabIndex = 7
+        Me.pneu.TabStop = True
+        Me.pneu.Tag = "tudo_pneu_sima"
+        Me.pneu.Text = "Pneumonia"
+        Me.pneu.UseVisualStyleBackColor = True
         '
         'pneu_ja
         '
@@ -3722,18 +3749,6 @@ Partial Class App
         Me.pneu_bf.Tag = "tudo_pneu_b_f"
         Me.pneu_bf.Text = "Bal felső"
         Me.pneu_bf.UseVisualStyleBackColor = True
-        '
-        'pneu
-        '
-        Me.pneu.AutoSize = True
-        Me.pneu.Location = New System.Drawing.Point(8, 23)
-        Me.pneu.Margin = New System.Windows.Forms.Padding(4)
-        Me.pneu.Name = "pneu"
-        Me.pneu.Size = New System.Drawing.Size(97, 20)
-        Me.pneu.TabIndex = 0
-        Me.pneu.Tag = "tudo_pneu"
-        Me.pneu.Text = "Pneumonia"
-        Me.pneu.UseVisualStyleBackColor = True
         '
         'GroupBox31
         '
@@ -6364,9 +6379,8 @@ Partial Class App
 	Friend WithEvents pneu_jk As CheckBox
 	Friend WithEvents pneu_jf As CheckBox
 	Friend WithEvents pneu_bf As CheckBox
-	Friend WithEvents pneu As CheckBox
-	Friend WithEvents GroupBox31 As GroupBox
-	Friend WithEvents RadioButton60 As RadioButton
+    Friend WithEvents GroupBox31 As GroupBox
+    Friend WithEvents RadioButton60 As RadioButton
 	Friend WithEvents RadioButton59 As RadioButton
 	Friend WithEvents tudo_attet_mm As Label
 	Friend WithEvents tudo_attet_meret As TextBox
@@ -6566,4 +6580,6 @@ Partial Class App
     Friend WithEvents mubillentyuk_mitralis As CheckBox
     Friend WithEvents mubillentyuk_aorta As CheckBox
     Friend WithEvents mubillentyuk As CheckBox
+    Friend WithEvents RadioButton43 As RadioButton
+    Friend WithEvents pneu As RadioButton
 End Class
