@@ -865,14 +865,13 @@ Public Class Rules
         key = "tudo_tumor"
         If data.ContainsKey(key) Then
             flag = False
-            Content.Add("tudo_tumor", "")
             text = "Neoplasma malignum"
             If data.ContainsKey("tudo_tumor_m") Then
-                Content.Item("tudo_tumor") += "Az összes lebenyben"
+                Content.Add("tudo_tumor", "Az összes lebenyben")
                 text += " loborum omnium pulmonum"
                 flag = True
             Else
-                Content.Item("tudo_tumor") += "A "
+                Content.Add("tudo_tumor", "A ")
             End If
 
             If data.ContainsKey("tudo_tumor_j_a") Then
@@ -937,14 +936,13 @@ Public Class Rules
         key = "tudo_attet"
         If data.ContainsKey(key) Then
             flag = False
-            Content.Add("tudo_attet", "Az összes lebenyben")
             text = "Metastasis"
             If data.ContainsKey("tudo_attet_m") Then
-                Content.Item("tudo_attet") += "Az összes lebenyben"
-                text = " loborum omnium pulmonum"
+                Content.Add("tudo_attet", "Az összes lebenyben")
+                text += " loborum omnium pulmonum"
                 flag = True
             Else
-                Content.Item("tudo_attet") += "A "
+                Content.Add("tudo_attet", "A ")
             End If
 
             If data.ContainsKey("tudo_attet_j_a") Then
@@ -998,7 +996,7 @@ Public Class Rules
             End If
 
             If CheckRequired("tudo_attet_meret", data) Then
-                Content.Item("tudo_attet") += "szürkésfehér színű " + data.Item("tudo_attet_meret")
+                Content.Item("tudo_attet") += " szürkésfehér színű " + data.Item("tudo_attet_meret")
                 Content.Item("tudo_attet") += " mm legnagyobb átmérőjű daganatáttét látható. "
             ElseIf AbortOnMissing Then
                 Return False
