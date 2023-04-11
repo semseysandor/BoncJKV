@@ -182,8 +182,7 @@ Public Class Rules
         '########################################################################
         key = "nem"
         If CheckRequired(key, data) Then
-            Content.Add("nem_1", data.Item(key))
-            Content.Add("nem_2", data.Item(key))
+      Content.Add("nem", data.Item(key))
         ElseIf AbortOnMissing Then
             Return False
         End If
