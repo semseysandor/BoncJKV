@@ -926,7 +926,7 @@ Public Class Rules
             End If
 
             If CheckRequired("tudo_tumor_meret", data) Then
-                Content.Item("tudo_tumor") += "szürkésfehér színű " + data.Item("tudo_tumor_meret")
+                Content.Item("tudo_tumor") += " szürkésfehér színű " + data.Item("tudo_tumor_meret")
                 Content.Item("tudo_tumor") += " mm legnagyobb átmérőjű idegenszövet-szaporulat látható. "
             ElseIf AbortOnMissing Then
                 Return False
