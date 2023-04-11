@@ -794,12 +794,12 @@ Public Class Rules
         Else
             Content.Add("tudo_bronch_chron", "enyhe")
         End If
-        '########################################################################
-        key = "tudo_pneu"
+    '########################################################################
+    key = "tudo_pneu"
     ' Normal pneumonia
     If data.ContainsKey(key) AndAlso data.Item(key) = "tudo_pneu_sima" Then
-            flag = False
-            Content.Add("tudo_pneu", "")
+      flag = False
+      Content.Add("tudo_pneu", "")
       text = "Bronchopenumonia"
 
       ' Check all right side parts checked
@@ -873,87 +873,87 @@ Public Class Rules
       End If
 
       Content.Item("tudo_pneu") += " légtelen, tömött tapintatú, metszéslapján gennycsapok préselhetők. "
-        AddToDiag(text + ".")
-      End If
+      AddToDiag(text + ".")
+    End If
 
     ' Covid pneumonia
     If data.ContainsKey(key) AndAlso data.Item(key) = "tudo_pneu_covid" Then
       Content.Add("tudo_pneu", "Mindkét tüdő összes lebenye légtelen, tömött tapintatú, szakadékony. ")
       AddToDiag("Ut fertur infectio virosa (SARS-CoV-2 (COVID-19)). Pneumonia virosa loborum omnium pulmonum.")
     End If
-      '########################################################################
-      key = "tudo_tumor"
-        If data.ContainsKey(key) Then
-            flag = False
-            text = "Neoplasma malignum"
-            If data.ContainsKey("tudo_tumor_m") Then
-                Content.Add("tudo_tumor", "Az összes lebenyben")
-                text += " loborum omnium pulmonum"
-                flag = True
-            Else
-                Content.Add("tudo_tumor", "A ")
-            End If
+    '########################################################################
+    key = "tudo_tumor"
+    If data.ContainsKey(key) Then
+      flag = False
+      text = "Neoplasma malignum"
+      If data.ContainsKey("tudo_tumor_m") Then
+        Content.Add("tudo_tumor", "Az összes lebenyben")
+        text += " loborum omnium pulmonum"
+        flag = True
+      Else
+        Content.Add("tudo_tumor", "A ")
+      End If
 
-            If data.ContainsKey("tudo_tumor_j_a") Then
-                If flag Then
-                    Content.Item("tudo_tumor") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_tumor") += "jobb alsó lebenyben"
-                text += " lobi inferioris pulmonis dextri"
-                flag = True
-            End If
-
-            If data.ContainsKey("tudo_tumor_j_k") Then
-                If flag Then
-                    Content.Item("tudo_tumor") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_tumor") += "jobb középső lebenyben"
-                text += " lobi medii pulmonis dextri"
-                flag = True
-            End If
-
-            If data.ContainsKey("tudo_tumor_j_f") Then
-                If flag Then
-                    Content.Item("tudo_tumor") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_tumor") += "jobb felső lebenyben"
-                text += " lobi superioris pulmonis dextri"
-                flag = True
-            End If
-
-            If data.ContainsKey("tudo_tumor_b_a") Then
-                If flag Then
-                    Content.Item("tudo_tumor") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_tumor") += "bal alsó lebenyben"
-                text += " lobi inferioris pulmonis sinistri"
-                flag = True
-            End If
-
-            If data.ContainsKey("tudo_tumor_b_f") Then
-                If flag Then
-                    Content.Item("tudo_tumor") += ", "
-                    text += " et"
-                End If
-                Content.Item("tudo_tumor") += "bal felső lebenyben"
-                text += " lobi superioris pulmonis sinistri"
-                flag = True
-            End If
-
-            If CheckRequired("tudo_tumor_meret", data) Then
-                Content.Item("tudo_tumor") += " szürkésfehér színű " + data.Item("tudo_tumor_meret")
-                Content.Item("tudo_tumor") += " mm legnagyobb átmérőjű idegenszövet-szaporulat látható. "
-            ElseIf AbortOnMissing Then
-                Return False
-            End If
-            AddToDiag(text + ".")
+      If data.ContainsKey("tudo_tumor_j_a") Then
+        If flag Then
+          Content.Item("tudo_tumor") += ", "
+          text += " et"
         End If
-        '########################################################################
-        key = "tudo_attet"
+        Content.Item("tudo_tumor") += "jobb alsó lebenyben"
+        text += " lobi inferioris pulmonis dextri"
+        flag = True
+      End If
+
+      If data.ContainsKey("tudo_tumor_j_k") Then
+        If flag Then
+          Content.Item("tudo_tumor") += ", "
+          text += " et"
+        End If
+        Content.Item("tudo_tumor") += "jobb középső lebenyben"
+        text += " lobi medii pulmonis dextri"
+        flag = True
+      End If
+
+      If data.ContainsKey("tudo_tumor_j_f") Then
+        If flag Then
+          Content.Item("tudo_tumor") += ", "
+          text += " et"
+        End If
+        Content.Item("tudo_tumor") += "jobb felső lebenyben"
+        text += " lobi superioris pulmonis dextri"
+        flag = True
+      End If
+
+      If data.ContainsKey("tudo_tumor_b_a") Then
+        If flag Then
+          Content.Item("tudo_tumor") += ", "
+          text += " et"
+        End If
+        Content.Item("tudo_tumor") += "bal alsó lebenyben"
+        text += " lobi inferioris pulmonis sinistri"
+        flag = True
+      End If
+
+      If data.ContainsKey("tudo_tumor_b_f") Then
+        If flag Then
+          Content.Item("tudo_tumor") += ", "
+          text += " et"
+        End If
+        Content.Item("tudo_tumor") += "bal felső lebenyben"
+        text += " lobi superioris pulmonis sinistri"
+        flag = True
+      End If
+
+      If CheckRequired("tudo_tumor_meret", data) Then
+        Content.Item("tudo_tumor") += " szürkésfehér színű " + data.Item("tudo_tumor_meret")
+        Content.Item("tudo_tumor") += " mm legnagyobb átmérőjű idegenszövet-szaporulat látható. "
+      ElseIf AbortOnMissing Then
+        Return False
+      End If
+      AddToDiag(text + ".")
+    End If
+    '########################################################################
+    key = "tudo_attet"
         If data.ContainsKey(key) Then
             flag = False
             text = "Metastasis"
