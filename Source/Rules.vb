@@ -1029,7 +1029,7 @@ Public Class Rules
     If data.ContainsKey(key) Then
 
       If data.ContainsKey("tudo_embolia_lovag") Then
-        Content.Add("tudo_emb_lovag_1", ", oszlásában vérrögös elzáródás láható")
+        Content.Add("tudo_emb_lovag", ", oszlásában vérrögös elzáródás láható")
         If Not Content.ContainsKey("tudo_egyebek") Then
           Content.Add("tudo_egyebek", "egyebekben ")
         End If
