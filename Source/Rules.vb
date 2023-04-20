@@ -1213,8 +1213,6 @@ Public Class Rules
     key = "has_gyomor"
     If data.ContainsKey(key) Then
       Select Case data.Item(key)
-        Case "ep"
-          Content.Add("gyomor", "A gyomor fala, nyálkahártyája eltérés nélkül, redőzete megtartott. ")
         Case "erosio"
           Content.Add("gyomor", "A gyomor nyálkahártyáján erosiók láthatók. ")
           AddToDiag("Erosiones ventriculi.")
@@ -1236,6 +1234,9 @@ Public Class Rules
           Content.Item("gyomor") += " mm legnagyobb átmérőjű fekély figyelhető meg. "
           AddToDiag("Ulcus ventriculi.")
       End Select
+    ElseIf Not data.ContainsKey("has_gyomor_tumor") Then
+      ' Nothing regarding the stomach
+      Content.Add("has_ep", "gyomor és a ")
     End If
     '########################################################################
     key = "has_gyomor_tumor"
@@ -1261,8 +1262,6 @@ Public Class Rules
     key = "has_nyombel"
     If data.ContainsKey(key) Then
       Select Case data.Item(key)
-        Case "ep"
-          Content.Add("nyombel", "A nyombél eltérés nélkül. ")
         Case "fekely"
           Content.Add("nyombel", "A nyombél nyálkahártyáján ")
           If Not CheckRequired("has_nyombel_meret", data) AndAlso AbortOnMissing Then
@@ -1271,6 +1270,13 @@ Public Class Rules
           Content.Item("nyombel") += data.Item("has_nyombel_meret") + " mm legnagyobb átmérőjű fekély figyelhető meg. "
           AddToDiag("Ulcus duodeni.")
       End Select
+    Else
+      ' Nothing regarding the nyombel
+      If Content.ContainsKey("has_ep") Then
+        Content.Item("has_ep") = "gyomor, a nyombél és a "
+      Else
+        Content.Add("has_ep", "nyombél és a ")
+      End If
     End If
     '########################################################################
     key = "has_ileum"
