@@ -1732,6 +1732,24 @@ Public Class Rules
       text += ""
       flag = True
     End If
+    '########################################################################
+    key = "kis_iszb"
+    If data.ContainsKey(key) Then
+      If flag Then
+        text += ", "
+      End If
+      text += "az idült ischaemiás szívbetegség"
+      flag = True
+    End If
+    '########################################################################
+    key = "kis_tudogyull"
+    If data.ContainsKey(key) Then
+      If flag Then
+        text += ", "
+      End If
+      text += "a tüdőgyulladás"
+      flag = True
+    End If
 
     If flag Then
       Content.Add("kisero", "Kísérő betegségként ")

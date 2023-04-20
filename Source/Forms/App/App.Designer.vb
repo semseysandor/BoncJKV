@@ -455,6 +455,8 @@ Partial Class App
         Me.foto = New System.Windows.Forms.CheckBox()
         Me.RadioButton42 = New System.Windows.Forms.RadioButton()
         Me.RadioButton44 = New System.Windows.Forms.RadioButton()
+        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox25 = New System.Windows.Forms.CheckBox()
         Me.dataInput.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox58.SuspendLayout()
@@ -5234,6 +5236,8 @@ Partial Class App
         '
         'GroupBox52
         '
+        Me.GroupBox52.Controls.Add(Me.CheckBox8)
+        Me.GroupBox52.Controls.Add(Me.CheckBox25)
         Me.GroupBox52.Controls.Add(Me.CheckBox19)
         Me.GroupBox52.Controls.Add(Me.CheckBox18)
         Me.GroupBox52.Controls.Add(Me.CheckBox17)
@@ -5710,7 +5714,7 @@ Partial Class App
         Me.metaInput.Controls.Add(Me.datum)
         Me.metaInput.Controls.Add(Me.Label21)
         Me.metaInput.Controls.Add(Me.Label22)
-        Me.metaInput.Location = New System.Drawing.Point(5, 67)
+        Me.metaInput.Location = New System.Drawing.Point(5, 71)
         Me.metaInput.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.metaInput.Name = "metaInput"
         Me.metaInput.Size = New System.Drawing.Size(505, 32)
@@ -5751,6 +5755,28 @@ Partial Class App
         Me.RadioButton44.Tag = "avmelyvenas_tudo"
         Me.RadioButton44.Text = "AV. MÉLYVÉNÁS RÖG - TÜDŐEMBÓLIA"
         Me.RadioButton44.UseVisualStyleBackColor = True
+        '
+        'CheckBox8
+        '
+        Me.CheckBox8.AutoSize = True
+        Me.CheckBox8.Location = New System.Drawing.Point(302, 60)
+        Me.CheckBox8.Name = "CheckBox8"
+        Me.CheckBox8.Size = New System.Drawing.Size(95, 17)
+        Me.CheckBox8.TabIndex = 9
+        Me.CheckBox8.Tag = "kis_tudogyull"
+        Me.CheckBox8.Text = "Tüdőgyulladás"
+        Me.CheckBox8.UseVisualStyleBackColor = True
+        '
+        'CheckBox25
+        '
+        Me.CheckBox25.AutoSize = True
+        Me.CheckBox25.Location = New System.Drawing.Point(302, 30)
+        Me.CheckBox25.Name = "CheckBox25"
+        Me.CheckBox25.Size = New System.Drawing.Size(50, 17)
+        Me.CheckBox25.TabIndex = 8
+        Me.CheckBox25.Tag = "kis_iszb"
+        Me.CheckBox25.Text = "ISZB"
+        Me.CheckBox25.UseVisualStyleBackColor = True
         '
         'App
         '
@@ -6350,4 +6376,6 @@ Partial Class App
     Friend WithEvents pneu As RadioButton
     Friend WithEvents RadioButton42 As RadioButton
     Friend WithEvents RadioButton44 As RadioButton
+    Friend WithEvents CheckBox8 As CheckBox
+    Friend WithEvents CheckBox25 As CheckBox
 End Class
