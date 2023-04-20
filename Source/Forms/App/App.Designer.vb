@@ -586,11 +586,11 @@ Partial Class App
         Me.GroupBox58.Controls.Add(Me.combkorfogat)
         Me.GroupBox58.Controls.Add(Me.combkorfogat_bal_label)
         Me.GroupBox58.Controls.Add(Me.combkorfogat_bal)
-        Me.GroupBox58.Location = New System.Drawing.Point(173, 259)
+        Me.GroupBox58.Location = New System.Drawing.Point(96, 318)
         Me.GroupBox58.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox58.Name = "GroupBox58"
         Me.GroupBox58.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox58.Size = New System.Drawing.Size(244, 88)
+        Me.GroupBox58.Size = New System.Drawing.Size(99, 88)
         Me.GroupBox58.TabIndex = 35
         Me.GroupBox58.TabStop = False
         '
@@ -598,7 +598,7 @@ Partial Class App
         '
         Me.combkorfogat_jobb_unit.AutoSize = True
         Me.combkorfogat_jobb_unit.Enabled = False
-        Me.combkorfogat_jobb_unit.Location = New System.Drawing.Point(101, 62)
+        Me.combkorfogat_jobb_unit.Location = New System.Drawing.Point(67, 68)
         Me.combkorfogat_jobb_unit.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.combkorfogat_jobb_unit.Name = "combkorfogat_jobb_unit"
         Me.combkorfogat_jobb_unit.Size = New System.Drawing.Size(21, 13)
@@ -609,7 +609,7 @@ Partial Class App
         '
         Me.combkorfogat_jobb_label.AutoSize = True
         Me.combkorfogat_jobb_label.Enabled = False
-        Me.combkorfogat_jobb_label.Location = New System.Drawing.Point(26, 62)
+        Me.combkorfogat_jobb_label.Location = New System.Drawing.Point(3, 68)
         Me.combkorfogat_jobb_label.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.combkorfogat_jobb_label.Name = "combkorfogat_jobb_label"
         Me.combkorfogat_jobb_label.Size = New System.Drawing.Size(30, 13)
@@ -619,10 +619,10 @@ Partial Class App
         'combkorfogat_jobb
         '
         Me.combkorfogat_jobb.Enabled = False
-        Me.combkorfogat_jobb.Location = New System.Drawing.Point(58, 59)
+        Me.combkorfogat_jobb.Location = New System.Drawing.Point(35, 64)
         Me.combkorfogat_jobb.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.combkorfogat_jobb.Name = "combkorfogat_jobb"
-        Me.combkorfogat_jobb.Size = New System.Drawing.Size(38, 20)
+        Me.combkorfogat_jobb.Size = New System.Drawing.Size(28, 20)
         Me.combkorfogat_jobb.TabIndex = 20
         Me.combkorfogat_jobb.Tag = "combkorfogat_jobb"
         '
@@ -630,7 +630,7 @@ Partial Class App
         '
         Me.combkorfogat_bal_unit.AutoSize = True
         Me.combkorfogat_bal_unit.Enabled = False
-        Me.combkorfogat_bal_unit.Location = New System.Drawing.Point(101, 37)
+        Me.combkorfogat_bal_unit.Location = New System.Drawing.Point(67, 42)
         Me.combkorfogat_bal_unit.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.combkorfogat_bal_unit.Name = "combkorfogat_bal_unit"
         Me.combkorfogat_bal_unit.Size = New System.Drawing.Size(21, 13)
@@ -653,7 +653,7 @@ Partial Class App
         '
         Me.combkorfogat_bal_label.AutoSize = True
         Me.combkorfogat_bal_label.Enabled = False
-        Me.combkorfogat_bal_label.Location = New System.Drawing.Point(34, 37)
+        Me.combkorfogat_bal_label.Location = New System.Drawing.Point(11, 42)
         Me.combkorfogat_bal_label.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.combkorfogat_bal_label.Name = "combkorfogat_bal_label"
         Me.combkorfogat_bal_label.Size = New System.Drawing.Size(22, 13)
@@ -663,10 +663,10 @@ Partial Class App
         'combkorfogat_bal
         '
         Me.combkorfogat_bal.Enabled = False
-        Me.combkorfogat_bal.Location = New System.Drawing.Point(58, 35)
+        Me.combkorfogat_bal.Location = New System.Drawing.Point(35, 38)
         Me.combkorfogat_bal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.combkorfogat_bal.Name = "combkorfogat_bal"
-        Me.combkorfogat_bal.Size = New System.Drawing.Size(38, 20)
+        Me.combkorfogat_bal.Size = New System.Drawing.Size(28, 20)
         Me.combkorfogat_bal.TabIndex = 17
         Me.combkorfogat_bal.Tag = "combkorfogat_bal"
         '
@@ -759,7 +759,7 @@ Partial Class App
         '
         Me.GroupBox13.Controls.Add(Me.TextBox9)
         Me.GroupBox13.Controls.Add(Me.Label11)
-        Me.GroupBox13.Location = New System.Drawing.Point(97, 298)
+        Me.GroupBox13.Location = New System.Drawing.Point(96, 268)
         Me.GroupBox13.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox13.Name = "GroupBox13"
         Me.GroupBox13.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
@@ -878,11 +878,11 @@ Partial Class App
         Me.GroupBox11.Controls.Add(Me.pacemaker)
         Me.GroupBox11.Controls.Add(Me.pacemaker_id)
         Me.GroupBox11.Controls.Add(Me.pacemaker_serial)
-        Me.GroupBox11.Location = New System.Drawing.Point(173, 337)
+        Me.GroupBox11.Location = New System.Drawing.Point(173, 253)
         Me.GroupBox11.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox11.Size = New System.Drawing.Size(244, 88)
+        Me.GroupBox11.Size = New System.Drawing.Size(244, 64)
         Me.GroupBox11.TabIndex = 11
         Me.GroupBox11.TabStop = False
         '
@@ -902,7 +902,7 @@ Partial Class App
         '
         Me.pacemaker_id.AutoSize = True
         Me.pacemaker_id.Enabled = False
-        Me.pacemaker_id.Location = New System.Drawing.Point(14, 37)
+        Me.pacemaker_id.Location = New System.Drawing.Point(88, 19)
         Me.pacemaker_id.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.pacemaker_id.Name = "pacemaker_id"
         Me.pacemaker_id.Size = New System.Drawing.Size(76, 13)
@@ -912,7 +912,7 @@ Partial Class App
         'pacemaker_serial
         '
         Me.pacemaker_serial.Enabled = False
-        Me.pacemaker_serial.Location = New System.Drawing.Point(8, 53)
+        Me.pacemaker_serial.Location = New System.Drawing.Point(7, 38)
         Me.pacemaker_serial.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pacemaker_serial.Name = "pacemaker_serial"
         Me.pacemaker_serial.Size = New System.Drawing.Size(233, 20)
@@ -1324,7 +1324,7 @@ Partial Class App
         Me.GroupBox4.Controls.Add(Me.RadioButton8)
         Me.GroupBox4.Controls.Add(Me.RadioButton9)
         Me.GroupBox4.Controls.Add(Me.RadioButton10)
-        Me.GroupBox4.Location = New System.Drawing.Point(4, 298)
+        Me.GroupBox4.Location = New System.Drawing.Point(4, 311)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
@@ -2249,7 +2249,7 @@ Partial Class App
         '
         Me.mubillentyuk_mitralis.AutoSize = True
         Me.mubillentyuk_mitralis.Enabled = False
-        Me.mubillentyuk_mitralis.Location = New System.Drawing.Point(149, 61)
+        Me.mubillentyuk_mitralis.Location = New System.Drawing.Point(163, 61)
         Me.mubillentyuk_mitralis.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.mubillentyuk_mitralis.Name = "mubillentyuk_mitralis"
         Me.mubillentyuk_mitralis.Size = New System.Drawing.Size(58, 17)
@@ -2262,7 +2262,7 @@ Partial Class App
         '
         Me.mubillentyuk_aorta.AutoSize = True
         Me.mubillentyuk_aorta.Enabled = False
-        Me.mubillentyuk_aorta.Location = New System.Drawing.Point(149, 40)
+        Me.mubillentyuk_aorta.Location = New System.Drawing.Point(163, 40)
         Me.mubillentyuk_aorta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.mubillentyuk_aorta.Name = "mubillentyuk_aorta"
         Me.mubillentyuk_aorta.Size = New System.Drawing.Size(51, 17)
@@ -2274,7 +2274,7 @@ Partial Class App
         'mubillentyuk
         '
         Me.mubillentyuk.AutoSize = True
-        Me.mubillentyuk.Location = New System.Drawing.Point(136, 19)
+        Me.mubillentyuk.Location = New System.Drawing.Point(150, 19)
         Me.mubillentyuk.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.mubillentyuk.Name = "mubillentyuk"
         Me.mubillentyuk.Size = New System.Drawing.Size(85, 17)
@@ -2286,7 +2286,7 @@ Partial Class App
         'CheckBox27
         '
         Me.CheckBox27.AutoSize = True
-        Me.CheckBox27.Location = New System.Drawing.Point(228, 59)
+        Me.CheckBox27.Location = New System.Drawing.Point(242, 59)
         Me.CheckBox27.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CheckBox27.Name = "CheckBox27"
         Me.CheckBox27.Size = New System.Drawing.Size(55, 17)
@@ -2323,7 +2323,7 @@ Partial Class App
         '
         Me.haemo_g.AutoSize = True
         Me.haemo_g.Enabled = False
-        Me.haemo_g.Location = New System.Drawing.Point(319, 41)
+        Me.haemo_g.Location = New System.Drawing.Point(333, 41)
         Me.haemo_g.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.haemo_g.Name = "haemo_g"
         Me.haemo_g.Size = New System.Drawing.Size(13, 13)
@@ -2333,7 +2333,7 @@ Partial Class App
         'haemo
         '
         Me.haemo.AutoSize = True
-        Me.haemo.Location = New System.Drawing.Point(228, 19)
+        Me.haemo.Location = New System.Drawing.Point(242, 19)
         Me.haemo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.haemo.Name = "haemo"
         Me.haemo.Size = New System.Drawing.Size(114, 17)
@@ -2345,7 +2345,7 @@ Partial Class App
         'haemo_tomeg
         '
         Me.haemo_tomeg.Enabled = False
-        Me.haemo_tomeg.Location = New System.Drawing.Point(275, 38)
+        Me.haemo_tomeg.Location = New System.Drawing.Point(289, 38)
         Me.haemo_tomeg.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.haemo_tomeg.Name = "haemo_tomeg"
         Me.haemo_tomeg.Size = New System.Drawing.Size(40, 20)
@@ -3342,7 +3342,7 @@ Partial Class App
         Me.GroupBox34.Controls.Add(Me.tudo_attet)
         Me.GroupBox34.Location = New System.Drawing.Point(4, 229)
         Me.GroupBox34.Name = "GroupBox34"
-        Me.GroupBox34.Size = New System.Drawing.Size(202, 113)
+        Me.GroupBox34.Size = New System.Drawing.Size(210, 113)
         Me.GroupBox34.TabIndex = 7
         Me.GroupBox34.TabStop = False
         Me.GroupBox34.Text = "Áttét"
@@ -3583,7 +3583,7 @@ Partial Class App
         Me.GroupBox32.Controls.Add(Me.pneu_bf)
         Me.GroupBox32.Location = New System.Drawing.Point(4, 106)
         Me.GroupBox32.Name = "GroupBox32"
-        Me.GroupBox32.Size = New System.Drawing.Size(202, 117)
+        Me.GroupBox32.Size = New System.Drawing.Size(210, 117)
         Me.GroupBox32.TabIndex = 4
         Me.GroupBox32.TabStop = False
         Me.GroupBox32.Tag = "tudo_pneu"
@@ -3693,7 +3693,7 @@ Partial Class App
         Me.GroupBox31.Controls.Add(Me.RadioButton59)
         Me.GroupBox31.Location = New System.Drawing.Point(4, 55)
         Me.GroupBox31.Name = "GroupBox31"
-        Me.GroupBox31.Size = New System.Drawing.Size(202, 45)
+        Me.GroupBox31.Size = New System.Drawing.Size(210, 45)
         Me.GroupBox31.TabIndex = 3
         Me.GroupBox31.TabStop = False
         Me.GroupBox31.Tag = "tudo_bronch"
@@ -5248,7 +5248,7 @@ Partial Class App
         Me.GroupBox52.Controls.Add(Me.CheckBox2)
         Me.GroupBox52.Location = New System.Drawing.Point(4, 328)
         Me.GroupBox52.Name = "GroupBox52"
-        Me.GroupBox52.Size = New System.Drawing.Size(418, 147)
+        Me.GroupBox52.Size = New System.Drawing.Size(424, 147)
         Me.GroupBox52.TabIndex = 1
         Me.GroupBox52.TabStop = False
         Me.GroupBox52.Text = "Kísérő betegségek"
@@ -5256,7 +5256,7 @@ Partial Class App
         'CheckBox19
         '
         Me.CheckBox19.AutoSize = True
-        Me.CheckBox19.Location = New System.Drawing.Point(178, 120)
+        Me.CheckBox19.Location = New System.Drawing.Point(174, 120)
         Me.CheckBox19.Name = "CheckBox19"
         Me.CheckBox19.Size = New System.Drawing.Size(66, 17)
         Me.CheckBox19.TabIndex = 7
@@ -5278,7 +5278,7 @@ Partial Class App
         'CheckBox17
         '
         Me.CheckBox17.AutoSize = True
-        Me.CheckBox17.Location = New System.Drawing.Point(178, 90)
+        Me.CheckBox17.Location = New System.Drawing.Point(174, 90)
         Me.CheckBox17.Name = "CheckBox17"
         Me.CheckBox17.Size = New System.Drawing.Size(82, 17)
         Me.CheckBox17.TabIndex = 5
@@ -5289,7 +5289,7 @@ Partial Class App
         'CheckBox16
         '
         Me.CheckBox16.AutoSize = True
-        Me.CheckBox16.Location = New System.Drawing.Point(178, 60)
+        Me.CheckBox16.Location = New System.Drawing.Point(174, 60)
         Me.CheckBox16.Name = "CheckBox16"
         Me.CheckBox16.Size = New System.Drawing.Size(83, 17)
         Me.CheckBox16.TabIndex = 4
@@ -5300,7 +5300,7 @@ Partial Class App
         'CheckBox14
         '
         Me.CheckBox14.AutoSize = True
-        Me.CheckBox14.Location = New System.Drawing.Point(178, 30)
+        Me.CheckBox14.Location = New System.Drawing.Point(174, 30)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(56, 17)
         Me.CheckBox14.TabIndex = 3
@@ -5359,7 +5359,7 @@ Partial Class App
         Me.GroupBox51.Controls.Add(Me.RadioButton25)
         Me.GroupBox51.Location = New System.Drawing.Point(4, 4)
         Me.GroupBox51.Name = "GroupBox51"
-        Me.GroupBox51.Size = New System.Drawing.Size(418, 320)
+        Me.GroupBox51.Size = New System.Drawing.Size(424, 320)
         Me.GroupBox51.TabIndex = 0
         Me.GroupBox51.TabStop = False
         Me.GroupBox51.Tag = "halal"
