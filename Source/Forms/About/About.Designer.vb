@@ -22,14 +22,14 @@ Partial Class About
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-    Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(About))
-    Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-    Me.Label1 = New System.Windows.Forms.Label()
-    Me.Label2 = New System.Windows.Forms.Label()
-    Me.Label3 = New System.Windows.Forms.Label()
-    Me.Label4 = New System.Windows.Forms.Label()
-    Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-    Me.Button1 = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(About))
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -50,7 +50,7 @@ Partial Class About
         Me.Label1.Font = New System.Drawing.Font("Bahnschrift Light SemiCondensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Label1.Location = New System.Drawing.Point(6, 39)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(113, 21)
+        Me.Label1.Size = New System.Drawing.Size(87, 16)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Semsey Sándor"
         '
@@ -60,7 +60,7 @@ Partial Class About
         Me.Label2.Font = New System.Drawing.Font("Bahnschrift Light SemiCondensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Label2.Location = New System.Drawing.Point(6, 64)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(109, 21)
+        Me.Label2.Size = New System.Drawing.Size(83, 16)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Copyright 2020"
         '
@@ -70,9 +70,9 @@ Partial Class About
         Me.Label3.Font = New System.Drawing.Font("Bahnschrift Light SemiCondensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Label3.Location = New System.Drawing.Point(6, 89)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(45, 21)
+        Me.Label3.Size = New System.Drawing.Size(35, 16)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "v1.2.0"
+        Me.Label3.Text = "v1.3.0"
         '
         'Label4
         '
@@ -80,7 +80,7 @@ Partial Class About
         Me.Label4.Font = New System.Drawing.Font("Bahnschrift Light SemiCondensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Label4.Location = New System.Drawing.Point(6, 18)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(66, 21)
+        Me.Label4.Size = New System.Drawing.Size(51, 16)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "BoncJKV"
         '
@@ -111,7 +111,7 @@ Partial Class About
         '
         'About
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(201, 181)
         Me.Controls.Add(Me.Button1)
