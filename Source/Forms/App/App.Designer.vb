@@ -453,6 +453,8 @@ Partial Class App
         Me.benti = New System.Windows.Forms.CheckBox()
         Me.metaInput = New System.Windows.Forms.Panel()
         Me.foto = New System.Windows.Forms.CheckBox()
+        Me.RadioButton42 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton44 = New System.Windows.Forms.RadioButton()
         Me.dataInput.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox58.SuspendLayout()
@@ -5240,9 +5242,9 @@ Partial Class App
         Me.GroupBox52.Controls.Add(Me.CheckBox4)
         Me.GroupBox52.Controls.Add(Me.CheckBox3)
         Me.GroupBox52.Controls.Add(Me.CheckBox2)
-        Me.GroupBox52.Location = New System.Drawing.Point(4, 320)
+        Me.GroupBox52.Location = New System.Drawing.Point(4, 328)
         Me.GroupBox52.Name = "GroupBox52"
-        Me.GroupBox52.Size = New System.Drawing.Size(394, 147)
+        Me.GroupBox52.Size = New System.Drawing.Size(418, 147)
         Me.GroupBox52.TabIndex = 1
         Me.GroupBox52.TabStop = False
         Me.GroupBox52.Text = "Kísérő betegségek"
@@ -5337,6 +5339,8 @@ Partial Class App
         '
         'GroupBox51
         '
+        Me.GroupBox51.Controls.Add(Me.RadioButton42)
+        Me.GroupBox51.Controls.Add(Me.RadioButton44)
         Me.GroupBox51.Controls.Add(Me.RadioButton40)
         Me.GroupBox51.Controls.Add(Me.RadioButton39)
         Me.GroupBox51.Controls.Add(Me.RadioButton38)
@@ -5351,7 +5355,7 @@ Partial Class App
         Me.GroupBox51.Controls.Add(Me.RadioButton25)
         Me.GroupBox51.Location = New System.Drawing.Point(4, 4)
         Me.GroupBox51.Name = "GroupBox51"
-        Me.GroupBox51.Size = New System.Drawing.Size(396, 290)
+        Me.GroupBox51.Size = New System.Drawing.Size(418, 320)
         Me.GroupBox51.TabIndex = 0
         Me.GroupBox51.TabStop = False
         Me.GroupBox51.Tag = "halal"
@@ -5360,7 +5364,7 @@ Partial Class App
         'RadioButton40
         '
         Me.RadioButton40.AutoSize = True
-        Me.RadioButton40.Location = New System.Drawing.Point(178, 255)
+        Me.RadioButton40.Location = New System.Drawing.Point(6, 293)
         Me.RadioButton40.Name = "RadioButton40"
         Me.RadioButton40.Size = New System.Drawing.Size(111, 17)
         Me.RadioButton40.TabIndex = 11
@@ -5372,7 +5376,7 @@ Partial Class App
         'RadioButton39
         '
         Me.RadioButton39.AutoSize = True
-        Me.RadioButton39.Location = New System.Drawing.Point(178, 210)
+        Me.RadioButton39.Location = New System.Drawing.Point(181, 210)
         Me.RadioButton39.Name = "RadioButton39"
         Me.RadioButton39.Size = New System.Drawing.Size(188, 17)
         Me.RadioButton39.TabIndex = 10
@@ -5408,7 +5412,7 @@ Partial Class App
         'RadioButton34
         '
         Me.RadioButton34.AutoSize = True
-        Me.RadioButton34.Location = New System.Drawing.Point(178, 165)
+        Me.RadioButton34.Location = New System.Drawing.Point(181, 165)
         Me.RadioButton34.Name = "RadioButton34"
         Me.RadioButton34.Size = New System.Drawing.Size(91, 17)
         Me.RadioButton34.TabIndex = 7
@@ -5432,7 +5436,7 @@ Partial Class App
         'RadioButton32
         '
         Me.RadioButton32.AutoSize = True
-        Me.RadioButton32.Location = New System.Drawing.Point(178, 120)
+        Me.RadioButton32.Location = New System.Drawing.Point(181, 120)
         Me.RadioButton32.Name = "RadioButton32"
         Me.RadioButton32.Size = New System.Drawing.Size(185, 17)
         Me.RadioButton32.TabIndex = 5
@@ -5468,7 +5472,7 @@ Partial Class App
         'RadioButton27
         '
         Me.RadioButton27.AutoSize = True
-        Me.RadioButton27.Location = New System.Drawing.Point(178, 75)
+        Me.RadioButton27.Location = New System.Drawing.Point(181, 75)
         Me.RadioButton27.Name = "RadioButton27"
         Me.RadioButton27.Size = New System.Drawing.Size(212, 17)
         Me.RadioButton27.TabIndex = 2
@@ -5480,7 +5484,7 @@ Partial Class App
         'RadioButton26
         '
         Me.RadioButton26.AutoSize = True
-        Me.RadioButton26.Location = New System.Drawing.Point(178, 30)
+        Me.RadioButton26.Location = New System.Drawing.Point(181, 30)
         Me.RadioButton26.Name = "RadioButton26"
         Me.RadioButton26.Size = New System.Drawing.Size(132, 17)
         Me.RadioButton26.TabIndex = 1
@@ -5723,6 +5727,30 @@ Partial Class App
         Me.foto.Tag = "foto"
         Me.foto.Text = "Fotó"
         Me.foto.UseVisualStyleBackColor = True
+        '
+        'RadioButton42
+        '
+        Me.RadioButton42.AutoSize = True
+        Me.RadioButton42.Location = New System.Drawing.Point(181, 255)
+        Me.RadioButton42.Name = "RadioButton42"
+        Me.RadioButton42.Size = New System.Drawing.Size(191, 17)
+        Me.RadioButton42.TabIndex = 13
+        Me.RadioButton42.TabStop = True
+        Me.RadioButton42.Tag = "covid_pneumonia"
+        Me.RadioButton42.Text = "COVID INF. - COVID PNEUMONIA"
+        Me.RadioButton42.UseVisualStyleBackColor = True
+        '
+        'RadioButton44
+        '
+        Me.RadioButton44.AutoSize = True
+        Me.RadioButton44.Location = New System.Drawing.Point(181, 293)
+        Me.RadioButton44.Name = "RadioButton44"
+        Me.RadioButton44.Size = New System.Drawing.Size(224, 17)
+        Me.RadioButton44.TabIndex = 12
+        Me.RadioButton44.TabStop = True
+        Me.RadioButton44.Tag = "avmelyvenas_tudo"
+        Me.RadioButton44.Text = "AV. MÉLYVÉNÁS RÖG - TÜDŐEMBÓLIA"
+        Me.RadioButton44.UseVisualStyleBackColor = True
         '
         'App
         '
@@ -6320,4 +6348,6 @@ Partial Class App
     Friend WithEvents mubillentyuk As CheckBox
     Friend WithEvents RadioButton43 As RadioButton
     Friend WithEvents pneu As RadioButton
+    Friend WithEvents RadioButton42 As RadioButton
+    Friend WithEvents RadioButton44 As RadioButton
 End Class
